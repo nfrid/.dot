@@ -115,6 +115,7 @@ alias \
   dfu="dotbare funtrack" \
   ds="dotbare status" \
   da="dotbare add -u" \
+  dl="dotbare flog" \
   /
 
 # ls override

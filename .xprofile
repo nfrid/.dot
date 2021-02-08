@@ -25,6 +25,6 @@ export LESSHISTFILE="-"
 
 export NOTES="$HOME/Documents/Notes"
 
-export DOTBARE_DIR="$HOME/.dot"
+export DOTBARE_DIR="$HOME/.dot.git"
 
 # vim:ft=sh

@@ -26,3 +26,4 @@ source $ZDOTDIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin
 source $ZDOTDIR/plugins/history-substring-search/history-substring-search.zsh
 
 source $ZDOTDIR/plugins/dotbare/dotbare.plugin.zsh
+_dotbare_completion_cmd

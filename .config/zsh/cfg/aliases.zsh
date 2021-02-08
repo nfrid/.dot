@@ -112,6 +112,7 @@ alias \
   dfa="dotbare fadd" \
   dc="dotbare commit" \
   dP="dotbare push -u origin master" \
+  dfu="dotbare funtrack" \
   /
 
 # ls override

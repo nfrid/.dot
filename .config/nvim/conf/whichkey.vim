@@ -37,13 +37,12 @@ let g:which_key_map.t = {
     \ 'd' : 'delete' ,
     \ }
 
-" d - directory (working w/ current file as well)
+" d - dot files
 let g:which_key_map.d = {
-      \ 'name' : '+debug' ,
-      \ 'b' : 'bash' ,
-      \ 'p' : 'python' ,
-      \ 'l' : 'lldb' ,
-      \ 'd' : 'start' ,
+      \ 'name' : '+dot' ,
+      \ 'a' : 'add %' ,
+      \ 's' : 'status' ,
+      \ 'u' : 'untrack' ,
       \ }
 
 " SPC - easymotion

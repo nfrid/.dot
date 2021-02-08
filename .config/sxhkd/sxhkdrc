@@ -142,9 +142,9 @@ super + alt + t
 super + shift + Escape
   useus system
 
-# toggle compton
+# toggle picom
 super + F12
-  ps -C compton >/dev/null && killall compton || compton
+  ps -C picom >/dev/null && killall picom || picom --experimental-backends
 
 # reload sxhkd
 super + shift + c

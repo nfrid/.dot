@@ -48,7 +48,7 @@ alt + Tab
 
 # browse config files
 super + g
-  $TERM -e $SHELL -c "sleep 0.05 && nvim -c ':FZF ~/.dot'"
+  $TERM -e $SHELL -c "$ZDOTDIR/plugins/dotbare/scripts/fedit"
 
 # calculator
 super + equal

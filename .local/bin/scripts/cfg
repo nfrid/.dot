@@ -1,0 +1,100 @@
+#!/bin/bash
+#
+# dmenu script for config files
+
+
+declare options=("alacritty
+rofi
+ranger
+autostart
+bspwmrc
+bspwm rules
+sxhkdrc
+xprofile
+ncmpcpp
+neovim
+qutebrowser
+picom
+compton
+polybar
+dunst
+zsh
+mpv
+mpv bindings
+mutt
+crawl
+this script")
+
+choice=$(echo -e "${options[@]}" | rofi -dmenu -i -p 'Edit config file')
+
+dots="$HOME/.dot"
+case "$choice" in
+  crawl)
+    choice="$HOME/.crawl/init.txt"
+    ;;
+  ranger)
+    choice="$dots/ranger/.config/ranger/rc.conf"
+    ;;
+  mutt)
+    choice="$dots/mutt/.config/mutt/muttrc"
+    ;;
+  ncmpcpp)
+    choice="$dots/ncmpcpp/.config/ncmpcpp/config"
+    ;;
+  autostart)
+    choice="$dots/scripts/.local/bin/autostart"
+    ;;
+  mpv)
+    choice="$dots/mpv/.config/mpv/mpv.conf"
+    ;;
+  bspwmrc)
+    choice="$dots/bspwm/.config/bspwm/bspwmrc"
+    ;;
+  bspwm\ rules)
+    choice="$dots/scripts/.local/bin/bspwmrules"
+    ;;
+  sxhkdrc)
+    choice="$dots/sxhkd/.config/sxhkd/sxhkdrc"
+    ;;
+  mpv\ bindings)
+    choice="$dots/mpv/.config/mpv/input.conf"
+    ;;
+  alacritty)
+    choice="$dots/alacritty/.config/alacritty/alacritty.yml"
+    ;;
+  qutebrowser)
+    choice="$dots/qutebrowser/.config/qutebrowser/config.py"
+    ;;
+  this\ script)
+    choice="$dots/scripts/.local/bin/cfg"
+    ;;
+  compton)
+    choice="$dots/compton/.config/compton.conf"
+    ;;
+  rofi)
+    choice="$dots/rofi/.config/rofi/config.rasi"
+    ;;
+  nvim)
+    choice="$dots/nvim/.config/nvim/init.vim"
+    ;;
+  xprofile)
+    choice="$dots/x/.xprofile"
+    ;;
+  picom)
+    choice="$dots/picom/.config/picom/picom.conf"
+    ;;
+  polybar)
+    choice="$dots/polybar/.config/polybar/config"
+    ;;
+  dunst)
+    choice="$dots/dunst/.config/dunst/dunstrc"
+    ;;
+  zsh)
+    choice="$dots/zsh/.config/zsh/zshrc"
+    ;;
+  *)
+    exit 1
+    ;;
+esac
+alacritty -e $SHELL -c "sleep 0.05 && nvim $choice"
+# emacs $choice

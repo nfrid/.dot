@@ -1,0 +1,69 @@
+max-items 100
+
+unbind-key ,
+bind-key z macro-prefix
+
+browser "/usr/bin/qutebrowser %u"
+macro y set browser "/usr/bin/mpv %u"; open-in-browser ; set browser "/usr/bin/qutebrowser %u"
+macro b set browser "/usr/bin/w3m %u"; open-in-browser ; set browser "/usr/bin/qutebrowser %u"
+
+# unbind keys
+#unbind-key ENTER
+# unbind-key j
+# unbind-key k
+# unbind-key J
+# unbind-key K
+# unbind-key g
+# unbind-key G
+# unbind-key o
+# unbind-key O
+# unbind-key ENTER
+# unbind-key U
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key K pageup
+bind-key J pagedown
+bind-key g home
+bind-key G end
+bind-key o sort
+bind-key O rev-sort
+
+bind-key N prev-unread
+
+bind-key о down
+bind-key л up
+bind-key д open
+bind-key р quit
+bind-key Л pageup
+bind-key О pagedown
+bind-key п home
+bind-key П end
+bind-key щ sort
+bind-key Щ rev-sort
+
+bind-key т next-unread
+bind-key Т prev-unread
+
+bind-key ENTER open-in-browser
+
+bind-key SPACE toggle-article-read
+
+# solarized
+color background         default   default
+color listnormal         default   default
+color listnormal_unread  color10   default bold
+color listfocus          black color12 bold
+color listfocus_unread   black color10 bold
+color info               color11 default bold
+color article            default default
+
+# highlights
+highlight article "^(Title):.*$" color12 default reverse bold
+highlight article "https?://[^ ]+" color14 default
+highlight article "\\[image\\ [0-9]+\\]" color10 default bold
+
+# vim:ft=config

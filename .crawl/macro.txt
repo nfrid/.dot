@@ -1,0 +1,14 @@
+# Dungeon Crawl Stone Soup 0.25.1 macro file
+# WARNING: This file is entirely auto-generated.
+
+# Key Mappings:
+# Command Macros:
+M:1
+A:zz.
+
+M:2
+A:za.
+
+M:3
+A:zs.
+

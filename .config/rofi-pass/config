@@ -1,0 +1,2 @@
+default-autotype 'pass :tab pass'
+default_do='autotype'

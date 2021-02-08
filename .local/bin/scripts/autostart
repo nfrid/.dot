@@ -1,0 +1,21 @@
+#!/bin/bash
+
+function austart {
+    ps -C "${2:-$1}" >/dev/null || $1 &
+}
+
+# austart mpd # now mpd.service
+austart sxhkd
+austart nm-applet
+austart dunst
+austart compton
+austart uim-xim
+austart libinput-gestures
+austart "greenclip daemon" greenclip
+austart lxpolkit
+# austart xfce4-power-manager
+# austart stretchly
+austart redshift
+austart telegram-desktop telegram-deskto
+austart discord Discord
+austart crow

@@ -1,0 +1,59 @@
+:root {
+    --fg: #f8f8f2;
+    --bg: #282a36;
+    --bg-alt: #44475a;
+    --fg-alt: #6272a4;
+    --red: #ff5555;
+    --red-alt: #ff6e67;
+    --green: #50fa7b;
+    --green-alt: #5af78e;
+    --yellow: #f1fa8c;
+    --yellow-alt: #f4f99d;
+    --blue: #bd93f9;
+    --blue-alt: #caa9fa;
+    --pink: #ff79c6;
+    --pink-alt: #ff92d0;
+    --cyan: #8be9fd;
+    --cyan-alt: #9aedfe;
+    --gray: #bfbfbf;
+    --gray-alt: #e6e6e6;
+}
+
+body {
+    margin: 0;
+    font-family: Iosevka nf, Montserrat, Arial, Helvetica, sans-serif;
+    color: var(--fg);
+    background-color: var(--bg);
+}
+
+a {
+    color: var(--green-alt);
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    font-size: 200%;
+    background-color: var(--bg-alt);
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.main {
+    text-align: center;
+    margin: 10vh 20vw;
+}
+
+.main > ul {
+    padding: 0;
+    list-style-type: none;
+}

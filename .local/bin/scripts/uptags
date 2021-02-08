@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Setting default MUSIC_DIR if not exist on system
+[ -z "$MUSIC_DIR" ] && MUSIC_DIR="$HOME/Music"
+
+while getopts "hp" opt; do
+    case $opt in
+        h) echo "Script for automatically setting up music tags in 'MUSIC_DIR/Author/(Album or label/Number. )Track name.mp3' by id3.
+            Use -p to specify Music directory path (default is MUSIC_DIR variable = $MUSIC_DIR)."; exit;;
+        p) echo "Setting path to $opt...";;
+    esac
+done
+
+{
+    id3 -d -2 -m "$MUSIC_DIR/%a/%t.mp3"
+    id3 -d -2 -m "$MUSIC_DIR/%a/%l/%t.mp3"
+    id3 -d -2 -m "$MUSIC_DIR/%a/%l/%n. %t.mp3"
+
+    id3 -d -2 -m "$MUSIC_DIR/%g/%a/%t.mp3"
+    id3 -d -2 -m "$MUSIC_DIR/%g/%a/%l/%t.mp3"
+    id3 -d -2 -m "$MUSIC_DIR/%g/%a/%l/%n. %t.mp3"
+} &> /dev/null
+
+exit 0

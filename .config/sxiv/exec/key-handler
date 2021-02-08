@@ -1,0 +1,32 @@
+#!/bin/sh
+while read file
+do
+  path="$(pwd)"
+  case "$1" in
+    "r")
+      convert -rotate 90 "$file" "$file" ;;
+    "c")
+      filetype=$(echo "$file" | awk -F . '{print $NF}')
+      if [ $filetype = "gif" ]; then
+        xclip -se c -t image/gif "$file"
+      else
+        xclip -se c -t image/png "$file"
+      fi ;;
+    "y")
+      echo -n "$file" | xclip -selection clipboard ;;
+    "Y")
+      echo -n "$path/$file" | xclip -selection clipboard ;;
+    "f")
+      echo -n "path" | $TERM -e ranger & ;;
+    "w")
+      mv ~/Images/Wallpapers/wallpaper.png ~/Images/Wallpapers/wallpaper.old.png &&
+      cp $file ~/Images/Wallpapers/wallpaper.png &&
+      fehbg
+      ;;
+    "W")
+      mv ~/Images/Wallpapers/wallpaper.old.png ~/Images/Wallpapers/wallpaper.png &&
+      fehbg
+      ;;
+  esac
+done
+

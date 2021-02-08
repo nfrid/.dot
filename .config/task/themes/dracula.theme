@@ -1,0 +1,73 @@
+# WARNING: Working only w/ Dracula theme on terminal!
+
+rule.precedence.color=deleted,completed,active,keyword.,tag.,project.,overdue,scheduled,due.today,due,blocked,blocking,recurring,tagged,uda.
+
+# General decoration
+color.label=bold green
+color.label.sort=bold green inverse
+color.alternate=on color8
+color.header=bold yellow
+color.footnote=bold bright magenta
+color.warning=bold bright red
+color.error=underline bold red
+color.debug=cyan
+
+# Task state
+color.completed=
+color.deleted=
+color.active=
+color.recurring=
+color.scheduled=
+color.until=
+color.blocked=
+color.blocking=
+
+# Project
+color.project.none=
+
+# Priority
+color.uda.priority.H=blue
+color.uda.priority.L=bright white
+color.uda.priority.M=bright yellow
+
+# Tags
+color.tag.next=
+color.tag.none=
+color.tagged=
+
+# Due
+color.due=bold
+color.due.today=bold red
+color.overdue=bright magenta
+
+# Report: burndown
+color.burndown.done=on green
+color.burndown.pending=on red
+color.burndown.started=on blue
+
+# Report: history
+color.history.add=blue
+color.history.delete=red
+color.history.done=green
+
+# Report: summary
+color.summary.background=
+color.summary.bar=
+
+# Command: calendar
+color.calendar.due=bold yellow
+color.calendar.due.today=underline bold red
+color.calendar.holiday=bold cyan
+color.calendar.overdue=bold magenta
+color.calendar.today=underline bold bright blue
+color.calendar.weekend=cyan
+color.calendar.weeknumber=gray13
+
+# Command: sync
+color.sync.added=green
+color.sync.changed=bright blue
+color.sync.rejected=yellow
+
+# Command: undo
+color.undo.after=bright white
+color.undo.before=

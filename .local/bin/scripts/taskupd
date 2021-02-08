@@ -1,0 +1,12 @@
+#!/bin/bash
+
+imp=$(task '+PENDING (+MONTH (pri:M or pri: ) or pri:H)' count)
+over=$(task +OVERDUE count)
+today=$(task +TODAY count)
+all=$(task +PENDING count)
+
+[ $imp -gt 0 ] && all="%{F#BD93F9}$imp%{F-}:$all"
+[ $today -gt 0 ] && all="%{F#FF5555}$today%{F-}/$all"
+[ $over -gt 0 ] && all="%{F#FF79C6}$over%{F-}/$all"
+
+echo $all

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+rss=$(newsboat -x print-unread | awk '{ print $1 }')
+[[ "$rss" =~ ^[0-9]+$ ]] &&
+  [[ "$rss" != "$(cat /tmp/rssupdcount)" ]] &&
+    echo "$rss" > /tmp/rssupdcount && res="$rss" ||
+  res=$(cat /tmp/rssupdcount)
+
+[[ $res == 0 ]] &&
+  res="%{F#FF6E67}$res" ||
+  res="%{F#5AF78E}$res"
+
+echo -n $res

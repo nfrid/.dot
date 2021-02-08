@@ -1,0 +1,89 @@
+# main menu
+
+name_bypasses_menu = true
+restart_after_game = true
+
+# NEW GAME SETUP
+
+name = fuck
+
+rest_wait_percent = 100
+
+# species = Merfolk
+# background = skald
+# weapon = spear
+
+# species = Hill Orc
+# background = monk
+# weapon = hand axe
+
+# species = Hill Orc
+# background = berserker
+# weapon = hand axe
+
+# goin auto
+
+show_travel_trail = true
+travel_delay = -1
+
+auto_butcher=true
+
+
+clean_map = true
+
+{
+add_autopickup_func(function(it, name)
+  if it.is_useless then
+    return
+  end
+  if it.class(true) == "armour" then
+    local good_slots = {cloak="Cloak", helmet="Helmet", gloves="Gloves",
+                        boots="Boots"}
+    st, _ = it.subtype()
+    if good_slots[st] ~= nil and items.equipped_at(good_slots[st]) == nil then
+      return true
+    end
+  end
+end)
+}
+
+# fait
+
+autofight_stop = 0
+autofight_warning = 40
+
+
+# skillz
+
+default_manual_training = true
+skill_focus = false
+
+
+# Open the skill menu automatically when starting a new game
+
+{
+local need_skills_opened = true
+function ready()
+  if you.turns() == 0 and need_skills_opened then
+    need_skills_opened = false
+    crawl.sendkeys("m")
+  end
+end
+}
+
+
+# mappingz
+
+spell_slot += .*:zasxdcfvqwertgb
+item_slot += .*:asdfghjklzxcvbnmqwertyuiopASDFGHJKLZXCVBNMQWERTYUIOP
+ability_slot += .*:asdfgzxcvqwert
+
+bindkey = [~] CMD_LUA_CONSOLE
+
+
+# chatie
+
+show_more = false
+
+
+# vim:ft=config

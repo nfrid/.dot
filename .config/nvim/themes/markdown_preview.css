@@ -1,0 +1,44 @@
+:root {
+  --d-bg: #282a36;
+  --d-sel: #44475a;
+  --d-fg: #f8f8f2;
+  --d-com: #6272a4;
+  --d-cyan: #8be9fd;
+  --d-green: #50fa7b;
+  --d-orange: #ffb86c;
+  --d-pink: #ff79c6;
+  --d-purple: #bd93f9;
+  --d-red: #ff5555;
+  --d-yellow: #f1fa8c;
+}
+
+body {
+  color: #f8f8f2;
+  background-color: #282a36;
+}
+
+pre,
+code {
+  color: #f8f8f2;
+  background-color: #282a36 !important;
+}
+
+#page-ctn {
+  color: #f8f8f2;
+  border-color: #44475a;
+}
+
+#page-header {
+  background-color: #44475a;
+}
+
+table > * > * {
+  color: #f8f8f2;
+  background-color: #44475a !important;
+}
+
+.markdown-body {
+  color: #d8dee9;
+  background-color: #2e3440;
+  text-align: justify;
+}

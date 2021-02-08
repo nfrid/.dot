@@ -1,0 +1,47 @@
+# [Created by task 2.5.1 9/26/2020 01:18:54]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.local/share/task
+
+# Color theme (uncomment one to use)
+include ~/.config/task/themes/dracula.theme
+
+# I'm not from US so...
+weekstart=monday
+dateformat=D-M-Y
+# 30-09-2020
+
+# sync
+include ~/.local/share/task/sync.rc
+
+
+# reports
+
+
+# Aliases
+alias.a=annotate
+alias.da=denotate
+alias.@=context
+
+
+# Contexts
+context.std=proj:std
+context.wrt=proj:wrt
+context.job=proj:job
+
+
+
+# Urgency coefficients
+urgency.uda.priority.H.coefficient=10
+urgency.uda.priority.M.coefficient=3
+urgency.uda.priority.L.coefficient=-3

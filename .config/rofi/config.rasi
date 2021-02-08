@@ -1,0 +1,19 @@
+configuration {
+    lines: 16;
+    /* columns: 3; */
+    font: "Arial 13";
+    show-icons: true;
+    theme: "dracula";
+    display-window: "Window";
+    display-drun: "DRun";
+    display-run: "Run";
+    modi: "drun,run";
+    width: 30;
+
+    kb-clear-line: "Control+w,Control+H";
+    kb-mode-next: "Control+Tab,Control+semicolon";
+    kb-row-up: "Up,Control+p,ISO_Left_Tab,Control+k";
+    kb-row-down: "Down,Control+n,Control+j";
+    kb-accept-entry: "Control+l,Control+m,Return,KP_Enter";
+    kb-remove-to-eol: "Control+L";
+}

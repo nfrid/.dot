@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ "$EUID" -ne 0 ]; then
+    echo "
+hey b0ss, can I have a sudo please?
+"
+    exit 1
+fi
+
+home="/home/nf" # running with sudo needs to specify home dir. sad :(
+pvpn_dir="$home/.local/share/pvpn"
+con="udp"
+pvpn_tail="protonvpn.com.$con.ovpn"
+
+case $1 in
+    jp1) srv="jp-free-01";;
+    jp2) srv="jp-free-02";;
+    jp3) srv="jp-free-03";;
+    '') echo "
+Server needs to be specified!! (ex. 'pvpn jp1')
+"; exit 1;;
+    *) echo "
+This server hasn't been set!!
+"; exit 1;;
+esac
+
+echo "
+Use your credentials:
+user: nf
+password: nf
+"
+
+openvpn "$pvpn_dir/$con/$srv.$pvpn_tail"

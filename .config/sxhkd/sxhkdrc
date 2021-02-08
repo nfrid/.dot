@@ -1,0 +1,271 @@
+# show sxhkd keybindings
+super + F1
+  useus sxhkd_f1
+
+# store PRIMARY selection to CLIPBOARD
+super + alt + space
+  xsel -p | xsel -b
+
+# close/kill window
+super + {_,ctrl} + c
+  xdo {close,kill}
+
+# start a terminal
+super + Return
+  $TERMINAL
+
+super + ctrl + m
+  $TERMINAL
+
+# switch layout
+super + space
+  xkb-switch -n
+
+# copyq clipboard toggle
+super + y
+  rofi -modi "clipboard:greenclip print" -show clipboard
+
+# drun rofi
+super + d
+  useus rofi -show-icons -modi run,drun -show drun
+
+# run rofi
+super + r
+  useus rofi -show-icons -modi run,drun -show run
+
+# open file browser rofi
+# super + o
+#   useus rofi -modi file-browser-extended -show file-browser-extended \
+#     -file-browser-cmd "exo-open" \
+#     -file-browser-follow-symlinks \
+#     -file-browser-oc-cmd "$TERM -e ranger;icon:folder;name:ranger" \
+#     -file-browser-oc-cmd "thunar;icon:system-file-manager;name:thunar" \
+#     -file-browser-oc-cmd "alacritty -e;icon:utilities-terminal;name:shell"
+
+# browse windows
+alt + Tab
+  useus rofi -show-icons -show windowcd -modi windowcd,window
+
+# browse config files
+super + g
+  $TERM -e $SHELL -c "sleep 0.05 && nvim -c ':FZF ~/.dot'"
+
+# calculator
+super + equal
+  useus rofi -show calc -modi calc -no-show-match -no-sort
+
+# note manager
+super + slash
+  useus note
+
+# unicode symbols picker
+super + alt + apostrophe
+  useus unipicker --command "rofi -dmenu -p 'unicode'" --copy-command "xclip -sel clip"
+
+# emoji picker (shift to copy mode)
+super + {_,shift} + apostrophe
+  useus splatmoji {type,copy}
+
+# password manager
+super + p
+  useus rofi-pass
+
+# brightness control
+XF86MonBrightness{Up,Down}
+  xbacklight {+,-} 10
+
+# volume control
+XF86Audio{Raise,Lower}Volume
+  pulsemixer --change-volume {+,-}5
+
+# volume toggle mute
+XF86AudioMute
+  pulsemixer --toggle-mute
+
+# player control
+XF86Audio{Next,Prev,Play}
+  playerctl -p playerctld {next,previous,play-pause}
+
+# stop all players
+XF86AudioStop
+  playerctl --all-players stop
+
+# flameshot
+Print
+  flameshot gui
+
+# start $BROWSER
+super + b
+  $BROWSER
+
+# start firefox
+# super + alt + f
+# firefox
+
+# start qutebrowser
+# super + q
+  # qutebrowser
+
+# start ranger
+super + e
+  $TERM -e ranger
+
+# start gui file manager
+super + alt + e
+  thunar
+
+# start NewsBoat (RSS client)
+super + n
+  $TERM -e newsboat
+
+# start neomutt (E-mail client)
+super + alt + n
+  $TERM -e neomutt
+
+# start discord
+super + alt + d
+  discord
+
+# start music player client (ncmpcpp)
+super + alt + p
+  $TERM -e ncmpcpp
+
+# start spotify
+super + alt + s
+  spotify
+
+# start telegram desktop
+super + alt + t
+  telegram-desktop
+
+# system control
+super + shift + Escape
+  useus system
+
+# toggle compton
+super + F12
+  ps -C compton >/dev/null && killall compton || compton
+
+# reload sxhkd
+super + shift + c
+  pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Config reloaded'
+
+# switch polybar (shift to hide)
+super + {_,shift + }v
+  polyshow {show,hide}
+
+### --- bspwm keybindings --- ###
+
+# restart bspwm
+super + shift + r
+  bspc wm -r
+
+# change gaps
+super + ctrl + {minus,equal}
+  bspc config window_gap $((`bspc config window_gap` {-,+} 2))
+
+# gaps to default
+super + ctrl + 0
+  bspc config window_gap 10
+
+# toggle monocle layout
+super + m
+  bspc desktop -l next
+
+# manage layouts
+super + semicolon
+  useus bspl
+
+# send the newest marked node to the newest preselected node
+super + i
+  bspc node focused -n newest.!automatic.local
+
+# swap the current node and the biggest window
+super + x
+  bspc node -s biggest.window.local
+
+# set the window state
+super + {s,shift + s,w}
+  bspc node -t {tiled,pseudo_tiled,floating}
+
+# toggle fullscreen
+super + f
+  fullscreen
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+  bspc node -g {marked,locked,sticky,private}
+
+# focus/swap next/prev node
+super + {_,shift + }{j,k}
+  bspc node -{f,s} {next,prev}.local.!hidden.window
+
+# rotate/circulate
+super + shift + {y,u}
+  bspc node @/ -R {-90,90}
+super + shift + {n,b}
+  bspc node @/ -C {forward,backward}
+super + alt + shift + {u,y}
+  bspc node @parent -R {90,-90}
+super + alt + shift + {n,b}
+  bspc node @parent -C {forward,backward}
+
+# focus the next/previous desktop in the current monitor
+super + {comma,period}
+  bspc desktop -f {prev,next}.local
+
+# move to next/previous desktop with current node
+super + shift + {comma,period}
+  id=$(bspc query -N -n); bspc node -d {prev,next}.local; bspc node -f ${id}
+
+# focus the next/previous occupied desktop in the current monitor
+super + {h,l}
+  bspc desktop -f {prev,next}.local.occupied
+
+# move to next/previous occupied desktop with current node
+super + shift + {h,l}
+  id=$(bspc query -N -n); bspc node -d {prev,next}.local.occupied; bspc node -f ${id}
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+  bspc {desktop -f,node -d} '^{1-9,10}'
+
+super + minus
+  bspc desktop -f last
+
+super + grave
+  bspc desktop -f next.urgent
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+  bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+  bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+  bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# resize node
+super + alt + {h,j,k,l}
+  STEP=20; SELECTION={1,2,3,4}; \
+  bspc node -z $(echo "left -$STEP 0,bottom 0 $STEP,top 0 -$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
+  bspc node -z $(echo "right -$STEP 0,top 0 $STEP,bottom 0 -$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# ajust equal size
+super + shift + b
+  bspc node @/ -B
+
+# move a floating window
+super + {Left,Down,Up,Right}
+  bspc node -v {-20 0,0 20,0 -20,20 0}

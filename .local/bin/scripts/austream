@@ -1,0 +1,36 @@
+#!/bin/bash
+
+COM="$1"
+
+function init() {
+  pactl load-module module-null-sink sink_name=austream sink_properties=device.description=austream
+  pactl load-module module-null-sink sink_name=auback sink_properties=device.description=auback
+
+  pactl load-module module-loopback latency_msec=1 sink=austream
+  pactl load-module module-loopback latency_msec=1 sink=austream source=auback.monitor
+  pactl load-module module-loopback latency_msec=1 sink=0 source=auback.monitor
+}
+
+case "$COM" in
+  "on")
+    [[ -f "/tmp/austreamModuleIDs" ]] && echo "no" && exit 1 || init &> /tmp/austreamModuleIDs
+    ;;
+  "off")
+    if [[ -f "/tmp/austreamModuleIDs" ]]; then
+      for i in $(cat /tmp/austreamModuleIDs); do
+        pactl unload-module $i
+      done && rm /tmp/austreamModuleIDs && echo "ez" || echo "fuck"
+    else
+      echo "no shit" && exit 1
+    fi
+    ;;
+  "status")
+    [[ -f "/tmp/austreamModuleIDs" ]] && echo "on" || echo "off"
+    ;;
+  "-h")
+    echo "'on' for on, 'off' for off, 'status' for status 🗿"
+    ;;
+  *)
+    echo "you dumb fuck use me properly (-h for help)"
+    ;;
+esac

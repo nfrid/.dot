@@ -1,0 +1,39 @@
+#!/bin/bash
+
+declare options=("lock
+exit
+suspend
+hibernate
+reboot
+shutdown")
+
+choice=$(echo -e "${options[@]}" | rofi -dmenu -i -p 'System')
+
+case "$choice" in
+	lock)
+		dm-tool lock
+		;;
+	exit)
+		for window_id in $(bspc query -W); do
+			bspc window $window_id -c
+		done
+		bspc quit
+		;;
+	suspend)
+		systemctl suspend
+		;;
+	hibernate)
+		systemctl hibernate
+		;;
+	reboot)
+		reboot
+		;;
+	shutdown)
+		shutdown now
+		;;
+	*)
+		exit 1
+		;;
+esac
+
+exec "$choice"

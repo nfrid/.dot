@@ -1,0 +1,27 @@
+#!/bin/bash
+
+mail_dir=~/.local/share/mail
+inbox_dir=INBOX/new
+
+# mails=$(ls $mail_dir)
+mails=( nfriday@yandex.ru ncraftertm@gmail.com )
+
+mcount() {
+  echo "$(du -a $mail_dir/$1/$inbox_dir/* 2>/dev/null | wc -l)"
+}
+
+res=""
+
+for m in ${mails[@]}; do
+  mc=$(mcount $m)
+  if [ $mc -eq 0 ]; then
+    mc="%{F#FF6E67}$mc%{F-}"
+  else
+    mc="%{F#F4F99D}$mc%{F-}"
+  fi
+  res+="$mc/"
+done
+
+res=${res: : -1}
+
+echo -n $res

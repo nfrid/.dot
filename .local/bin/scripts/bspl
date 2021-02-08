@@ -1,0 +1,21 @@
+#!/bin/bash
+
+declare options=("tall
+rtall
+wide
+rwide
+even
+tiled
+monocle")
+
+choice=$(echo -e "${options[@]}" | rofi -kb-custom-1 "Alt+s" -dmenu -i -p 'Layout')
+
+case $? in
+  10)
+    sh /usr/local/bin/bsp-layout set $choice -- --master-size $(echo -e "0.6\n0.4" | rofi -dmenu -i -p 'Size')
+    ;;
+  0)
+    sh /usr/local/bin/bsp-layout set $choice
+    sh /usr/local/bin/bsp-layout set $choice
+    ;;
+esac

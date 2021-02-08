@@ -109,7 +109,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
   " Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh' }
 
-  Plug 'puremourning/vimspector'
+  " Plug 'puremourning/vimspector'
 
   " Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 

@@ -43,7 +43,7 @@ source $HOME/.config/nvim/conf/emmet.vim
 source $HOME/.config/nvim/conf/indentline.vim
 source $HOME/.config/nvim/conf/firenvim.vim
 source $HOME/.config/nvim/conf/todo.vim
-source $HOME/.config/nvim/conf/vimspector.vim
+" source $HOME/.config/nvim/conf/vimspector.vim
 source $HOME/.config/nvim/conf/latex.vim
 " source $HOME/.config/nvim/conf/fern.vim
 source $HOME/.config/nvim/conf/glyph-palette.vim

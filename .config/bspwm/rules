@@ -28,6 +28,9 @@ case "$class" in
   mpv) echo "
     rectangle=768x432+1152+648
     ";;
+  StepMania) echo "
+    state=fullscreen
+    ";;
   *)
     # If window doesn't have class on startup
     case $(ps -p "$(xdo pid "$id")" -o comm= 2>/dev/null) in

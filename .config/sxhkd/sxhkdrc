@@ -42,6 +42,10 @@ super + r
 #     -file-browser-oc-cmd "thunar;icon:system-file-manager;name:thunar" \
 #     -file-browser-oc-cmd "alacritty -e;icon:utilities-terminal;name:shell"
 
+# toggle buffer desktop (e), shift to move with current node
+super +{_, shift +} o
+  togglebufferdesktop{_, -m }
+
 # browse windows
 alt + Tab
   useus rofi -show-icons -show windowcd -modi windowcd,window

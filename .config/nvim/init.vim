@@ -20,6 +20,7 @@ source $HOME/.config/nvim/general/aucmds.vim
 " Pl User's
 source $HOME/.config/nvim/plug/dotbare.vim
 " Pl Conf
+source $HOME/.config/nvim/conf/auropairs.vim
 source $HOME/.config/nvim/conf/markdown.vim
 source $HOME/.config/nvim/conf/easymotion.vim
 source $HOME/.config/nvim/conf/airline.vim

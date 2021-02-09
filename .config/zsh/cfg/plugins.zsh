@@ -20,6 +20,8 @@ source $ZDOTDIR/plugins/git-flow-completion/git-flow-completion.zsh
 source $ZDOTDIR/plugins/generic-gnu-completion/generic-gnu-completion.zsh
 source $ZDOTDIR/plugins/pip-completion/pip-completion.zsh
 eval "$(gh completion -s zsh)"
+source $ZDOTDIR/plugins/better-npm-completion/better-npm-completion.zsh
+
 
 # source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh

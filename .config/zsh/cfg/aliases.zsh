@@ -145,6 +145,17 @@ alias \
   # ys="yay -Ss" \
   # yr="yay -Rs" \
 
+# Node package management
+alias \
+  n="npm" \
+  ni="npm install" \
+  nid="npm install --save-dev" \
+  nr="npm uninstall" \
+  nrd="npm uninstall --save-dev" \
+  nig="sudo npm install -g" \
+  nrg="sudo npm uninstall -g" \
+  /
+
 # XClip
 alias \
   xcp="xclip -sel clip -t image/png -o >" \

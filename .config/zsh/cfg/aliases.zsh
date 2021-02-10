@@ -4,7 +4,7 @@
 alias \
   hz="cd ~/github/herzen" \
   ww="cd ~/Documents/Writing" \
-  sc="cd ~/.local/bin" \
+  sc="cd ~/.local/bin/scripts" \
   /
 
 # Misc

@@ -16,6 +16,7 @@ let g:coc_global_extensions = [
       \ 'coc-floatinput' ,
       \ 'coc-fzf-preview' ,
       \ 'coc-git' ,
+      \ 'coc-graphql' ,
       \ 'coc-highlight' ,
       \ 'coc-html' ,
       \ 'coc-import-cost' ,

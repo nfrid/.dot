@@ -156,4 +156,6 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'psf/black', { 'branch': 'stable' }
 
+  Plug 'jparise/vim-graphql'
+
 call plug#end()

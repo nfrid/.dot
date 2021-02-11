@@ -148,7 +148,7 @@ alias \
 # Node package management
 alias \
   n="npm" \
-  ni="npm install" \
+  ni="npm install --save" \
   nid="npm install --save-dev" \
   nr="npm uninstall" \
   nrd="npm uninstall --save-dev" \

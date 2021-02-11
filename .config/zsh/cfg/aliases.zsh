@@ -155,6 +155,9 @@ alias \
   nud="npm uninstall --save-dev" \
   nig="sudo npm install -g" \
   nug="sudo npm uninstall -g" \
+  y="yarn" \
+  ya="yarn add" \
+  yr="yarn remove" \
   /
 
 # XClip

@@ -21,6 +21,7 @@ source $ZDOTDIR/plugins/generic-gnu-completion/generic-gnu-completion.zsh
 source $ZDOTDIR/plugins/pip-completion/pip-completion.zsh
 eval "$(gh completion -s zsh)"
 source $ZDOTDIR/plugins/better-npm-completion/better-npm-completion.zsh
+source $ZDOTDIR/plugins/yarn-completion/yarn-completion.zsh
 
 
 # source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

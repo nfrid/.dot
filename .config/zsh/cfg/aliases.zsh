@@ -104,6 +104,7 @@ alias \
   gl="git log" \
   gd="git diff" \
   /
+  gnf() { git remote add origin git@github.com:NFrid/$1 $2 }
 
 # Dotbare
 alias \

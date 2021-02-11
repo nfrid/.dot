@@ -148,12 +148,13 @@ alias \
 # Node package management
 alias \
   n="npm" \
+  nr="npm run" \
   ni="npm install --save" \
   nid="npm install --save-dev" \
-  nr="npm uninstall" \
-  nrd="npm uninstall --save-dev" \
+  nu="npm uninstall" \
+  nud="npm uninstall --save-dev" \
   nig="sudo npm install -g" \
-  nrg="sudo npm uninstall -g" \
+  nug="sudo npm uninstall -g" \
   /
 
 # XClip

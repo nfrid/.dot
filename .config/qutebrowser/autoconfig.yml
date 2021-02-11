@@ -39,6 +39,8 @@ settings:
     global: true
   content.autoplay:
     global: false
+  content.blocking.method:
+    global: auto
   content.media.audio_capture:
     https://discord.com: true
   content.media.audio_video_capture:

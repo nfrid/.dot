@@ -36,8 +36,10 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'rhysd/git-messenger.vim'
 
   Plug 'marcweber/vim-addon-mw-utils'
-  Plug 'garbas/vim-snipmate'
-  Plug 'tomtom/tlib_vim'
+  " Plug 'garbas/vim-snipmate'
+  " Plug 'SirVer/ultisnips'
+  Plug 'mlaursen/vim-react-snippets'
+  " Plug 'tomtom/tlib_vim'
   " Plug 'grvcoelho/vim-javascript-snippets'
   Plug 'honza/vim-snippets'
 

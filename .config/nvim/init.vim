@@ -50,7 +50,7 @@ source $HOME/.config/nvim/conf/todo.vim
 source $HOME/.config/nvim/conf/latex.vim
 " source $HOME/.config/nvim/conf/fern.vim
 source $HOME/.config/nvim/conf/glyph-palette.vim
-source $HOME/.config/nvim/conf/snipmate.vim
+" source $HOME/.config/nvim/conf/snipmate.vim
 " source $HOME/.config/nvim/conf/md-folding.vim
 " source $HOME/.config/nvim/conf/rainbow.vim
 

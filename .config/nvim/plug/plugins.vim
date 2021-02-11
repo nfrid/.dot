@@ -81,7 +81,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
   " Plug 'lyokha/vim-xkbswitch'
 
-  Plug 'turbio/bracey.vim'
+  Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 
   " Plug 'Galooshi/vim-import-js'
 

@@ -112,7 +112,7 @@ alias \
   da="dotbare add" \
   dfa="dotbare fadd" \
   dc="dotbare commit" \
-  dP="dotbare push -u origin master" \
+  dP="dotbare push -u origin HEAD" \
   dfu="dotbare funtrack" \
   ds="dotbare status" \
   da="dotbare add -u" \

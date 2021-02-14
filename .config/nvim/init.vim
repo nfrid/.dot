@@ -53,6 +53,7 @@ source $HOME/.config/nvim/conf/glyph-palette.vim
 " source $HOME/.config/nvim/conf/snipmate.vim
 " source $HOME/.config/nvim/conf/md-folding.vim
 " source $HOME/.config/nvim/conf/rainbow.vim
+" source $HOME/.config/nvim/conf/treesitter.vim
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -164,4 +164,6 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'AndrewRadev/tagalong.vim'
 
+  " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 call plug#end()

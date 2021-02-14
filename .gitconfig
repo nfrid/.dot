@@ -3,3 +3,5 @@
 	email = nfriday@yandex.ru
 [core]
 	quotepath = false
+[init]
+	defaultBranch = main

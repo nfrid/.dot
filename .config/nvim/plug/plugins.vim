@@ -163,7 +163,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'jparise/vim-graphql'
 
-  Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+  Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
 
   Plug 'AndrewRadev/tagalong.vim'
 

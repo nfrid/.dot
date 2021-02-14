@@ -35,6 +35,8 @@ settings:
     global: lightness-cielab
   colors.webpage.darkmode.enabled:
     global: false
+  colors.webpage.darkmode.grayscale.all:
+    global: false
   colors.webpage.prefers_color_scheme_dark:
     global: true
   content.autoplay:

@@ -37,6 +37,7 @@ let g:coc_global_extensions = [
       \ 'coc-snippets' ,
       \ 'coc-stylelint' ,
       \ 'coc-stylelintplus' ,
+      \ 'coc-styled-components' ,
       \ 'coc-svg' ,
       \ 'coc-syntax' ,
       \ 'coc-tabnine' ,

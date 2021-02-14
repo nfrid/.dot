@@ -160,4 +160,6 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'jparise/vim-graphql'
 
+  Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
 call plug#end()

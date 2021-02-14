@@ -42,6 +42,7 @@ call plug#begin(stdpath('data') . '/plugged')
   " Plug 'tomtom/tlib_vim'
   " Plug 'grvcoelho/vim-javascript-snippets'
   Plug 'honza/vim-snippets'
+  Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 
   " Plug 'scrooloose/nerdtree' |
         "\ Plug 'Xuyuanp/nerdtree-git-plugin' |
@@ -72,7 +73,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'voldikss/vim-floaterm'
 
   Plug 'mattn/emmet-vim'
-  Plug 'ap/vim-css-color'
+  " Plug 'ap/vim-css-color'
   Plug 'posva/vim-vue'
   Plug 'digitaltoad/vim-pug'
 
@@ -94,6 +95,8 @@ call plug#begin(stdpath('data') . '/plugged')
   " Plug 'Valloric/MatchTagAlways'
   " Plug 'justinmk/vim-matchparenalways'
 
+  Plug 'HerringtonDarkholme/yats.vim'
+
   " Plug 'ludovicchabant/vim-gutentags'
   Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 
@@ -101,7 +104,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
   " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-  Plug 'mboughaba/i3config.vim'
+  " Plug 'mboughaba/i3config.vim'
 
   Plug 'blindFS/vim-taskwarrior'
 
@@ -165,5 +168,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'AndrewRadev/tagalong.vim'
 
   " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+  Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 call plug#end()

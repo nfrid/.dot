@@ -162,4 +162,6 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
+  Plug 'AndrewRadev/tagalong.vim'
+
 call plug#end()

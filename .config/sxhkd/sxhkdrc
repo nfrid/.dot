@@ -47,8 +47,8 @@ super +{_, shift +} o
   togglebufferdesktop{_, -m }
 
 # browse windows
-alt + Tab
-  useus rofi -show-icons -show windowcd -modi windowcd,window
+# alt + Tab
+#   useus rofi -show-icons -show windowcd -modi windowcd,window
 
 # browse config files
 super + g

@@ -167,8 +167,10 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'AndrewRadev/tagalong.vim'
 
-  " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
   Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+  " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  "   Plug 'romgrk/nvim-treesitter-context'
+  "   Plug 'p00f/nvim-ts-rainbow'
 
 call plug#end()

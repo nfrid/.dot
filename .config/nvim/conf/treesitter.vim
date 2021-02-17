@@ -14,10 +14,13 @@ require'nvim-treesitter.configs'.setup {
       node_decremental = "grN",
       scope_incremental = "grc",
       scope_decremental = "grC",
-    },
+    }
+  },
   indent = {
     enable = true
-    },
   },
+  rainbow = {
+    enable = true
+  }
 }
 EOF

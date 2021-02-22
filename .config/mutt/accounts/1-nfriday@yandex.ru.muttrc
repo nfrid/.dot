@@ -1,9 +1,9 @@
 # vim: filetype=neomuttrc
 # muttrc file for account nfriday@yandex.ru
 set realname = "Nick Friday"
-set from = "nfriday@yandex.ru"
+set from = "nfriday@ya.ru"
 set sendmail = "msmtp -a nfriday@yandex.ru"
-alias me Nick Friday <nfriday@yandex.ru>
+alias me Nick Friday <nfriday@ya.ru>
 set folder = "/home/nf/.local/share/mail/nfriday@yandex.ru"
 set header_cache = /home/nf/.cache/mutt-wizard/nfriday@yandex.ru/headers
 set message_cachedir = /home/nf/.cache/mutt-wizard/nfriday@yandex.ru/bodies

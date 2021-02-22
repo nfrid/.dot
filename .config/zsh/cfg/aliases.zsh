@@ -21,6 +21,7 @@ alias \
   ytdl3="youtube-dl -x --audio-format mp3 -f 'bestaudio'" \
   r="ranger" \
   tl="tllocalmgr" \
+  snc="rsync -vrzhu --delete" \
   /
   # tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode" \
 
@@ -159,6 +160,9 @@ alias \
   y="yarn" \
   ya="yarn add" \
   yr="yarn remove" \
+  yg="yarn global" \
+  yga="yarn global add" \
+  ygr="yarn global remove" \
   /
 
 # XClip

@@ -14,7 +14,7 @@ austart libinput-gestures
 austart "greenclip daemon" greenclip
 austart lxpolkit
 austart xfce4-power-manager
-# austart stretchly
+austart stretchly
 austart redshift
 austart telegram-desktop telegram-deskto
 austart discord Discord

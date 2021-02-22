@@ -1,0 +1,129 @@
+{
+  "editor.fontFamily": "'Iosevka nf', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontLigatures": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "window.zoomLevel": 2,
+  "workbench.colorTheme": "Dracula",
+  "tabnine.experimentalAutoImports": true,
+  "keyboard.dispatch": "keyCode",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "vim.leader": " ",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["|"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "n"],
+      "commands": ["workbench.files.action.focusFilesExplorer"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["revealInExplorer"]
+    },
+    {
+      "before": ["<leader>", "r", "f"],
+      "commands": ["fileutils.renameFile"]
+    },
+
+    {
+      "before": ["<leader>", ","],
+      "commands": [":noh"]
+    },
+    {
+      "before": ["<leader>", "p", "w"],
+      "commands": ["editor.action.toggleWordWrap"]
+    },
+
+    {
+      "before": ["]", "g"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["[", "g"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["]", "G"],
+      "commands": ["editor.action.marker.nextInFiles"]
+    },
+    {
+      "before": ["[", "G"],
+      "commands": ["editor.action.marker.prevInFiles"]
+    },
+
+    {
+      "before": ["+"],
+      "commands": ["wwm.aligncode"]
+    }
+  ],
+
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["+"],
+      "commands": ["wwm.aligncode"]
+    }
+  ],
+
+  "vim.operatorPendingModeKeyBindings": [
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    }
+  ],
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/xkb-switch",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/xkb-switch -s {im}",
+  "vim.autoSwitchInputMethod.defaultIM": "us",
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.easymotion": true,
+  "vim.highlightedyank.enable": true,
+  "vim.hlsearch": true,
+  "vim.enableNeovim": true,
+  "vim.neovimPath": "/usr/bin/nvim",
+  "vim.smartRelativeLine": true,
+  "vim.visualstar": true,
+  "vim.foldfix": true,
+  // "vim.handleKeys": {
+  //   "<C-w>": false
+  // },
+
+  "explorer.openEditors.visible": 0,
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.rulers": [80],
+  "window.menuBarVisibility": "hidden",
+  "workbench.activityBar.visible": false,
+  "workbench.editor.showTabs": false,
+  "editor.colorDecorators": false,
+  "editor.minimap.enabled": false,
+  "explorer.confirmDragAndDrop": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDelete": false,
+  "prettier.packageManager": "yarn",
+  "prettier.proseWrap": "always",
+  "terminal.integrated.allowMnemonics": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.experimentalUseTitleEvent": true,
+  "vim.sneak": true
+}
+// "vim.statusBarColorControl": true,

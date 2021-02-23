@@ -8,7 +8,7 @@ function austart {
 austart sxhkd
 austart nm-applet
 austart dunst
-# austart picom
+austart picom
 austart uim-xim
 austart libinput-gestures
 austart "greenclip daemon" greenclip

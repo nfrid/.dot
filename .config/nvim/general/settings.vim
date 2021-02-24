@@ -43,3 +43,5 @@ set updatetime=300
 set cmdheight=2
 set shortmess+=c
 set signcolumn=yes
+
+let g:vimsyn_embed= 'l'

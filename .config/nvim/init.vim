@@ -19,6 +19,7 @@ source $HOME/.config/nvim/general/aucmds.vim
 
 " Pl User's
 source $HOME/.config/nvim/plug/dotbare.vim
+source $HOME/.config/nvim/plug/md-check.vim
 " Pl Conf
 source $HOME/.config/nvim/conf/auropairs.vim
 source $HOME/.config/nvim/conf/markdown.vim
@@ -29,7 +30,7 @@ source $HOME/.config/nvim/conf/devicons.vim
 source $HOME/.config/nvim/conf/fzf.vim
 " source $HOME/.config/nvim/conf/nerdtree.vim
 source $HOME/.config/nvim/conf/startify.vim
-source $HOME/.config/nvim/conf/simpylfold.vim
+" source $HOME/.config/nvim/conf/simpylfold.vim
 source $HOME/.config/nvim/conf/ctrlspace.vim
 source $HOME/.config/nvim/conf/fugitive.vim
 " source $HOME/.config/nvim/conf/tagbar.vim
@@ -53,7 +54,7 @@ source $HOME/.config/nvim/conf/glyph-palette.vim
 " source $HOME/.config/nvim/conf/snipmate.vim
 " source $HOME/.config/nvim/conf/md-folding.vim
 " source $HOME/.config/nvim/conf/rainbow.vim
-" source $HOME/.config/nvim/conf/treesitter.vim
+source $HOME/.config/nvim/conf/treesitter.vim
 source $HOME/.config/nvim/conf/hexokinase.vim
 
 

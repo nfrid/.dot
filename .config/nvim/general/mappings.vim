@@ -81,3 +81,5 @@ vnoremap <A-w> <C-w>
 " inoremap \\ <Esc>/<++><Enter>"_c4l
 " vnoremap \\ <Esc>/<++><Enter>"_c4l
 nnoremap \\ <Esc>/<++><Enter>"_c4l
+
+

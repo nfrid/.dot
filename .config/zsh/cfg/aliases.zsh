@@ -25,6 +25,12 @@ alias \
   /
   # tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode" \
 
+# pass
+alias \
+  ps="pass" \
+  psg="pass generate" \
+  pss="pass git pull && pass git push" \
+
 # The Shit
 alias \
   o="xdg-open" \

@@ -22,14 +22,14 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'junegunn/limelight.vim'
   Plug 'reedes/vim-pencil'
 
-  Plug 'tmhedberg/SimpylFold'
+  " Plug 'tmhedberg/SimpylFold'
 
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Plug 'w0rp/ale'
   "
-  Plug 'sheerun/vim-polyglot'
+  " Plug 'sheerun/vim-polyglot'
 
-  Plug 'Shougo/context_filetype.vim'
+  " Plug 'Shougo/context_filetype.vim'
   Plug 'tyru/caw.vim'
 
   Plug 'tpope/vim-fugitive'
@@ -169,8 +169,9 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-  " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  "   Plug 'romgrk/nvim-treesitter-context'
-  "   Plug 'p00f/nvim-ts-rainbow'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'romgrk/nvim-treesitter-context'
+    Plug 'p00f/nvim-ts-rainbow'
+Plug 'nvim-treesitter/playground'
 
 call plug#end()

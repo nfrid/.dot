@@ -1,2 +1,6 @@
+default_user=nfriday@ya.ru
+default_user2=nfrid
+password_length=24
+
 default-autotype 'pass :tab pass'
 default_do='autotype'

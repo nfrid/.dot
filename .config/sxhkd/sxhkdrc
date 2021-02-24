@@ -72,7 +72,8 @@ super + {_,shift} + apostrophe
 
 # password manager
 super + p
-  useus rofi-pass
+  useus pass-rofi --no-notify
+  # useus rofi-pass
 
 # brightness control
 XF86MonBrightness{Up,Down}

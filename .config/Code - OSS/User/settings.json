@@ -13,6 +13,10 @@
   "vim.leader": " ",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
       "before": ["K"],
       "commands": ["editor.action.showHover"]
     },
@@ -100,11 +104,12 @@
   "window.menuBarVisibility": "hidden",
   "window.enableMenuBarMnemonics": false,
   "python.showStartPage": false,
-  "workbench.editor.showTabs": false,
   "workbench.activityBar.visible": false,
   "npm.packageManager": "yarn",
   "eslint.packageManager": "yarn",
   "typescript.preferences.includePackageJsonAutoImports": "on",
-  "task.quickOpen.showAll": true
+  "task.quickOpen.showAll": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "workbench.editor.showTabs": false
 }
 // "vim.statusBarColorControl": true,

@@ -18,10 +18,17 @@ settings:
         zcs: set content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-light/solarized-light-all-sites.css
         zcx: set content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-dark/solarized-dark-all-sites.css
         zd: download-open
-        zp: config-cycle content.private_browsing true false
+        zl: 'spawn --userscript qute-pass -U secret -u "user: (.+)"'
+        zol: 'spawn --userscript qute-pass --otp-only -U secret -u "user: (.+)"'
+        zpl: 'spawn --userscript qute-pass --password-only -U secret -u "user: (.+)"'
+        zsd: 'set-cmd-text -s :session-delete '
+        zsn: 'set-cmd-text -s :session-save --only-active-window '
+        zss: 'set-cmd-text -s :session-load '
         zt: set-cmd-text -s :tab-take
+        zul: 'spawn --userscript qute-pass --username-only -U secret -u "user: (.+)"'
         zx: config-cycle statusbar.show always never;; config-cycle tabs.show multiple
           never
+        zyY: spawn mpv --ytdl-format= {url}
         zya: spawn mpv --no-video {url}
         zyda: spawn youtube-dl -x --audio-format mp3 -f 'bestaudio[ext=m4a]/bestaudio'
           '~/Videos/YouTube/%(title)s - %(uploader)s' {url}
@@ -63,7 +70,7 @@ settings:
     https://www.youtube.com: true
     https://ytmp3.cc: false
   content.private_browsing:
-    global: true
+    global: false
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: true
   content.user_stylesheets:

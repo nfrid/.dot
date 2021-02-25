@@ -86,6 +86,12 @@ config.unbind('.')
 config.bind('\\', 'repeat-command')
 
 # Bindings for normal mode
+
+config.bind('<z><l>', 'spawn --userscript qute-pass')
+config.bind('<z><u><l>', 'spawn --userscript qute-pass --username-only')
+config.bind('<z><p><l>', 'spawn --userscript qute-pass --password-only')
+config.bind('<z><o><l>', 'spawn --userscript qute-pass --otp-only')
+
 config.bind(
     'zydd', "spawn youtube-dl -f 'bestvideo[ext=mp4][width<=1920][height<=1080]+bestaudio[ext=m4a]/bestvideo+bestaudio' -o '~/Videos/YouTube/%(title)s - %(uploader)s' {url}")
 config.bind(

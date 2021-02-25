@@ -63,7 +63,7 @@ settings:
     https://www.youtube.com: true
     https://ytmp3.cc: false
   content.private_browsing:
-    global: false
+    global: true
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: true
   content.user_stylesheets:

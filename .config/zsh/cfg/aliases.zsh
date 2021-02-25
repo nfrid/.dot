@@ -27,9 +27,9 @@ alias \
 
 # pass
 alias \
-  ps="pass" \
-  psg="pass generate" \
-  pss="pass git pull && pass git push" \
+  pw="pass" \
+  pwg="pass generate" \
+  pws="pass git pull && pass git push" \
 
 # The Shit
 alias \

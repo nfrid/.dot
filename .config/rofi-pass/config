@@ -1,6 +1,13 @@
-default_user=nfriday@ya.ru
+default_user=:filename
 default_user2=nfrid
 password_length=24
 
 default-autotype 'pass :tab pass'
 default_do='autotype'
+
+# default command to generate passwords
+_pwgen () {
+	pwgen -y "$@"
+}
+
+EDITOR="alacritty -e nvim"

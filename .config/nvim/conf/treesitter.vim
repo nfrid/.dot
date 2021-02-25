@@ -13,7 +13,7 @@ require'nvim-treesitter.configs'.setup {
       node_incremental = "gn",
       node_decremental = "gr",
       scope_incremental = "gs",
-      scope_decremental = "gc",
+      scope_decremental = "gS",
     }
   },
   indent = {

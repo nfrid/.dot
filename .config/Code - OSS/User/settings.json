@@ -13,20 +13,8 @@
   "vim.leader": " ",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["|"],
-      "commands": ["workbench.action.showCommands"]
-    },
-    {
       "before": ["K"],
       "commands": ["editor.action.showHover"]
-    },
-    {
-      "before": ["<leader>", "w"],
-      "commands": ["workbench.action.files.save"]
-    },
-    {
-      "before": ["<leader>", "t"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
     },
     {
       "before": ["<leader>", "n"],
@@ -37,19 +25,9 @@
       "commands": ["revealInExplorer"]
     },
     {
-      "before": ["<leader>", "r", "f"],
-      "commands": ["fileutils.renameFile"]
-    },
-
-    {
       "before": ["<leader>", ","],
       "commands": [":noh"]
     },
-    {
-      "before": ["<leader>", "p", "w"],
-      "commands": ["editor.action.toggleWordWrap"]
-    },
-
     {
       "before": ["]", "g"],
       "commands": ["editor.action.marker.next"]
@@ -66,30 +44,23 @@
       "before": ["[", "G"],
       "commands": ["editor.action.marker.prevInFiles"]
     },
-
     {
-      "before": ["+"],
-      "commands": ["wwm.aligncode"]
+      "before": ["g", "n"],
+      "commands": ["editor.action.smartSelect.expand"]
     }
   ],
 
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": ["+"],
-      "commands": ["wwm.aligncode"]
+      "before": ["g", "n"],
+      "commands": ["editor.action.smartSelect.expand"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.smartSelect.shrink"]
     }
   ],
 
-  "vim.operatorPendingModeKeyBindings": [
-    {
-      "before": ["L"],
-      "after": ["$"]
-    },
-    {
-      "before": ["H"],
-      "after": ["^"]
-    }
-  ],
   "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/xkb-switch",
   "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/xkb-switch -s {im}",
   "vim.autoSwitchInputMethod.defaultIM": "us",
@@ -111,9 +82,6 @@
   "editor.tabSize": 2,
   "workbench.iconTheme": "material-icon-theme",
   "editor.rulers": [80],
-  "window.menuBarVisibility": "hidden",
-  "workbench.activityBar.visible": false,
-  "workbench.editor.showTabs": false,
   "editor.colorDecorators": false,
   "editor.minimap.enabled": false,
   "explorer.confirmDragAndDrop": false,
@@ -127,6 +95,12 @@
   "vim.sneak": true,
   "liveServer.settings.donotShowInfoMsg": true,
   "spellright.language": ["en_US", "ru_RU"],
-  "spellright.documentTypes": ["markdown", "latex", "plaintext"]
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
+  "git.enableSmartCommit": true,
+  "window.menuBarVisibility": "hidden",
+  "window.enableMenuBarMnemonics": false,
+  "python.showStartPage": false,
+  "workbench.editor.showTabs": false,
+  "workbench.activityBar.visible": false
 }
 // "vim.statusBarColorControl": true,

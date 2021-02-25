@@ -101,6 +101,10 @@
   "window.enableMenuBarMnemonics": false,
   "python.showStartPage": false,
   "workbench.editor.showTabs": false,
-  "workbench.activityBar.visible": false
+  "workbench.activityBar.visible": false,
+  "npm.packageManager": "yarn",
+  "eslint.packageManager": "yarn",
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "task.quickOpen.showAll": true
 }
 // "vim.statusBarColorControl": true,

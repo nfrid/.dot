@@ -390,5 +390,9 @@
     "key": "shift+alt+f5",
     "command": "-workbench.action.compareEditor.previousChange",
     "when": "textCompareEditorVisible"
+  },
+  {
+    "key": "alt+d",
+    "command": "workbench.action.tasks.runTask"
   }
 ]

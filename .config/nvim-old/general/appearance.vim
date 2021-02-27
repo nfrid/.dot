@@ -1,6 +1,7 @@
 set number
 set relativenumber
 set nowrap
+set noshowmode
 " " If I need wrapping
 " set wrap linebreak nolist
 set list

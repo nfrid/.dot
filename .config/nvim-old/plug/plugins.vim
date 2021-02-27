@@ -60,7 +60,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'Lokaltog/vim-easymotion'
 
-  " Plug 'kshenoy/vim-signature'  
+  " Plug 'kshenoy/vim-signature'
 
   Plug 'kana/vim-repeat'
 

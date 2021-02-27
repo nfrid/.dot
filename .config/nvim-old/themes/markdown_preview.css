@@ -40,5 +40,5 @@ table > * > * {
 .markdown-body {
   color: #d8dee9;
   background-color: #2e3440;
-  text-align: justify;
+  /* text-align: justify; */
 }

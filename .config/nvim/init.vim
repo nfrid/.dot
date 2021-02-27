@@ -1,63 +1,151 @@
-" Author: me, Nick Friday aka undefined
-" Inspired by ChristianChiarulli's neovim config structure
+" General
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ "fuck" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin indent on
+syntax on
+set hidden
 
+set formatoptions-=cro
+set smartindent
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+au BufRead,BufNewFile *.py
+      \ setlocal tabstop=4
+      \ softtabstop=4
+      \ shiftwidth=4
+set foldenable
+set foldlevel=99
+set foldmethod=indent
+set ignorecase
+set smartcase
+set mouse=a
+set clipboard=unnamed
 
-" General Settings
-source $HOME/.config/nvim/plug/plugins.vim
-source $HOME/.config/nvim/general/settings.vim
-source $HOME/.config/nvim/general/mappings.vim
-source $HOME/.config/nvim/general/appearance.vim
-source $HOME/.config/nvim/general/commands.vim
-source $HOME/.config/nvim/general/theme.vim
-source $HOME/.config/nvim/general/filetypes.vim
-source $HOME/.config/nvim/general/aucmds.vim
-" source $HOME/.config/nvim/general/netrw.vim
-
-" Pl User's
-source $HOME/.config/nvim/plug/dotbare.vim
-source $HOME/.config/nvim/plug/md-check.vim
-" Pl Conf
-source $HOME/.config/nvim/conf/auropairs.vim
-source $HOME/.config/nvim/conf/markdown.vim
-source $HOME/.config/nvim/conf/easymotion.vim
-source $HOME/.config/nvim/conf/airline.vim
-source $HOME/.config/nvim/conf/coc.vim
-source $HOME/.config/nvim/conf/devicons.vim
-source $HOME/.config/nvim/conf/fzf.vim
-" source $HOME/.config/nvim/conf/nerdtree.vim
-source $HOME/.config/nvim/conf/startify.vim
-" source $HOME/.config/nvim/conf/simpylfold.vim
-source $HOME/.config/nvim/conf/ctrlspace.vim
-source $HOME/.config/nvim/conf/fugitive.vim
-" source $HOME/.config/nvim/conf/tagbar.vim
-source $HOME/.config/nvim/conf/pencil.vim
-source $HOME/.config/nvim/conf/whichkey.vim
-" source $HOME/.config/nvim/conf/xkbswitch.vim
-source $HOME/.config/nvim/conf/floaterm.vim
-source $HOME/.config/nvim/conf/goyo.vim
-source $HOME/.config/nvim/conf/limelight.vim
-source $HOME/.config/nvim/conf/bracey.vim
-source $HOME/.config/nvim/conf/vista.vim
-source $HOME/.config/nvim/conf/ranger.vim
-source $HOME/.config/nvim/conf/emmet.vim
-source $HOME/.config/nvim/conf/indentline.vim
-source $HOME/.config/nvim/conf/firenvim.vim
-source $HOME/.config/nvim/conf/todo.vim
-" source $HOME/.config/nvim/conf/vimspector.vim
-source $HOME/.config/nvim/conf/latex.vim
-" source $HOME/.config/nvim/conf/fern.vim
-source $HOME/.config/nvim/conf/glyph-palette.vim
-" source $HOME/.config/nvim/conf/snipmate.vim
-" source $HOME/.config/nvim/conf/md-folding.vim
-" source $HOME/.config/nvim/conf/rainbow.vim
-source $HOME/.config/nvim/conf/treesitter.vim
-source $HOME/.config/nvim/conf/hexokinase.vim
+set nospell spelllang=en_us,ru_yo
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=-1
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ "FINALE" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Appearance
+
+set number
+set relativenumber
+set nowrap
+set noshowmode
+
+set list
+set listchars=tab:▸\ ,trail:⋅
+
+set cc=81
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+set guifont=droidsansmono\ nerd\ font\ 11
+set guicursor+=a:blinkon1
+
+let g:vimsyn_embed= 'l'
+
+
+" Commands
+
+:command! ToggleConceal
+      \ if &conceallevel ==# 2
+      \ |   setlocal conceallevel=0
+      \ | else
+        \ |   setlocal conceallevel=2
+        \ | endif
+
+function! ToggleWrap() abort
+  if &wrap ==# 'nowrap'
+    setlocal wrap linebreak
+    nnoremap <buffer> j gj
+    nnoremap <buffer> k gk
+  else
+    setlocal nowrap
+    unnoremap <buffer> j
+    unnoremap <buffer> k
+  endif
+endfunction
+
+:command! ToggleWrap call ToggleWrap()
+
+:command! ToggleKeymap
+      \ if &iminsert ==# ''
+      \ |   setlocal iminsert=1
+      \ | else
+        \ |   setlocal iminsert=0
+        \ | endif
+
+
+" Pre Lua Utils
+
+lua << EOF
+function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then options = vim.tbl_extend("force", options, opts) end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+cmd = vim.api.nvim_command
+exe = vim.api.nvim_exec
+set = vim.o
+EOF
+
+lua require('plugins')
+
+
+" Mappings
+
+lua << EOF
+vim.mapleader = " "
+vim.g.mapleader = " "
+
+map("n", "<SPACE>", "<NOP>")
+map("n", "[b", "<CMD>bp<CR>")
+map("n", "]b", "<CMD>bn<CR>")
+
+map("n", ">", ">>")
+map("n", "<", "<<")
+
+map("n", "gF", ":e <cfile><CR>")
+
+map("n", "<leader>ps", ":set spell!<CR>")
+
+map("n", "<leader>w", ":w!<CR>")
+map("n", "<Leader>h", "<CMD>lua vim.o.hls = not vim.o.hls<CR>")
+map("n", "Q", ":bd<CR>")
+
+map("n", "<leader>ve", ":e $MYVIMRC<CR>")
+map("n", "<leader>vs", ":so $MYVIMRC<CR>")
+
+map("", "n", "nzz")
+map("", "N", "Nzz")
+
+map("n", "<A-l>", ":ToggleKeymap<CR>")
+map("i", "<A-l>", "<C-^>")
+
+map("", "<C-c>", '"+')
+
+map("n", "<leader>pc", ":ToggleConceal<CR>")
+map("n", "<leader>pw", ":ToggleWrap<CR>")
+
+map("", "<A-w>", "<C-w>")
+
+map("n", "\\\\", '<Esc>/<++><Enter>"_c4l')
+EOF
+
+
+" Dracula Treesitter
+
+hi def link rainbowcol1 DraculaGreen
+hi def link rainbowcol2 DraculaPink
+hi def link rainbowcol3 DraculaOrange
+hi def link rainbowcol4 DraculaPurple
+hi def link rainbowcol5 DraculaYellow
+hi def link rainbowcol6 DraculaCyan
+hi def link rainbowcol7 DraculaRed

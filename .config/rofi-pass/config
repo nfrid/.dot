@@ -5,9 +5,27 @@ password_length=24
 default-autotype 'pass :tab pass'
 default_do='autotype'
 
-# default command to generate passwords
 _pwgen () {
 	pwgen -y "$@"
 }
 
+_image_viewer () {
+    sxiv - 
+#    display
+}
+
 EDITOR="alacritty -e nvim"
+
+_clip_in_clipboard() {
+	xsel -b
+}
+
+_clip_out_clipboard() {
+	xsel -cb
+}
+
+clip=clipboard
+
+copy_name="Alt+u"
+copy_url="Alt+l"
+copy_pass="Alt+p"

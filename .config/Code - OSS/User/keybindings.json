@@ -186,11 +186,6 @@
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+enter",
-    "command": "extension.vim_ctrl+space",
-    "when": "editorTextFocus && vim.active && vim.use<C-space> && !inDebugRepl && vim.mode != 'Insert'"
-  },
-  {
     "key": "ctrl+space",
     "command": "-extension.vim_ctrl+space",
     "when": "editorTextFocus && vim.active && vim.use<C-space> && !inDebugRepl && vim.mode != 'Insert'"
@@ -394,5 +389,10 @@
   {
     "key": "alt+d",
     "command": "workbench.action.tasks.runTask"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "-extension.vim_ctrl+i",
+    "when": "editorTextFocus && vim.active && vim.use<C-i> && !inDebugRepl"
   }
 ]

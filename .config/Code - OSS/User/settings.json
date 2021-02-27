@@ -4,7 +4,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "window.zoomLevel": 2,
   "workbench.colorTheme": "Dracula",
   "tabnine.experimentalAutoImports": true,
   "keyboard.dispatch": "keyCode",
@@ -72,7 +71,6 @@
   "vim.easymotion": true,
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": true,
-  "vim.enableNeovim": true,
   "vim.neovimPath": "/usr/bin/nvim",
   "vim.smartRelativeLine": true,
   "vim.visualstar": true,
@@ -110,6 +108,11 @@
   "typescript.preferences.includePackageJsonAutoImports": "on",
   "task.quickOpen.showAll": true,
   "editor.multiCursorModifier": "ctrlCmd",
-  "workbench.editor.showTabs": false
+  "workbench.editor.showTabs": false,
+  "window.zoomLevel": 2,
+  "editor.suggestSelection": "first",
+  "vim.statusBarColorControl": false,
+  "git.autofetch": true,
+  "projects.configPath": "/home/nf/.local/share/code/vscode_projects.json"
 }
 // "vim.statusBarColorControl": true,

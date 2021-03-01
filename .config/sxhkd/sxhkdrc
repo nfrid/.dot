@@ -73,7 +73,7 @@ super + alt + apostrophe
 
 # emoji picker
 super + apostrophe
-  useus cat $HOME/.local/share/emoji-data.txt | dmenu -p emoji -l 5 | cut -d "	" -f1 | tr -d $'\n' | xclip -sel clip
+  cat $HOME/.local/share/emoji-data.txt | useus dmenu -p emoji -l 5 | cut -d "	" -f1 | tr -d $'\n' | xclip -sel clip
 
 # rofi emoji picker
 super + shift + apostrophe

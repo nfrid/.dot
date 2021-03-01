@@ -53,6 +53,10 @@ super +{_, shift +} o
 
 # browse config files
 super + g
+  git --git-dir="${DOTBARE_DIR}" --work-tree="$HOME" ls-files --full-name | dmenu | xargs -I sel $TERM -e nvim $HOME/sel
+
+# fedit configs
+super + shift + g
   $TERM -e $SHELL -c "$ZDOTDIR/plugins/dotbare/scripts/fedit"
 
 # calculator

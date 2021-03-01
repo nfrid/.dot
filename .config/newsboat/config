@@ -4,7 +4,7 @@ unbind-key ,
 bind-key z macro-prefix
 
 browser "/usr/bin/qutebrowser %u"
-macro y set browser "/usr/bin/mpv %u"; open-in-browser ; set browser "/usr/bin/qutebrowser %u"
+macro y set browser "/usr/bin/nohup /usr/bin/mpv %u &"; open-in-browser ; quit ; quit ; quit ; quit ; quit
 macro b set browser "/usr/bin/w3m %u"; open-in-browser ; set browser "/usr/bin/qutebrowser %u"
 
 # unbind keys

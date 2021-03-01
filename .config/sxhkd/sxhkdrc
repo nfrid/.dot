@@ -23,16 +23,16 @@ super + space
 
 # clipboard
 super + y
-  clipmenu
+  clipmenu -p clip
   # rofi -modi "clipboard:greenclip print" -show clipboard
 
 # drun rofi
 super + d
-  useus j4-dmenu-desktop --dmenu="dmenu"
+  useus j4-dmenu-desktop --dmenu="dmenu -p desktop"
 
 # run rofi
 super + r
-  useus dmenu_run_history
+  useus dmenu_run_history -p run
 
 # open file browser rofi
 # super + o
@@ -53,7 +53,7 @@ super +{_, shift +} o
 
 # browse config files
 super + g
-  git --git-dir="${DOTBARE_DIR}" --work-tree="$HOME" ls-files --full-name | dmenu | xargs -I sel $TERM -e nvim $HOME/sel
+  git --git-dir="${DOTBARE_DIR}" --work-tree="$HOME" ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e nvim $HOME/sel
 
 # fedit configs
 super + shift + g
@@ -69,11 +69,15 @@ super + slash
 
 # unicode symbols picker
 super + alt + apostrophe
-  useus unipicker --command "rofi -dmenu -p 'unicode'" --copy-command "xclip -sel clip"
+  useus unipicker --command "dmenu -p unicode" --copy-command "xclip -sel clip"
 
-# emoji picker (shift to copy mode)
-super + {_,shift} + apostrophe
-  useus splatmoji {type,copy}
+# emoji picker
+super + apostrophe
+  useus cat $HOME/.local/share/emoji-data.txt | dmenu -p emoji -l 5 | cut -d "	" -f1 | tr -d $'\n' | xclip -sel clip
+
+# rofi emoji picker
+super + shift + apostrophe
+  useus splatmoji copy
 
 # password manager
 super + p
@@ -82,7 +86,7 @@ super + p
 
 # passmenu
 super + shift + p
-  useus passmenu
+  useus passmenu -p pass
 
 # brightness control
 XF86MonBrightness{Up,Down}

@@ -11,7 +11,8 @@ austart dunst
 austart picom
 austart uim-xim
 austart libinput-gestures
-austart "greenclip daemon" greenclip
+# austart "greenclip daemon" greenclip
+austart "bash /usr/bin/clipmenud"
 austart lxpolkit
 austart xfce4-power-manager
 austart stretchly

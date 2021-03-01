@@ -102,41 +102,42 @@ lua require('plugins')
 " Mappings
 
 lua << EOF
-vim.mapleader = " "
-vim.g.mapleader = " "
+vim.mapleader = ' '
+vim.g.mapleader = ' '
 
-map("n", "<SPACE>", "<NOP>")
-map("n", "[b", "<CMD>bp<CR>")
-map("n", "]b", "<CMD>bn<CR>")
+map('n', '<SPACE>', '<NOP>')
+map('n', '[b', '<CMD>bp<CR>')
+map('n', ']b', '<CMD>bn<CR>')
 
-map("n", ">", ">>")
-map("n", "<", "<<")
+map('n', '>', '>>')
+map('n', '<', '<<')
 
-map("n", "gF", ":e <cfile><CR>")
+map('n', 'gF', ':e <cfile><CR>')
 
-map("n", "<leader>ps", ":set spell!<CR>")
+map('n', '<leader>ps', ':set spell!<CR>')
 
-map("n", "<leader>w", ":w!<CR>")
-map("n", "<Leader>h", "<CMD>lua vim.o.hls = not vim.o.hls<CR>")
-map("n", "Q", ":bd<CR>")
+map('n', '<leader>w', ':w!<CR>')
+map('n', '<Leader>h', '<CMD>lua vim.o.hls = not vim.o.hls<CR>')
+map('n', 'Q', ':bd<CR>')
+map('n', '<leader>cd', ':cd %:h<CR>')
 
-map("n", "<leader>ve", ":e $MYVIMRC<CR>")
-map("n", "<leader>vs", ":so $MYVIMRC<CR>")
+map('n', '<leader>ve', ':e $MYVIMRC<CR>')
+map('n', '<leader>vs', ':so $MYVIMRC<CR>')
 
-map("", "n", "nzz")
-map("", "N", "Nzz")
+map('', 'n', 'nzz')
+map('', 'N', 'Nzz')
 
-map("n", "<A-l>", ":ToggleKeymap<CR>")
-map("i", "<A-l>", "<C-^>")
+map('n', '<A-l>', ':ToggleKeymap<CR>')
+map('i', '<A-l>', '<C-^>')
 
-map("", "<C-c>", '"+')
+map('', '<C-c>', '"+')
 
-map("n", "<leader>pc", ":ToggleConceal<CR>")
-map("n", "<leader>pw", ":ToggleWrap<CR>")
+map('n', '<leader>pc', ':ToggleConceal<CR>')
+map('n', '<leader>pw', ':ToggleWrap<CR>')
 
-map("", "<A-w>", "<C-w>")
+map('', '<A-w>', '<C-w>')
 
-map("n", "\\\\", '<Esc>/<++><Enter>"_c4l')
+map('n', '\\\\', '<Esc>/<++><Enter>"_c4l')
 EOF
 
 

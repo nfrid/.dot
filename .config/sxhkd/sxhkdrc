@@ -21,17 +21,18 @@ super + ctrl + m
 super + space
   xkb-switch -n
 
-# copyq clipboard toggle
+# clipboard
 super + y
-  rofi -modi "clipboard:greenclip print" -show clipboard
+  clipmenu
+  # rofi -modi "clipboard:greenclip print" -show clipboard
 
 # drun rofi
 super + d
-  useus rofi -show-icons -modi run,drun -show drun
+  useus j4-dmenu-desktop --dmenu="dmenu"
 
 # run rofi
 super + r
-  useus rofi -show-icons -modi run,drun -show run
+  useus dmenu_run_history
 
 # open file browser rofi
 # super + o
@@ -74,6 +75,10 @@ super + {_,shift} + apostrophe
 super + p
   useus rofi-pass
   # useus pass-rofi --no-notify
+
+# passmenu
+super + shift + p
+  useus passmenu
 
 # brightness control
 XF86MonBrightness{Up,Down}
@@ -126,6 +131,10 @@ super + n
 # start neomutt (E-mail client)
 super + alt + n
   $TERM -e neomutt
+
+# update mail
+super + alt + shift + n
+  mbsync -a
 
 # start discord
 super + alt + d

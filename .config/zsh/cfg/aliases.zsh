@@ -25,6 +25,12 @@ alias \
   /
   # tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode" \
 
+# suckless
+alias \
+  pt="patch -p1 -N < patch/*" \
+  mki="sudo make install && make clean" \
+  /
+
 # pass
 alias \
   pw="pass" \
@@ -111,7 +117,7 @@ alias \
   gl="git log" \
   gd="git diff" \
   /
-  gnf() { git remote add origin git@github.com:NFrid/$1 $2 }
+  gnf() { git remote add origin git@github.com:NFrid/$1.git $2 }
 
 # Dotbare
 alias \

@@ -32,7 +32,7 @@ super + d
 
 # run rofi
 super + r
-  useus dmenu_run_history -p run
+  useus dmenu_run -p run
 
 # open file browser rofi
 # super + o

@@ -82,6 +82,10 @@ endfunction
         \ | endif
 
 
+" zsh to sh
+autocmd BufReadPost *.zsh,.zshrc set filetype=sh
+
+
 " Pre Lua Utils
 
 lua << EOF

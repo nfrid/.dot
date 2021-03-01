@@ -26,13 +26,21 @@ super + y
   clipmenu -p clip
   # rofi -modi "clipboard:greenclip print" -show clipboard
 
-# drun rofi
+# dmenu desktop
 super + d
   useus j4-dmenu-desktop --dmenu="dmenu -p desktop"
 
-# run rofi
+# dmenu run
 super + r
   useus dmenu_run -p run
+
+# rofi desktop
+super + shift + d
+  rofi -modi drun -show drun
+
+# rofi run
+super + shift + r
+  rofi -modi run -show run
 
 # open file browser rofi
 # super + o
@@ -73,7 +81,7 @@ super + alt + apostrophe
 
 # emoji picker
 super + apostrophe
-  cat $HOME/.local/share/emoji-data.txt | useus dmenu -p emoji -l 5 | cut -d "	" -f1 | tr -d $'\n' | xclip -sel clip
+  cat $HOME/.local/share/emoji-data.txt | useus dmenu -F -p emoji -l 5 | cut -d "	" -f1 | tr -d $'\n' | xclip -sel clip
 
 # rofi emoji picker
 super + shift + apostrophe
@@ -127,6 +135,10 @@ super + b
 # start ranger
 super + e
   $TERM -e ranger
+
+# man
+super + shift + m
+  man -k . | useus dmenu -p man -l 5 | cut -d " " -f1 | xargs -I sel $TERM -e man sel
 
 # start gui file manager
 super + alt + e
@@ -183,7 +195,7 @@ super + {_,shift + }v
 ### --- bspwm keybindings --- ###
 
 # restart bspwm
-super + shift + r
+super + ctrl + r
   bspc wm -r
 
 # change gaps

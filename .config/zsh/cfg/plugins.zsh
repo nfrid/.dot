@@ -1,16 +1,16 @@
 # There it is. There I source my plugins
 
-source $ZDOTDIR/plugins/lesscolors/lesscolors.zsh
+# source $ZDOTDIR/plugins/lesscolors/lesscolors.zsh
 
 source $ZDOTDIR/plugins/title/title.zsh
 source $ZDOTDIR/plugins/completion/completion.zsh
 source $ZDOTDIR/plugins/clipboard/clipboard.zsh
 source $ZDOTDIR/plugins/spectrum/spectrum.zsh
 
-source $ZDOTDIR/plugins/z/z.sh
+# source $ZDOTDIR/plugins/z/z.sh
 source $ZDOTDIR/plugins/vi-mode/vi-mode.zsh
 source $ZDOTDIR/plugins/taskwarrior/taskwarrior.zsh
-source $ZDOTDIR/plugins/alias-finder/alias-finder.zsh
+# source $ZDOTDIR/plugins/alias-finder/alias-finder.zsh
 source $ZDOTDIR/plugins/you-should-use/you-should-use.zsh
 
 source $ZDOTDIR/plugins/fzf-autocomplete/fzf-autocomplete.zsh

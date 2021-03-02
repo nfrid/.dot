@@ -173,6 +173,28 @@ return require('packer').startup(function()
     }
   }
   use {
+    'RishabhRD/nvim-lsputils',
+    requires = { 'RishabhRD/popfix', opt = true },
+    config = function()
+      vim.lsp.handlers['textDocument/codeAction'] =
+          require'lsputil.codeAction'.code_action_handler
+      vim.lsp.handlers['textDocument/references'] =
+          require'lsputil.locations'.references_handler
+      vim.lsp.handlers['textDocument/definition'] =
+          require'lsputil.locations'.definition_handler
+      vim.lsp.handlers['textDocument/declaration'] =
+          require'lsputil.locations'.declaration_handler
+      vim.lsp.handlers['textDocument/typeDefinition'] =
+          require'lsputil.locations'.typeDefinition_handler
+      vim.lsp.handlers['textDocument/implementation'] =
+          require'lsputil.locations'.implementation_handler
+      vim.lsp.handlers['textDocument/documentSymbol'] =
+          require'lsputil.symbols'.document_handler
+      vim.lsp.handlers['workspace/symbol'] =
+          require'lsputil.symbols'.workspace_handler
+    end
+  }
+  use {
     'neovim/nvim-lspconfig',
     requires = { 'nvim-lua/completion-nvim', opt = true },
     config = function()
@@ -223,9 +245,10 @@ return require('packer').startup(function()
         buf_map('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
         buf_map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
         buf_map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+        buf_map('n', '<leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
+
         buf_map('n', '<leader>e',
                 '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-
         buf_map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
         buf_map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
         buf_map('n', '<leader>q',

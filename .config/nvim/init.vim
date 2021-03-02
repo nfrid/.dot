@@ -34,6 +34,7 @@ set number
 set relativenumber
 set nowrap
 set noshowmode
+set signcolumn=yes
 
 set list
 set listchars=tab:▸\ ,trail:⋅
@@ -67,8 +68,8 @@ function! ToggleWrap() abort
     nnoremap <buffer> k gk
   else
     setlocal nowrap
-    unnoremap <buffer> j
-    unnoremap <buffer> k
+    nnoremap <buffer> j
+    nnoremap <buffer> k
   endif
 endfunction
 
@@ -121,7 +122,7 @@ map('n', 'gF', ':e <cfile><CR>')
 map('n', '<leader>ps', ':set spell!<CR>')
 
 map('n', '<leader>w', ':w!<CR>')
-map('n', '<Leader>h', '<CMD>lua vim.o.hls = not vim.o.hls<CR>')
+map('n', '<Leader>,', '<CMD>lua vim.o.hls = not vim.o.hls<CR>')
 map('n', 'Q', ':bd<CR>')
 map('n', '<leader>cd', ':cd %:h<CR>')
 

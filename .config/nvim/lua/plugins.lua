@@ -209,15 +209,17 @@ return require('packer').startup(function()
 
       local on_attach = function(client, bufnr)
         require('completion').on_attach()
-        cmd('inoremap <expr> <Tab>   pumvisible() ? "\\<C-n>" : "\\<Tab>"')
-        cmd('inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"')
-        cmd('inoremap <expr> <C-j>   pumvisible() ? "\\<C-n>" : "\\<C-j>"')
-        cmd('inoremap <expr> <C-k>   pumvisible() ? "\\<C-p>" : "\\<C-k>"')
+        -- cmd('inoremap <expr> <Tab>   pumvisible() ? "\\<C-n>" : "\\<Tab>"')
+        -- cmd('inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"')
+        -- cmd('inoremap <expr> <C-j>   pumvisible() ? "\\<C-n>" : "\\<C-j>"')
+        -- cmd('inoremap <expr> <C-k>   pumvisible() ? "\\<C-p>" : "\\<C-k>"')
         set.completeopt = "menuone,noinsert,noselect"
         -- set.shortmess += "c"
         vim.g.completion_enable_auto_popup = 0
-        cmd('imap <tab> <Plug>(completion_smart_tab)')
-        cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
+        -- cmd('imap <tab> <Plug>(completion_smart_tab)')
+        -- cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
+        cmd('imap <silent> <c-p> <Plug>(completion_trigger)')
+        cmd('imap <silent> <c-n> <Plug>(completion_trigger)')
         vim.g.completion_matching_smart_case = 1
         vim.g.completion_matching_strategy_list =
             { 'exact', 'substring', 'fuzzy', 'all' }
@@ -277,22 +279,22 @@ return require('packer').startup(function()
         nvim_lsp[lsp].setup { on_attach = on_attach }
       end
 
-      -- nvim_lsp.sumneko_lua.setup {
-      --   cmd = { "/usr/bin/lua-language-server" },
-      --   settings = {
-      --     Lua = {
-      --       runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
-      --       diagnostics = { globals = { 'vim' } },
-      --       workspace = {
-      --         library = {
-      --           [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-      --           [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
-      --         }
-      --       }
-      --     }
-      --   },
-      --   on_attach = on_attach
-      -- }
+      nvim_lsp.sumneko_lua.setup {
+        cmd = { "/usr/bin/lua-language-server" },
+        settings = {
+          Lua = {
+            runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
+            diagnostics = { globals = { 'vim' } },
+            workspace = {
+              library = {
+                [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
+              }
+            }
+          }
+        },
+        on_attach = on_attach
+      }
     end
   }
 

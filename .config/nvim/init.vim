@@ -143,6 +143,9 @@ map('n', '<leader>pw', ':ToggleWrap<CR>')
 map('', '<A-w>', '<C-w>')
 
 map('n', '\\\\', '<Esc>/<++><Enter>"_c4l')
+
+cmd('inoremap <expr> <C-j>   pumvisible() ? "\\<C-n>" : "\\<C-j>"')
+cmd('inoremap <expr> <C-k>   pumvisible() ? "\\<C-p>" : "\\<C-k>"')
 EOF
 
 

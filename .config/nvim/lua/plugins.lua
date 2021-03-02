@@ -108,6 +108,9 @@ return require('packer').startup(function()
         javascript = {
           { cmd = { 'prettier -w', './node_modules/.bin/eslint --fix' } }
         },
+        cmake = { { cmd = { 'cmake-format -i' } } },
+        -- c = { { cmd = { 'clang-format -i' } } },
+        cpp = { { cmd = { 'clang-format -i' } } },
         markdown = {
           { cmd = { 'prettier -w' } }, {
             cmd = { 'black' },

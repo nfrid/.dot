@@ -165,6 +165,13 @@ return require('packer').startup(function()
   --   config = function() vim.g.vsnip_filetypes = {} end
   -- }
   use {
+    'mattn/emmet-vim',
+    config = function()
+      vim.g.user_emmet_mode = 'i'
+      vim.g.user_emmet_leader_key = '<A-m>'
+    end
+  }
+  use {
     'SirVer/ultisnips',
     requires = {
       { 'honza/vim-snippets', opt = true },

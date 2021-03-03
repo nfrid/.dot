@@ -1,6 +1,7 @@
 vim.cmd('packadd packer.nvim')
 
 return require('packer').startup(function()
+  local use = require('packer').use
   use { 'wbthomason/packer.nvim', opt = true }
 
   use {
@@ -28,7 +29,7 @@ return require('packer').startup(function()
         icons_enabled = true
       }
 
-      function keymap()
+      local function keymap()
         if vim.bo.iminsert == 0 then
           return [[us]]
         else
@@ -56,6 +57,10 @@ return require('packer').startup(function()
       vim.g.indentLine_color_gui = '#44475a'
       vim.g.indentLine_fileTypeExclude = { 'markdown', 'tex', 'startify' }
     end
+  }
+  use {
+    'machakann/vim-highlightedyank',
+    config = function() vim.g.highlightedyank_highlight_duration = 250 end
   }
 
   use {
@@ -141,7 +146,19 @@ return require('packer').startup(function()
     end
   }
 
-  use 'tyru/caw.vim'
+  use {
+    'b3nj5m1n/kommentary',
+    config = function()
+      require('kommentary.config').use_extended_mappings()
+      require('kommentary.config').configure_language("default", {
+        prefer_single_line_comments = true
+      })
+      -- require('kommentary.config').configure_language("rust", {
+      --   single_line_comment_string = "//",
+      --   multi_line_comment_strings = {"/*", "*/"},
+      -- })
+    end
+  }
   use 'tpope/vim-surround'
   use 'jiangmiao/auto-pairs'
   use 'kana/vim-repeat'
@@ -217,8 +234,8 @@ return require('packer').startup(function()
         set.completeopt = "menuone,noinsert,noselect"
         -- set.shortmess += "c"
         vim.g.completion_enable_auto_popup = 0
-        -- cmd('imap <tab> <Plug>(completion_smart_tab)')
-        -- cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
+        cmd('imap <tab> <Plug>(completion_smart_tab)')
+        cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
         cmd('imap <silent> <c-p> <Plug>(completion_trigger)')
         cmd('imap <silent> <c-n> <Plug>(completion_trigger)')
         vim.g.completion_matching_smart_case = 1
@@ -228,9 +245,9 @@ return require('packer').startup(function()
         -- possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
         vim.g.completion_enable_snippet = 'UltiSnips'
 
-        local function buf_map(mode, map, cmd)
+        local function buf_map(mode, keys, action)
           local opts = { noremap = true, silent = true }
-          vim.api.nvim_buf_set_keymap(bufnr, mode, map, cmd, opts)
+          vim.api.nvim_buf_set_keymap(bufnr, mode, keys, action, opts)
         end
         local function buf_set(...)
           vim.api.nvim_buf_set_option(bufnr, ...)
@@ -304,8 +321,6 @@ return require('packer').startup(function()
     run = function() vim.cmd [[TSUpdate]] end,
     config = function()
       local treesitter = require('nvim-treesitter.configs')
-
-      local meme = "lol"
 
       treesitter.setup {
         highlight = { enable = true },

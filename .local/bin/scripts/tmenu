@@ -1,0 +1,26 @@
+#!/bin/bash
+
+TASKS_DIR="$HOME/Documents/Tasks"
+
+runtask() {
+  alacritty -e $SHELL -c "taskell '$TASKS_DIR/$1.md'"
+}
+
+tasks=$(find "$TASKS_DIR/" -name "*.md" -exec basename {} .md ";")
+
+sel=$(echo -e "$tasks\n:new\n:rm\n:mv" | dmenu -p 'desk')
+
+case $sel in
+  :rm)
+    sel=$(echo "$tasks" | dmenu -p 'rm')
+    rm $TASKS_DIR/$sel.md
+    ;;
+  :mv)
+    sel=$(echo "$tasks" | dmenu -p 'mv')
+    nsel=$(dmenu -p 'as')
+    mv "$TASKS_DIR/$sel.md" "$TASKS_DIR/$nsel.md"
+    ;;
+  *)
+    [[ -z "$sel" ]] || runtask $sel
+  ;;
+esac

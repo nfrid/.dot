@@ -87,26 +87,13 @@ endfunction
 autocmd BufReadPost *.zsh,.zshrc set filetype=sh
 
 
-" Pre Lua Utils
+" yes
 
 lua << EOF
-function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then options = vim.tbl_extend("force", options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+require('vutils')
 
-cmd = vim.api.nvim_command
-exe = vim.api.nvim_exec
-set = vim.o
-EOF
+require('plugins')
 
-lua require('plugins')
-
-
-" Mappings
-
-lua << EOF
 vim.mapleader = ' '
 vim.g.mapleader = ' '
 
@@ -146,6 +133,8 @@ map('n', '\\\\', '<Esc>/<++><Enter>"_c4l')
 
 cmd('inoremap <expr> <C-j>   pumvisible() ? "\\<C-n>" : "\\<C-j>"')
 cmd('inoremap <expr> <C-k>   pumvisible() ? "\\<C-p>" : "\\<C-k>"')
+cmd('inoremap <expr> <Tab>   pumvisible() ? "\\<C-n>" : "\\<Tab>"')
+cmd('inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"')
 EOF
 
 

@@ -1,25 +1,31 @@
 #!/bin/bash
 
 NOTES_DIR="$HOME/Documents/Notes"
-notes=$(find "$NOTES_DIR/" -name "*.md" -exec basename {} .md ";")
-note=$(echo "$notes" | rofi -kb-custom-1 "Alt+n" -kb-custom-2 "Alt+d" -kb-custom-3 "Alt+r" -dmenu -i -p 'Note')
 
-case $? in
-  10)
-    note=$(echo "" | rofi -dmenu -i -p 'Enter a name for a new note')
-    echo "# $note" >"$NOTES_DIR/$note.md"
+runvim() {
+  alacritty -e $SHELL -c "nvim '$NOTES_DIR/$1.md'"
+}
+
+notes=$(find "$NOTES_DIR/" -name "*.md" -exec basename {} .md ";")
+
+sel=$(echo -e "$notes\n:new\n:rm\n:mv" | dmenu -p 'note')
+
+case $sel in
+  :rm)
+    sel=$(echo "$notes" | dmenu -p 'rm')
+    rm $NOTES_DIR/$sel.md
     ;;
-  11)
-    note=$(echo "$notes" | rofi -dmenu -i -p "Remove")
-    rm "$NOTES_DIR/$note.md"
-    note=""
+  :mv)
+    sel=$(echo "$notes" | dmenu -p 'mv')
+    nsel=$(dmenu -p 'as')
+    mv "$NOTES_DIR/$sel.md" "$NOTES_DIR/$nsel.md"
     ;;
-  12)
-    old=$(echo "$notes" | rofi -dmenu -i -p "Choose a note to rename")
-    note=$(echo "" | rofi -dmenu -i -p 'Enter a new name for a note')
-    mv "$NOTES_DIR/$old.md" "$NOTES_DIR/$note.md"
+  :new)
+    sel=$(dmenu -p 'new')
+    echo "# $sel" >> $NOTES_DIR/$sel.md
+    runvim $sel
     ;;
-  0) 
-    [[ -z "$note" ]] || alacritty -e $SHELL -c "sleep 0.05 && nvim '$NOTES_DIR/$note.md'"
-    ;;
+  *)
+    [[ -z "$sel" ]] || runvim $sel
+  ;;
 esac

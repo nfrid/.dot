@@ -71,7 +71,6 @@
   "vim.easymotion": true,
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": true,
-  "vim.neovimPath": "/usr/bin/nvim",
   "vim.smartRelativeLine": true,
   "vim.visualstar": true,
   "vim.foldfix": true,

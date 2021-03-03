@@ -42,7 +42,7 @@ font-2 = Arial:size=14;4
 
 modules-left = bspwm xwindow
 ; modules-right = player upd task cpu temp mem sound layout time tray-div
-modules-center = upd task sound time battery layout
+modules-center = upd battery time sound layout
 ; modules-right = player cpu temp mem tray-div
 modules-right = player tray-div
 

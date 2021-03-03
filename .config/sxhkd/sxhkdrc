@@ -32,7 +32,7 @@ super + d
 
 # dmenu run
 super + r
-  useus dmenu_run -p run
+  xkb-switch -s us && dmenu_run -p run
 
 # rofi desktop
 super + shift + d
@@ -61,7 +61,7 @@ super +{_, shift +} o
 
 # browse config files
 super + g
-  git --git-dir="${DOTBARE_DIR}" --work-tree="$HOME" ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e nvim $HOME/sel
+  xkb-switch -s us && git --git-dir="${DOTBARE_DIR}" --work-tree="$HOME" ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e nvim $HOME/sel
 
 # fedit configs
 super + shift + g
@@ -74,6 +74,14 @@ super + equal
 # note manager
 super + slash
   useus note
+
+# taskell
+super + t
+  ls ~/Documents/Tasks | useus dmenu -p task | xargs -I sel $TERM -e taskell ~/Documents/Tasks/sel
+
+# rm taskell task
+super + shift + t
+  ls ~/Documents/Tasks | useus dmenu -p rm | xargs -I sel rm ~/Documents/Tasks/sel
 
 # unicode symbols picker
 super + alt + apostrophe
@@ -210,9 +218,9 @@ super + ctrl + 0
 super + m
   bspc desktop -l next
 
-# manage layouts
+# toggle tall layout
 super + semicolon
-  useus bspl
+  bsp-layout cycle --layouts tall,tiled
 
 # send the newest marked node to the newest preselected node
 super + i

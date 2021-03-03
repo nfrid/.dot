@@ -19,8 +19,8 @@ case "$class" in
   lxpolkit) echo"
     focus=on
     ";;
-  copyq|Crow\ Translate|lxappearance) echo "
-    state=floating
+  Crow\ Translate) echo "
+    desktop=e
     ";;
   sxiv|Zathura) echo "
     state=tiled
@@ -33,12 +33,6 @@ case "$class" in
     ";;
   *)
     # If window doesn't have class on startup
-    case $(ps -p "$(xdo pid "$id")" -o comm= 2>/dev/null) in
-      spotify) echo "
-        desktop=^9
-        ";;
-      emacs) echo "
-        state=tiled
-        ";;
-    esac;;
+    # case $(ps -p "$(xdo pid "$id")" -o comm= 2>/dev/null) in
+    # esac;;
 esac;

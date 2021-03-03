@@ -145,6 +145,7 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'jiangmiao/auto-pairs'
   use 'kana/vim-repeat'
+  use 'junegunn/vim-peekaboo'
 
   use 'kana/vim-textobj-user'
   use 'Chun-Yang/vim-textobj-chunk'
@@ -272,8 +273,8 @@ return require('packer').startup(function()
       end
 
       local servers = {
-        "vimls", "pyright", "tsserver", "vuels", "yamlls", "ccls", "jsonls",
-        "cmake"
+        "bashls", "vimls", "pyright", "tsserver", "vuels", "yamlls", "ccls",
+        "jsonls", "cmake"
       }
       for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup { on_attach = on_attach }

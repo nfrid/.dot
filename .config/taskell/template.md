@@ -1,8 +1,5 @@
-## To Do
+## TODO
 
+## Doin'
 
-## Doing
-
-
-## Done
-
+## Dun

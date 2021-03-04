@@ -19,9 +19,6 @@ case "$class" in
   lxpolkit) echo"
     focus=on
     ";;
-  Crow\ Translate) echo "
-    desktop=e
-    ";;
   sxiv|Zathura) echo "
     state=tiled
     ";;

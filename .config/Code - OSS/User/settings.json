@@ -5,23 +5,14 @@
     "source.fixAll": true
   },
   "workbench.colorTheme": "Dracula",
-  "tabnine.experimentalAutoImports": true,
   "keyboard.dispatch": "keyCode",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "vim.leader": " ",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<leader>", "w"],
-      "commands": ["workbench.action.files.save"]
-    },
-    {
       "before": ["K"],
       "commands": ["editor.action.showHover"]
-    },
-    {
-      "before": ["<leader>", "n"],
-      "commands": ["workbench.files.action.focusFilesExplorer"]
     },
     {
       "before": ["<leader>", "f"],
@@ -32,19 +23,19 @@
       "commands": [":noh"]
     },
     {
-      "before": ["]", "g"],
+      "before": ["]", "d"],
       "commands": ["editor.action.marker.next"]
     },
     {
-      "before": ["[", "g"],
+      "before": ["[", "d"],
       "commands": ["editor.action.marker.prev"]
     },
     {
-      "before": ["]", "G"],
+      "before": ["]", "D"],
       "commands": ["editor.action.marker.nextInFiles"]
     },
     {
-      "before": ["[", "G"],
+      "before": ["[", "D"],
       "commands": ["editor.action.marker.prevInFiles"]
     },
     {
@@ -68,7 +59,6 @@
   "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/xkb-switch -s {im}",
   "vim.autoSwitchInputMethod.defaultIM": "us",
   "vim.autoSwitchInputMethod.enable": true,
-  "vim.easymotion": true,
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": true,
   "vim.smartRelativeLine": true,
@@ -93,10 +83,7 @@
   "terminal.integrated.allowMnemonics": true,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.experimentalUseTitleEvent": true,
-  "vim.sneak": true,
   "liveServer.settings.donotShowInfoMsg": true,
-  "spellright.language": ["en_US", "ru_RU"],
-  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
   "git.enableSmartCommit": true,
   "window.menuBarVisibility": "hidden",
   "window.enableMenuBarMnemonics": false,
@@ -112,6 +99,8 @@
   "editor.suggestSelection": "first",
   "vim.statusBarColorControl": false,
   "git.autofetch": true,
-  "projects.configPath": "/home/nf/.local/share/code/vscode_projects.json"
+  "projects.configPath": "/home/nf/.local/share/code/vscode_projects.json",
+  "vim.highlightedyank.duration": 250,
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
 // "vim.statusBarColorControl": true,

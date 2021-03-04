@@ -13,7 +13,6 @@ alias \
   _="sudo" \
   py="python" \
   bpy="bpython" \
-  psys="bpytop" \
   f="fuck" \
   nb="newsboat" \
   m="neomutt" \

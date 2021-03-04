@@ -13,7 +13,7 @@ follow=on
 # Class rules
 case "$class" in
   Screenkey) manage=off;;
-  [Dd]iscord|TelegramDesktop) echo "
+  [Dd]iscord|TelegramDesktop|VK) echo "
     desktop=^3
     ";;
   lxpolkit) echo"

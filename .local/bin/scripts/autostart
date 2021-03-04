@@ -18,4 +18,5 @@ austart xfce4-power-manager
 # austart stretchly
 austart telegram-desktop telegram-deskto
 # austart discord Discord
+austart vk
 austart crow

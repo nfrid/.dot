@@ -7,7 +7,7 @@ hibernate
 reboot
 shutdown")
 
-choice=$(echo -e "${options[@]}" | rofi -dmenu -i -p 'System')
+choice=$(echo -e "${options[@]}" | dmenu -p 'System')
 
 case "$choice" in
 	lock)

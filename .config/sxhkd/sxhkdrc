@@ -180,6 +180,10 @@ super + alt + s
 super + alt + t
   telegram-desktop
 
+# start vk messenger
+super + alt + v
+  vk
+
 # system control
 super + shift + Escape
   useus system

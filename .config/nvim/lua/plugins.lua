@@ -1,3 +1,4 @@
+-- TODO: https://github.com/nvim-telescope/telescope.nvim
 vim.cmd('packadd packer.nvim')
 
 return require('packer').startup(function()
@@ -136,6 +137,13 @@ return require('packer').startup(function()
   }
 
   use {
+    'numtostr/FTerm.nvim',
+    config = function()
+      map('n', '<M-r>', '<CMD>lua require"FTerm".toggle()<CR>')
+      map('t', '<M-r>', '<C-\\><C-n><CMD>lua require"FTerm".toggle()<CR>')
+    end
+  }
+  use {
     'junegunn/fzf.vim',
     requires = { 'junegunn/fzf', opt = true },
     config = function()
@@ -149,7 +157,7 @@ return require('packer').startup(function()
   use {
     'b3nj5m1n/kommentary',
     config = function()
-      require('kommentary.config').use_extended_mappings()
+      -- require('kommentary.config').use_extended_mappings()
       require('kommentary.config').configure_language("default", {
         prefer_single_line_comments = true
       })

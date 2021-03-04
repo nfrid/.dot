@@ -251,6 +251,8 @@ statusbar = {
         act = { priority = "10"; };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
+        vim_mode = { };
+        vim_windows = { };
       };
     };
 
@@ -270,19 +272,6 @@ statusbar = {
       };
     };
 
-    prompt = {
-
-      type = "root";
-      placement = "bottom";
-      position = "100";
-      visible = "always";
-
-      items = {
-        prompt = { priority = "-1"; };
-        prompt_empty = { priority = "-1"; };
-        input = { priority = "10"; };
-      };
-    };
 
     topic = {
 
@@ -298,9 +287,37 @@ statusbar = {
         topicbarend = { priority = "100"; alignment = "right"; };
       };
     };
+    prompt = {
+      items = {
+        uberprompt = { priority = "-1"; };
+        input = { priority = "10"; };
+      };
+      position = "100";
+    };
   };
 };
 settings = {
-  core = { real_name = "Nick Friday"; user_name = "nf"; nick = "nf"; };
+  core = { 
+    real_name = "Nick Friday";
+    user_name = "nfrid";
+    nick = "nfrid";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = {
+    theme = "h3rbz";
+    hilight_nick_matches_everywhere = "yes";
+    show_nickmode_empty = "yes";
+    autocreate_own_query = "no";
+    autocreate_query_level = "DCCMSGS";
+    use_status_window = "no";
+    use_msgs_window = "yes";
+    autoclose_windows = "no";
+    reuse_unused_windows = "yes";
+  };
+  "irc/core" = { alternate_nick = "nfriday"; };
 };
+keyboard = (
+  { key = "meta-c"; id = "command"; data = "quit "; },
+  { key = "\003"; id = "command"; data = "quit "; },
+  { key = "^C"; id = "command"; data = "quit "; }
+);

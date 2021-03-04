@@ -1,12 +1,12 @@
 require('vutils')
 
-exe([[
+Exe([[
   filetype plugin indent on
   syntax on
   set hidden
 ]], true)
 
-exe([[
+Exe([[
   set formatoptions-=cro
   set smartindent
   set expandtab
@@ -23,14 +23,14 @@ exe([[
   set clipboard=unnamed
 ]], true)
 
-exe([[
+Exe([[
   set nospell spelllang=en_us,ru_yo
   set keymap=russian-jcukenwin
   set iminsert=0
   set imsearch=-1
 ]], true)
 
-exe([[
+Exe([[
   set number
   set relativenumber
   set nowrap
@@ -38,21 +38,21 @@ exe([[
   set signcolumn=yes
 ]], true)
 
-exe([[
+Exe([[
   set list
   set listchars=tab:▸\ ,trail:⋅
 
   set cc=81
 ]], true)
 
-exe([[
+Exe([[
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   if (has("termguicolors"))
     set termguicolors
   endif
 ]], true)
 
-exe([[
+Exe([[
   set guifont=droidsansmono\ nerd\ font\ 11
   set guicursor+=a:blinkon1
 ]], true)
@@ -61,7 +61,7 @@ vim.g.vimsyn_embed = 'l'
 
 -- Custom commands and stuff
 
-exe([[
+Exe([[
   function! ToggleConceal() abort
     if &conceallevel ==# 2
       setlocal conceallevel=0
@@ -71,7 +71,7 @@ exe([[
   endfunction
 ]], true)
 
-exe([[
+Exe([[
   function! ToggleWrap() abort
     if &wrap ==# 'nowrap'
       setlocal wrap linebreak
@@ -85,8 +85,8 @@ exe([[
   endfunction
 ]], true)
 
-exe([[
-  function! ToggleKeymap() abort
+Exe([[
+  function! ToggleKeyMap() abort
     if &iminsert ==# ''
       setlocal iminsert=1
     else
@@ -95,48 +95,49 @@ exe([[
   endfunction
 ]], true)
 
-cmd("autocmd BufReadPost *.zsh,.zshrc set filetype=sh")
+Cmd("autocmd BufReadPost *.zsh,.zshrc set filetype=sh")
 
--- Mappings
+-- mappings
 
 vim.mapleader = ' '
 vim.g.mapleader = ' '
 
-map('n', '<SPACE>', '<NOP>')
-map('n', '<tab>', '<CMD>bp<CR>')
-map('n', '<s-tab>', '<CMD>bn<CR>')
+Map('n', '<SPACE>', '<NOP>')
+Map('n', '<tab>', '<CMD>bp<CR>')
+Map('n', '<s-tab>', '<CMD>bn<CR>')
 
-map('n', 'gF', ':e <cfile><CR>')
+Map('n', 'gF', ':e <cfile><CR>')
 
--- map('n', '<leader>w', ':w!<CR>')
-map('n', '<Leader>,', '<CMD>lua vim.o.hls = not vim.o.hls<CR>')
-map('n', 'Q', ':bd<CR>')
-map('n', '<leader>cd', ':cd %:h<CR>')
+-- Map('n', '<leader>w', ':w!<CR>')
+Map('n', '<Leader>,', '<CMD>lua vim.o.hls = not vim.o.hls<CR>')
+Map('n', 'Q', ':bd<CR>')
+Map('n', '<leader>cd', ':cd %:h<CR>')
 
-map('n', '<leader>ve', ':e $MYVIMRC<CR>')
-map('n', '<leader>vs', ':so $MYVIMRC<CR>')
+Map('n', '<leader>ve', ':e $MYVIMRC<CR>')
+Map('n', '<leader>vs', ':so $MYVIMRC<CR>')
 
-map('n', '<A-l>', ':call ToggleKeymap()<CR>')
-map('i', '<A-l>', '<C-^>')
+Map('n', '<A-l>', ':call ToggleKeyMap()<CR>')
+Map('i', '<A-l>', '<C-^>')
 
-map('n', '<leader>ps', ':set spell!<CR>')
-map('n', '<leader>pc', ':call ToggleConceal()<CR>')
-map('n', '<leader>pw', ':call ToggleWrap()<CR>')
+Map('n', '<leader>ps', ':set spell!<CR>')
+Map('n', '<leader>pc', ':call ToggleConceal()<CR>')
+Map('n', '<leader>pw', ':call ToggleWrap()<CR>')
 
-map('', '<A-w>', '<C-w>')
+Map('', '<A-w>', '<C-w>')
+Map('t', '<A-a>', '<C-\\><C-n>')
 
-map('n', '\\\\', '<Esc>/<++><Enter>"_c4l')
+Map('n', '\\\\', '<Esc>/<++><Enter>"_c4l')
 
-cmd('inoremap <expr> <C-j>   pumvisible() ? "\\<C-n>" : "\\<C-j>"')
-cmd('inoremap <expr> <C-k>   pumvisible() ? "\\<C-p>" : "\\<C-k>"')
-cmd('inoremap <expr> <Tab>   pumvisible() ? "\\<C-n>" : "\\<Tab>"')
-cmd('inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"')
+Cmd('inoremap <expr> <C-j>   pumvisible() ? "\\<C-n>" : "\\<C-j>"')
+Cmd('inoremap <expr> <C-k>   pumvisible() ? "\\<C-p>" : "\\<C-k>"')
+Cmd('inoremap <expr> <Tab>   pumvisible() ? "\\<C-n>" : "\\<Tab>"')
+Cmd('inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"')
 
 -- Plugins & mixed plugin configs
 
 require('plugins')
 
-exe([[
+Exe([[
   hi def link rainbowcol1 DraculaGreen
   hi def link rainbowcol2 DraculaPink
   hi def link rainbowcol3 DraculaOrange

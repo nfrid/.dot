@@ -8,14 +8,14 @@ return require('packer').startup(function()
   use {
     'dracula/vim',
     config = function()
-      cmd('colorscheme dracula')
-      set.cursorline = true
-      cmd('hi CursorLine guibg=#343746')
+      Cmd('colorscheme dracula')
+      Set.cursorline = true
+      Cmd('hi CursorLine guibg=#343746')
     end
   }
   use {
     'mhinz/vim-startify',
-    config = function() map('n', '<leader>s', ':Startify<CR>') end
+    config = function() Map('n', '<leader>s', ':Startify<CR>') end
   }
   use {
     "hoob3rt/lualine.nvim",
@@ -50,6 +50,7 @@ return require('packer').startup(function()
       lualine.status()
     end
   }
+  use 'pacha/vem-tabline'
   use {
     'Yggdroot/indentLine',
     config = function()
@@ -67,9 +68,9 @@ return require('packer').startup(function()
   use {
     'reedes/vim-pencil',
     config = function()
-      cmd('let pencil#wrapModeDefault = "soft"')
-      cmd('let g:pencil#conceallevel = 0')
-      map('n', '<leader>pp', ':TogglePencil<CR>')
+      Cmd('let pencil#wrapModeDefault = "soft"')
+      Cmd('let g:pencil#conceallevel = 0')
+      Map('n', '<leader>pp', ':TogglePencil<CR>')
     end
   }
   use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
@@ -127,7 +128,7 @@ return require('packer').startup(function()
         },
         python = { { cmd = { 'black' } } }
       }
-      exe([[
+      Exe([[
       augroup Format
       autocmd!
       autocmd BufWritePost * FormatWrite
@@ -139,18 +140,18 @@ return require('packer').startup(function()
   use {
     'numtostr/FTerm.nvim',
     config = function()
-      map('n', '<M-r>', '<CMD>lua require"FTerm".toggle()<CR>')
-      map('t', '<M-r>', '<C-\\><C-n><CMD>lua require"FTerm".toggle()<CR>')
+      Map('n', '<M-r>', '<CMD>lua require"FTerm".toggle()<CR>')
+      Map('t', '<M-r>', '<C-\\><C-n><CMD>lua require"FTerm".toggle()<CR>')
     end
   }
   use {
     'junegunn/fzf.vim',
     requires = { 'junegunn/fzf', opt = true },
     config = function()
-      map('n', '<leader>f', ':Files<CR>')
-      map('n', '<leader>o', ':Buffers<CR>')
-      map('n', '<leader>g', ':Rg<CR>')
-      map('n', '<C-f>', ':BLines<CR>')
+      Map('n', '<leader>f', ':Files<CR>')
+      Map('n', '<leader>o', ':Buffers<CR>')
+      Map('n', '<leader>g', ':Rg<CR>')
+      Map('n', '<C-f>', ':BLines<CR>')
     end
   }
 
@@ -239,13 +240,13 @@ return require('packer').startup(function()
         -- cmd('inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"')
         -- cmd('inoremap <expr> <C-j>   pumvisible() ? "\\<C-n>" : "\\<C-j>"')
         -- cmd('inoremap <expr> <C-k>   pumvisible() ? "\\<C-p>" : "\\<C-k>"')
-        set.completeopt = "menuone,noinsert,noselect"
+        Set.completeopt = "menuone,noinsert,noselect"
         -- set.shortmess += "c"
         vim.g.completion_enable_auto_popup = 0
-        cmd('imap <tab> <Plug>(completion_smart_tab)')
-        cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
-        cmd('imap <silent> <c-p> <Plug>(completion_trigger)')
-        cmd('imap <silent> <c-n> <Plug>(completion_trigger)')
+        Cmd('imap <tab> <Plug>(completion_smart_tab)')
+        Cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
+        Cmd('imap <silent> <c-p> <Plug>(completion_trigger)')
+        Cmd('imap <silent> <c-n> <Plug>(completion_trigger)')
         vim.g.completion_matching_smart_case = 1
         vim.g.completion_matching_strategy_list =
             { 'exact', 'substring', 'fuzzy', 'all' }
@@ -344,8 +345,8 @@ return require('packer').startup(function()
         rainbow = { enable = true }
       }
 
-      set.foldmethod = 'expr'
-      set.foldexpr = 'nvim_treesitter#foldexpr()'
+      Set.foldmethod = 'expr'
+      Set.foldexpr = 'nvim_treesitter#foldexpr()'
     end
   }
   use 'romgrk/nvim-treesitter-context'

@@ -144,14 +144,32 @@ return require('packer').startup(function()
       Map('t', '<M-r>', '<C-\\><C-n><CMD>lua require"FTerm".toggle()<CR>')
     end
   }
+  -- use {
+  --   'junegunn/fzf.vim',
+  --   requires = { 'junegunn/fzf', opt = true },
+  --   config = function()
+  --     Map('n', '<leader>f', ':Files<CR>')
+  --     Map('n', '<leader>o', ':Buffers<CR>')
+  --     Map('n', '<leader>g', ':Rg<CR>')
+  --     Map('n', '<C-f>', ':BLines<CR>')
+  --   end
+  -- }
   use {
-    'junegunn/fzf.vim',
-    requires = { 'junegunn/fzf', opt = true },
+    'nvim-telescope/telescope.nvim',
+    requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
     config = function()
-      Map('n', '<leader>f', ':Files<CR>')
-      Map('n', '<leader>o', ':Buffers<CR>')
-      Map('n', '<leader>g', ':Rg<CR>')
-      Map('n', '<C-f>', ':BLines<CR>')
+      require('telescope').setup { defaults = { initial_mode = "normal" } }
+      Map('n', '<leader>f',
+          '<cmd>lua require("telescope.builtin").file_browser()<CR>')
+      Map('n', '<leader>o',
+          '<cmd>lua require("telescope.builtin").buffers()<CR>')
+      Map('n', '<leader>t',
+          '<cmd>lua require("telescope.builtin").treesitter()<CR>')
+      Map('n', '<C-f>',
+          '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>i')
+      Map('n', '<F1>', '<cmd>lua require("telescope.builtin").commands()<CR>')
+      Map('n', '<leader>D',
+          '<cmd>lua require("telescope.builtin").lsp_diagnostics()<CR>')
     end
   }
 

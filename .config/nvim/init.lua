@@ -97,6 +97,8 @@ Exe([[
 
 Cmd("autocmd BufReadPost *.zsh,.zshrc set filetype=sh")
 
+Cmd("command! W :w!")
+
 -- mappings
 
 vim.mapleader = ' '
@@ -112,6 +114,9 @@ Map('n', 'gF', ':e <cfile><CR>')
 Map('n', '<Leader>,', '<CMD>lua vim.o.hls = not vim.o.hls<CR>')
 Map('n', 'Q', ':bd<CR>')
 Map('n', '<leader>cd', ':cd %:h<CR>')
+
+Map('n', '>', '>>')
+Map('n', '<', '<<')
 
 Map('n', '<leader>ve', ':e $MYVIMRC<CR>')
 Map('n', '<leader>vs', ':so $MYVIMRC<CR>')
@@ -136,13 +141,3 @@ Cmd('inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"')
 -- Plugins & mixed plugin configs
 
 require('plugins')
-
-Exe([[
-  hi def link rainbowcol1 DraculaGreen
-  hi def link rainbowcol2 DraculaPink
-  hi def link rainbowcol3 DraculaOrange
-  hi def link rainbowcol4 DraculaPurple
-  hi def link rainbowcol5 DraculaYellow
-  hi def link rainbowcol6 DraculaCyan
-  hi def link rainbowcol7 DraculaRed
-]], true)

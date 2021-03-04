@@ -128,12 +128,13 @@ return require('packer').startup(function()
         },
         python = { { cmd = { 'black' } } }
       }
-      Exe([[
-      augroup Format
-      autocmd!
-      autocmd BufWritePost * FormatWrite
-      augroup END
-        ]], true)
+      -- Exe([[
+      -- augroup Format
+      -- autocmd!
+      -- autocmd BufWritePost * FormatWrite
+      -- augroup END
+      --   ]], true)
+      Map('n', '<leader>F', ':FormatWrite<CR>')
     end
   }
 
@@ -368,7 +369,19 @@ return require('packer').startup(function()
     end
   }
   use 'romgrk/nvim-treesitter-context'
-  use 'p00f/nvim-ts-rainbow'
+  use {'p00f/nvim-ts-rainbow',
+    config = function ()
+      Exe([[
+        hi rainbowcol1 guifg=#ffd700
+        hi rainbowcol2 guifg=#ff00d7
+        hi rainbowcol3 guifg=#00ffd7
+        hi rainbowcol4 guifg=#d7ff00
+        hi rainbowcol5 guifg=#ff7070
+        hi rainbowcol6 guifg=#d700ff
+        hi rainbowcol7 guifg=#00d7ff
+      ]], true)
+    end
+  }
 
   use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
 end)

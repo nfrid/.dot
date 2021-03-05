@@ -11,8 +11,20 @@
   "vim.leader": " ",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
       "before": ["K"],
       "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": [">"],
+      "after": [">", ">"]
+    },
+    {
+      "before": ["<"],
+      "after": ["<", "<"]
     },
     {
       "before": ["<leader>", "f"],

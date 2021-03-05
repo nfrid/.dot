@@ -28,11 +28,11 @@ super + y
 
 # dmenu desktop
 super + d
-  useus j4-dmenu-desktop --dmenu="dmenu -p desktop"
+  j4-dmenu-desktop --dmenu="dmenu -p desktop"
 
 # dmenu run
 super + r
-  xkb-switch -s us && dmenu_run -p run
+  dmenu_run -p run
 
 # rofi desktop
 super + shift + d
@@ -61,7 +61,7 @@ super +{_, shift +} o
 
 # browse config files
 super + g
-  xkb-switch -s us && git --git-dir="${DOTBARE_DIR}" --work-tree="$HOME" ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e nvim $HOME/sel
+  git --git-dir="${DOTBARE_DIR}" --work-tree="$HOME" ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e nvim $HOME/sel
 
 # fedit configs
 super + shift + g
@@ -73,23 +73,23 @@ super + equal
 
 # note manager
 super + slash
-  useus note
+  note
 
 # taskell
 super + t
-  useus tmenu
+  tmenu
 
 # unicode symbols picker
 super + alt + apostrophe
-  useus unipicker --command "dmenu -p unicode" --copy-command "xclip -sel clip"
+  unipicker --command "dmenu -l 5 -p unicode" --copy-command "xclip -sel clip"
 
 # emoji picker
 super + apostrophe
-  cat $HOME/.local/share/emoji-data.txt | useus dmenu -F -p emoji -l 5 | cut -d "	" -f1 | tr -d $'\n' | xclip -sel clip
+  cat $HOME/.local/share/emoji-data.txt | dmenu -F -p emoji -l 5 | cut -d "	" -f1 | tr -d $'\n' | xclip -sel clip
 
 # rofi emoji picker
 super + shift + apostrophe
-  useus splatmoji copy
+  splatmoji copy
 
 # password manager
 super + p
@@ -98,7 +98,7 @@ super + p
 
 # passmenu
 super + shift + p
-  useus passmenu -p pass
+  passmenu -p pass
 
 # brightness control
 XF86MonBrightness{Up,Down}
@@ -142,7 +142,7 @@ super + e
 
 # man
 super + shift + m
-  man -k . | useus dmenu -p man -l 5 | cut -d " " -f1 | xargs -I sel $TERM -e man sel
+  man -k . | dmenu -p man -l 5 | cut -d " " -f1 | xargs -I sel $TERM -e man sel
 
 # start gui file manager
 super + alt + e
@@ -186,7 +186,7 @@ super + alt + v
 
 # system control
 super + shift + Escape
-  useus system
+  system
 
 # toggle picom
 super + F12

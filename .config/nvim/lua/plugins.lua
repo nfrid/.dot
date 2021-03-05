@@ -113,7 +113,13 @@ return require('packer').startup(function()
           { cmd = { "gofmt -w", "goimports -w" }, tempfile_postfix = ".tmp" }
         },
         javascript = {
-          { cmd = { 'prettier -w', './node_modules/.bin/eslint --fix' } }
+          { cmd = { 'prettier -w', 'eslint --fix' } }
+        },
+        typescript = {
+          { cmd = { 'prettier -w', 'eslint --fix' } }
+        },
+        json = {
+          { cmd = { 'prettier -w'} }
         },
         cmake = { { cmd = { 'cmake-format -i' } } },
         -- c = { { cmd = { 'clang-format -i' } } },
@@ -264,8 +270,8 @@ return require('packer').startup(function()
         vim.g.completion_enable_auto_popup = 0
         Cmd('imap <tab> <Plug>(completion_smart_tab)')
         Cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
-        Cmd('imap <silent> <c-p> <Plug>(completion_trigger)')
-        Cmd('imap <silent> <c-n> <Plug>(completion_trigger)')
+        -- Cmd('imap <silent> <c-p> <Plug>(completion_trigger)')
+        -- Cmd('imap <silent> <c-n> <Plug>(completion_trigger)')
         vim.g.completion_matching_smart_case = 1
         vim.g.completion_matching_strategy_list =
             { 'exact', 'substring', 'fuzzy', 'all' }
@@ -351,7 +357,7 @@ return require('packer').startup(function()
       local treesitter = require('nvim-treesitter.configs')
 
       treesitter.setup {
-        highlight = { enable = true },
+        highlight = { enable = true, disable = { 'yaml' } },
         incremental_selection = {
           enable = true,
           keymaps = {
@@ -360,7 +366,7 @@ return require('packer').startup(function()
             node_decremental = 'gr'
           }
         },
-        indent = { enable = true },
+        indent = { enable = true, disable = { 'javascript', 'typescript' } },
         rainbow = { enable = true }
       }
 

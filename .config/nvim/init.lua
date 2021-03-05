@@ -40,7 +40,8 @@ Exe([[
 
 Exe([[
   set list
-  set listchars=tab:▸\ ,trail:⋅
+  " set listchars=tab:▸\ ,trail:⋅
+  set listchars=tab:▏\ ,trail:⋅
 
   set cc=81
 ]], true)
@@ -110,16 +111,16 @@ Map('n', '<s-tab>', '<CMD>bn<CR>')
 
 Map('n', 'gF', ':e <cfile><CR>')
 
--- Map('n', '<leader>w', ':w!<CR>')
+Map('n', '<leader>w', ':w!<CR>')
 Map('n', '<Leader>,', '<CMD>lua vim.o.hls = not vim.o.hls<CR>')
 Map('n', 'Q', ':bd<CR>')
 Map('n', '<leader>cd', ':cd %:h<CR>')
+Map('n', '<leader>cp', ':let @+ = expand("%:p:h")<CR>')
 
 Map('n', '>', '>>')
 Map('n', '<', '<<')
 
-Map('n', '<leader>ve', ':e $MYVIMRC<CR>')
-Map('n', '<leader>vs', ':so $MYVIMRC<CR>')
+Map('n', '<leader>vv', ':e $MYVIMRC<CR>')
 
 Map('n', '<A-l>', ':call ToggleKeyMap()<CR>')
 Map('i', '<A-l>', '<C-^>')

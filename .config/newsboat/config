@@ -2,6 +2,7 @@ max-items 100
 
 unbind-key ,
 bind-key z macro-prefix
+bind-key я macro-prefix
 
 browser "/usr/bin/qutebrowser %u"
 macro y set browser "/usr/bin/nohup /usr/bin/mpv %u >/dev/null &"; open-in-browser ; quit ; quit ; quit ; quit ; quit

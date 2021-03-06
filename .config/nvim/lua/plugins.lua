@@ -366,7 +366,7 @@ return require('packer').startup(function()
             node_decremental = 'gr'
           }
         },
-        indent = { enable = true, disable = { 'javascript', 'typescript' } },
+        indent = { enable = true, disable = { 'javascript', 'typescript', 'c', 'cpp' } },
         rainbow = { enable = true }
       }
 
@@ -388,6 +388,7 @@ return require('packer').startup(function()
       ]], true)
     end
   }
+  use 'dag/vim-fish'
 
   use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
 end)

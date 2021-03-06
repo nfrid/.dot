@@ -9,7 +9,7 @@ function zle-keymap-select {
     [[ ${KEYMAP} == viins ]] ||
     [[ ${KEYMAP} = '' ]] ||
     [[ $1 = 'beam' ]]; then
-        echo -ne '\e[5 q'
+      echo -ne '\e[5 q'
   fi
 }
 zle -N zle-keymap-select

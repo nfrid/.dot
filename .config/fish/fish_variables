@@ -7,7 +7,17 @@ SETUVAR FZF_LEGACY_KEYBINDINGS:1
 SETUVAR FZF_PREVIEW_DIR_CMD:ls
 SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
 SETUVAR FZF_TMUX_HEIGHT:40\x25
+SETUVAR VIRTUAL_ENV_DISABLE_PROMPT:true
 SETUVAR __fish_initialized:0
+SETUVAR _tide_color_dark_blue:0087AF
+SETUVAR _tide_color_dark_green:5FAF00
+SETUVAR _tide_color_gold:D7AF00
+SETUVAR _tide_color_green:5FD700
+SETUVAR _tide_color_light_blue:00AFFF
+SETUVAR _tide_left_prompt_display_3443182:\x1b\x28B\x1b\x5bm
+SETUVAR _tide_right_prompt_display_3443182:\x1d
+SETUVAR _tide_root:\x1d
+SETUVAR _tide_var_list:_tide_color_dark_blue\x1e_tide_color_dark_green\x1e_tide_color_gold\x1e_tide_color_green\x1e_tide_color_light_blue\x1e_tide_root\x1eVIRTUAL_ENV_DISABLE_PROMPT
 SETUVAR fish_color_autosuggestion:BD93F9
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:50FA7B

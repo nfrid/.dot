@@ -373,7 +373,7 @@ cursor:
   #   - _ Underline
   #   - | Beam
   # style:
-    # blinking: On
+  #   blinking: On
 
   # Vi mode cursor style
   #

@@ -5,6 +5,8 @@
 
 . ~/.config/fish/aliases.fish
 . ~/.config/fish/func.fish
+. ~/.config/fish/keys.fish
+fish_user_key_bindings
 
 
 # Remove fish default greeting
@@ -13,7 +15,7 @@ set -gx fish_greeting ''
 function fish_prompt
   set last_status $status
 
-  echo
+  # echo
   set_color -o magenta
   # printf ' %s' (echo $PWD | sed -e "s|^$HOME|~|")
   printf ' '
@@ -49,7 +51,7 @@ set -g __fish_git_prompt_showupstream 'yes'
 set -g __fish_git_prompt_color_branch green
 set -g __fish_git_prompt_color_dirtystate yellow
 set -g __fish_git_prompt_color_invalidstate -u red
-set -g __fish_git_prompt_color_stagedstate -b green
+set -g __fish_git_prompt_color_stagedstate yellow
 set -g __fish_git_prompt_color_cleanstate green
 set -g __fish_git_prompt_color_stashstate yellow
 set -g __fish_git_prompt_color_upstream green
@@ -66,7 +68,8 @@ set -g __fish_git_prompt_char_upstream_ahead ' ↑'
 set -g __fish_git_prompt_char_upstream_behind ' ↓'
 set -g __fish_git_prompt_char_upstream_diverged ' '
 set -g __fish_git_prompt_char_upstream_equal '='
-set -g __fish_git_prompt_char_upstream_prefix ' '
+set -g __fish_git_prompt_char_upstream_prefix ''
+# set -g __fish_git_prompt_char_upstream_prefix ' '
 
 
 fish_vi_key_bindings
@@ -84,9 +87,6 @@ function fish_mode_prompt
     echo -en "\e[1 q"
 end
 end
-
-
-set FZF_COMPLETE 0
 
 
 function get_pwd

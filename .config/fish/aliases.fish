@@ -5,7 +5,7 @@ alias sc="cd ~/.local/bin/scripts"
 alias ss="cd ~/.local/src"
 
 # Misc
-# alias _="sudo"
+abbr -ag _ sudo
 alias py="python"
 alias bpy="bpython"
 alias f="fuck"

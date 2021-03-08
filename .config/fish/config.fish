@@ -33,9 +33,8 @@ function fish_prompt
   # echo
   # set_color -o magenta
   # printf ' %s' (echo $PWD | sed -e "s|^$HOME|~|")
-  printf ' '
   # get_pwd
-  printf '%s ' (_tide_item_pwd) (_tide_item_git) (_tide_item_cmd_duration)
+  printf ' %s' (_tide_item_pwd) (_tide_item_git) (_tide_item_cmd_duration)
   set_color normal
 
   # __fish_git_prompt " %s"

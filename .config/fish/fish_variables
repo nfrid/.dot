@@ -126,7 +126,7 @@ SETUVAR tide_pwd_dir_icon:\x1d
 SETUVAR tide_pwd_home_icon:\x1d
 SETUVAR tide_pwd_markers:\x2ebzr\x1e\x2ecitc\x1e\x2egit\x1e\x2ehg\x1e\x2enode\x2dversion\x1e\x2epython\x2dversion\x1e\x2eruby\x2dversion\x1e\x2eshorten_folder_marker\x1e\x2esvn\x1e\x2eterraform\x1eCargo\x2etoml\x1ecomposer\x2ejson\x1eCVS\x1ego\x2emod\x1epackage\x2ejson
 SETUVAR tide_pwd_truncate_margin:10
-SETUVAR tide_pwd_unwritable_icon:\uf023
+SETUVAR tide_pwd_unwritable_icon:e
 SETUVAR tide_right_prompt_frame_color:6C6C6C
 SETUVAR tide_right_prompt_frame_enabled:false
 SETUVAR tide_right_prompt_item_separator_diff_color:\x20

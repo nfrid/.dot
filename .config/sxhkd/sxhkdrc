@@ -265,8 +265,8 @@ super + shift + {comma,period}
   id=$(bspc query -N -n); bspc node -d {prev,next}.local; bspc node -f ${id}
 
 # focus the next/previous occupied desktop in the current monitor
-super + {h,l}
-  bspc desktop -f {prev,next}.local.occupied
+super +{_, shift +} {h,l}
+  bspmove {_,take }{prev,next}
 
 # move to next/previous occupied desktop with current node
 super + shift + {h,l}

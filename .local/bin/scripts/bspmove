@@ -1,0 +1,22 @@
+#!/bin/sh
+
+[[ -z $2 ]] && where=$1 || how=$1 where=$2
+[[ $(bspc query -d $where.local.occupied -D --names) -eq 'e' ]] &&
+  exc='yes'
+
+if [[ -z $how ]]; then
+  [[ -z $exc ]] ||
+    bspc desktop -f $where.local.occupied
+
+  bspc desktop -f $where.local.occupied
+else
+  id=$(bspc query -N -n)
+
+  [[ -z $exc ]] ||
+    bspc node -d $where.local.occupied &&
+    bspc node -f $id
+
+  bspc node -d $where.local.occupied
+
+  bspc node -f $id
+fi

@@ -81,7 +81,6 @@
   // },
 
   "explorer.openEditors.visible": 0,
-  "editor.wordWrap": "on",
   "editor.tabSize": 2,
   "workbench.iconTheme": "material-icon-theme",
   "editor.rulers": [80],
@@ -113,6 +112,15 @@
   "git.autofetch": true,
   "projects.configPath": "/home/nf/.local/share/code/vscode_projects.json",
   "vim.highlightedyank.duration": 250,
-  "javascript.updateImportsOnFileMove.enabled": "always"
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "python.formatting.provider": "black",
+  "python.linting.pylintEnabled": false,
+  "python.linting.mypyEnabled": true,
+  "vim.easymotion": true,
+  "workbench.editor.restoreViewState": false,
+  "editor.codeLens": false
 }
 // "vim.statusBarColorControl": true,

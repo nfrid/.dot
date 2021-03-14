@@ -1,4 +1,3 @@
--- TODO: https://github.com/nvim-telescope/telescope.nvim
 vim.cmd('packadd packer.nvim')
 
 return require('packer').startup(function()
@@ -112,15 +111,9 @@ return require('packer').startup(function()
         go = {
           { cmd = { "gofmt -w", "goimports -w" }, tempfile_postfix = ".tmp" }
         },
-        javascript = {
-          { cmd = { 'prettier -w', 'eslint --fix' } }
-        },
-        typescript = {
-          { cmd = { 'prettier -w', 'eslint --fix' } }
-        },
-        json = {
-          { cmd = { 'prettier -w'} }
-        },
+        javascript = { { cmd = { 'prettier -w', 'eslint --fix' } } },
+        typescript = { { cmd = { 'prettier -w', 'eslint --fix' } } },
+        json = { { cmd = { 'prettier -w' } } },
         cmake = { { cmd = { 'cmake-format -i' } } },
         -- c = { { cmd = { 'clang-format -i' } } },
         cpp = { { cmd = { 'clang-format -i' } } },
@@ -254,6 +247,10 @@ return require('packer').startup(function()
     end
   }
   use {
+    'onsails/lspkind-nvim',
+    config = function() require('lspkind').init() end
+  }
+  use {
     'neovim/nvim-lspconfig',
     requires = { 'nvim-lua/completion-nvim', opt = true },
     config = function()
@@ -357,7 +354,8 @@ return require('packer').startup(function()
       local treesitter = require('nvim-treesitter.configs')
 
       treesitter.setup {
-        highlight = { enable = true, disable = { 'yaml' } },
+        -- highlight = { enable = true, disable = { 'yaml' } },
+        highlight = { enable = true },
         incremental_selection = {
           enable = true,
           keymaps = {
@@ -366,7 +364,10 @@ return require('packer').startup(function()
             node_decremental = 'gr'
           }
         },
-        indent = { enable = true, disable = { 'javascript', 'typescript', 'c', 'cpp' } },
+        indent = {
+          enable = true,
+          disable = { 'javascript', 'typescript', 'c', 'cpp' }
+        },
         rainbow = { enable = true }
       }
 
@@ -375,8 +376,9 @@ return require('packer').startup(function()
     end
   }
   use 'romgrk/nvim-treesitter-context'
-  use {'p00f/nvim-ts-rainbow',
-    config = function ()
+  use {
+    'p00f/nvim-ts-rainbow',
+    config = function()
       Exe([[
         hi rainbowcol1 guifg=#ffd700
         hi rainbowcol2 guifg=#ff00d7

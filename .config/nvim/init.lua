@@ -97,6 +97,7 @@ Exe([[
 ]], true)
 
 Cmd("autocmd BufReadPost *.zsh,.zshrc set filetype=sh")
+Cmd("autocmd BufReadPost *.conf set filetype=config")
 
 Cmd("command! W :w!")
 

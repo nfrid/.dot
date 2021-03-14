@@ -13,7 +13,7 @@ sel=$(echo -e "$notes\n:new\n:rm\n:mv" | dmenu -p 'note')
 case $sel in
   :rm)
     sel=$(echo "$notes" | dmenu -p 'rm')
-    rm $NOTES_DIR/$sel.md
+    rm "$NOTES_DIR/$sel.md"
     ;;
   :mv)
     sel=$(echo "$notes" | dmenu -p 'mv')
@@ -22,10 +22,10 @@ case $sel in
     ;;
   :new)
     sel=$(dmenu -p 'new')
-    echo "# $sel" >> $NOTES_DIR/$sel.md
-    runvim $sel
+    echo "# $sel" >> "$NOTES_DIR/$sel.md"
+    runvim "$sel"
     ;;
   *)
-    [[ -z "$sel" ]] || runvim $sel
+    [[ -z "$sel" ]] || runvim "$sel"
   ;;
 esac

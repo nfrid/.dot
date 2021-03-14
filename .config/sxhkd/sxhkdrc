@@ -27,12 +27,12 @@ super + y
   # rofi -modi "clipboard:greenclip print" -show clipboard
 
 # dmenu desktop
-super + d
-  j4-dmenu-desktop --dmenu="dmenu -p desktop"
+# super + d
+  # j4-dmenu-desktop --dmenu="dmenu -p desktop"
 
 # dmenu run
-super + r
-  dmenu_run -p run
+super + d
+  dmenu_run_history -p run
 
 # rofi desktop
 super + shift + d

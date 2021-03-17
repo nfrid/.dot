@@ -20,15 +20,6 @@ return require('packer').startup(function()
     "hoob3rt/lualine.nvim",
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
-      local lualine = require('lualine')
-
-      lualine.options = {
-        theme = 'dracula',
-        section_separators = nil,
-        component_separators = nil,
-        icons_enabled = true
-      }
-
       local function keymap()
         if vim.bo.iminsert == 0 then
           return [[us]]
@@ -37,16 +28,22 @@ return require('packer').startup(function()
         end
       end
 
-      lualine.sections = {
-        lualine_a = { 'mode', keymap },
-        lualine_b = { 'branch', 'diff' },
-        lualine_c = { 'filename' },
-        lualine_x = { 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
+      require('lualine').setup {
+        options = {
+          theme = 'dracula',
+          section_separators = {'', ''},
+          component_separators = {'|', '|'},
+          icons_enabled = true
+        },
+        sections = {
+          lualine_a = { 'mode', keymap },
+          lualine_b = { 'branch', 'diff' },
+          lualine_c = { 'filename' },
+          lualine_x = { 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
+        }
       }
-
-      lualine.status()
     end
   }
   use 'pacha/vem-tabline'

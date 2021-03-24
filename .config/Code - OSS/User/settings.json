@@ -121,6 +121,14 @@
   "python.linting.mypyEnabled": true,
   "vim.easymotion": true,
   "workbench.editor.restoreViewState": false,
-  "editor.codeLens": false
+  "editor.codeLens": false,
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ]
 }
 // "vim.statusBarColorControl": true,

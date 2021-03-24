@@ -12,7 +12,9 @@ follow=on
 
 # Class rules
 case "$class" in
-  Screenkey) manage=off;;
+  Screenkey) echo "
+    manage=off
+    ";;
   [Dd]iscord|TelegramDesktop|VK) echo "
     desktop=^3
     ";;
@@ -25,7 +27,7 @@ case "$class" in
   mpv) echo "
     rectangle=768x432+1152+648
     ";;
-  StepMania) echo "
+  osu!|StepMania) echo "
     state=fullscreen
     ";;
   *)

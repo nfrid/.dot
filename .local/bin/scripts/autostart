@@ -6,7 +6,7 @@ function austart {
 
 # austart mpd # now mpd.service
 austart sxhkd
-austart nm-applet
+# austart nm-applet
 austart dunst
 austart picom
 austart uim-xim

@@ -128,6 +128,14 @@ Print
 super + b
   $BROWSER
 
+# network manager
+super + F8
+  $TERM -e nmtui
+
+# bluetooth (blueberry)
+super + alt + b
+  blueberry
+
 # start firefox
 # super + alt + f
 # firefox

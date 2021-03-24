@@ -44,8 +44,10 @@ settings:
     global: false
   colors.webpage.darkmode.grayscale.all:
     global: false
-  colors.webpage.prefers_color_scheme_dark:
-    global: true
+  colors.webpage.darkmode.policy.images:
+    global: smart
+  colors.webpage.preferred_color_scheme:
+    global: dark
   content.autoplay:
     global: false
   content.blocking.method:

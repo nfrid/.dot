@@ -1,5 +1,5 @@
 # mkdir+cd together!!
 function mkcd
   mkdir -p -- $argv &&
-    cd -P -- $argv
+    cd -- $argv
 end

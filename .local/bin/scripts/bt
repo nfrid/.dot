@@ -1,0 +1,17 @@
+#!/bin/sh
+
+mi=9C:19:C2:B2:53:F9
+am=E0:9D:FA:2C:B4:26
+
+case $1 in
+  mi) dev=$mi ;;
+  am) dev=$am ;;
+  *) echo "no such device: $1"; exit 1 ;;
+esac
+
+case $2 in
+  c) bluetoothctl connect $dev ;;
+  d) bluetoothctl disconnect $dev ;;
+  r) bluetoothctl disconnect $dev && bluetoothctl connect $dev ;;
+  *) echo "unknown command: $2"; exit 1 ;;
+esac

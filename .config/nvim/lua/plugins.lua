@@ -28,17 +28,28 @@ return require('packer').startup(function()
         end
       end
 
+      local function lspStatus()
+        if not vim.tbl_isempty(vim.lsp.buf_get_clients(0)) then
+          local errors = vim.lsp.diagnostic.get_count(0, 'Error')
+          local warnings = vim.lsp.diagnostic.get_count(0, 'Warning')
+          local infos = vim.lsp.diagnostic.get_count(0, 'Information') +  vim.lsp.diagnostic.get_count(0, 'Hint')
+          return (errors == 0 and '' or errors .. 'E ') .. (warnings == 0 and '' or warnings .. 'W ') .. (infos == 0 and '' or infos .. 'I ')
+        else
+          return ''
+        end
+      end
+
       require('lualine').setup {
         options = {
           theme = 'dracula',
-          section_separators = {'', ''},
-          component_separators = {'|', '|'},
+          section_separators = { '', '' },
+          component_separators = { '|', '|' },
           icons_enabled = true
         },
         sections = {
           lualine_a = { 'mode', keymap },
           lualine_b = { 'branch', 'diff' },
-          lualine_c = { 'filename' },
+          lualine_c = { 'filename', lspStatus },
           lualine_x = { 'filetype' },
           lualine_y = { 'progress' },
           lualine_z = { 'location' }
@@ -156,17 +167,21 @@ return require('packer').startup(function()
     requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
     config = function()
       require('telescope').setup { defaults = { initial_mode = "normal" } }
+      Map('n', '<leader>t', '<cmd>Telescope<CR>i')
       Map('n', '<leader>f',
           '<cmd>lua require("telescope.builtin").file_browser()<CR>')
       Map('n', '<leader>o',
           '<cmd>lua require("telescope.builtin").buffers()<CR>')
-      Map('n', '<leader>t',
-          '<cmd>lua require("telescope.builtin").treesitter()<CR>')
+      Map('n', '<leader>m', '<cmd>lua require("telescope.builtin").marks()<CR>')
+      Map('n', '<leader>r',
+          '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>i')
+      Map('n', '<leader>R',
+          '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<CR>i')
       Map('n', '<C-f>',
           '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>i')
-      Map('n', '<F1>', '<cmd>lua require("telescope.builtin").commands()<CR>')
+      Map('n', '<F1>', '<cmd>lua require("telescope.builtin").commands()<CR>i')
       Map('n', '<leader>D',
-          '<cmd>lua require("telescope.builtin").lsp_diagnostics()<CR>')
+          '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>')
     end
   }
 
@@ -187,6 +202,10 @@ return require('packer').startup(function()
   use 'jiangmiao/auto-pairs'
   use 'kana/vim-repeat'
   use 'junegunn/vim-peekaboo'
+
+  use 'justinmk/vim-sneak'
+  use 'unblevable/quick-scope'
+  use 'kshenoy/vim-signature'
 
   use 'kana/vim-textobj-user'
   use 'Chun-Yang/vim-textobj-chunk'
@@ -297,8 +316,8 @@ return require('packer').startup(function()
         buf_map('n', '<leader>ll',
                 '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
 
-        buf_map('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-        buf_map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+        -- buf_map('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+        buf_map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>')
         buf_map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
         buf_map('n', '<leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
 

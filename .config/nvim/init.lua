@@ -7,6 +7,7 @@ Exe([[
 ]], true)
 
 Exe([[
+  set noswapfile
   set formatoptions-=cro
   set smartindent
   set expandtab

@@ -175,7 +175,7 @@ config.bind(
     "set content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-dark/solarized-dark-all-sites.css",
 )
 
-config.bind("zsn", "set-cmd-text -s :session-save --only-active-window ")
+config.bind("zsw", "set-cmd-text -s :session-save --only-active-window ")
 config.bind("zss", "set-cmd-text -s :session-load ")
 config.bind("zsd", "set-cmd-text -s :session-delete ")
 

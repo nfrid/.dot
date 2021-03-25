@@ -51,6 +51,8 @@ bind-key Щ rev-sort
 
 bind-key т next-unread
 bind-key Т prev-unread
+bind-key к reload
+bind-key К reload-all
 
 bind-key ENTER open-in-browser
 

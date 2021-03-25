@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cmds=(
+  "bt mi r"
+  "bt mi d"
+)
+
+printf '%s\n' "${cmds[@]}" | dmenu -p "cmd" | sh -s

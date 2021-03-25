@@ -1,8 +1,14 @@
 #!/bin/sh
 
 cmds=(
-  "bt mi r"
-  "bt mi d"
+  "btmirecon"
+  "btmidis"
 )
 
-printf '%s\n' "${cmds[@]}" | dmenu -p "cmd" | sh -s
+ch=$(printf '%s\n' "${cmds[@]}" | dmenu -p "cmd")
+
+case $ch in
+  btmirecon) bt mi r ;;
+  btmidis) bt mi d ;;
+  *) notify-send "unknown dcmd: $ch"; exit 1 ;;
+esac

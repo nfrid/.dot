@@ -34,6 +34,10 @@ super + y
 super + d
   dmenu_run_history -p run
 
+# dmenu commands
+super + r
+  dcmd
+
 # rofi desktop
 super + shift + d
   rofi -modi drun -show drun

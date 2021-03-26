@@ -32,6 +32,9 @@ case "$class" in
     ";;
   *)
     # If window doesn't have class on startup
-    # case $(ps -p "$(xdo pid "$id")" -o comm= 2>/dev/null) in
-    # esac;;
+    case $(ps -p "$(xdo pid "$id")" -o comm= 2>/dev/null) in
+      emacs) echo "
+        state=tiled
+        ";;
+    esac;;
 esac;

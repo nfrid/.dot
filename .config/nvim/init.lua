@@ -33,10 +33,10 @@ Exe([[
 
 Exe([[
   set number
-  set relativenumber
+  set norelativenumber
   set nowrap
   set noshowmode
-  set signcolumn=yes
+  set signcolumn=no
 ]], true)
 
 Exe([[
@@ -130,6 +130,8 @@ Map('i', '<A-l>', '<C-^>')
 Map('n', '<leader>ps', ':set spell!<CR>')
 Map('n', '<leader>pc', ':call ToggleConceal()<CR>')
 Map('n', '<leader>pw', ':call ToggleWrap()<CR>')
+
+Map('n', '<A-t>', ':silent !$TERM & disown<CR>')
 
 Map('', '<A-w>', '<C-w>')
 Map('t', '<A-a>', '<C-\\><C-n>')

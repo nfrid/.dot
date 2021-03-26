@@ -9,7 +9,9 @@ return require('packer').startup(function()
     config = function()
       Cmd('colorscheme dracula')
       Set.cursorline = true
-      Cmd('hi CursorLine guibg=#343746')
+      -- Cmd('hi CursorLine guibg=#343746')
+      Cmd('hi CursorLine guibg=#21222C')
+      Cmd('hi CursorLineNr guifg=#F1FA8C guibg=#21222C gui=none')
     end
   }
   use {
@@ -205,7 +207,7 @@ return require('packer').startup(function()
 
   use 'justinmk/vim-sneak'
   use 'unblevable/quick-scope'
-  use 'kshenoy/vim-signature'
+  -- use 'kshenoy/vim-signature'
 
   use 'kana/vim-textobj-user'
   use 'Chun-Yang/vim-textobj-chunk'
@@ -214,11 +216,11 @@ return require('packer').startup(function()
   use 'michaeljsmith/vim-indent-object'
   use 'reedes/vim-textobj-sentence'
 
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
-  }
+  -- use {
+  --   'lewis6991/gitsigns.nvim',
+  --   requires = { 'nvim-lua/plenary.nvim' },
+  --   config = function() require('gitsigns').setup() end
+  -- }
 
   -- use {
   --   'hrsh7th/vim-vsnip',

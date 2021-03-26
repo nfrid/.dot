@@ -17,6 +17,7 @@ alias ytdl3="youtube-dl --write-thumbnail --embed-thumbnail -x --audio-format mp
 alias r="ranger"
 alias tl="tllocalmgr"
 alias snc="rsync -vrzhu --delete"
+alias a="$TERM & disown"
 # alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
 
 # suckless

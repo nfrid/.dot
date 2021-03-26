@@ -50,6 +50,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCtr7L6AnC8yFk72_tdPWukA "yt
 -------------------------
 https://www.youtube.com/feeds/videos.xml?channel_id=UCgTaH6nm8sby0hpb2DSKNhg "yt" "mine" "~YouTube: Boffy"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC1n_PfsVqxllCcnMPlxBIjw "yt" "mine" "~YouTube: Wilbur Soot"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5p_l5ZeB_wGjO_yDXwiqvw "yt" "mine" "~YouTube: TommyInnit"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCTkXRDQl0luXxVQrRQvWS6w "yt" "mine" "~YouTube: Dream"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC73HkfIZt0RasDkpWINVg2g "yt" "mine" "~YouTube: Cxlvxn"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCQmzgjEb7X6--w7CSE1erJg "yt" "mine" "~YouTube: Slimecicle"
@@ -58,7 +59,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC_tCuH9uVrUP-BqN4lSRwyg "yt
 -------------------------
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "yt" "linux" "~YouTube: DistroTube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "yt" "linux" "~YouTube: Brodie Robertson"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "yt" "linux" "~YouTube: Luke Smith"
+# https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "yt" "linux" "~YouTube: Luke Smith"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "yt" "linux" "~YouTube: Mental Outlaw"
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ "yt" "linux" "~YouTube: Chris Titus Tech"
 -------------------------
@@ -76,5 +77,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCfMJ2MchTSW2kWaT0kK94Yw "yt
 
 # <=======================>
 # https://mangadex.org/rss/qRvgZhY8QtEnAmK9aD3H7VeczwGkM2py/manga_id/22631 "mg" "~Manga: Ijiranaide, Nagatoro-san"
+<=======================>
+https://videos.lukesmith.xyz/feeds/videos.xml?sort=-publishedAt&filter=local "peertube" "linux" "~PeerTube: Luke Smith"
 <=======================>
 # vim:ft=config

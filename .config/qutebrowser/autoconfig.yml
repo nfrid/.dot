@@ -45,7 +45,7 @@ settings:
   colors.webpage.darkmode.grayscale.all:
     global: false
   colors.webpage.darkmode.policy.images:
-    global: smart
+    global: never
   colors.webpage.preferred_color_scheme:
     global: dark
   content.autoplay:

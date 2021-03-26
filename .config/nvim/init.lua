@@ -37,6 +37,7 @@ Exe([[
   set nowrap
   set noshowmode
   set signcolumn=no
+  set cursorline
 ]], true)
 
 Exe([[

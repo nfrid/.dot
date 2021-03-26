@@ -8,7 +8,6 @@ return require('packer').startup(function()
     'dracula/vim',
     config = function()
       Cmd('colorscheme dracula')
-      Set.cursorline = true
       -- Cmd('hi CursorLine guibg=#343746')
       Cmd('hi CursorLine guibg=#21222C')
       Cmd('hi CursorLineNr guifg=#F1FA8C guibg=#21222C gui=none')

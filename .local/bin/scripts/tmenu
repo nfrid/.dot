@@ -8,7 +8,7 @@ runtask() {
 
 tasks=$(find "$TASKS_DIR/" -name "*.md" -exec basename {} .md ";")
 
-sel=$(echo -e "$tasks\n:new\n:rm\n:mv" | dmenu -p 'desk')
+sel=$(echo -e "$tasks\n:rm\n:mv" | dmenu -p 'desk')
 
 case $sel in
   :rm)

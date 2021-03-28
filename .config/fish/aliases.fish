@@ -21,7 +21,7 @@ alias a="$TERM & disown"
 # alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
 
 # suckless
-alias pt="patch -p1 -N < patch/*"
+alias pt='for p in patch/*.diff; patch -p1 -N < $p; end; echo -n ""'
 alias mki="sudo make install && make clean"
 
 # pass

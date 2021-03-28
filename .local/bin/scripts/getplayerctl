@@ -1,6 +1,7 @@
 #!/bin/bash
 
-wrap_a=("%{F#F4F99D}" "%{F-}")
+# wrap_a=("%{F#F4F99D}" "%{F-}")
+wrap_a=("^c#F4F99D^" "^c#f8f8f2^")
 
 artist="$( playerctl -p playerctld metadata --format '{{ artist }}' 2>&1)"
 title="$( playerctl -p playerctld metadata --format '{{ title }}' 2>&1)"

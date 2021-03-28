@@ -1,0 +1,13 @@
+#!/bin/bash
+
+timeout=1
+
+while true; do
+  st="$(getplayerctl "^c#6272A4^no active player^c#f8f8f2^") ▏"
+  st="$st$(db-volume) ▏"
+  st="$st$(updcount) ▏"
+  st="$st$(date '+%b %d, %a * %I:%M:%S %p') ▏"
+
+  xsetroot -name "$st"
+  sleep $timeout
+done

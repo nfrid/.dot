@@ -1,0 +1,12 @@
+#!/bin/bash
+
+battery=/sys/class/power_supply/BAT0
+
+case $(cat "$battery/status") in
+  "Full") status="^c#8be9fd^" ;;
+  "Discharging") status="^c#f1fa8c^" ;;
+  "Charging") status="^c#50fa7b^" ;;
+esac
+capacity=$(cat "$battery/capacity")
+
+echo "$status$capacity%^c#f8f8f2^"

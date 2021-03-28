@@ -5,6 +5,7 @@ function austart {
 }
 
 # austart mpd # now mpd.service
+austart dwmblocks
 austart sxhkd
 # austart nm-applet
 austart dunst

@@ -7,7 +7,8 @@ rss=$(newsboat -x print-unread | awk '{ print $1 }')
   res=$(cat /tmp/rssupdcount)
 
 [[ $res == 0 ]] &&
-  res="%{F#FF6E67}$res" ||
-  res="%{F#5AF78E}$res"
+  res="^c#ff6e67^0" ||
+  res="^c#5af78e^$res"
 
-echo -n $res
+
+echo "$res^c#f8f8f2^"

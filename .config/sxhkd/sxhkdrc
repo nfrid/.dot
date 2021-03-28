@@ -1,7 +1,3 @@
-# show sxhkd keybindings
-super + F1
-  useus sxhkd_f1
-
 # store PRIMARY selection to CLIPBOARD
 super + alt + space
   xsel -p | xsel -b
@@ -54,10 +50,6 @@ super + shift + r
 #     -file-browser-oc-cmd "$TERM -e ranger;icon:folder;name:ranger" \
 #     -file-browser-oc-cmd "thunar;icon:system-file-manager;name:thunar" \
 #     -file-browser-oc-cmd "alacritty -e;icon:utilities-terminal;name:shell"
-
-# toggle buffer desktop (e), shift to move with current node
-super +{_, shift +} o
-  togglebufferdesktop{_, -m }
 
 # browse windows
 # alt + Tab
@@ -212,7 +204,16 @@ super + shift + c
 super + {_,shift + }v
   polyshow {show,hide}
 
-### --- bspwm keybindings --- ###
+
+# --- bspwm related bindings --- #
+
+# show sxhkd keybindings
+super + F1
+  useus sxhkd_f1
+
+# toggle buffer desktop (e), shift to move with current node
+super +{_, shift +} o
+  togglebufferdesktop{_, -m }
 
 # restart bspwm
 super + ctrl + r

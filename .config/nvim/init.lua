@@ -132,7 +132,7 @@ Map('n', '<leader>ps', ':set spell!<CR>')
 Map('n', '<leader>pc', ':call ToggleConceal()<CR>')
 Map('n', '<leader>pw', ':call ToggleWrap()<CR>')
 
-Map('n', '<A-t>', ':silent !$TERM & disown<CR>')
+Map('n', '<A-a>', ':silent !$TERM & disown<CR>')
 
 Map('', '<A-w>', '<C-w>')
 Map('t', '<A-a>', '<C-\\><C-n>')

@@ -167,20 +167,20 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
     config = function()
-      require('telescope').setup { defaults = { initial_mode = "normal" } }
-      Map('n', '<leader>t', '<cmd>Telescope<CR>i')
+      require('telescope').setup {}
+      Map('n', '<leader>t', '<cmd>Telescope<CR>')
       Map('n', '<leader>f',
           '<cmd>lua require("telescope.builtin").file_browser()<CR>')
       Map('n', '<leader>o',
           '<cmd>lua require("telescope.builtin").buffers()<CR>')
       Map('n', '<leader>m', '<cmd>lua require("telescope.builtin").marks()<CR>')
       Map('n', '<leader>r',
-          '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>i')
+          '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>')
       Map('n', '<leader>R',
-          '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<CR>i')
+          '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<CR>')
       Map('n', '<C-f>',
-          '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>i')
-      Map('n', '<F1>', '<cmd>lua require("telescope.builtin").commands()<CR>i')
+          '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>')
+      Map('n', '<F1>', '<cmd>lua require("telescope.builtin").commands()<CR>')
       Map('n', '<leader>D',
           '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>')
     end
@@ -205,7 +205,7 @@ return require('packer').startup(function()
   use 'junegunn/vim-peekaboo'
 
   use 'justinmk/vim-sneak'
-  use 'unblevable/quick-scope'
+  -- use 'unblevable/quick-scope'
   -- use 'kshenoy/vim-signature'
 
   use 'kana/vim-textobj-user'

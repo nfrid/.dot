@@ -1,0 +1,19 @@
+BasedOnStyle: WebKit
+
+IndentWidth: 2
+
+BreakBeforeBraces: Attach
+
+# AlignConsecutiveAssignments: AcrossComments
+# AlignConsecutiveBitFields: AcrossComments
+# AlignConsecutiveDeclarations: AcrossComments
+# AlignConsecutiveMacros: AcrossComments
+AlignConsecutiveAssignments: true
+AlignConsecutiveBitFields: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveMacros: true
+AlignEscapedNewlines: Left
+AlignOperands: AlignAfterOperator
+AlignTrailingComments: true
+
+# vim:ft=yaml

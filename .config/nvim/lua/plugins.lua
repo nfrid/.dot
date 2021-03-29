@@ -124,8 +124,8 @@ return require('packer').startup(function()
         typescript = { { cmd = { 'prettier -w', 'eslint --fix' } } },
         json = { { cmd = { 'prettier -w' } } },
         cmake = { { cmd = { 'cmake-format -i' } } },
-        -- c = { { cmd = { 'clang-format -i' } } },
-        cpp = { { cmd = { 'clang-format -i' } } },
+        c = { { cmd = { 'clang-format -style=file -i' } } },
+        cpp = { { cmd = { 'clang-format -style=file -i' } } },
         markdown = {
           { cmd = { 'prettier -w' } }, {
             cmd = { 'black' },

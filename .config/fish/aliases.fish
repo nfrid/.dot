@@ -22,7 +22,7 @@ alias a="$TERM & disown"
 
 # suckless
 alias pt='for p in patch/*.diff; patch -p1 -N < $p; end; echo -n ""'
-alias mki="sudo make clean install"
+alias mki="sudo make install && make clean"
 
 # pass
 alias pw="pass"

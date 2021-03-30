@@ -6,7 +6,6 @@
   },
   "workbench.colorTheme": "Dracula",
   "keyboard.dispatch": "keyCode",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "vim.leader": " ",
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -89,12 +88,10 @@
   "explorer.confirmDragAndDrop": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "explorer.confirmDelete": false,
-  "prettier.packageManager": "yarn",
   "prettier.proseWrap": "always",
   "terminal.integrated.allowMnemonics": true,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.experimentalUseTitleEvent": true,
-  "liveServer.settings.donotShowInfoMsg": true,
   "git.enableSmartCommit": true,
   "window.menuBarVisibility": "hidden",
   "window.enableMenuBarMnemonics": false,
@@ -129,6 +126,10 @@
       "viewType": "jupyter.notebook.ipynb",
       "filenamePattern": "*.ipynb"
     }
-  ]
+  ],
+  "terminal.external.linuxExec": "alacritty",
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  }
 }
 // "vim.statusBarColorControl": true,

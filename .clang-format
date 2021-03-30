@@ -4,10 +4,6 @@ IndentWidth: 2
 
 BreakBeforeBraces: Attach
 
-# AlignConsecutiveAssignments: AcrossComments
-# AlignConsecutiveBitFields: AcrossComments
-# AlignConsecutiveDeclarations: AcrossComments
-# AlignConsecutiveMacros: AcrossComments
 AlignConsecutiveAssignments: true
 AlignConsecutiveBitFields: true
 AlignConsecutiveDeclarations: true

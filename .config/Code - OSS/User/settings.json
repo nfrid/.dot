@@ -130,6 +130,10 @@
   "terminal.external.linuxExec": "alacritty",
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
-  }
+  },
+  "vscode-neovim.neovimExecutablePaths.linux": "/home/nf/.local/bin/nvim",
+  "files.exclude": {
+    "**/.ccls-cache": true
+  },
 }
 // "vim.statusBarColorControl": true,

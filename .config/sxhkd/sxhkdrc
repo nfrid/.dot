@@ -72,8 +72,8 @@ super + equal
   useus rofi -show calc -modi calc -no-show-match -no-sort
 
 # note manager
-super + slash
-  note
+super +{_, alt +} slash
+  note{_, TODO}
 
 # taskell
 # super + t

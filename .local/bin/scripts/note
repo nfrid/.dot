@@ -8,6 +8,8 @@ runvim() {
 
 notes=$(find "$NOTES_DIR/" -name "*.md" -exec basename {} .md ";")
 
+[[ -z "$1" ]] || runvim $1 && exit 0
+
 sel=$(echo -e "$notes\n:new\n:rm\n:mv" | dmenu -p 'note')
 
 case $sel in

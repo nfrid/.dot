@@ -131,9 +131,82 @@
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
-  "vscode-neovim.neovimExecutablePaths.linux": "/home/nf/.local/bin/nvim",
   "files.exclude": {
     "**/.ccls-cache": true
   },
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "> ",
+      "color": "#f2f2a5",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": true
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#FFaCf5",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "fixme",
+      "color": "#FFaC00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "fuck",
+      "color": "#ff5555",
+      "strikethrough": false,
+      "underline": true,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    }
+  ],
 }
 // "vim.statusBarColorControl": true,

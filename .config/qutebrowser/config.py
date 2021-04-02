@@ -38,6 +38,7 @@ c.url.searchengines = {
     "s": "https://searx.monicz.pl?q={}",
     "yt": "https://youtube.com/results?search_query={}",
     "gh": "https://github.com/search?q={}",
+    "l": "https://cyberleninka.ru/search?q={}&page=1"
 }
 
 # Disable autoplay

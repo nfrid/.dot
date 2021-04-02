@@ -4,11 +4,12 @@ NOTES_DIR="$HOME/Documents/Notes"
 
 runvim() {
   alacritty -e $SHELL -c "nvim '$NOTES_DIR/$1.md'"
+  exit 0
 }
 
 notes=$(find "$NOTES_DIR/" -name "*.md" -exec basename {} .md ";")
 
-[[ -z "$1" ]] || runvim $1 && exit 0
+[[ -z "$1" ]] || runvim $1
 
 sel=$(echo -e "$notes\n:new\n:rm\n:mv" | dmenu -p 'note')
 

@@ -71,9 +71,13 @@ super + shift + g
 super + equal
   useus rofi -show calc -modi calc -no-show-match -no-sort
 
-# note manager
+# note manager (alt to TODO)
 super +{_, alt +} slash
   note{_, TODO}
+
+# taskwarrior tui
+super + shift + slash
+  $TERM -e taskwarrior-tui
 
 # taskell
 # super + t

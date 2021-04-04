@@ -52,6 +52,22 @@
     {
       "before": ["g", "n"],
       "commands": ["editor.action.smartSelect.expand"]
+    },
+    {
+      "before": ["<TAB>"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<S-TAB>"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<C-l>"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<C-h>"],
+      "commands": ["workbench.action.previousEditor"]
     }
   ],
 
@@ -102,7 +118,6 @@
   "typescript.preferences.includePackageJsonAutoImports": "on",
   "task.quickOpen.showAll": true,
   "editor.multiCursorModifier": "ctrlCmd",
-  "workbench.editor.showTabs": false,
   "window.zoomLevel": 2,
   "editor.suggestSelection": "first",
   "vim.statusBarColorControl": false,
@@ -208,5 +223,9 @@
       "italic": false
     }
   ],
+  "markdownlint.config": {
+    "single-h1": false
+  },
+  "workbench.editor.showTabs": false,
 }
 // "vim.statusBarColorControl": true,

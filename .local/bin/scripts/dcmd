@@ -3,6 +3,7 @@
 cmds=(
   "btmirecon"
   "btmidis"
+  "xmodmap"
 )
 
 ch=$(printf '%s\n' "${cmds[@]}" | dmenu -p "cmd")
@@ -10,5 +11,6 @@ ch=$(printf '%s\n' "${cmds[@]}" | dmenu -p "cmd")
 case $ch in
   btmirecon) bt mi r ;;
   btmidis) bt mi d ;;
+  xmodmap) xmodmap $HOME/.Xmodmap ;;
   *) notify-send "unknown dcmd: $ch"; exit 1 ;;
 esac

@@ -109,8 +109,12 @@ vim.mapleader = ' '
 vim.g.mapleader = ' '
 
 Map('n', '<SPACE>', '<NOP>')
-Map('n', '<tab>', '<CMD>bp<CR>')
-Map('n', '<s-tab>', '<CMD>bn<CR>')
+
+Map('n', '<tab>', '<CMD>bn<CR>')
+Map('n', '<s-tab>', '<CMD>bp<CR>')
+
+Map('n', '<C-h>', '<CMD>bp<CR>')
+Map('n', '<C-l>', '<CMD>bn<CR>')
 
 Map('n', 'gF', ':e <cfile><CR>')
 

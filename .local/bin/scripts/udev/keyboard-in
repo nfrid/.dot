@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sleep 1
+DISPLAY=":0"
+HOME=/home/nf/
+XAUTHORITY=$HOME/.Xauthority
+export DISPLAY XAUTHORITY HOME
+
+/usr/bin/xmodmap -display $DISPLAY $HOME/.Xmodmap

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+in="$1"; out="$2"
+[[ -z $3 ]] && fuzz="10%" || fuzz="$3"
+
+color=$( convert "$in" -format "%[pixel:p{0,0}]" info:- )
+convert "$in" -alpha off -bordercolor $color -border 1 \
+  \( +clone -fuzz "$fuzz" -fill none -floodfill +0+0 $color \
+  -alpha extract -geometry 200% -blur 0x0.5 \
+  -morphology erode square:1 -geometry 50% \) \
+  -compose CopyOpacity -composite -shave 1 "$out"

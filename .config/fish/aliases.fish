@@ -6,6 +6,7 @@ alias ss="cd ~/.local/src"
 
 # Misc
 abbr -ag _ sudo
+alias b="bash"
 alias py="python"
 alias bpy="bpython"
 alias f="fuck"
@@ -53,7 +54,7 @@ alias ujrn="journalctl --user"
 # Editor
 alias e="$EDITOR"
 alias _e="sudo -e"
-alias se="sudoedit"
+# alias se="sudoedit"
 
 # cd-less
 # alias ..="cd .."
@@ -80,10 +81,12 @@ alias gaa="git add ."
 alias gg="gaa && gc"
 alias gA="git add -A"
 alias GG="gA && gc"
+alias gf="git fetch"
 alias gp="git pull"
 alias gP="git push"
 alias gPu="git push -u origin HEAD"
 alias gs="git status"
+alias gsh="git show"
 alias gch="git checkout"
 alias gb="git branch"
 alias gm="git merge"
@@ -91,12 +94,14 @@ alias gr="git reset"
 alias gR="git reset --hard"
 alias gl="git log"
 alias gd="git diff"
+alias gt="git tag"
+alias gta="git tag -a"
+alias gtd="git tag -d"
 function gnf 
   git remote add origin git@github.com:NFrid/$argv.git
 end
 
 # Dotbare
-alias dotbare="~/.local/share/dotbare/dotbare"
 alias d="dotbare"
 alias da="dotbare add"
 alias dfa="dotbare fadd"
@@ -106,6 +111,7 @@ alias dfu="dotbare funtrack"
 alias ds="dotbare status"
 alias da="dotbare add -u"
 alias dl="dotbare flog"
+alias ld="lg --git-dir=$DOTBARE_DIR --work-tree=$HOME"
 
 # ls override
 alias ls="exa --group-directories-first"
@@ -154,4 +160,4 @@ alias fc="$EDITOR $HOME/.config/fish/config.fish"
 alias fcs="source $HOME/.config/fish/config.fish"
 
 # Stuff
-alias matrix="_ docker run -ti geertjohan/gomatrix"
+alias matrix="sudo docker run -ti geertjohan/gomatrix"

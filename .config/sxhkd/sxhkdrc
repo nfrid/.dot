@@ -65,7 +65,7 @@ super + g
 
 # fedit configs
 super + shift + g
-  $TERM -e $SHELL -c "$ZDOTDIR/plugins/dotbare/scripts/fedit"
+  $TERM -e dotbare fedit
 
 # calculator
 super + equal
@@ -88,11 +88,11 @@ super + alt + apostrophe
   unipicker --command "dmenu -l 5 -p unicode" --copy-command "xclip -sel clip"
 
 # emoji picker
-super + apostrophe
+super + semicolon
   cat $HOME/.local/share/emoji-data.txt | dmenu -F -p emoji -l 5 | cut -d "	" -f1 | tr -d $'\n' | xclip -sel clip
 
 # rofi emoji picker
-super + shift + apostrophe
+super + shift + semicolon
   splatmoji copy
 
 # password manager

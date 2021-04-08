@@ -399,5 +399,9 @@
     "key": "ctrl+i",
     "command": "extension.vim_ctrl+i",
     "when": "editorTextFocus && vim.active && !inDebugRepl"
+  },
+  {
+    "key": "alt+a",
+    "command": "openInTerminal.open"
   }
 ]

@@ -68,7 +68,7 @@
     {
       "before": ["<C-h>"],
       "commands": ["workbench.action.previousEditor"]
-    }
+    },
   ],
 
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -88,14 +88,8 @@
   "vim.autoSwitchInputMethod.enable": true,
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": true,
-  "vim.smartRelativeLine": true,
   "vim.visualstar": true,
   "vim.foldfix": true,
-  // "vim.handleKeys": {
-  //   "<C-w>": false
-  // },
-
-  "explorer.openEditors.visible": 0,
   "editor.tabSize": 2,
   "workbench.iconTheme": "material-icon-theme",
   "editor.rulers": [80],
@@ -130,7 +124,6 @@
   },
   "python.formatting.provider": "black",
   "python.linting.pylintEnabled": false,
-  "python.linting.mypyEnabled": true,
   "vim.easymotion": true,
   "workbench.editor.restoreViewState": false,
   "editor.codeLens": false,
@@ -226,6 +219,11 @@
   "markdownlint.config": {
     "single-h1": false
   },
+  "openInTerminal.app": "alacritty --working-directory",
   "workbench.editor.showTabs": false,
+  "explorer.openEditors.visible": 50,
+  "vim.smartRelativeLine": true,
+  "vim.sneak": true,
+  "vim.sneakUseIgnorecaseAndSmartcase": true
 }
 // "vim.statusBarColorControl": true,

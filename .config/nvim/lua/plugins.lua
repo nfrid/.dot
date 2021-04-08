@@ -127,7 +127,7 @@ return require('packer').startup(function()
         c = { { cmd = { 'clang-format -style=file -i' } } },
         cpp = { { cmd = { 'clang-format -style=file -i' } } },
         markdown = {
-          { cmd = { 'prettier -w' } }, {
+          { cmd = { 'prettier -w --prose-wrap always' } }, {
             cmd = { 'black' },
             start_pattern = '^```python$',
             end_pattern = '^```$',
@@ -205,6 +205,7 @@ return require('packer').startup(function()
   use 'junegunn/vim-peekaboo'
 
   use 'justinmk/vim-sneak'
+  use 'easymotion/vim-easymotion'
   -- use 'unblevable/quick-scope'
   -- use 'kshenoy/vim-signature'
 

@@ -79,6 +79,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCfMJ2MchTSW2kWaT0kK94Yw "yt
 # <=======================>
 # https://mangadex.org/rss/qRvgZhY8QtEnAmK9aD3H7VeczwGkM2py/manga_id/22631 "mg" "~Manga: Ijiranaide, Nagatoro-san"
 <=======================>
-https://videos.lukesmith.xyz/feeds/videos.xml?sort=-publishedAt&filter=local "peertube" "linux" "~PeerTube: Luke Smith"
+https://lukesmith.xyz/peertube "peertube" "linux" "~PeerTube: Luke Smith"
 <=======================>
 # vim:ft=config

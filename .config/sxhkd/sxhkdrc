@@ -61,7 +61,7 @@ super + shift + d
 
 # browse config files
 super + g
-  git --git-dir="${DOTBARE_DIR}" --work-tree="$HOME" ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e nvim $HOME/sel
+  dotbare ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e nvim $HOME/sel
 
 # fedit configs
 super + shift + g

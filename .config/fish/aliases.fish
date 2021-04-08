@@ -112,6 +112,11 @@ alias ds="dotbare status"
 alias da="dotbare add -u"
 alias dl="dotbare flog"
 alias ld="lg --git-dir=$DOTBARE_DIR --work-tree=$HOME"
+alias D="git --git-dir=$DOTBARE_DIR --work-tree=$HOME"
+function Dc
+  set -q argv || set argv .
+  D ls-files $argv | awk -F / '{print $1}' | uniq
+end
 
 # ls override
 alias ls="exa --group-directories-first"

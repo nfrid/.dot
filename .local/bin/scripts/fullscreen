@@ -1,9 +1,0 @@
-#!/bin/bash
-
-window=$(bspc query -N -n focused.fullscreen)
-
-if [ $window ]; then
-    bspc node -t tiled
-else
-    bspc node -t fullscreen
-fi

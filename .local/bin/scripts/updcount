@@ -1,6 +1,0 @@
-#!/bin/bash
-
-mutt=$(muttupd)
-rss=$(rssupd)
-
-echo "$mutt:$rss"

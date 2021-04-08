@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ "$1" == "show" ]; then
-    polybar-msg cmd show
-    bspc config top_padding 27
-elif [ "$1" == "hide" ]; then
-    polybar-msg cmd hide
-    bspc config top_padding 0
-fi

@@ -3,5 +3,5 @@
 while true; do
   fehbg &
   autostart &
-  dwm 2> ~/.dwm.log
+  dwm 2> /dev/null
 done

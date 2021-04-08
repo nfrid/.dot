@@ -16,6 +16,9 @@ case $1 in
     jp1) srv="jp-free-01";;
     jp2) srv="jp-free-02";;
     jp3) srv="jp-free-03";;
+    nl1) srv="nl-free-01";;
+    nl2) srv="nl-free-02";;
+    nl3) srv="nl-free-03";;
     '') echo "
 Server needs to be specified!! (ex. 'pvpn jp1')
 "; exit 1;;

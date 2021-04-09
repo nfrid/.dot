@@ -84,7 +84,7 @@ super + shift + slash
 #   tmenu
 
 # unicode symbols picker
-super + alt + apostrophe
+super + apostrophe
   unipicker --command "dmenu -l 5 -p unicode" --copy-command "xclip -sel clip"
 
 # emoji picker
@@ -153,7 +153,7 @@ super + e
   $TERM -e ranger
 
 # man
-super + shift + m
+super + alt + m
   man -k . | dmenu -p man -l 5 | cut -d " " -f1 | xargs -I sel $TERM -e man sel
 
 # start gui file manager

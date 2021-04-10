@@ -146,13 +146,13 @@ return require('packer').startup(function()
     end
   }
 
-  use {
-    'numtostr/FTerm.nvim',
-    config = function()
-      Map('n', '<M-r>', '<CMD>lua require"FTerm".toggle()<CR>')
-      Map('t', '<M-r>', '<C-\\><C-n><CMD>lua require"FTerm".toggle()<CR>')
-    end
-  }
+  -- use {
+  --   'numtostr/FTerm.nvim',
+  --   config = function()
+  --     Map('n', '<M-r>', '<CMD>lua require"FTerm".toggle()<CR>')
+  --     Map('t', '<M-r>', '<C-\\><C-n><CMD>lua require"FTerm".toggle()<CR>')
+  --   end
+  -- }
   -- use {
   --   'junegunn/fzf.vim',
   --   requires = { 'junegunn/fzf', opt = true },
@@ -309,7 +309,7 @@ return require('packer').startup(function()
         buf_map('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
         buf_map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
         buf_map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-        buf_map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+        buf_map('n', '<A-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 
         buf_map('n', '<leader>la',
                 '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')

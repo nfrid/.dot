@@ -115,6 +115,8 @@ Map('n', '<s-tab>', '<CMD>bp<CR>')
 
 Map('n', '<C-h>', '<CMD>bp<CR>')
 Map('n', '<C-l>', '<CMD>bn<CR>')
+Map('n', '<C-j>', '<CMD>tabn<CR>')
+Map('n', '<C-k>', '<CMD>tabp<CR>')
 
 Map('n', 'gF', ':e <cfile><CR>')
 

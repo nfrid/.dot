@@ -31,7 +31,8 @@ c.zoom.default = 125
 
 # Search engines
 c.url.searchengines = {
-    "DEFAULT": "https://google.com/search?q={}",
+    "DEFAULT": "https://www.startpage.com/do/dsearch?query={}",
+    "g": "https://google.com/search?q={}",
     "ddg": "https://duckduckgo.com/?q={}",
     "y": "https://yandex.ru/search/?text={}",
     "a": "https://wiki.archlinux.org/index.php?search={}",

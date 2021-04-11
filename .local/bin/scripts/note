@@ -2,17 +2,20 @@
 
 NOTES_DIR="$HOME/Documents/Notes"
 
+# run in neovim in default terminal & shell
 runvim() {
-  alacritty -e $SHELL -c "nvim '$NOTES_DIR/$1.md'"
+  $TERM -e $SHELL -c "nvim '$NOTES_DIR/$1.md'"
   exit 0
 }
 
+# run in neovim as note if there are any args
+[[ -z "$1" ]] || runvim $@
+
+# select note in dmenu + commands
 notes=$(find "$NOTES_DIR/" -name "*.md" -exec basename {} .md ";")
-
-[[ -z "$1" ]] || runvim $1
-
 sel=$(echo -e "$notes\n:new\n:rm\n:mv" | dmenu -p 'note')
 
+# handle selected note/command
 case $sel in
   :rm)
     sel=$(echo "$notes" | dmenu -p 'rm')

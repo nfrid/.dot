@@ -82,8 +82,8 @@ Exe([[
       nnoremap <buffer> k gk
     else
       setlocal nowrap
-      nnoremap <buffer> j
-      nnoremap <buffer> k
+      nunmap <buffer> j
+      nunmap <buffer> k
     endif
   endfunction
 ]], true)

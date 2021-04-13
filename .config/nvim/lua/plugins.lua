@@ -33,8 +33,11 @@ return require('packer').startup(function()
         if not vim.tbl_isempty(vim.lsp.buf_get_clients(0)) then
           local errors = vim.lsp.diagnostic.get_count(0, 'Error')
           local warnings = vim.lsp.diagnostic.get_count(0, 'Warning')
-          local infos = vim.lsp.diagnostic.get_count(0, 'Information') +  vim.lsp.diagnostic.get_count(0, 'Hint')
-          return (errors == 0 and '' or errors .. 'E ') .. (warnings == 0 and '' or warnings .. 'W ') .. (infos == 0 and '' or infos .. 'I ')
+          local infos = vim.lsp.diagnostic.get_count(0, 'Information') +
+                            vim.lsp.diagnostic.get_count(0, 'Hint')
+          return (errors == 0 and '' or errors .. 'E ') ..
+                     (warnings == 0 and '' or warnings .. 'W ') ..
+                     (infos == 0 and '' or infos .. 'I ')
         else
           return ''
         end
@@ -93,6 +96,7 @@ return require('packer').startup(function()
     'mzlogin/vim-markdown-toc',
     config = function() vim.g.vmt_list_item_char = '-' end
   }
+  use 'lervag/vimtex'
 
   use {
     'lukas-reineke/format.nvim',
@@ -345,6 +349,22 @@ return require('packer').startup(function()
       for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup { on_attach = on_attach }
       end
+
+      nvim_lsp.texlab.setup {
+        settings = {
+          latex = {
+            build = {
+              args = {
+                "-pdf", "-interaction=nonstopmode", "-synctex=1",
+                "-outdir=./build", "%f"
+              },
+              outputDirectory = "./build",
+              onSave = true
+            },
+            lint = { onChange = true }
+          }
+        }
+      }
 
       nvim_lsp.sumneko_lua.setup {
         cmd = { "/usr/bin/lua-language-server" },

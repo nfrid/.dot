@@ -1,6 +1,7 @@
 #!/bin/bash
 
 COM="$1"
+tmpfile=/tmp/austreamModuleIDs
 
 function init() {
   pactl load-module module-null-sink sink_name=austream sink_properties=device.description=austream
@@ -13,19 +14,19 @@ function init() {
 
 case "$COM" in
   "on")
-    [[ -f "/tmp/austreamModuleIDs" ]] && echo "no" && exit 1 || init &> /tmp/austreamModuleIDs
+    [[ -f "$tmpfile" ]] && echo "no" && exit 1 || init &> $tmpfile
     ;;
   "off")
-    if [[ -f "/tmp/austreamModuleIDs" ]]; then
-      for i in $(cat /tmp/austreamModuleIDs); do
+    if [[ -f "$tmpfile" ]]; then
+      for i in $(cat $tmpfile); do
         pactl unload-module $i
-      done && rm /tmp/austreamModuleIDs && echo "ez" || echo "fuck"
+      done && rm $tmpfile
     else
       echo "no shit" && exit 1
     fi
     ;;
   "status")
-    [[ -f "/tmp/austreamModuleIDs" ]] && echo "on" || echo "off"
+    [[ -f "$tmpfile" ]] && echo "on" || echo "off"
     ;;
   "-h")
     echo "'on' for on, 'off' for off, 'status' for status 🗿"

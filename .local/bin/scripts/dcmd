@@ -19,5 +19,6 @@ case $ch in
     austream off
     notify-send "audio streaming is $(austream status)"
     ;;
+  "") exit 0 ;;
   *) notify-send "unknown dcmd: $ch"; exit 1 ;;
 esac

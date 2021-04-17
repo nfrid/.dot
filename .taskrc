@@ -42,6 +42,6 @@ context.job=proj:job
 
 
 # Urgency coefficients
-urgency.uda.priority.H.coefficient=10
+urgency.uda.priority.H.coefficient=5
 urgency.uda.priority.M.coefficient=3
 urgency.uda.priority.L.coefficient=-3

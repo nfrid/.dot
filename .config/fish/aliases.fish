@@ -3,6 +3,7 @@ alias hz="cd ~/github/herzen"
 alias ww="cd ~/Documents/Writing"
 alias sc="cd ~/.local/bin/scripts"
 alias ss="cd ~/.local/src"
+alias bl="cd ~/github/nfrid.me/src/posts"
 
 # Misc
 abbr -ag _ sudo

@@ -98,6 +98,16 @@ Exe([[
   endfunction
 ]], true)
 
+Exe([[
+  function! ToggleRelNums() abort
+    if &relativenumber ==# 0
+      setlocal relativenumber
+    else
+      setlocal norelativenumber
+    endif
+  endfunction
+]], true)
+
 Cmd("autocmd BufReadPost *.zsh,.zshrc set filetype=sh")
 Cmd("autocmd BufReadPost *.conf set filetype=config")
 
@@ -137,6 +147,7 @@ Map('i', '<A-l>', '<C-^>')
 Map('n', '<leader>ps', ':set spell!<CR>')
 Map('n', '<leader>pc', ':call ToggleConceal()<CR>')
 Map('n', '<leader>pw', ':call ToggleWrap()<CR>')
+Map('n', '<leader>pr', ':call ToggleRelNums()<CR>')
 
 Map('n', '<A-a>', ':silent !$TERM & disown<CR>')
 

@@ -23,6 +23,11 @@ alias a="$TERM & disown"
 function where
   zsh -c "where $argv"
 end
+function tsh
+  test -e $argv ||
+  echo '#!/bin/sh' > $argv &&
+  chmod +x $argv
+end
 # alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
 
 # suckless

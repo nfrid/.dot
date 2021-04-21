@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pacman-mirrors --fasttrack
+pacman -Sy

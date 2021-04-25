@@ -241,11 +241,3 @@ config.set("content.javascript.enabled", True, "chrome://*/*")
 # Enable JavaScript.
 # Type: Bool
 config.set("content.javascript.enabled", True, "qute://*/*")
-
-# Allow websites to show notifications.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
-config.set("content.notifications", True, "https://www.youtube.com")

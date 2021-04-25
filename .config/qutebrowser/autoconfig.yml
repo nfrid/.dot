@@ -59,7 +59,7 @@ settings:
     https://discord.com: true
   content.media.video_capture:
     https://discord.com: true
-  content.notifications:
+  content.notifications.enabled:
     https://aliexpress.ru: false
     https://davidwalsh.name: true
     https://infourok.ru: false

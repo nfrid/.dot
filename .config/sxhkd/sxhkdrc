@@ -134,7 +134,8 @@ super + b
 
 # network manager
 super + F8
-  $TERM -e nmtui
+  networkmanager_dmenu -p nm
+  # $TERM -e nmtui
 
 # bluetooth (blueberry)
 super + alt + b

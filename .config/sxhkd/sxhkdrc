@@ -134,8 +134,7 @@ super + b
 
 # network manager
 super + F8
-  networkmanager_dmenu -p nm
-  # $TERM -e nmtui
+  $TERM -e nmtui
 
 # bluetooth (blueberry)
 super + alt + b
@@ -175,7 +174,7 @@ super + alt + shift + n
 
 # start discord
 super + alt + d
-  discord
+  discord-canary
 
 # start music player client (ncmpcpp)
 super + alt + p

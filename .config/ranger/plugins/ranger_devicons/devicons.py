@@ -123,7 +123,7 @@ file_node_extensions = {
     'mkv': '',
     'ml': 'λ',
     'mli': 'λ',
-    'mov': '',
+    'mov': '',
     'mp3': '',
     'mp4': '',
     'mpeg': '',

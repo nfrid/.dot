@@ -15,10 +15,16 @@ done
     id3 -d -2 -m "$MUSIC_DIR/%a/%t.mp3"
     id3 -d -2 -m "$MUSIC_DIR/%a/%l/%t.mp3"
     id3 -d -2 -m "$MUSIC_DIR/%a/%l/%n. %t.mp3"
-
     id3 -d -2 -m "$MUSIC_DIR/%g/%a/%t.mp3"
     id3 -d -2 -m "$MUSIC_DIR/%g/%a/%l/%t.mp3"
     id3 -d -2 -m "$MUSIC_DIR/%g/%a/%l/%n. %t.mp3"
+
+    id3 -d -2 -m "$MUSIC_DIR/%g/%a/%l/%t.mp3"
+    id3 -d -2 -m "$MUSIC_DIR/%g/%a/%y - %l/%n. %t.mp3"
+
+    id3 -d -2 -m "$MUSIC_DIR/%g/%a/%l/%t.mp3"
+    id3 -d -2 -m "$MUSIC_DIR/%g/%a/%y - %l/%n. %t.mp3"
+
 } &> /dev/null
 
 exit 0

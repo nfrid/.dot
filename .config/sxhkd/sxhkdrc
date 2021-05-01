@@ -72,8 +72,8 @@ super + equal
   useus rofi -show calc -modi calc -no-show-match -no-sort
 
 # note manager (alt to TODO)
-super +{_, alt +} slash
-  note{_, TODO}
+super +{_, alt +, ctrl +} slash
+  note{_, TODO, DIARY}
 
 # taskwarrior tui
 super + shift + slash

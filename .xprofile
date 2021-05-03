@@ -9,6 +9,7 @@ export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 
 export PATH=$PATH:$HOME/.local/bin/scripts:$HOME/.yarn/bin
 

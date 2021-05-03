@@ -160,6 +160,8 @@ end
 #   end
 # end
 
+thefuck --alias | source
+
 
 set -gx __fish_initialized 1
 

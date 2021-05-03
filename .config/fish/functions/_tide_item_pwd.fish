@@ -35,8 +35,9 @@ function _tide_item_pwd
     end
 
     # All the actual printing
-    # if not test -w $PWD
-    #     printf '%s' $colorDirs $tide_pwd_unwritable_icon' '
+    if not test -w $PWD
+        printf '%s' $colorDirs '!'
+    end
     # else if test $PWD = $HOME
     #     printf '%s' $colorDirs $tide_pwd_home_icon' '
     # else

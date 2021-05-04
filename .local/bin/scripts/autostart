@@ -9,7 +9,7 @@ austart dwmblocks
 austart sxhkd
 # austart nm-applet
 austart dunst
-austart picom
+austart picom --experimental-backends
 austart uim-xim
 austart libinput-gestures
 # austart "greenclip daemon" greenclip

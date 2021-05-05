@@ -181,8 +181,8 @@ super + alt + p
   $TERM -e ncmpcpp
 
 # start editor (code - oss)
-super + alt + c
-	code
+# super + alt + c
+	# code
 
 # start spotify
 super + alt + s

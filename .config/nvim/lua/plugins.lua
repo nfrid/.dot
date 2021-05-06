@@ -404,7 +404,7 @@ return require('packer').startup(function()
         },
         indent = {
           enable = true,
-          disable = { 'javascript', 'typescript', 'c', 'cpp' }
+          disable = { 'javascript', 'typescript', 'c', 'cpp', 'lua' }
         },
         rainbow = { enable = true }
       }

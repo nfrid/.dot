@@ -110,11 +110,11 @@ XF86MonBrightness{Up,Down}
 
 # volume control
 XF86Audio{Raise,Lower}Volume
-  pulsemixer --change-volume {+,-}5 && pkill -RTMIN+10 dwmblocks
+  pulsemixer --change-volume {+,-}5 && pkill -RTMIN+10 rootblocks
 
 # volume toggle mute
 XF86AudioMute
-  pulsemixer --toggle-mute && pkill -RTMIN+10 dwmblocks
+  pulsemixer --toggle-mute && pkill -RTMIN+10 rootblocks
 
 # player control
 XF86Audio{Next,Prev,Play}

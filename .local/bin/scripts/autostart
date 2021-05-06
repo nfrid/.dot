@@ -5,11 +5,11 @@ function austart {
 }
 
 # austart mpd # now mpd.service
-austart dwmblocks
+austart rootblocks
 austart sxhkd
 # austart nm-applet
 austart dunst
-austart picom --experimental-backends
+austart "picom --experimental-backends" picom
 austart uim-xim
 austart libinput-gestures
 # austart "greenclip daemon" greenclip

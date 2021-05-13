@@ -14,7 +14,7 @@ case "$choice" in
 		dm-tool lock
 		;;
 	exit)
-    killall dwmstart
+    killall startdwm
 		;;
 	suspend)
 		systemctl suspend

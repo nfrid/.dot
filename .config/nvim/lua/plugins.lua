@@ -220,6 +220,10 @@ return require('packer').startup(function()
   use 'michaeljsmith/vim-indent-object'
   use 'reedes/vim-textobj-sentence'
 
+  -- use 'dag/vim-fish'
+
+  use 'fedorenchik/qt-support.vim'
+
   -- use {
   --   'lewis6991/gitsigns.nvim',
   --   requires = { 'nvim-lua/plenary.nvim' },
@@ -413,7 +417,6 @@ return require('packer').startup(function()
       Set.foldexpr = 'nvim_treesitter#foldexpr()'
     end
   }
-  use 'romgrk/nvim-treesitter-context'
   use {
     'p00f/nvim-ts-rainbow',
     config = function()
@@ -428,7 +431,7 @@ return require('packer').startup(function()
       ]], true)
     end
   }
-  use 'dag/vim-fish'
+  -- use 'romgrk/nvim-treesitter-context'
 
   use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
 end)

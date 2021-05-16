@@ -7,10 +7,6 @@ https://neovim.io/news.xml "sys" "vim" "~Updates: Neovim"
 # https://aur.archlinux.org/rss/ "sys" "~Arch Linux: AUR packages updates" "arch"
 
 <=======================>
-# blogs
-https://lukesmith.xyz/rss.xml "blog" "~Blog: Luke Smith XYZ"
-
-<=======================>
 # github
 https://github.com/NFrid.private.atom?token=ADDRGQ4QT4SAKGLJSHUJUW55UXTPK "github" "~Github: My Feed"
 
@@ -34,12 +30,16 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCGGdOIkVIZipux13jt7rprw "yt
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2mP7il3YV7TxM_3m6U0bwA "yt" "en" "lmao" "~YouTube: jschlattLIVE"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC_tCuH9uVrUP-BqN4lSRwyg "yt" "en" "lmao" "~YouTube: Slmccl"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCp4csaOD64mSzPxbfuzJcuA "yt" "en" "lmao" "~YouTube: Chuckle Sandwich"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfbnTUxUech4P1XgYUwYuKA "yt" "en" "lmao" "~YouTube: Cold Ones"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCMdGPato0IC5-zZjJIf-P9w "yt" "en" "lmao" "~YouTube: SwaggerSouls"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCE-DS2-ThLeJu9TYd30sSxw "yt" "en" "lmao" "~YouTube: Misfits"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCN5xN8gIljvWYnsj06V8WbQ "yt" "en" "lmao" "~YouTube: Pyrocynical"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCBBU7zUOhR_qShfMV26UUCA "yt" "en" "lmao" "~YouTube: Nux Taku"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCNgWKYz-_O0ji11BG9crjLA "yt" "en" "lmao" "~YouTube: Nuxanor"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCr3cBLTYmIK9kY0F_OdFWFQ "yt" "en" "lmao" "~YouTube: Casually Explained"
 -------------------------
 https://www.youtube.com/feeds/videos.xml?channel_id=UCptRK95GEDXvJGOQIFg50fg "yt" "onion" "~YouTube: Игорь Линк"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCM7-8EfoIv0T9cCI4FhHbKQ "yt" "onion" "~YouTube: Алексей Шевцов"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCfn7uyPvr5IY5pux8oyIa4Q "yt" "onion" "~YouTube: Kel'"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCWU0bFfAMialiKVoLkm4Z7Q "yt" "onion" "~YouTube: Кегля"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCJLorkdDK41pOQyoVQbFqJQ "yt" "onion" "~YouTube: Genderfluid Helisexual"
@@ -69,7 +69,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC5p_l5ZeB_wGjO_yDXwiqvw "yt
 https://www.youtube.com/feeds/videos.xml?channel_id=UCTkXRDQl0luXxVQrRQvWS6w "yt" "mine" "~YouTube: Dream"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC73HkfIZt0RasDkpWINVg2g "yt" "mine" "~YouTube: Cxlvxn"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCQmzgjEb7X6--w7CSE1erJg "yt" "mine" "~YouTube: Slimecicle"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCMdGPato0IC5-zZjJIf-P9w "yt" "mine" "~YouTube: SwaggerSouls"
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCE7HSqVe0-fTumbJJn3S5hg "yt" "mine" "~YouTube: Lashmak"
 -------------------------
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "yt" "linux" "~YouTube: DistroTube"

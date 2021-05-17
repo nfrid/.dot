@@ -1,8 +1,11 @@
 #!/bin/sh
 
+[[ -z $1 ]] && time=1 || time=$1
+[[ -z $2 ]] && class=ripcord || class=$2
+
 while true; do
-  sleep $1
-  xdotool key ctrl+v
-  sleep $1
-  xdotool key Return
+  sleep $time
+  xdotool search --class $class key --clearmodifiers --window %@ ctrl+v
+  sleep $time
+  xdotool search --class $class key --clearmodifiers --window %@ Return
 done

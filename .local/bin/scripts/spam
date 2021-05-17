@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while true; do
+  sleep $1
+  xdotool key ctrl+v
+  sleep $1
+  xdotool key Return
+done

@@ -1,33 +1,6 @@
 #!/bin/bash
 
-pasta="SpOwOky OwOky pumpkin
-He a owange, woundo boi
-He woll and wobbwe wound de patch
-Wooking fow a tastee snac!
-SpOwOky OwOky pumpkin
-EYES so fuww of fwight!
-He’w bite youw toes n then u know
-He’s a evil boi tonite
-Wotund widdle sqwashy one
-You’w nevew undowhstand
-U fink u’w supew spOwOky
-But weawwy u’w just mad!
-Oh! spOwOky OwOky pumpkin
-Gwumle all u mite
-Tewwowize de neybowhood
-On dis hawwoweenie night!
-Wotund widdle sqwashy one
-You’w nevew undowhstand
-U fink u’w supew spOwOky
-But weawwy u’w just mad!
-SpOwOky OwOky pumpkin
-He a owange, woundo boi
-He woll and wobbwe wound de patch
-Wooking fow a tastee snac!
-Oh! spOwOky kOwOky pumpkin
-Gwumle all u mite
-Tewwowize de neybowhood
-On dis hawwoweenie night!"
+pasta=$(cat $HOME/pastaon)
 
 dab="https://tenor.com/view/senzawa-dab-anime-gif-14393186"
 
@@ -42,7 +15,7 @@ clippaste() {
 oldclip=$(xclip -o -sel clip)
 
 printf "$pasta" | xclip -sel clip
-for i in `seq 13`; do
+for i in `seq 5`; do
   clippaste 1 ripcord
 done
 printf "$dab" | xclip -sel clip

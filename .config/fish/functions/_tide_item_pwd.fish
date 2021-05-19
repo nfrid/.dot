@@ -13,11 +13,9 @@ function _tide_item_pwd
 
     set -l pwdMaxLength (math $COLUMNS -$tide_pwd_truncate_margin)
 
-    set -l i 0
+    set -l i 1
     for unusedVariable in $splitPwd
         set -l parentDir (string join -- '/' $splitPwd[1..$i] | string replace '~' $HOME) # Use i from before increment
-
-        set i (math $i + 1) # This keeps us from using seq
 
         # Returns true if any markers exist in splitPwd[$i], or if anchorDirs contains i
         if test -z false (string split -m 2 " " -- "-o -e "$parentDir/$tide_pwd_markers) || contains $i $anchorDirs
@@ -32,6 +30,8 @@ function _tide_item_pwd
             set splitPwdForLength[$i] $truncated
             set splitPwdForOutput[$i] $colorTruncatedDirs$truncated$keepBackgroundColor$colorDirs
         end
+
+        set i (math $i + 1) # This keeps us from using seq
     end
 
     # All the actual printing

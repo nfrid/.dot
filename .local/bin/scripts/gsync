@@ -1,0 +1,6 @@
+#!/bin/sh
+
+[ -z $GDRIVE_REMOTE ] && GDRIVE_REMOTE=g
+[ -z $GDRIVE_PATH ] && GDRIVE_PATH=$HOME/Documents/Drive
+
+rclone sync $GDRIVE_REMOTE:/ $GDRIVE_PATH/

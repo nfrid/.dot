@@ -7,18 +7,14 @@ dab="https://tenor.com/view/senzawa-dab-anime-gif-14393186"
 clippaste() {
   sleep $1
   xdotool search --class $2 key --clearmodifiers --window %@ ctrl+v
-  # xclip -o -sel clip
   sleep $1
   xdotool search --class $2 key --clearmodifiers --window %@ Return
 }
 
-oldclip=$(xclip -o -sel clip)
-
 printf "$pasta" | xclip -sel clip
-for i in `seq 5`; do
+for i in `seq 15`; do
   clippaste 1 ripcord
 done
+
 printf "$dab" | xclip -sel clip
 clippaste 1 ripcord
-
-printf "$oldclip" | xclip -sel clip

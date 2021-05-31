@@ -1,5 +1,8 @@
 vim.cmd('packadd packer.nvim')
 
+Map('n', '<leader>PP', ':PackerCompile<CR>')
+Map('n', '<leader>PS', ':PackerSync<CR>')
+
 return require('packer').startup(function()
   local use = require('packer').use
   use { 'wbthomason/packer.nvim', opt = true }
@@ -348,7 +351,7 @@ return require('packer').startup(function()
 
       local servers = {
         "bashls", "vimls", "pyright", "tsserver", "vuels", "yamlls", "jsonls",
-        "cmake", "ccls"
+        "cmake", "ccls", "gopls", "intelephense"
       }
       for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup { on_attach = on_attach }

@@ -161,6 +161,7 @@ end
 # end
 
 thefuck --alias | source
+pyenv init - | source
 
 
 set -gx __fish_initialized 1

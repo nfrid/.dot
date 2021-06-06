@@ -1,8 +1,10 @@
 #!/bin/sh
 
 cmds=(
-  "btmirecon"
-  "btmidis"
+  # "btmirecon"
+  # "btmidis"
+  "btamrecon"
+  "btamdis"
   "xmodmap"
   "austream"
 )
@@ -12,6 +14,8 @@ ch=$(printf '%s\n' "${cmds[@]}" | dmenu -p "cmd")
 case $ch in
   btmirecon) bt mi r ;;
   btmidis) bt mi d ;;
+  btamrecon) bt am r ;;
+  btamdis) bt am d ;;
   xmodmap) xmodmap $HOME/.Xmodmap ;;
   austream)
     [[ $(austream status) == "off" ]] &&

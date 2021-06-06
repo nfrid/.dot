@@ -17,6 +17,10 @@ super + Return
 super + ctrl + m
   $TERMINAL
 
+# start a terminal w/ tmux
+super + shift + Return
+  $TERMINAL -e bash -c "tmux attach || tmux"
+
 # switch layout
 super + space
   xkb-switch -n

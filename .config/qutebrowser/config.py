@@ -138,12 +138,12 @@ config.bind(
     "zyda",
     "spawn youtube-dl -x --audio-format mp3 -f 'bestaudio[ext=m4a]/bestaudio' '~/Videos/YouTube/%(title)s - %(uploader)s' {url}",
 )
-config.bind("zyf", "hint links spawn mpv --keep-open=yes {hint-url}")
-config.bind("zyy", "spawn mpv {url}")
-config.bind("zyY", "spawn mpv --ytdl-format= {url}")
-config.bind("zysy", "spawn mpv --shuffle {url}")
-config.bind("zya", "spawn mpv --no-video {url}")
-config.bind("zysa", "spawn mpv --shuffle --no-video {url}")
+config.bind("zyf", "hint links spawn -d mpv --keep-open=yes {hint-url}")
+config.bind("zyy", "spawn -d mpv {url}")
+config.bind("zyY", "spawn -d mpv --ytdl-format= {url}")
+config.bind("zysy", "spawn -d mpv --shuffle {url}")
+config.bind("zya", "spawn -d mpv --no-video {url}")
+config.bind("zysa", "spawn -d mpv --shuffle --no-video {url}")
 
 config.bind(
     "zx",

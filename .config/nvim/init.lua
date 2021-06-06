@@ -151,7 +151,9 @@ Map('n', '<leader>pc', ':call ToggleConceal()<CR>')
 Map('n', '<leader>pw', ':call ToggleWrap()<CR>')
 Map('n', '<leader>pr', ':call ToggleRelNums()<CR>')
 
-Map('n', '<A-a>', ':silent !$TERM & disown<CR>')
+if vim.env.TMUX == nil then
+  Map('n', '<A-a>', ':silent !$TERM & disown<CR>')
+end
 
 Map('', '<A-w>', '<C-w>')
 Map('t', '<A-a>', '<C-\\><C-n>')

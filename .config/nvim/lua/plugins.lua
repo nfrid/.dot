@@ -200,6 +200,9 @@ return require('packer').startup(function()
       require('kommentary.config').configure_language("default", {
         prefer_single_line_comments = true
       })
+      require('kommentary.config').configure_language("fish", {
+        single_line_comment_string = "#"
+      })
       -- require('kommentary.config').configure_language("rust", {
       --   single_line_comment_string = "//",
       --   multi_line_comment_strings = {"/*", "*/"},
@@ -351,11 +354,16 @@ return require('packer').startup(function()
 
       local servers = {
         "bashls", "vimls", "pyright", "tsserver", "vuels", "yamlls", "jsonls",
-        "cmake", "ccls", "gopls", "intelephense"
+        "cmake", "gopls", "intelephense"
       }
       for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup { on_attach = on_attach }
       end
+
+      nvim_lsp.ccls.setup {
+        init_options = { highlight = { lsRanges = true } },
+        on_attach = on_attach
+      }
 
       nvim_lsp.texlab.setup {
         settings = {
@@ -370,7 +378,8 @@ return require('packer').startup(function()
             },
             lint = { onChange = true }
           }
-        }
+        },
+        on_attach = on_attach
       }
 
       nvim_lsp.sumneko_lua.setup {
@@ -392,6 +401,8 @@ return require('packer').startup(function()
     end
   }
 
+  use 'jackguo380/vim-lsp-cxx-highlight'
+
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function() vim.cmd [[TSUpdate]] end,
@@ -401,18 +412,18 @@ return require('packer').startup(function()
       treesitter.setup {
         -- highlight = { enable = true, disable = { 'yaml' } },
         highlight = { enable = true },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = 'gn',
-            node_incremental = 'gn',
-            node_decremental = 'gr'
-          }
-        },
-        indent = {
-          enable = true,
-          disable = { 'javascript', 'typescript', 'c', 'cpp', 'lua' }
-        },
+        -- incremental_selection = {
+        --   enable = true,
+        --   keymaps = {
+        --     init_selection = 'gn',
+        --     node_incremental = 'gn',
+        --     node_decremental = 'gr'
+        --   }
+        -- },
+        -- indent = {
+        --   enable = true,
+        --   disable = { 'javascript', 'typescript', 'c', 'cpp', 'lua' }
+        -- },
         rainbow = { enable = true }
       }
 

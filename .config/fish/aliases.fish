@@ -43,6 +43,11 @@ alias pws="pass git pull && pass git push"
 # The Shit
 alias o="xdg-open"
 alias mkd="mkdir -pv"
+# mkdir+cd together!!
+function mkcd
+  mkdir -p -- $argv &&
+    cd -- $argv
+end
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -vI"
@@ -79,8 +84,11 @@ alias tc="t calendar"
 alias tt="taskwarrior-tui"
 
 # Tmux
-alias tn="tmux -u -f $TMUX_CONFIG new"
-alias ta="tmux -u -f $TMUX_CONFIG attach"
+alias tt="tmux"
+alias tn="tmux new"
+alias ta="tmux attach"
+
+alias aa="abduco"
 
 # Git
 alias lg="lazygit"

@@ -4,9 +4,7 @@
 
 
 . ~/.config/fish/aliases.fish
-. ~/.config/fish/func.fish
 . ~/.config/fish/keys.fish
-fish_user_key_bindings
 
 
 set -g tide_git_branch_color green
@@ -55,7 +53,7 @@ function fish_prompt
     set_color white -o
     printf '>'
     set_color red -o
-end
+  end
 echo
 
 printf '$ '
@@ -161,7 +159,8 @@ end
 # end
 
 thefuck --alias | source
-pyenv init - | source
+# pyenv init - | source
+# pdm completion | source
 
 
 set -gx __fish_initialized 1

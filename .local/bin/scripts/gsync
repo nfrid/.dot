@@ -3,4 +3,11 @@
 [ -z $GDRIVE_REMOTE ] && GDRIVE_REMOTE=g
 [ -z $GDRIVE_PATH ] && GDRIVE_PATH=$HOME/Documents/Drive
 
-rclone sync $GDRIVE_REMOTE:/ $GDRIVE_PATH/
+if [[ -z $1 ]]; then
+  rclone -v sync $GDRIVE_REMOTE:/ $GDRIVE_PATH/
+else
+  case "$1" in
+    r) rclone -v sync $GDRIVE_PATH/ $GDRIVE_REMOTE:/ ;;
+  esac
+fi
+

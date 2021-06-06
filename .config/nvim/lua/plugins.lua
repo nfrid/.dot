@@ -190,6 +190,7 @@ return require('packer').startup(function()
       Map('n', '<F1>', '<cmd>lua require("telescope.builtin").commands()<CR>')
       Map('n', '<leader>D',
           '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>')
+      Map('n', '<leader>u', ':TodoTelescope<CR>')
     end
   }
 
@@ -443,6 +444,27 @@ return require('packer').startup(function()
         hi rainbowcol6 guifg=#d700ff
         hi rainbowcol7 guifg=#00d7ff
       ]], true)
+    end
+  }
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        signs = false,
+        keywords = {
+          FIX = {
+            icon = " ",
+            color = "error",
+            alt = { "FIXME", "BUG", "FIXIT", "FIX", "ISSUE" }
+          },
+          TODO = { icon = " ", color = "info" },
+          HACK = { icon = " ", color = "warning", alt = { "FUCK", "SHIT", "BAD" } },
+          WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+          PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+          NOTE = { icon = " ", color = "hint", alt = { "INFO" } }
+        },
+      }
     end
   }
   -- use 'romgrk/nvim-treesitter-context'

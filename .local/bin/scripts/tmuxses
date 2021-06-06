@@ -1,0 +1,14 @@
+#!/bin/sh
+
+tmux has -t $1 2>/dev/null && echo "session named $1 is already running" && exit 4
+
+case $1 in
+  sys)
+    tmux new -s $1 -d -n monitor "btm"
+    tmux new-window -t $1:2 -n journal "journalctl -f"
+    exit 0
+    ;;
+  *)
+    echo "no predefined session named $1"
+    exit 5
+esac

@@ -21,3 +21,6 @@ austart telegram-desktop telegram-deskto
 # austart discord Discord
 austart vk
 austart crow
+
+# tmux sessions
+tmuxses sys

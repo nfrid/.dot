@@ -12,14 +12,14 @@ super + ctrl + c
 
 # start a terminal
 super + Return
-  $TERMINAL
+  xkb-switch -s us; $TERMINAL
 
 super + ctrl + m
-  $TERMINAL
+  xkb-switch -s us; $TERMINAL
 
 # start a terminal w/ tmux
 super + shift + Return
-  $TERMINAL -e bash -c "tmux attach || tmux"
+  xkb-switch -s us; $TERMINAL -e bash -c "tmux attach || tmux"
 
 # switch layout
 super + space

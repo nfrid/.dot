@@ -21,6 +21,10 @@ super + ctrl + m
 super + Return
   xkb-switch -s us; $TERMINAL -e bash -c "tmux attach || tmux"
 
+# dmenu tmux
+super + a
+  dmux
+
 # switch layout
 super + space
   xkb-switch -n

@@ -10,6 +10,10 @@ case $1 in
     tmux select-pane -t sys:2 -T "btm"
     exit 0
     ;;
+  main)
+    tmux new -s main -d -n the
+    exit 0
+    ;;
   *)
     echo "no predefined session named $1"
     exit 5

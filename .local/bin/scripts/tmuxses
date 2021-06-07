@@ -5,9 +5,9 @@ tmux has -t $1 2>/dev/null && echo "session named $1 is already running" && exit
 case $1 in
   sys)
     tmux new -s sys -d -n journal "journalctl -f"
-    tmux select-pane -t sys:1 -T "journalctl -f"
+    tmux selectp -t sys:1 -T "journalctl -f"
     tmux new-window -t sys:2 -n monitor "btm"
-    tmux select-pane -t sys:2 -T "btm"
+    tmux selectp -t sys:2 -T "btm"
     exit 0
     ;;
   main)

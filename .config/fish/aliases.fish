@@ -87,12 +87,9 @@ alias tt="taskwarrior-tui"
 alias tt="tmux"
 alias ta="tmux attach"
 function tn
-  if test $TMUX
-    tmux new -s $argv -d
-  else
+  test $TMUX &&
+    tmux new -s $argv -d ||
     tmux new -s $argv
-    tmux attach -t $argv
-  end
 end
 
 alias aa="abduco"

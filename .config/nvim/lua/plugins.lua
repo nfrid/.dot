@@ -421,10 +421,10 @@ return require('packer').startup(function()
         --     node_decremental = 'gr'
         --   }
         -- },
-        -- indent = {
-        --   enable = true,
-        --   disable = { 'javascript', 'typescript', 'c', 'cpp', 'lua' }
-        -- },
+        indent = {
+          enable = true,
+          -- disable = { 'javascript', 'typescript', 'c', 'cpp', 'lua' }
+        },
         rainbow = { enable = true }
       }
 

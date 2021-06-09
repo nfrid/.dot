@@ -87,7 +87,9 @@ settings:
   statusbar.show:
     global: always
   tabs.last_close:
-    global: close
+    global: ignore
+  tabs.select_on_remove:
+    global: next
   tabs.show:
     global: multiple
   tabs.title.format:

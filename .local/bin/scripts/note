@@ -4,7 +4,7 @@ NOTES_DIR="$HOME/Documents/Notes"
 
 # run in neovim in default terminal & shell
 runvim() {
-  $TERM -e $SHELL -c "nvim '$NOTES_DIR/$1.md'"
+  $TERM -e sh -c "sleep 0.1 && nvim '$NOTES_DIR/$1.md'"
   exit 0
 }
 

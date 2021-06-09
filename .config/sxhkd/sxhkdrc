@@ -11,14 +11,12 @@ super + ctrl + c
   xdo kill
 
 # start a terminal
-super + shift + Return
+super + ctrl + { Return, m }
   xkb-switch -s us; $TERMINAL
-
-super + ctrl + m
   xkb-switch -s us; $TERMINAL
 
 # start a terminal w/ tmux
-super + Return
+super + { Return, m }
   xkb-switch -s us; $TERMINAL -e bash -c "tmux attach || tmux"
 
 # dmenu tmux
@@ -69,7 +67,7 @@ super + shift + d
 
 # browse config files
 super + g
-  dotbare ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e nvim $HOME/sel
+  dotbare ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e sh -c "sleep 0.1; nvim $HOME/sel"
 
 # fedit configs
 super + shift + g

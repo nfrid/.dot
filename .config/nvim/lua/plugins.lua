@@ -197,14 +197,11 @@ return require('packer').startup(function()
   use {
     'b3nj5m1n/kommentary',
     config = function()
-      -- require('kommentary.config').use_extended_mappings()
-      require('kommentary.config').configure_language("default", {
-        prefer_single_line_comments = true
-      })
-      require('kommentary.config').configure_language("fish", {
-        single_line_comment_string = "#"
-      })
-      -- require('kommentary.config').configure_language("rust", {
+      local konfig = require('kommentary.config').configure_language
+
+      konfig("default", { prefer_single_line_comments = true })
+      konfig("fish", { single_line_comment_string = "#" })
+      -- konfig("rust", {
       --   single_line_comment_string = "//",
       --   multi_line_comment_strings = {"/*", "*/"},
       -- })
@@ -336,7 +333,7 @@ return require('packer').startup(function()
         -- buf_map('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
         buf_map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>')
         buf_map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-        buf_map('n', '<leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
+        buf_map('n', '<leader>a', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
 
         buf_map('n', '<leader>e',
                 '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
@@ -411,41 +408,34 @@ return require('packer').startup(function()
       local treesitter = require('nvim-treesitter.configs')
 
       treesitter.setup {
-        -- highlight = { enable = true, disable = { 'yaml' } },
         highlight = { enable = true },
-        -- incremental_selection = {
-        --   enable = true,
-        --   keymaps = {
-        --     init_selection = 'gn',
-        --     node_incremental = 'gn',
-        --     node_decremental = 'gr'
-        --   }
-        -- },
-        indent = {
+
+        incremental_selection = {
           enable = true,
-          -- disable = { 'javascript', 'typescript', 'c', 'cpp', 'lua' }
+          keymaps = {
+            init_selection = 'gn',
+            node_incremental = 'gn',
+            node_decremental = 'gr'
+          }
         },
-        rainbow = { enable = true }
+
+        indent = { enable = true },
+
+        rainbow = {
+          enable = true,
+          disable = { "html" },
+          extended_mode = true,
+          colors = { "#d900ff", "#00ffd9", "#ffd700" }
+          -- "#00d7ff",
+        }
       }
 
       Set.foldmethod = 'expr'
       Set.foldexpr = 'nvim_treesitter#foldexpr()'
     end
   }
-  use {
-    'p00f/nvim-ts-rainbow',
-    config = function()
-      Exe([[
-        hi rainbowcol1 guifg=#ffd700
-        hi rainbowcol2 guifg=#ff00d7
-        hi rainbowcol3 guifg=#00ffd7
-        hi rainbowcol4 guifg=#d7ff00
-        hi rainbowcol5 guifg=#ff7070
-        hi rainbowcol6 guifg=#d700ff
-        hi rainbowcol7 guifg=#00d7ff
-      ]], true)
-    end
-  }
+  use { "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter" }
+
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -459,11 +449,15 @@ return require('packer').startup(function()
             alt = { "FIXME", "BUG", "FIXIT", "FIX", "ISSUE" }
           },
           TODO = { icon = " ", color = "info" },
-          HACK = { icon = " ", color = "warning", alt = { "FUCK", "SHIT", "BAD" } },
+          HACK = {
+            icon = " ",
+            color = "warning",
+            alt = { "FUCK", "SHIT", "BAD" }
+          },
           WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
           PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
           NOTE = { icon = " ", color = "hint", alt = { "INFO" } }
-        },
+        }
       }
     end
   }

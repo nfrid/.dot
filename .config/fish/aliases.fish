@@ -6,7 +6,6 @@ alias ss="cd ~/.local/src"
 alias bl="cd ~/github/nfrid.me/src/posts"
 
 # Misc
-abbr -ag _ sudo
 alias b="bash"
 alias py="python"
 alias bpy="bpython"

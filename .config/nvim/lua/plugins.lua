@@ -193,13 +193,13 @@ return require('packer').startup(function()
     config = function()
       require'hop'.setup {}
 
-      Map("n", "<leader><leader>w", "<cmd>lua require'hop'.hint_words()<cr>")
-      Map("n", "<leader><leader>l", "<cmd>lua require'hop'.hint_words()<cr>")
-      Map("n", "<leader><leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
-      Map("n", "<leader><leader>j", "<cmd>lua require'hop'.hint_lines()<cr>")
-      Map("n", "<leader><leader>k", "<cmd>lua require'hop'.hint_lines()<cr>")
-      Map("n", "<leader><leader>f", "<cmd>lua require'hop'.hint_char1()<cr>")
-      Map("n", "<leader><leader>s", "<cmd>lua require'hop'.hint_char2()<cr>")
+      Map('n', 's', '<NOP>')
+      Map("n", "sl", "<cmd>lua require'hop'.hint_words()<cr>")
+      Map("n", "sh", "<cmd>lua require'hop'.hint_words()<cr>")
+      Map("n", "sj", "<cmd>lua require'hop'.hint_lines()<cr>")
+      Map("n", "sk", "<cmd>lua require'hop'.hint_lines()<cr>")
+      Map("n", "sf", "<cmd>lua require'hop'.hint_char1()<cr>")
+      Map("n", "ss", "<cmd>lua require'hop'.hint_char2()<cr>")
     end
   }
 

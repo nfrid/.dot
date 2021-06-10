@@ -91,7 +91,7 @@ _G.packer_plugins = {
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/format.nvim"
   },
   hop = {
-    config = { "\27LJ\1\2á\3\0\0\4\0\16\0*4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\0014\0\3\0%\1\4\0%\2\5\0%\3\6\0>\0\4\0014\0\3\0%\1\4\0%\2\a\0%\3\6\0>\0\4\0014\0\3\0%\1\4\0%\2\b\0%\3\6\0>\0\4\0014\0\3\0%\1\4\0%\2\t\0%\3\n\0>\0\4\0014\0\3\0%\1\4\0%\2\v\0%\3\n\0>\0\4\0014\0\3\0%\1\4\0%\2\f\0%\3\r\0>\0\4\0014\0\3\0%\1\4\0%\2\14\0%\3\15\0>\0\4\1G\0\1\0+<cmd>lua require'hop'.hint_char2()<cr>\22<leader><leader>s+<cmd>lua require'hop'.hint_char1()<cr>\22<leader><leader>f\22<leader><leader>k+<cmd>lua require'hop'.hint_lines()<cr>\22<leader><leader>j\22<leader><leader>h\22<leader><leader>l+<cmd>lua require'hop'.hint_words()<cr>\22<leader><leader>w\6n\bMap\nsetup\bhop\frequire\0" },
+    config = { "\27LJ\1\2ý\2\0\0\4\0\17\0*4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\0014\0\3\0%\1\4\0%\2\5\0%\3\6\0>\0\4\0014\0\3\0%\1\4\0%\2\a\0%\3\b\0>\0\4\0014\0\3\0%\1\4\0%\2\t\0%\3\b\0>\0\4\0014\0\3\0%\1\4\0%\2\n\0%\3\v\0>\0\4\0014\0\3\0%\1\4\0%\2\f\0%\3\v\0>\0\4\0014\0\3\0%\1\4\0%\2\r\0%\3\14\0>\0\4\0014\0\3\0%\1\4\0%\2\15\0%\3\16\0>\0\4\1G\0\1\0+<cmd>lua require'hop'.hint_char2()<cr>\ass+<cmd>lua require'hop'.hint_char1()<cr>\asf\ask+<cmd>lua require'hop'.hint_lines()<cr>\asj\ash+<cmd>lua require'hop'.hint_words()<cr>\asl\n<NOP>\6s\6n\bMap\nsetup\bhop\frequire\0" },
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/hop"
   },
@@ -332,7 +332,7 @@ try_loadstring("\27LJ\1\2J\0\0\1\0\5\1\v4\0\0\0007\0\1\0007\0\2\0\t\0\0\0T\0\3€%
 time("Config for lualine.nvim", false)
 -- Config for: hop
 time("Config for hop", true)
-try_loadstring("\27LJ\1\2á\3\0\0\4\0\16\0*4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\0014\0\3\0%\1\4\0%\2\5\0%\3\6\0>\0\4\0014\0\3\0%\1\4\0%\2\a\0%\3\6\0>\0\4\0014\0\3\0%\1\4\0%\2\b\0%\3\6\0>\0\4\0014\0\3\0%\1\4\0%\2\t\0%\3\n\0>\0\4\0014\0\3\0%\1\4\0%\2\v\0%\3\n\0>\0\4\0014\0\3\0%\1\4\0%\2\f\0%\3\r\0>\0\4\0014\0\3\0%\1\4\0%\2\14\0%\3\15\0>\0\4\1G\0\1\0+<cmd>lua require'hop'.hint_char2()<cr>\22<leader><leader>s+<cmd>lua require'hop'.hint_char1()<cr>\22<leader><leader>f\22<leader><leader>k+<cmd>lua require'hop'.hint_lines()<cr>\22<leader><leader>j\22<leader><leader>h\22<leader><leader>l+<cmd>lua require'hop'.hint_words()<cr>\22<leader><leader>w\6n\bMap\nsetup\bhop\frequire\0", "config", "hop")
+try_loadstring("\27LJ\1\2ý\2\0\0\4\0\17\0*4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\0014\0\3\0%\1\4\0%\2\5\0%\3\6\0>\0\4\0014\0\3\0%\1\4\0%\2\a\0%\3\b\0>\0\4\0014\0\3\0%\1\4\0%\2\t\0%\3\b\0>\0\4\0014\0\3\0%\1\4\0%\2\n\0%\3\v\0>\0\4\0014\0\3\0%\1\4\0%\2\f\0%\3\v\0>\0\4\0014\0\3\0%\1\4\0%\2\r\0%\3\14\0>\0\4\0014\0\3\0%\1\4\0%\2\15\0%\3\16\0>\0\4\1G\0\1\0+<cmd>lua require'hop'.hint_char2()<cr>\ass+<cmd>lua require'hop'.hint_char1()<cr>\asf\ask+<cmd>lua require'hop'.hint_lines()<cr>\asj\ash+<cmd>lua require'hop'.hint_words()<cr>\asl\n<NOP>\6s\6n\bMap\nsetup\bhop\frequire\0", "config", "hop")
 time("Config for hop", false)
 -- Config for: telescope.nvim
 time("Config for telescope.nvim", true)

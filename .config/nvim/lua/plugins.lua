@@ -86,14 +86,8 @@ return require('packer').startup(function()
     'mhinz/vim-startify',
     config = function()
       vim.g.startify_lists = {
-        {
-          type = 'dir',
-          header = { "MRU [" .. vim.fn.getcwd() .. "]" }
-        },
-        {
-          type = 'files',
-          header = { "MRU [global]" }
-        }
+        { type = 'dir', header = { "MRU [" .. vim.fn.getcwd() .. "]" } },
+        { type = 'files', header = { "MRU [global]" } }
       }
       vim.g.startify_fortune_use_unicode = 1
       vim.g.startify_custom_header = 'startify#pad(startify#fortune#boxed())'
@@ -152,6 +146,8 @@ return require('packer').startup(function()
         javascript = { { cmd = { 'prettier -w', 'eslint --fix' } } },
         typescript = { { cmd = { 'prettier -w', 'eslint --fix' } } },
         json = { { cmd = { 'prettier -w' } } },
+        css = { { cmd = { 'prettier -w' } } },
+        scss = { { cmd = { 'prettier -w' } } },
         cmake = { { cmd = { 'cmake-format -i' } } },
         c = { { cmd = { 'clang-format -style=file -i' } } },
         cpp = { { cmd = { 'clang-format -style=file -i' } } },
@@ -277,9 +273,12 @@ return require('packer').startup(function()
     config = function()
       local nvim_lsp = require('lspconfig')
 
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
+
       local on_attach = function(client, bufnr)
         require('completion').on_attach()
-        require('lsp_signature').on_attach()
+        -- require('lsp_signature').on_attach()
         Set.completeopt = "menuone,noinsert,noselect"
         vim.g.completion_enable_auto_popup = 0
         Cmd('imap <tab> <Plug>(completion_smart_tab)')
@@ -336,10 +335,11 @@ return require('packer').startup(function()
 
       local servers = {
         "bashls", "vimls", "pyright", "tsserver", "vuels", "yamlls", "jsonls",
-        "cmake", "gopls", "intelephense"
+        "cmake", "gopls", "intelephense", "cssls", "html"
       }
       for _, lsp in ipairs(servers) do
-        nvim_lsp[lsp].setup { on_attach = on_attach }
+        nvim_lsp[lsp]
+            .setup { capabilities = capabilities, on_attach = on_attach }
       end
 
       nvim_lsp.ccls.setup {

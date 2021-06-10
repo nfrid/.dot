@@ -180,8 +180,8 @@ return require('packer').startup(function()
       Map('n', '<C-f>',
           '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>')
       Map('n', '<F1>', '<cmd>lua require("telescope.builtin").commands()<CR>')
-      Map('n', '<leader>D',
-          '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>')
+      Map('n', '<leader>d',
+          '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>')
       Map('n', '<leader>u', ':TodoTelescope<CR>')
     end
   }

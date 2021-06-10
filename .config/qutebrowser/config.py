@@ -181,6 +181,27 @@ config.bind("zss", "set-cmd-text -s :session-load ")
 config.bind("zsd", "set-cmd-text -s :session-delete ")
 
 
+config.bind('<Alt-E>', 'edit-text', mode='insert')
+c.editor.command = ['alacritty', '-e', 'sh', '-c', 'sleep 0.1 && nvim {}']
+
+
+config.bind('<Alt-Left>', 'back')
+config.bind('<Alt-Right>', 'forward')
+
+
+config.bind('<Ctrl-m>', 'command-accept', mode='command')
+config.bind('<Ctrl-h>', 'command-history-prev', mode='command')
+config.bind('<Ctrl-l>', 'command-history-next', mode='command')
+config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
+config.bind('<Ctrl-j>', 'completion-item-focus next', mode='command')
+
+config.bind('<Ctrl-m>', 'command-accept', mode='prompt')
+config.bind('<Ctrl-h>', 'command-history-prev', mode='prompt')
+config.bind('<Ctrl-l>', 'command-history-next', mode='prompt')
+config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='prompt')
+config.bind('<Ctrl-j>', 'completion-item-focus next', mode='prompt')
+
+
 # These were here by default . . .
 
 # Cookies

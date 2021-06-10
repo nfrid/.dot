@@ -7,6 +7,7 @@ return require('packer').startup(function()
   local use = require('packer').use
   use { 'wbthomason/packer.nvim', opt = true }
 
+  use 'folke/lsp-colors.nvim'
   use {
     'dracula/vim',
     config = function()
@@ -14,12 +15,10 @@ return require('packer').startup(function()
       -- Cmd('hi CursorLine guibg=#343746')
       Cmd('hi CursorLine guibg=#21222C')
       Cmd('hi CursorLineNr guifg=#F1FA8C guibg=#21222C gui=none')
+      Cmd('hi IndentLine guifg=#44475a')
     end
   }
-  use {
-    'mhinz/vim-startify',
-    config = function() Map('n', '<leader>s', ':Startify<CR>') end
-  }
+  use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
   use {
     "hoob3rt/lualine.nvim",
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -66,17 +65,40 @@ return require('packer').startup(function()
   }
   use 'pacha/vem-tabline'
   use {
-    'Yggdroot/indentLine',
+    'lukas-reineke/indent-blankline.nvim',
+    branch = "lua",
     config = function()
-      vim.g.indentLine_char = '▏'
-      vim.g.indentLine_conceallevel = 2
-      vim.g.indentLine_color_gui = '#44475a'
-      vim.g.indentLine_fileTypeExclude = { 'markdown', 'tex', 'startify' }
+      vim.g.indent_blankline_char = '▏'
+      vim.g.indent_blankline_char_highlight_list = { "IndentLine" }
+      vim.g.indent_blankline_show_first_indent_level = false
+      vim.g.indent_blankline_use_treesitter = true
+      vim.g.indent_blankline_filetype_exclude =
+          { 'markdown', 'tex', 'startify' }
     end
   }
   use {
     'machakann/vim-highlightedyank',
     config = function() vim.g.highlightedyank_highlight_duration = 250 end
+  }
+  use 'kevinhwang91/nvim-hlslens'
+
+  use {
+    'mhinz/vim-startify',
+    config = function()
+      vim.g.startify_lists = {
+        {
+          type = 'dir',
+          header = { "MRU [" .. vim.fn.getcwd() .. "]" }
+        },
+        {
+          type = 'files',
+          header = { "MRU [global]" }
+        }
+      }
+      vim.g.startify_fortune_use_unicode = 1
+      vim.g.startify_custom_header = 'startify#pad(startify#fortune#boxed())'
+      Map('n', '<leader>s', ':Startify<CR>')
+    end
   }
 
   use {
@@ -133,43 +155,13 @@ return require('packer').startup(function()
         cmake = { { cmd = { 'cmake-format -i' } } },
         c = { { cmd = { 'clang-format -style=file -i' } } },
         cpp = { { cmd = { 'clang-format -style=file -i' } } },
-        markdown = {
-          { cmd = { 'prettier -w --prose-wrap always' } }, {
-            cmd = { 'black' },
-            start_pattern = '^```python$',
-            end_pattern = '^```$',
-            target = 'current'
-          }
-        },
+        markdown = { { cmd = { 'prettier -w --prose-wrap always' } } },
         python = { { cmd = { 'black' } } }
       }
-      -- Exe([[
-      -- augroup Format
-      -- autocmd!
-      -- autocmd BufWritePost * FormatWrite
-      -- augroup END
-      --   ]], true)
       Map('n', '<leader>F', ':FormatWrite<CR>')
     end
   }
 
-  -- use {
-  --   'numtostr/FTerm.nvim',
-  --   config = function()
-  --     Map('n', '<M-r>', '<CMD>lua require"FTerm".toggle()<CR>')
-  --     Map('t', '<M-r>', '<C-\\><C-n><CMD>lua require"FTerm".toggle()<CR>')
-  --   end
-  -- }
-  -- use {
-  --   'junegunn/fzf.vim',
-  --   requires = { 'junegunn/fzf', opt = true },
-  --   config = function()
-  --     Map('n', '<leader>f', ':Files<CR>')
-  --     Map('n', '<leader>o', ':Buffers<CR>')
-  --     Map('n', '<leader>g', ':Rg<CR>')
-  --     Map('n', '<C-f>', ':BLines<CR>')
-  --   end
-  -- }
   use {
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
@@ -194,28 +186,26 @@ return require('packer').startup(function()
     end
   }
 
-  use {
-    'b3nj5m1n/kommentary',
-    config = function()
-      local konfig = require('kommentary.config').configure_language
-
-      konfig("default", { prefer_single_line_comments = true })
-      konfig("fish", { single_line_comment_string = "#" })
-      -- konfig("rust", {
-      --   single_line_comment_string = "//",
-      --   multi_line_comment_strings = {"/*", "*/"},
-      -- })
-    end
-  }
+  use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
   use 'jiangmiao/auto-pairs'
   use 'kana/vim-repeat'
   use 'junegunn/vim-peekaboo'
+  use {
+    'phaazon/hop.nvim',
+    as = 'hop',
+    config = function()
+      require'hop'.setup {}
 
-  use 'justinmk/vim-sneak'
-  use 'easymotion/vim-easymotion'
-  -- use 'unblevable/quick-scope'
-  -- use 'kshenoy/vim-signature'
+      Map("n", "<leader><leader>w", "<cmd>lua require'hop'.hint_words()<cr>")
+      Map("n", "<leader><leader>l", "<cmd>lua require'hop'.hint_words()<cr>")
+      Map("n", "<leader><leader>h", "<cmd>lua require'hop'.hint_words()<cr>")
+      Map("n", "<leader><leader>j", "<cmd>lua require'hop'.hint_lines()<cr>")
+      Map("n", "<leader><leader>k", "<cmd>lua require'hop'.hint_lines()<cr>")
+      Map("n", "<leader><leader>f", "<cmd>lua require'hop'.hint_char1()<cr>")
+      Map("n", "<leader><leader>s", "<cmd>lua require'hop'.hint_char2()<cr>")
+    end
+  }
 
   use 'kana/vim-textobj-user'
   use 'Chun-Yang/vim-textobj-chunk'
@@ -223,22 +213,22 @@ return require('packer').startup(function()
   use 'coachshea/vim-textobj-markdown'
   use 'michaeljsmith/vim-indent-object'
   use 'reedes/vim-textobj-sentence'
-
-  -- use 'dag/vim-fish'
+  use {
+    'AckslD/nvim-revJ.lua',
+    requires = { 'kana/vim-textobj-user', 'sgur/vim-textobj-parameter' },
+    config = function()
+      require("revj").setup {
+        keymaps = {
+          operator = '<Leader>J',
+          line = '<Leader>j',
+          visual = '<Leader>j'
+        }
+      }
+    end
+  }
 
   use 'fedorenchik/qt-support.vim'
 
-  -- use {
-  --   'lewis6991/gitsigns.nvim',
-  --   requires = { 'nvim-lua/plenary.nvim' },
-  --   config = function() require('gitsigns').setup() end
-  -- }
-
-  -- use {
-  --   'hrsh7th/vim-vsnip',
-  --   requires = { 'hrsh7th/vim-vsnip-integ', opt = true },
-  --   config = function() vim.g.vsnip_filetypes = {} end
-  -- }
   use {
     'mattn/emmet-vim',
     config = function()
@@ -280,6 +270,7 @@ return require('packer').startup(function()
     'onsails/lspkind-nvim',
     config = function() require('lspkind').init() end
   }
+  use 'ray-x/lsp_signature.nvim'
   use {
     'neovim/nvim-lspconfig',
     requires = { 'nvim-lua/completion-nvim', opt = true },
@@ -288,22 +279,15 @@ return require('packer').startup(function()
 
       local on_attach = function(client, bufnr)
         require('completion').on_attach()
-        -- cmd('inoremap <expr> <Tab>   pumvisible() ? "\\<C-n>" : "\\<Tab>"')
-        -- cmd('inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"')
-        -- cmd('inoremap <expr> <C-j>   pumvisible() ? "\\<C-n>" : "\\<C-j>"')
-        -- cmd('inoremap <expr> <C-k>   pumvisible() ? "\\<C-p>" : "\\<C-k>"')
+        require('lsp_signature').on_attach()
         Set.completeopt = "menuone,noinsert,noselect"
-        -- set.shortmess += "c"
         vim.g.completion_enable_auto_popup = 0
         Cmd('imap <tab> <Plug>(completion_smart_tab)')
         Cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
-        -- Cmd('imap <silent> <c-p> <Plug>(completion_trigger)')
-        -- Cmd('imap <silent> <c-n> <Plug>(completion_trigger)')
         vim.g.completion_matching_smart_case = 1
         vim.g.completion_matching_strategy_list =
             { 'exact', 'substring', 'fuzzy', 'all' }
 
-        -- possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
         vim.g.completion_enable_snippet = 'UltiSnips'
 
         local function buf_map(mode, keys, action)
@@ -427,14 +411,21 @@ return require('packer').startup(function()
           extended_mode = true,
           colors = { "#d900ff", "#00ffd9", "#ffd700" }
           -- "#00d7ff",
-        }
+        },
+
+        context_commentstring = { enable = true, config = { fish = "# %s" } },
+
+        autotag = { enable = true }
       }
 
       Set.foldmethod = 'expr'
       Set.foldexpr = 'nvim_treesitter#foldexpr()'
     end
   }
-  use { "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter" }
+  use "p00f/nvim-ts-rainbow"
+  use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "windwp/nvim-ts-autotag"
+  -- use 'romgrk/nvim-treesitter-context'
 
   use {
     "folke/todo-comments.nvim",
@@ -461,7 +452,9 @@ return require('packer').startup(function()
       }
     end
   }
-  -- use 'romgrk/nvim-treesitter-context'
 
-  use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
+  use {
+    'andweeb/presence.nvim',
+    config = function() require("presence"):setup({}) end
+  }
 end)

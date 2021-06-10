@@ -134,6 +134,7 @@ Map('n', 'gF', ':e <cfile><CR>')
 
 Map('n', '<leader>w', ':w!<CR>')
 Map('n', '<Leader>,', '<CMD>lua vim.o.hls = not vim.o.hls<CR>')
+Map('n', '<Leader>/', ':nohlsearch<CR>')
 Map('n', 'Q', ':bd<CR>')
 Map('n', '<leader>cd', ':cd %:h<CR>')
 Map('n', '<leader>cp', ':let @+ = expand("%:p:h")<CR>')

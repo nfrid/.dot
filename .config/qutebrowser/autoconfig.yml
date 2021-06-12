@@ -11,12 +11,6 @@ settings:
       normal:
         .: null
         \: repeat-command
-        zca: set content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/apprentice/apprentice-all-sites.css
-        zcc: set content.user_stylesheets ''
-        zcd: set content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/darculized/darculized-all-sites.css
-        zcg: set content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css
-        zcs: set content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-light/solarized-light-all-sites.css
-        zcx: set content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-dark/solarized-dark-all-sites.css
         zd: download-open
         zl: 'spawn --userscript qute-pass -U secret -u "user: (.+)"'
         zol: 'spawn --userscript qute-pass --otp-only -U secret -u "user: (.+)"'

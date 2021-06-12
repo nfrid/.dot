@@ -167,19 +167,19 @@ return require('packer').startup(function()
       require('telescope').setup {}
       Map('n', '<leader>t', '<cmd>Telescope<CR>')
       Map('n', '<leader>f',
-          '<cmd>lua require("telescope.builtin").file_browser()<CR>')
+          '<cmd>lua require("telescope.builtin").fd()<CR>')
       Map('n', '<leader>o',
           '<cmd>lua require("telescope.builtin").buffers()<CR>')
       Map('n', '<leader>m', '<cmd>lua require("telescope.builtin").marks()<CR>')
       Map('n', '<leader>r',
           '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>')
       Map('n', '<leader>R',
-          '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<CR>')
+          '<cmd>lua require("telescope.builtin").lsp_dynamic_workspace_symbols()<CR>')
       Map('n', '<C-f>',
           '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>')
       Map('n', '<F1>', '<cmd>lua require("telescope.builtin").commands()<CR>')
       Map('n', '<leader>d',
-          '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>')
+          '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>')
       Map('n', '<leader>u', ':TodoTelescope<CR>')
     end
   }

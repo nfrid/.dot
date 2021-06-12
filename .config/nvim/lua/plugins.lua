@@ -145,6 +145,8 @@ return require('packer').startup(function()
         },
         javascript = { { cmd = { 'prettier -w', 'eslint --fix' } } },
         typescript = { { cmd = { 'prettier -w', 'eslint --fix' } } },
+        javascriptreact = { { cmd = { 'prettier -w', 'eslint --fix' } } },
+        typescriptreact = { { cmd = { 'prettier -w', 'eslint --fix' } } },
         json = { { cmd = { 'prettier -w' } } },
         css = { { cmd = { 'prettier -w' } } },
         scss = { { cmd = { 'prettier -w' } } },

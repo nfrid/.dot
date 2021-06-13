@@ -69,18 +69,24 @@ vim.g.mapleader = ' '
 
 Format = function()
   local formatCmds = {
-    ['lua'] = 'lua-format --indent-width=2 --spaces-inside-table-braces -i',
-    ['go'] = 'gofmt -w',
-    ['[java|type]script'] = 'prettier -w',
-    ['[json|css|scss]'] = 'prettier -w',
-    ['cmake'] = 'cmake-format -i',
-    ['[c|cpp]'] = 'clang-format -style=file -i',
-    ['markdown'] = 'prettier -w --prose-wrap always',
-    ['python'] = 'black'
+    lua = 'lua-format --indent-width=2 --spaces-inside-table-braces -i',
+    go = 'gofmt -w',
+    javascript = 'prettier -w',
+    typescript = 'prettier -w',
+    javascriptreact = 'prettier -w',
+    typescriptreact = 'prettier -w',
+    json = 'prettier -w',
+    css = 'prettier -w',
+    scss = 'prettier -w',
+    cmake = 'cmake-format -i',
+    c = 'clang-format -style=file -i',
+    cpp = 'clang-format -style=file -i',
+    markdown = 'prettier -w --prose-wrap always',
+    python = 'black -q'
   }
 
   for key, value in pairs(formatCmds) do
-    if string.match(vim.bo.filetype, key) then
+    if vim.bo.filetype == key then
       os.execute(value .. ' "' .. vim.api.nvim_buf_get_name("%") .. '"')
       vim.api.nvim_command("e!")
       break

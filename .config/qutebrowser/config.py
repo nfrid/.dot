@@ -1,6 +1,7 @@
 # lsp & lint hack
 from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
 from qutebrowser.config.config import ConfigContainer  # noqa: F401
+
 config: ConfigAPI = config  # type: ignore # noqa: F821
 c: ConfigContainer = c  # type: ignore # noqa: F821
 
@@ -9,6 +10,7 @@ config.load_autoconfig()
 
 # DRACULA THEME !!!!
 import dracula.draw
+
 dracula.draw.blood(c, {"spacing": {"vertical": 6, "horizontal": 8}})
 
 c.url.start_pages = "file:///home/nf/.config/qutebrowser/startpage/index.html"
@@ -151,9 +153,6 @@ config.bind("zsw", "set-cmd-text -s :session-save --only-active-window ")
 config.bind("zss", "set-cmd-text -s :session-load ")
 config.bind("zsd", "set-cmd-text -s :session-delete ")
 
-config.bind("<Alt-E>", "edit-text", mode="insert")
-c.editor.command = ["alacritty", "-e", "sh", "-c", "sleep 0.1 && nvim {}"]
-
 config.bind("<Alt-Left>", "back")
 config.bind("<Alt-Right>", "forward")
 
@@ -167,6 +166,22 @@ config.bind("<Ctrl-h>", "rl-backward-delete-char", mode="prompt")
 config.bind("<Ctrl-k>", "completion-item-focus prev", mode="prompt")
 config.bind("<Ctrl-j>", "completion-item-focus next", mode="prompt")
 
+c.editor.command = ["alacritty", "-e", "sh", "-c", "sleep 0.1 && nvim {}"]
+config.bind("<Alt-e>", "edit-text", mode="insert")
+
+config.bind("<Ctrl-d>", "fake-key <Delete>", mode="insert")
+config.bind("<Alt-d>", "fake-key <Control-Delete>", mode="insert")
+config.bind("<Ctrl-h>", "fake-key <Backspace>", mode="insert")
+config.bind("<Ctrl-w>", "fake-key <Control-Backspace>", mode="insert")
+
+config.bind("<Ctrl-f>", "fake-key <Right>", mode="insert")
+config.bind("<Ctrl-b>", "fake-key <Left>", mode="insert")
+config.bind("<Alt-f>", "fake-key <Control-Right>", mode="insert")
+config.bind("<Alt-b>", "fake-key <Control-Left>", mode="insert")
+
+config.bind("<Alt-a>", "fake-key <Ctrl-a>", mode="insert")
+config.bind("<Ctrl-a>", "fake-key <Home>", mode="insert")
+config.bind("<Ctrl-e>", "fake-key <End>", mode="insert")
 
 # ---
 # some weird hacks down there all since the start

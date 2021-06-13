@@ -118,56 +118,12 @@ return require('packer').startup(function()
   use 'lervag/vimtex'
 
   use {
-    'lukas-reineke/format.nvim',
-    config = function()
-      require'format'.setup {
-        ['*'] = {
-          { cmd = { 'sed -i "s/[ \t]*$//"' } } -- remove trailing whitespace
-        },
-        vim = {
-          {
-            cmd = {
-              'lua-format --indent-width=2 --spaces-inside-table-braces -i'
-            },
-            start_pattern = '^lua << EOF$',
-            end_pattern = '^EOF$'
-          }
-        },
-        lua = {
-          {
-            cmd = {
-              'lua-format --indent-width=2 --spaces-inside-table-braces -i'
-            }
-          }
-        },
-        go = {
-          { cmd = { "gofmt -w", "goimports -w" }, tempfile_postfix = ".tmp" }
-        },
-        javascript = { { cmd = { 'prettier -w', 'eslint --fix' } } },
-        typescript = { { cmd = { 'prettier -w', 'eslint --fix' } } },
-        javascriptreact = { { cmd = { 'prettier -w', 'eslint --fix' } } },
-        typescriptreact = { { cmd = { 'prettier -w', 'eslint --fix' } } },
-        json = { { cmd = { 'prettier -w' } } },
-        css = { { cmd = { 'prettier -w' } } },
-        scss = { { cmd = { 'prettier -w' } } },
-        cmake = { { cmd = { 'cmake-format -i' } } },
-        c = { { cmd = { 'clang-format -style=file -i' } } },
-        cpp = { { cmd = { 'clang-format -style=file -i' } } },
-        markdown = { { cmd = { 'prettier -w --prose-wrap always' } } },
-        python = { { cmd = { 'black' } } }
-      }
-      Map('n', '<leader>F', ':FormatWrite<CR>')
-    end
-  }
-
-  use {
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
     config = function()
       require('telescope').setup {}
       Map('n', '<leader>t', '<cmd>Telescope<CR>')
-      Map('n', '<leader>f',
-          '<cmd>lua require("telescope.builtin").fd()<CR>')
+      Map('n', '<leader>f', '<cmd>lua require("telescope.builtin").fd()<CR>')
       Map('n', '<leader>o',
           '<cmd>lua require("telescope.builtin").buffers()<CR>')
       Map('n', '<leader>m', '<cmd>lua require("telescope.builtin").marks()<CR>')
@@ -268,7 +224,7 @@ return require('packer').startup(function()
     'onsails/lspkind-nvim',
     config = function() require('lspkind').init() end
   }
-  use 'ray-x/lsp_signature.nvim'
+  -- use 'ray-x/lsp_signature.nvim'
   use {
     'neovim/nvim-lspconfig',
     requires = { 'nvim-lua/completion-nvim', opt = true },
@@ -459,4 +415,6 @@ return require('packer').startup(function()
     'andweeb/presence.nvim',
     config = function() require("presence"):setup({}) end
   }
+
+  use 'rafcamlet/nvim-luapad'
 end)

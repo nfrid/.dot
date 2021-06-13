@@ -62,7 +62,33 @@ Exe([[
 
 vim.g.vimsyn_embed = 'l'
 
+vim.mapleader = ' '
+vim.g.mapleader = ' '
+
 -- Custom commands and stuff
+
+Format = function()
+  local formatCmds = {
+    ['lua'] = 'lua-format --indent-width=2 --spaces-inside-table-braces -i',
+    ['go'] = 'gofmt -w',
+    ['[java|type]script'] = 'prettier -w',
+    ['[json|css|scss]'] = 'prettier -w',
+    ['cmake'] = 'cmake-format -i',
+    ['[c|cpp]'] = 'clang-format -style=file -i',
+    ['markdown'] = 'prettier -w --prose-wrap always',
+    ['python'] = 'black'
+  }
+
+  for key, value in pairs(formatCmds) do
+    if string.match(vim.bo.filetype, key) then
+      os.execute(value .. ' "' .. vim.api.nvim_buf_get_name("%") .. '"')
+      vim.api.nvim_command("e!")
+      break
+    end
+  end
+end
+
+Map('n', '<leader>F', ':lua Format()<CR>')
 
 Exe([[
   function! ToggleConceal() abort
@@ -73,6 +99,8 @@ Exe([[
     endif
   endfunction
 ]], true)
+
+Map('n', '<leader>pc', ':lua ToggleConceal()<CR>')
 
 Exe([[
   function! ToggleWrap() abort
@@ -88,6 +116,8 @@ Exe([[
   endfunction
 ]], true)
 
+Map('n', '<leader>pw', ':call ToggleWrap()<CR>')
+
 Exe([[
   function! ToggleKeyMap() abort
     if &iminsert ==# ''
@@ -97,6 +127,9 @@ Exe([[
     endif
   endfunction
 ]], true)
+
+Map('n', '<A-l>', ':call ToggleKeyMap()<CR>')
+Map('i', '<A-l>', '<C-^>')
 
 Exe([[
   function! ToggleRelNums() abort
@@ -108,17 +141,15 @@ Exe([[
   endfunction
 ]], true)
 
+Map('n', '<leader>pr', ':call ToggleRelNums()<CR>')
+
 Cmd("autocmd BufReadPost *.zsh,.zshrc set filetype=sh")
 Cmd("autocmd BufReadPost *.fish set filetype=fish")
 Cmd("autocmd BufReadPost *.conf set filetype=config")
-Cmd("autocmd BufReadPost *.md call ToggleWrap()")
 
 Cmd("command! W :w!")
 
 -- mappings
-
-vim.mapleader = ' '
-vim.g.mapleader = ' '
 
 Map('n', '<SPACE>', '<NOP>')
 
@@ -144,17 +175,9 @@ Map('n', '<', '<<')
 
 Map('n', '<leader>vv', ':e $MYVIMRC<CR>')
 
-Map('n', '<A-l>', ':call ToggleKeyMap()<CR>')
-Map('i', '<A-l>', '<C-^>')
-
 Map('n', '<leader>ps', ':set spell!<CR>')
-Map('n', '<leader>pc', ':call ToggleConceal()<CR>')
-Map('n', '<leader>pw', ':call ToggleWrap()<CR>')
-Map('n', '<leader>pr', ':call ToggleRelNums()<CR>')
 
-if vim.env.TMUX == nil then
-  Map('n', '<A-a>', ':silent !$TERM & disown<CR>')
-end
+if vim.env.TMUX == nil then Map('n', '<A-a>', ':silent !$TERM & disown<CR>') end
 
 Map('', '<A-w>', '<C-w>')
 Map('t', '<A-a>', '<C-\\><C-n>')

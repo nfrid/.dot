@@ -1,64 +1,39 @@
 require('vutils')
 
-Exe([[
-  filetype plugin indent on
-  syntax on
-  set hidden
-]], true)
+vim.opt.hidden = true
+vim.opt.swapfile = false
+vim.opt.foldenable = false
 
-Exe([[
-  set noswapfile
-  set formatoptions-=cro
-  set smartindent
-  set expandtab
-  set tabstop=2
-  set softtabstop=2
-  set shiftwidth=2
-  au BufRead,BufNewFile *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
-  set foldenable
-  set foldlevel=99
-  set foldmethod=indent
-  set ignorecase
-  set smartcase
-  set mouse=a
-  set clipboard=unnamed
-]], true)
+vim.opt.smartindent = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+Cmd('au BufRead,BufNewFile *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4')
 
-Exe([[
-  set nospell spelllang=en_us,ru_yo
-  set keymap=russian-jcukenwin
-  set iminsert=0
-  set imsearch=-1
-]], true)
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.mouse = 'a'
+vim.opt.clipboard = 'unnamed'
 
-Exe([[
-  set number
-  set norelativenumber
-  set nowrap
-  set noshowmode
-  set signcolumn=no
-  set cursorline
-]], true)
+vim.opt.spell = false
+vim.opt.spelllang= 'en_us,ru_yo'
+vim.opt.keymap = 'russian-jcukenwin'
+vim.opt.iminsert = 0
+vim.opt.imsearch = -1
 
-Exe([[
-  set list
-  " set listchars=tab:▸\ ,trail:⋅
-  set listchars=tab:▏\ ,trail:⋅
+vim.opt.number = true
+vim.opt.relativenumber = false
+vim.opt.wrap = false
+vim.opt.showmode = false
+vim.opt.signcolumn = 'no'
+vim.opt.cursorline = true
 
-  set cc=81
-]], true)
+vim.opt.list = true
+vim.opt.listchars = { trail = '⋅' }
+vim.opt.cc = '81'
 
-Exe([[
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-]], true)
-
-Exe([[
-  set guifont=droidsansmono\ nerd\ font\ 11
-  set guicursor+=a:blinkon1
-]], true)
+vim.opt.termguicolors = true
 
 vim.g.vimsyn_embed = 'l'
 
@@ -96,62 +71,54 @@ end
 
 Map('n', '<leader>F', ':lua Format()<CR>')
 
-Exe([[
-  function! ToggleConceal() abort
-    if &conceallevel ==# 2
-      setlocal conceallevel=0
-    else
-      setlocal conceallevel=2
-    endif
-  endfunction
-]], true)
+ToggleConceal = function()
+  if vim.wo.conceallevel == 2 then
+    vim.wo.conceallevel = 0
+  else
+    vim.wo.conceallevel = 2
+  end
+end
 
 Map('n', '<leader>pc', ':lua ToggleConceal()<CR>')
 
-Exe([[
-  function! ToggleWrap() abort
-    if &wrap ==# 'nowrap'
-      setlocal wrap linebreak
-      nnoremap <buffer> j gj
-      nnoremap <buffer> k gk
-    else
-      setlocal nowrap
-      nunmap <buffer> j
-      nunmap <buffer> k
-    endif
-  endfunction
-]], true)
+ToggleWrap = function()
+  if vim.wo.wrap then
+    vim.wo.wrap = false
+    vim.api.nvim_buf_del_keymap(0, 'n', 'j')
+    vim.api.nvim_buf_del_keymap(0, 'n', 'k')
+  else
+    vim.wo.wrap = true
+    BMap('n', 'j', 'gj')
+    BMap('n', 'k', 'gk')
+  end
+end
 
-Map('n', '<leader>pw', ':call ToggleWrap()<CR>')
+Map('n', '<leader>pw', ':lua ToggleWrap()<CR>')
 
-Exe([[
-  function! ToggleKeyMap() abort
-    if &iminsert ==# ''
-      setlocal iminsert=1
-    else
-      setlocal iminsert=0
-    endif
-  endfunction
-]], true)
+ToggleKeyMap = function()
+  if vim.bo.iminsert == 0 then
+    vim.bo.iminsert = 1
+  else
+    vim.bo.iminsert = 0
+  end
+end
 
-Map('n', '<A-l>', ':call ToggleKeyMap()<CR>')
+Map('n', '<A-l>', ':lua ToggleKeyMap()<CR>')
 Map('i', '<A-l>', '<C-^>')
 
-Exe([[
-  function! ToggleRelNums() abort
-    if &relativenumber ==# 0
-      setlocal relativenumber
-    else
-      setlocal norelativenumber
-    endif
-  endfunction
-]], true)
+ToggleRelNums = function()
+  if vim.wo.relativenumber then
+    vim.wo.relativenumber = false
+  else
+    vim.wo.relativenumber = true
+  end
+end
 
-Map('n', '<leader>pr', ':call ToggleRelNums()<CR>')
+Map('n', '<leader>pr', ':lua ToggleRelNums()<CR>')
 
-Cmd("autocmd BufReadPost *.zsh,.zshrc set filetype=sh")
-Cmd("autocmd BufReadPost *.fish set filetype=fish")
-Cmd("autocmd BufReadPost *.conf set filetype=config")
+Cmd("au BufReadPost *.zsh,.zshrc set filetype=sh")
+Cmd("au BufReadPost *.fish set filetype=fish")
+Cmd("au BufReadPost *.conf set filetype=config")
 
 Cmd("command! W :w!")
 
@@ -170,7 +137,7 @@ Map('n', '<C-k>', '<CMD>tabp<CR>')
 Map('n', 'gF', ':e <cfile><CR>')
 
 Map('n', '<leader>w', ':w!<CR>')
-Map('n', '<Leader>,', '<CMD>lua vim.o.hls = not vim.o.hls<CR>')
+Map('n', '<Leader>,', '<CMD>lua vim.opt.hls = not vim.opt.hls<CR>')
 Map('n', '<Leader>/', ':nohlsearch<CR>')
 Map('n', 'Q', ':bd<CR>')
 Map('n', '<leader>cd', ':cd %:h<CR>')

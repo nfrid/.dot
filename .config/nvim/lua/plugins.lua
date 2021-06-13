@@ -237,7 +237,7 @@ return require('packer').startup(function()
       local on_attach = function(client, bufnr)
         require('completion').on_attach()
         -- require('lsp_signature').on_attach()
-        Set.completeopt = "menuone,noinsert,noselect"
+        vim.opt.completeopt = "menuone,noinsert,noselect"
         vim.g.completion_enable_auto_popup = 0
         Cmd('imap <tab> <Plug>(completion_smart_tab)')
         Cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
@@ -376,8 +376,8 @@ return require('packer').startup(function()
         autotag = { enable = true }
       }
 
-      Set.foldmethod = 'expr'
-      Set.foldexpr = 'nvim_treesitter#foldexpr()'
+      vim.opt.foldmethod = 'expr'
+      vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
     end
   }
   use "p00f/nvim-ts-rainbow"

@@ -85,6 +85,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/emmet-vim"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/nf/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+  },
   hop = {
     config = { "\27LJ\1\2ý\2\0\0\4\0\17\0*4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\0014\0\3\0%\1\4\0%\2\5\0%\3\6\0>\0\4\0014\0\3\0%\1\4\0%\2\a\0%\3\b\0>\0\4\0014\0\3\0%\1\4\0%\2\t\0%\3\b\0>\0\4\0014\0\3\0%\1\4\0%\2\n\0%\3\v\0>\0\4\0014\0\3\0%\1\4\0%\2\f\0%\3\v\0>\0\4\0014\0\3\0%\1\4\0%\2\r\0%\3\14\0>\0\4\0014\0\3\0%\1\4\0%\2\15\0%\3\16\0>\0\4\1G\0\1\0+<cmd>lua require'hop'.hint_char2()<cr>\ass+<cmd>lua require'hop'.hint_char1()<cr>\asf\ask+<cmd>lua require'hop'.hint_lines()<cr>\asj\ash+<cmd>lua require'hop'.hint_words()<cr>\asl\n<NOP>\6s\6n\bMap\nsetup\bhop\frequire\0" },
     loaded = true,
@@ -98,6 +102,10 @@ _G.packer_plugins = {
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim"
+  },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/nf/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
   },
   ["lspkind-nvim"] = {
     config = { "\27LJ\1\0024\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\tinit\flspkind\frequire\0" },
@@ -118,7 +126,7 @@ _G.packer_plugins = {
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/nvim-hlslens"
   },
   ["nvim-lspconfig"] = {
-    config = { "\27LJ\1\2e\0\3\n\1\4\0\v3\3\0\0004\4\1\0007\4\2\0047\4\3\4+\5\0\0\16\6\0\0\16\a\1\0\16\b\2\0\16\t\3\0>\4\6\1G\0\1\0\1À\24nvim_buf_set_keymap\bapi\bvim\1\0\2\vsilent\2\fnoremap\2A\2\0\3\1\3\0\a4\0\0\0007\0\1\0007\0\2\0+\1\0\0C\2\0\0=\0\1\1G\0\1\0\1À\24nvim_buf_set_option\bapi\bvimî\r\1\2\b\0009\0…\0014\2\0\0%\3\1\0>\2\2\0027\2\2\2>\2\1\0014\2\3\0007\2\4\2%\3\6\0:\3\5\0024\2\3\0007\2\a\2'\3\0\0:\3\b\0024\2\t\0%\3\n\0>\2\2\0014\2\t\0%\3\v\0>\2\2\0014\2\3\0007\2\a\2'\3\1\0:\3\f\0024\2\3\0007\2\a\0023\3\14\0:\3\r\0024\2\3\0007\2\a\2%\3\16\0:\3\15\0021\2\17\0001\3\18\0\16\4\3\0%\5\19\0%\6\20\0>\4\3\1\16\4\2\0%\5\21\0%\6\22\0%\a\23\0>\4\4\1\16\4\2\0%\5\21\0%\6\24\0%\a\25\0>\4\4\1\16\4\2\0%\5\21\0%\6\26\0%\a\27\0>\4\4\1\16\4\2\0%\5\21\0%\6\28\0%\a\29\0>\4\4\1\16\4\2\0%\5\21\0%\6\30\0%\a\31\0>\4\4\1\16\4\2\0%\5\21\0%\6 \0%\a!\0>\4\4\1\16\4\2\0%\5\21\0%\6\"\0%\a#\0>\4\4\1\16\4\2\0%\5\21\0%\6$\0%\a%\0>\4\4\1\16\4\2\0%\5\21\0%\6&\0%\a'\0>\4\4\1\16\4\2\0%\5\21\0%\6(\0%\a)\0>\4\4\1\16\4\2\0%\5\21\0%\6*\0%\a+\0>\4\4\1\16\4\2\0%\5\21\0%\6,\0%\a-\0>\4\4\1\16\4\2\0%\5\21\0%\6.\0%\a/\0>\4\4\1\16\4\2\0%\5\21\0%\0060\0%\a1\0>\4\4\1\16\4\2\0%\5\21\0%\0062\0%\a3\0>\4\4\0017\0044\0007\0045\4\15\0\4\0T\5\6€\16\4\2\0%\5\21\0%\0066\0%\a7\0>\4\4\1T\4\t€7\0044\0007\0048\4\15\0\4\0T\5\5€\16\4\2\0%\5\21\0%\0066\0%\a7\0>\4\4\0010\0\0€G\0\1\0\30document_range_formatting*<cmd>lua vim.lsp.buf.formatting()<CR>\15<leader>lf\24document_formatting\26resolved_capabilities2<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>\14<leader>q0<cmd>lua vim.lsp.diagnostic.goto_next()<CR>\a]d0<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>\a[d<<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>\14<leader>e+<Cmd>lua vim.lsp.buf.code_action()<CR>\14<leader>a*<cmd>lua vim.lsp.buf.references()<CR>\agr&<cmd>lua vim.lsp.buf.rename()<CR>\t<F2>J<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>\15<leader>ll7<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>\15<leader>lr4<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>\15<leader>la.<cmd>lua vim.lsp.buf.signature_help()<CR>\n<A-k>.<cmd>lua vim.lsp.buf.implementation()<CR>\agi%<Cmd>lua vim.lsp.buf.hover()<CR>\6K*<Cmd>lua vim.lsp.buf.definition()<CR>\agd+<Cmd>lua vim.lsp.buf.declaration()<CR>\agD\6n\27v:lua.vim.lsp.omnifunc\romnifunc\0\0\14UltiSnips\30completion_enable_snippet\1\5\0\0\nexact\14substring\nfuzzy\ball&completion_matching_strategy_list#completion_matching_smart_case0imap <s-tab> <Plug>(completion_smart_s_tab),imap <tab> <Plug>(completion_smart_tab)\bCmd!completion_enable_auto_popup\6g\30menuone,noinsert,noselect\16completeopt\6o\bvim\14on_attach\15completion\frequire”\b\1\0\f\0;\0^4\0\0\0%\1\1\0>\0\2\0024\1\2\0007\1\3\0017\1\4\0017\1\5\1>\1\1\0027\2\6\0017\2\a\0027\2\b\2)\3\2\0:\3\t\0021\2\n\0003\3\v\0004\4\f\0\16\5\3\0>\4\2\4T\a\6€6\t\b\0007\t\r\t3\n\14\0:\1\15\n:\2\16\n>\t\2\1A\a\3\3N\aø7\4\17\0007\4\r\0043\5\21\0003\6\19\0003\a\18\0:\a\20\6:\6\22\5:\2\16\5>\4\2\0017\4\23\0007\4\r\0043\5!\0003\6\31\0003\a\27\0003\b\25\0003\t\24\0:\t\26\b:\b\28\a3\b\29\0:\b\30\a:\a \6:\6\"\5:\2\16\5>\4\2\0017\4#\0007\4\r\0043\5%\0003\6$\0:\6&\0053\0069\0003\a,\0003\b'\0004\t\2\0007\t(\t4\n)\0007\n*\n%\v+\0>\t\3\2:\t*\b:\b-\a3\b/\0003\t.\0:\t0\b:\b1\a3\b6\0002\t\0\b4\n\2\0007\n2\n7\n3\n%\v4\0>\n\2\2)\v\2\0009\v\n\t4\n\2\0007\n2\n7\n3\n%\v5\0>\n\2\2)\v\2\0009\v\n\t:\t7\b:\b8\a:\a:\6:\6\"\5:\2\16\5>\4\2\1G\0\1\0\bLua\1\0\0\14workspace\flibrary\1\0\0\28$VIMRUNTIME/lua/vim/lsp\20$VIMRUNTIME/lua\vexpand\afn\16diagnostics\fglobals\1\0\0\1\2\0\0\bvim\fruntime\1\0\0\6;\tpath\fpackage\nsplit\1\0\1\fversion\vLuaJIT\bcmd\1\0\0\1\2\0\0!/usr/bin/lua-language-server\16sumneko_lua\rsettings\1\0\0\nlatex\1\0\0\tlint\1\0\1\ronChange\2\nbuild\1\0\0\targs\1\0\2\20outputDirectory\f./build\vonSave\2\1\6\0\0\t-pdf\29-interaction=nonstopmode\15-synctex=1\20-outdir=./build\a%f\vtexlab\17init_options\1\0\0\14highlight\1\0\0\1\0\1\rlsRanges\2\tccls\14on_attach\17capabilities\1\0\0\nsetup\vipairs\1\r\0\0\vbashls\nvimls\fpyright\rtsserver\nvuels\vyamlls\vjsonls\ncmake\ngopls\17intelephense\ncssls\thtml\0\19snippetSupport\19completionItem\15completion\17textDocument\29make_client_capabilities\rprotocol\blsp\bvim\14lspconfig\frequire\0" },
+    config = { "\27LJ\1\2e\0\3\n\1\4\0\v3\3\0\0004\4\1\0007\4\2\0047\4\3\4+\5\0\0\16\6\0\0\16\a\1\0\16\b\2\0\16\t\3\0>\4\6\1G\0\1\0\1À\24nvim_buf_set_keymap\bapi\bvim\1\0\2\vsilent\2\fnoremap\2A\2\0\3\1\3\0\a4\0\0\0007\0\1\0007\0\2\0+\1\0\0C\2\0\0=\0\1\1G\0\1\0\1À\24nvim_buf_set_option\bapi\bvimë\14\1\2\b\0=\0’\0014\2\0\0%\3\1\0>\2\2\0027\2\2\2>\2\1\0014\2\0\0%\3\3\0>\2\2\0027\2\2\2>\2\1\0014\2\4\0007\2\5\2%\3\a\0:\3\6\0024\2\4\0007\2\b\2'\3\0\0:\3\t\0024\2\4\0007\2\b\2'\3\0\0:\3\n\0024\2\v\0%\3\f\0>\2\2\0014\2\v\0%\3\r\0>\2\2\0014\2\4\0007\2\b\2'\3\1\0:\3\14\0024\2\4\0007\2\b\0023\3\16\0:\3\15\0024\2\4\0007\2\b\2%\3\18\0:\3\17\0024\2\4\0007\2\b\2%\3\20\0:\3\19\0021\2\21\0001\3\22\0\16\4\3\0%\5\23\0%\6\24\0>\4\3\1\16\4\2\0%\5\25\0%\6\26\0%\a\27\0>\4\4\1\16\4\2\0%\5\25\0%\6\28\0%\a\29\0>\4\4\1\16\4\2\0%\5\25\0%\6\30\0%\a\31\0>\4\4\1\16\4\2\0%\5\25\0%\6 \0%\a!\0>\4\4\1\16\4\2\0%\5\25\0%\6\"\0%\a#\0>\4\4\1\16\4\2\0%\5\25\0%\6$\0%\a%\0>\4\4\1\16\4\2\0%\5\25\0%\6&\0%\a'\0>\4\4\1\16\4\2\0%\5\25\0%\6(\0%\a)\0>\4\4\1\16\4\2\0%\5\25\0%\6*\0%\a+\0>\4\4\1\16\4\2\0%\5\25\0%\6,\0%\a-\0>\4\4\1\16\4\2\0%\5\25\0%\6.\0%\a/\0>\4\4\1\16\4\2\0%\5\25\0%\0060\0%\a1\0>\4\4\1\16\4\2\0%\5\25\0%\0062\0%\a3\0>\4\4\1\16\4\2\0%\5\25\0%\0064\0%\a5\0>\4\4\1\16\4\2\0%\5\25\0%\0066\0%\a7\0>\4\4\0017\0048\0007\0049\4\15\0\4\0T\5\6€\16\4\2\0%\5\25\0%\6:\0%\a;\0>\4\4\1T\4\t€7\0048\0007\4<\4\15\0\4\0T\5\5€\16\4\2\0%\5\25\0%\6:\0%\a;\0>\4\4\0010\0\0€G\0\1\0\30document_range_formatting*<cmd>lua vim.lsp.buf.formatting()<CR>\15<leader>lf\24document_formatting\26resolved_capabilities2<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>\14<leader>q0<cmd>lua vim.lsp.diagnostic.goto_next()<CR>\a]d0<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>\a[d<<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>\14<leader>e+<Cmd>lua vim.lsp.buf.code_action()<CR>\14<leader>a*<cmd>lua vim.lsp.buf.references()<CR>\agr&<cmd>lua vim.lsp.buf.rename()<CR>\t<F2>J<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>\15<leader>ll7<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>\15<leader>lr4<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>\15<leader>la.<cmd>lua vim.lsp.buf.signature_help()<CR>\n<A-k>.<cmd>lua vim.lsp.buf.implementation()<CR>\agi%<Cmd>lua vim.lsp.buf.hover()<CR>\6K*<Cmd>lua vim.lsp.buf.definition()<CR>\agd+<Cmd>lua vim.lsp.buf.declaration()<CR>\agD\6n\27v:lua.vim.lsp.omnifunc\romnifunc\0\0\14vim-vsnip\30completion_enable_snippet\tnone\23completion_sorting\1\5\0\0\nexact\14substring\nfuzzy\ball&completion_matching_strategy_list#completion_matching_smart_case0imap <s-tab> <Plug>(completion_smart_s_tab),imap <tab> <Plug>(completion_smart_tab)\bCmd!completion_enable_auto_popup%completion_enable_auto_signature\6g\30menuone,noinsert,noselect\16completeopt\bopt\bvim\15completion\14on_attach\18lsp_signature\frequire†\t\1\0\f\0?\0h4\0\0\0%\1\1\0>\0\2\0024\1\2\0007\1\3\0017\1\4\0017\1\5\1>\1\1\0027\2\6\0017\2\a\0027\2\b\2)\3\2\0:\3\t\0027\2\6\0017\2\a\0027\2\b\0023\3\f\0003\4\v\0:\4\r\3:\3\n\0021\2\14\0003\3\15\0004\4\16\0\16\5\3\0>\4\2\4T\a\6€6\t\b\0007\t\17\t3\n\18\0:\1\19\n:\2\20\n>\t\2\1A\a\3\3N\aø7\4\21\0007\4\17\0043\5\25\0003\6\23\0003\a\22\0:\a\24\6:\6\26\5:\1\19\5:\2\20\5>\4\2\0017\4\27\0007\4\17\0043\5%\0003\6#\0003\a\31\0003\b\29\0003\t\28\0:\t\30\b:\b \a3\b!\0:\b\"\a:\a$\6:\6&\5:\1\19\5:\2\20\5>\4\2\0017\4'\0007\4\17\0043\5)\0003\6(\0:\6*\0053\6=\0003\a0\0003\b+\0004\t\2\0007\t,\t4\n-\0007\n.\n%\v/\0>\t\3\2:\t.\b:\b1\a3\b3\0003\t2\0:\t4\b:\b5\a3\b:\0002\t\0\b4\n\2\0007\n6\n7\n7\n%\v8\0>\n\2\2)\v\2\0009\v\n\t4\n\2\0007\n6\n7\n7\n%\v9\0>\n\2\2)\v\2\0009\v\n\t:\t;\b:\b<\a:\a>\6:\6&\5:\1\19\5:\2\20\5>\4\2\1G\0\1\0\bLua\1\0\0\14workspace\flibrary\1\0\0\28$VIMRUNTIME/lua/vim/lsp\20$VIMRUNTIME/lua\vexpand\afn\16diagnostics\fglobals\1\0\0\1\2\0\0\bvim\fruntime\1\0\0\6;\tpath\fpackage\nsplit\1\0\1\fversion\vLuaJIT\bcmd\1\0\0\1\2\0\0!/usr/bin/lua-language-server\16sumneko_lua\rsettings\1\0\0\nlatex\1\0\0\tlint\1\0\1\ronChange\2\nbuild\1\0\0\targs\1\0\2\20outputDirectory\f./build\vonSave\2\1\6\0\0\t-pdf\29-interaction=nonstopmode\15-synctex=1\20-outdir=./build\a%f\vtexlab\17init_options\1\0\0\14highlight\1\0\0\1\0\1\rlsRanges\2\tccls\14on_attach\17capabilities\1\0\0\nsetup\vipairs\1\r\0\0\vbashls\nvimls\fpyright\rtsserver\nvuels\vyamlls\vjsonls\ncmake\ngopls\17intelephense\ncssls\thtml\0\15properties\1\0\0\1\4\0\0\18documentation\vdetail\24additionalTextEdits\19resolveSupport\19snippetSupport\19completionItem\15completion\17textDocument\29make_client_capabilities\rprotocol\blsp\bvim\14lspconfig\frequire\0" },
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
@@ -131,13 +139,8 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/nvim-luapad"
   },
-  ["nvim-revJ.lua"] = {
-    config = { "\27LJ\1\2\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\fkeymaps\1\0\0\1\0\3\vvisual\14<Leader>j\roperator\14<Leader>J\tline\14<Leader>j\nsetup\trevj\frequire\0" },
-    loaded = true,
-    path = "/home/nf/.local/share/nvim/site/pack/packer/start/nvim-revJ.lua"
-  },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\1\2¡\4\0\0\5\0\30\0#4\0\0\0%\1\1\0>\0\2\0027\1\2\0003\2\4\0003\3\3\0:\3\5\0023\3\6\0003\4\a\0:\4\b\3:\3\t\0023\3\n\0:\3\v\0023\3\f\0003\4\r\0:\4\14\0033\4\15\0:\4\16\3:\3\17\0023\3\18\0003\4\19\0:\4\20\3:\3\21\0023\3\22\0:\3\23\2>\1\2\0014\1\24\0007\1\25\1%\2\27\0:\2\26\0014\1\24\0007\1\25\1%\2\29\0:\2\28\1G\0\1\0\31nvim_treesitter#foldexpr()\rfoldexpr\texpr\15foldmethod\6o\bvim\fautotag\1\0\1\venable\2\26context_commentstring\vconfig\1\0\1\tfish\t# %s\1\0\1\venable\2\frainbow\vcolors\1\4\0\0\f#d900ff\f#00ffd9\f#ffd700\fdisable\1\2\0\0\thtml\1\0\2\18extended_mode\2\venable\2\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\3\19init_selection\agn\21node_decremental\agr\21node_incremental\agn\1\0\1\venable\2\14highlight\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\1\2£\4\0\0\5\0\30\0#4\0\0\0%\1\1\0>\0\2\0027\1\2\0003\2\4\0003\3\3\0:\3\5\0023\3\6\0003\4\a\0:\4\b\3:\3\t\0023\3\n\0:\3\v\0023\3\f\0003\4\r\0:\4\14\0033\4\15\0:\4\16\3:\3\17\0023\3\18\0003\4\19\0:\4\20\3:\3\21\0023\3\22\0:\3\23\2>\1\2\0014\1\24\0007\1\25\1%\2\27\0:\2\26\0014\1\24\0007\1\25\1%\2\29\0:\2\28\1G\0\1\0\31nvim_treesitter#foldexpr()\rfoldexpr\texpr\15foldmethod\bopt\bvim\fautotag\1\0\1\venable\2\26context_commentstring\vconfig\1\0\1\tfish\t# %s\1\0\1\venable\2\frainbow\vcolors\1\4\0\0\f#d900ff\f#00ffd9\f#ffd700\fdisable\1\2\0\0\thtml\1\0\2\18extended_mode\2\venable\2\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\3\19init_selection\agn\21node_decremental\agr\21node_incremental\agn\1\0\1\venable\2\14highlight\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
@@ -193,10 +196,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
   },
-  ultisnips = {
-    loaded = true,
-    path = "/home/nf/.local/share/nvim/site/pack/packer/start/ultisnips"
-  },
   ["vem-tabline"] = {
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/vem-tabline"
@@ -209,11 +208,6 @@ _G.packer_plugins = {
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/vim-commentary"
-  },
-  ["vim-es2015-snippets"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/nf/.local/share/nvim/site/pack/packer/opt/vim-es2015-snippets"
   },
   ["vim-hexokinase"] = {
     loaded = true,
@@ -251,19 +245,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/vim-pencil"
   },
-  ["vim-react-snippets"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/nf/.local/share/nvim/site/pack/packer/opt/vim-react-snippets"
-  },
   ["vim-repeat"] = {
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/vim-repeat"
-  },
-  ["vim-snippets"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/nf/.local/share/nvim/site/pack/packer/opt/vim-snippets"
   },
   ["vim-startify"] = {
     config = { "\27LJ\1\2á\2\0\0\a\0\18\0\"4\0\0\0007\0\1\0002\1\3\0003\2\3\0002\3\3\0%\4\4\0004\5\0\0007\5\5\0057\5\6\5>\5\1\2%\6\a\0$\4\6\4;\4\1\3:\3\b\2;\2\1\0013\2\t\0003\3\n\0:\3\b\2;\2\2\1:\1\2\0004\0\0\0007\0\1\0'\1\1\0:\1\v\0004\0\0\0007\0\1\0%\1\r\0:\1\f\0004\0\14\0%\1\15\0%\2\16\0%\3\17\0>\0\4\1G\0\1\0\18:Startify<CR>\14<leader>s\6n\bMap+startify#pad(startify#fortune#boxed())\27startify_custom_header!startify_fortune_use_unicode\1\2\0\0\17MRU [global]\1\0\1\ttype\nfiles\vheader\6]\vgetcwd\afn\nMRU [\1\0\1\ttype\bdir\19startify_lists\6g\bvim\0" },
@@ -286,10 +270,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/vim-textobj-markdown"
   },
-  ["vim-textobj-parameter"] = {
-    loaded = true,
-    path = "/home/nf/.local/share/nvim/site/pack/packer/start/vim-textobj-parameter"
-  },
   ["vim-textobj-sentence"] = {
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/vim-textobj-sentence"
@@ -297,6 +277,15 @@ _G.packer_plugins = {
   ["vim-textobj-user"] = {
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/vim-textobj-user"
+  },
+  ["vim-vsnip"] = {
+    config = { "\27LJ\1\2ä\6\0\0\4\0\16\0-4\0\0\0%\1\1\0>\0\2\0014\0\0\0%\1\2\0>\0\2\0014\0\0\0%\1\3\0>\0\2\0014\0\0\0%\1\4\0>\0\2\0014\0\0\0%\1\5\0>\0\2\0014\0\0\0%\1\6\0>\0\2\0014\0\0\0%\1\a\0>\0\2\0014\0\0\0%\1\b\0>\0\2\0014\0\t\0%\1\n\0%\2\v\0%\3\f\0>\0\4\0014\0\t\0%\1\r\0%\2\v\0%\3\f\0>\0\4\0014\0\t\0%\1\n\0%\2\14\0%\3\15\0>\0\4\0014\0\t\0%\1\r\0%\2\14\0%\3\15\0>\0\4\1G\0\1\0\27<Plug>(vsnip-cut-text)\n<C-S>\6x\30<Plug>(vsnip-select-text)\n<C-s>\6n\bMapQsmap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Qimap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Nsmap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'Nimap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'Ssmap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Simap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Nsmap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'Nimap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'\bCmd\0" },
+    loaded = true,
+    path = "/home/nf/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+  },
+  ["vim-vsnip-integ"] = {
+    loaded = true,
+    path = "/home/nf/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
   },
   vimtex = {
     loaded = true,
@@ -307,7 +296,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\1\2¡\4\0\0\5\0\30\0#4\0\0\0%\1\1\0>\0\2\0027\1\2\0003\2\4\0003\3\3\0:\3\5\0023\3\6\0003\4\a\0:\4\b\3:\3\t\0023\3\n\0:\3\v\0023\3\f\0003\4\r\0:\4\14\0033\4\15\0:\4\16\3:\3\17\0023\3\18\0003\4\19\0:\4\20\3:\3\21\0023\3\22\0:\3\23\2>\1\2\0014\1\24\0007\1\25\1%\2\27\0:\2\26\0014\1\24\0007\1\25\1%\2\29\0:\2\28\1G\0\1\0\31nvim_treesitter#foldexpr()\rfoldexpr\texpr\15foldmethod\6o\bvim\fautotag\1\0\1\venable\2\26context_commentstring\vconfig\1\0\1\tfish\t# %s\1\0\1\venable\2\frainbow\vcolors\1\4\0\0\f#d900ff\f#00ffd9\f#ffd700\fdisable\1\2\0\0\thtml\1\0\2\18extended_mode\2\venable\2\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\3\19init_selection\agn\21node_decremental\agr\21node_incremental\agn\1\0\1\venable\2\14highlight\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+try_loadstring("\27LJ\1\2£\4\0\0\5\0\30\0#4\0\0\0%\1\1\0>\0\2\0027\1\2\0003\2\4\0003\3\3\0:\3\5\0023\3\6\0003\4\a\0:\4\b\3:\3\t\0023\3\n\0:\3\v\0023\3\f\0003\4\r\0:\4\14\0033\4\15\0:\4\16\3:\3\17\0023\3\18\0003\4\19\0:\4\20\3:\3\21\0023\3\22\0:\3\23\2>\1\2\0014\1\24\0007\1\25\1%\2\27\0:\2\26\0014\1\24\0007\1\25\1%\2\29\0:\2\28\1G\0\1\0\31nvim_treesitter#foldexpr()\rfoldexpr\texpr\15foldmethod\bopt\bvim\fautotag\1\0\1\venable\2\26context_commentstring\vconfig\1\0\1\tfish\t# %s\1\0\1\venable\2\frainbow\vcolors\1\4\0\0\f#d900ff\f#00ffd9\f#ffd700\fdisable\1\2\0\0\thtml\1\0\2\18extended_mode\2\venable\2\vindent\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\3\19init_selection\agn\21node_decremental\agr\21node_incremental\agn\1\0\1\venable\2\14highlight\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
 -- Config for: vim-highlightedyank
 time([[Config for vim-highlightedyank]], true)
@@ -337,14 +326,14 @@ time([[Config for telescope.nvim]], false)
 time([[Config for vim-startify]], true)
 try_loadstring("\27LJ\1\2á\2\0\0\a\0\18\0\"4\0\0\0007\0\1\0002\1\3\0003\2\3\0002\3\3\0%\4\4\0004\5\0\0007\5\5\0057\5\6\5>\5\1\2%\6\a\0$\4\6\4;\4\1\3:\3\b\2;\2\1\0013\2\t\0003\3\n\0:\3\b\2;\2\2\1:\1\2\0004\0\0\0007\0\1\0'\1\1\0:\1\v\0004\0\0\0007\0\1\0%\1\r\0:\1\f\0004\0\14\0%\1\15\0%\2\16\0%\3\17\0>\0\4\1G\0\1\0\18:Startify<CR>\14<leader>s\6n\bMap+startify#pad(startify#fortune#boxed())\27startify_custom_header!startify_fortune_use_unicode\1\2\0\0\17MRU [global]\1\0\1\ttype\nfiles\vheader\6]\vgetcwd\afn\nMRU [\1\0\1\ttype\bdir\19startify_lists\6g\bvim\0", "config", "vim-startify")
 time([[Config for vim-startify]], false)
+-- Config for: vim-vsnip
+time([[Config for vim-vsnip]], true)
+try_loadstring("\27LJ\1\2ä\6\0\0\4\0\16\0-4\0\0\0%\1\1\0>\0\2\0014\0\0\0%\1\2\0>\0\2\0014\0\0\0%\1\3\0>\0\2\0014\0\0\0%\1\4\0>\0\2\0014\0\0\0%\1\5\0>\0\2\0014\0\0\0%\1\6\0>\0\2\0014\0\0\0%\1\a\0>\0\2\0014\0\0\0%\1\b\0>\0\2\0014\0\t\0%\1\n\0%\2\v\0%\3\f\0>\0\4\0014\0\t\0%\1\r\0%\2\v\0%\3\f\0>\0\4\0014\0\t\0%\1\n\0%\2\14\0%\3\15\0>\0\4\0014\0\t\0%\1\r\0%\2\14\0%\3\15\0>\0\4\1G\0\1\0\27<Plug>(vsnip-cut-text)\n<C-S>\6x\30<Plug>(vsnip-select-text)\n<C-s>\6n\bMapQsmap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Qimap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Nsmap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'Nimap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'Ssmap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Simap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Nsmap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'Nimap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'\bCmd\0", "config", "vim-vsnip")
+time([[Config for vim-vsnip]], false)
 -- Config for: vim-markdown-toc
 time([[Config for vim-markdown-toc]], true)
 try_loadstring("\27LJ\1\0026\0\0\2\0\4\0\0054\0\0\0007\0\1\0%\1\3\0:\1\2\0G\0\1\0\6-\23vmt_list_item_char\6g\bvim\0", "config", "vim-markdown-toc")
 time([[Config for vim-markdown-toc]], false)
--- Config for: nvim-revJ.lua
-time([[Config for nvim-revJ.lua]], true)
-try_loadstring("\27LJ\1\2\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\fkeymaps\1\0\0\1\0\3\vvisual\14<Leader>j\roperator\14<Leader>J\tline\14<Leader>j\nsetup\trevj\frequire\0", "config", "nvim-revJ.lua")
-time([[Config for nvim-revJ.lua]], false)
 -- Config for: lspkind-nvim
 time([[Config for lspkind-nvim]], true)
 try_loadstring("\27LJ\1\0024\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\tinit\flspkind\frequire\0", "config", "lspkind-nvim")
@@ -363,7 +352,7 @@ try_loadstring("\27LJ\1\2À\1\0\0\2\0\5\0\r4\0\0\0%\1\1\0>\0\2\0014\0\0\0%\1\2\0>
 time([[Config for vim]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\1\2e\0\3\n\1\4\0\v3\3\0\0004\4\1\0007\4\2\0047\4\3\4+\5\0\0\16\6\0\0\16\a\1\0\16\b\2\0\16\t\3\0>\4\6\1G\0\1\0\1À\24nvim_buf_set_keymap\bapi\bvim\1\0\2\vsilent\2\fnoremap\2A\2\0\3\1\3\0\a4\0\0\0007\0\1\0007\0\2\0+\1\0\0C\2\0\0=\0\1\1G\0\1\0\1À\24nvim_buf_set_option\bapi\bvimî\r\1\2\b\0009\0…\0014\2\0\0%\3\1\0>\2\2\0027\2\2\2>\2\1\0014\2\3\0007\2\4\2%\3\6\0:\3\5\0024\2\3\0007\2\a\2'\3\0\0:\3\b\0024\2\t\0%\3\n\0>\2\2\0014\2\t\0%\3\v\0>\2\2\0014\2\3\0007\2\a\2'\3\1\0:\3\f\0024\2\3\0007\2\a\0023\3\14\0:\3\r\0024\2\3\0007\2\a\2%\3\16\0:\3\15\0021\2\17\0001\3\18\0\16\4\3\0%\5\19\0%\6\20\0>\4\3\1\16\4\2\0%\5\21\0%\6\22\0%\a\23\0>\4\4\1\16\4\2\0%\5\21\0%\6\24\0%\a\25\0>\4\4\1\16\4\2\0%\5\21\0%\6\26\0%\a\27\0>\4\4\1\16\4\2\0%\5\21\0%\6\28\0%\a\29\0>\4\4\1\16\4\2\0%\5\21\0%\6\30\0%\a\31\0>\4\4\1\16\4\2\0%\5\21\0%\6 \0%\a!\0>\4\4\1\16\4\2\0%\5\21\0%\6\"\0%\a#\0>\4\4\1\16\4\2\0%\5\21\0%\6$\0%\a%\0>\4\4\1\16\4\2\0%\5\21\0%\6&\0%\a'\0>\4\4\1\16\4\2\0%\5\21\0%\6(\0%\a)\0>\4\4\1\16\4\2\0%\5\21\0%\6*\0%\a+\0>\4\4\1\16\4\2\0%\5\21\0%\6,\0%\a-\0>\4\4\1\16\4\2\0%\5\21\0%\6.\0%\a/\0>\4\4\1\16\4\2\0%\5\21\0%\0060\0%\a1\0>\4\4\1\16\4\2\0%\5\21\0%\0062\0%\a3\0>\4\4\0017\0044\0007\0045\4\15\0\4\0T\5\6€\16\4\2\0%\5\21\0%\0066\0%\a7\0>\4\4\1T\4\t€7\0044\0007\0048\4\15\0\4\0T\5\5€\16\4\2\0%\5\21\0%\0066\0%\a7\0>\4\4\0010\0\0€G\0\1\0\30document_range_formatting*<cmd>lua vim.lsp.buf.formatting()<CR>\15<leader>lf\24document_formatting\26resolved_capabilities2<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>\14<leader>q0<cmd>lua vim.lsp.diagnostic.goto_next()<CR>\a]d0<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>\a[d<<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>\14<leader>e+<Cmd>lua vim.lsp.buf.code_action()<CR>\14<leader>a*<cmd>lua vim.lsp.buf.references()<CR>\agr&<cmd>lua vim.lsp.buf.rename()<CR>\t<F2>J<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>\15<leader>ll7<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>\15<leader>lr4<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>\15<leader>la.<cmd>lua vim.lsp.buf.signature_help()<CR>\n<A-k>.<cmd>lua vim.lsp.buf.implementation()<CR>\agi%<Cmd>lua vim.lsp.buf.hover()<CR>\6K*<Cmd>lua vim.lsp.buf.definition()<CR>\agd+<Cmd>lua vim.lsp.buf.declaration()<CR>\agD\6n\27v:lua.vim.lsp.omnifunc\romnifunc\0\0\14UltiSnips\30completion_enable_snippet\1\5\0\0\nexact\14substring\nfuzzy\ball&completion_matching_strategy_list#completion_matching_smart_case0imap <s-tab> <Plug>(completion_smart_s_tab),imap <tab> <Plug>(completion_smart_tab)\bCmd!completion_enable_auto_popup\6g\30menuone,noinsert,noselect\16completeopt\6o\bvim\14on_attach\15completion\frequire”\b\1\0\f\0;\0^4\0\0\0%\1\1\0>\0\2\0024\1\2\0007\1\3\0017\1\4\0017\1\5\1>\1\1\0027\2\6\0017\2\a\0027\2\b\2)\3\2\0:\3\t\0021\2\n\0003\3\v\0004\4\f\0\16\5\3\0>\4\2\4T\a\6€6\t\b\0007\t\r\t3\n\14\0:\1\15\n:\2\16\n>\t\2\1A\a\3\3N\aø7\4\17\0007\4\r\0043\5\21\0003\6\19\0003\a\18\0:\a\20\6:\6\22\5:\2\16\5>\4\2\0017\4\23\0007\4\r\0043\5!\0003\6\31\0003\a\27\0003\b\25\0003\t\24\0:\t\26\b:\b\28\a3\b\29\0:\b\30\a:\a \6:\6\"\5:\2\16\5>\4\2\0017\4#\0007\4\r\0043\5%\0003\6$\0:\6&\0053\0069\0003\a,\0003\b'\0004\t\2\0007\t(\t4\n)\0007\n*\n%\v+\0>\t\3\2:\t*\b:\b-\a3\b/\0003\t.\0:\t0\b:\b1\a3\b6\0002\t\0\b4\n\2\0007\n2\n7\n3\n%\v4\0>\n\2\2)\v\2\0009\v\n\t4\n\2\0007\n2\n7\n3\n%\v5\0>\n\2\2)\v\2\0009\v\n\t:\t7\b:\b8\a:\a:\6:\6\"\5:\2\16\5>\4\2\1G\0\1\0\bLua\1\0\0\14workspace\flibrary\1\0\0\28$VIMRUNTIME/lua/vim/lsp\20$VIMRUNTIME/lua\vexpand\afn\16diagnostics\fglobals\1\0\0\1\2\0\0\bvim\fruntime\1\0\0\6;\tpath\fpackage\nsplit\1\0\1\fversion\vLuaJIT\bcmd\1\0\0\1\2\0\0!/usr/bin/lua-language-server\16sumneko_lua\rsettings\1\0\0\nlatex\1\0\0\tlint\1\0\1\ronChange\2\nbuild\1\0\0\targs\1\0\2\20outputDirectory\f./build\vonSave\2\1\6\0\0\t-pdf\29-interaction=nonstopmode\15-synctex=1\20-outdir=./build\a%f\vtexlab\17init_options\1\0\0\14highlight\1\0\0\1\0\1\rlsRanges\2\tccls\14on_attach\17capabilities\1\0\0\nsetup\vipairs\1\r\0\0\vbashls\nvimls\fpyright\rtsserver\nvuels\vyamlls\vjsonls\ncmake\ngopls\17intelephense\ncssls\thtml\0\19snippetSupport\19completionItem\15completion\17textDocument\29make_client_capabilities\rprotocol\blsp\bvim\14lspconfig\frequire\0", "config", "nvim-lspconfig")
+try_loadstring("\27LJ\1\2e\0\3\n\1\4\0\v3\3\0\0004\4\1\0007\4\2\0047\4\3\4+\5\0\0\16\6\0\0\16\a\1\0\16\b\2\0\16\t\3\0>\4\6\1G\0\1\0\1À\24nvim_buf_set_keymap\bapi\bvim\1\0\2\vsilent\2\fnoremap\2A\2\0\3\1\3\0\a4\0\0\0007\0\1\0007\0\2\0+\1\0\0C\2\0\0=\0\1\1G\0\1\0\1À\24nvim_buf_set_option\bapi\bvimë\14\1\2\b\0=\0’\0014\2\0\0%\3\1\0>\2\2\0027\2\2\2>\2\1\0014\2\0\0%\3\3\0>\2\2\0027\2\2\2>\2\1\0014\2\4\0007\2\5\2%\3\a\0:\3\6\0024\2\4\0007\2\b\2'\3\0\0:\3\t\0024\2\4\0007\2\b\2'\3\0\0:\3\n\0024\2\v\0%\3\f\0>\2\2\0014\2\v\0%\3\r\0>\2\2\0014\2\4\0007\2\b\2'\3\1\0:\3\14\0024\2\4\0007\2\b\0023\3\16\0:\3\15\0024\2\4\0007\2\b\2%\3\18\0:\3\17\0024\2\4\0007\2\b\2%\3\20\0:\3\19\0021\2\21\0001\3\22\0\16\4\3\0%\5\23\0%\6\24\0>\4\3\1\16\4\2\0%\5\25\0%\6\26\0%\a\27\0>\4\4\1\16\4\2\0%\5\25\0%\6\28\0%\a\29\0>\4\4\1\16\4\2\0%\5\25\0%\6\30\0%\a\31\0>\4\4\1\16\4\2\0%\5\25\0%\6 \0%\a!\0>\4\4\1\16\4\2\0%\5\25\0%\6\"\0%\a#\0>\4\4\1\16\4\2\0%\5\25\0%\6$\0%\a%\0>\4\4\1\16\4\2\0%\5\25\0%\6&\0%\a'\0>\4\4\1\16\4\2\0%\5\25\0%\6(\0%\a)\0>\4\4\1\16\4\2\0%\5\25\0%\6*\0%\a+\0>\4\4\1\16\4\2\0%\5\25\0%\6,\0%\a-\0>\4\4\1\16\4\2\0%\5\25\0%\6.\0%\a/\0>\4\4\1\16\4\2\0%\5\25\0%\0060\0%\a1\0>\4\4\1\16\4\2\0%\5\25\0%\0062\0%\a3\0>\4\4\1\16\4\2\0%\5\25\0%\0064\0%\a5\0>\4\4\1\16\4\2\0%\5\25\0%\0066\0%\a7\0>\4\4\0017\0048\0007\0049\4\15\0\4\0T\5\6€\16\4\2\0%\5\25\0%\6:\0%\a;\0>\4\4\1T\4\t€7\0048\0007\4<\4\15\0\4\0T\5\5€\16\4\2\0%\5\25\0%\6:\0%\a;\0>\4\4\0010\0\0€G\0\1\0\30document_range_formatting*<cmd>lua vim.lsp.buf.formatting()<CR>\15<leader>lf\24document_formatting\26resolved_capabilities2<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>\14<leader>q0<cmd>lua vim.lsp.diagnostic.goto_next()<CR>\a]d0<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>\a[d<<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>\14<leader>e+<Cmd>lua vim.lsp.buf.code_action()<CR>\14<leader>a*<cmd>lua vim.lsp.buf.references()<CR>\agr&<cmd>lua vim.lsp.buf.rename()<CR>\t<F2>J<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>\15<leader>ll7<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>\15<leader>lr4<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>\15<leader>la.<cmd>lua vim.lsp.buf.signature_help()<CR>\n<A-k>.<cmd>lua vim.lsp.buf.implementation()<CR>\agi%<Cmd>lua vim.lsp.buf.hover()<CR>\6K*<Cmd>lua vim.lsp.buf.definition()<CR>\agd+<Cmd>lua vim.lsp.buf.declaration()<CR>\agD\6n\27v:lua.vim.lsp.omnifunc\romnifunc\0\0\14vim-vsnip\30completion_enable_snippet\tnone\23completion_sorting\1\5\0\0\nexact\14substring\nfuzzy\ball&completion_matching_strategy_list#completion_matching_smart_case0imap <s-tab> <Plug>(completion_smart_s_tab),imap <tab> <Plug>(completion_smart_tab)\bCmd!completion_enable_auto_popup%completion_enable_auto_signature\6g\30menuone,noinsert,noselect\16completeopt\bopt\bvim\15completion\14on_attach\18lsp_signature\frequire†\t\1\0\f\0?\0h4\0\0\0%\1\1\0>\0\2\0024\1\2\0007\1\3\0017\1\4\0017\1\5\1>\1\1\0027\2\6\0017\2\a\0027\2\b\2)\3\2\0:\3\t\0027\2\6\0017\2\a\0027\2\b\0023\3\f\0003\4\v\0:\4\r\3:\3\n\0021\2\14\0003\3\15\0004\4\16\0\16\5\3\0>\4\2\4T\a\6€6\t\b\0007\t\17\t3\n\18\0:\1\19\n:\2\20\n>\t\2\1A\a\3\3N\aø7\4\21\0007\4\17\0043\5\25\0003\6\23\0003\a\22\0:\a\24\6:\6\26\5:\1\19\5:\2\20\5>\4\2\0017\4\27\0007\4\17\0043\5%\0003\6#\0003\a\31\0003\b\29\0003\t\28\0:\t\30\b:\b \a3\b!\0:\b\"\a:\a$\6:\6&\5:\1\19\5:\2\20\5>\4\2\0017\4'\0007\4\17\0043\5)\0003\6(\0:\6*\0053\6=\0003\a0\0003\b+\0004\t\2\0007\t,\t4\n-\0007\n.\n%\v/\0>\t\3\2:\t.\b:\b1\a3\b3\0003\t2\0:\t4\b:\b5\a3\b:\0002\t\0\b4\n\2\0007\n6\n7\n7\n%\v8\0>\n\2\2)\v\2\0009\v\n\t4\n\2\0007\n6\n7\n7\n%\v9\0>\n\2\2)\v\2\0009\v\n\t:\t;\b:\b<\a:\a>\6:\6&\5:\1\19\5:\2\20\5>\4\2\1G\0\1\0\bLua\1\0\0\14workspace\flibrary\1\0\0\28$VIMRUNTIME/lua/vim/lsp\20$VIMRUNTIME/lua\vexpand\afn\16diagnostics\fglobals\1\0\0\1\2\0\0\bvim\fruntime\1\0\0\6;\tpath\fpackage\nsplit\1\0\1\fversion\vLuaJIT\bcmd\1\0\0\1\2\0\0!/usr/bin/lua-language-server\16sumneko_lua\rsettings\1\0\0\nlatex\1\0\0\tlint\1\0\1\ronChange\2\nbuild\1\0\0\targs\1\0\2\20outputDirectory\f./build\vonSave\2\1\6\0\0\t-pdf\29-interaction=nonstopmode\15-synctex=1\20-outdir=./build\a%f\vtexlab\17init_options\1\0\0\14highlight\1\0\0\1\0\1\rlsRanges\2\tccls\14on_attach\17capabilities\1\0\0\nsetup\vipairs\1\r\0\0\vbashls\nvimls\fpyright\rtsserver\nvuels\vyamlls\vjsonls\ncmake\ngopls\17intelephense\ncssls\thtml\0\15properties\1\0\0\1\4\0\0\18documentation\vdetail\24additionalTextEdits\19resolveSupport\19snippetSupport\19completionItem\15completion\17textDocument\29make_client_capabilities\rprotocol\blsp\bvim\14lspconfig\frequire\0", "config", "nvim-lspconfig")
 time([[Config for nvim-lspconfig]], false)
 -- Config for: nvim-lsputils
 time([[Config for nvim-lsputils]], true)

@@ -12,7 +12,6 @@ return require('packer').startup(function()
     'dracula/vim',
     config = function()
       Cmd('colorscheme dracula')
-      -- Cmd('hi CursorLine guibg=#343746')
       Cmd('hi CursorLine guibg=#21222C')
       Cmd('hi CursorLineNr guifg=#F1FA8C guibg=#21222C gui=none')
       Cmd('hi IndentLine guifg=#44475a')
@@ -96,24 +95,11 @@ return require('packer').startup(function()
   }
 
   use {
-    'reedes/vim-pencil',
-    config = function()
-      Cmd('let pencil#wrapModeDefault = "soft"')
-      Cmd('let g:pencil#conceallevel = 0')
-      Map('n', '<leader>pp', ':TogglePencil<CR>')
-    end
-  }
-  use { 'iamcco/markdown-preview.nvim', run = 'cd app & yarn install' }
-  use {
     'plasticboy/vim-markdown',
     config = function()
       vim.g.vim_markdown_toc_autofit = 1
       vim.g.vim_markdown_follow_anchor = 1
     end
-  }
-  use {
-    'mzlogin/vim-markdown-toc',
-    config = function() vim.g.vmt_list_item_char = '-' end
   }
   use 'lervag/vimtex'
 
@@ -167,19 +153,6 @@ return require('packer').startup(function()
   use 'coachshea/vim-textobj-markdown'
   use 'michaeljsmith/vim-indent-object'
   use 'reedes/vim-textobj-sentence'
-  use {
-    'AckslD/nvim-revJ.lua',
-    requires = { 'kana/vim-textobj-user', 'sgur/vim-textobj-parameter' },
-    config = function()
-      require("revj").setup {
-        keymaps = {
-          operator = '<Leader>J',
-          line = '<Leader>j',
-          visual = '<Leader>j'
-        }
-      }
-    end
-  }
 
   use 'fedorenchik/qt-support.vim'
 
@@ -189,14 +162,6 @@ return require('packer').startup(function()
       vim.g.user_emmet_mode = 'i'
       vim.g.user_emmet_leader_key = '<A-m>'
     end
-  }
-  use {
-    'SirVer/ultisnips',
-    requires = {
-      { 'honza/vim-snippets', opt = true },
-      { 'epilande/vim-es2015-snippets', opt = true },
-      { 'epilande/vim-react-snippets', opt = true }
-    }
   }
   use {
     'RishabhRD/nvim-lsputils',
@@ -224,7 +189,34 @@ return require('packer').startup(function()
     'onsails/lspkind-nvim',
     config = function() require('lspkind').init() end
   }
-  -- use 'ray-x/lsp_signature.nvim'
+  use 'ray-x/lsp_signature.nvim'
+  use {
+    'hrsh7th/vim-vsnip',
+    requires = { 'hrsh7th/vim-vsnip-integ', 'rafamadriz/friendly-snippets' },
+    config = function()
+      Cmd(
+          "imap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'")
+      Cmd(
+          "smap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'")
+      Cmd(
+          "imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
+      Cmd(
+          "smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
+      Cmd(
+          "imap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'")
+      Cmd(
+          "smap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'")
+      Cmd(
+          "imap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
+      Cmd(
+          "smap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
+
+      Map('n', '<C-s>', '<Plug>(vsnip-select-text)')
+      Map('x', '<C-s>', '<Plug>(vsnip-select-text)')
+      Map('n', '<C-S>', '<Plug>(vsnip-cut-text)')
+      Map('x', '<C-S>', '<Plug>(vsnip-cut-text)')
+    end
+  }
   use {
     'neovim/nvim-lspconfig',
     requires = { 'nvim-lua/completion-nvim', opt = true },
@@ -233,19 +225,23 @@ return require('packer').startup(function()
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
+      capabilities.textDocument.completion.completionItem.resolveSupport =
+          { properties = { 'documentation', 'detail', 'additionalTextEdits' } }
 
       local on_attach = function(client, bufnr)
+        require('lsp_signature').on_attach()
         require('completion').on_attach()
-        -- require('lsp_signature').on_attach()
         vim.opt.completeopt = "menuone,noinsert,noselect"
+        vim.g.completion_enable_auto_signature = 0
         vim.g.completion_enable_auto_popup = 0
         Cmd('imap <tab> <Plug>(completion_smart_tab)')
         Cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
         vim.g.completion_matching_smart_case = 1
         vim.g.completion_matching_strategy_list =
             { 'exact', 'substring', 'fuzzy', 'all' }
+        vim.g.completion_sorting = 'none'
 
-        vim.g.completion_enable_snippet = 'UltiSnips'
+        vim.g.completion_enable_snippet = 'vim-vsnip'
 
         local function buf_map(mode, keys, action)
           local opts = { noremap = true, silent = true }
@@ -302,6 +298,7 @@ return require('packer').startup(function()
 
       nvim_lsp.ccls.setup {
         init_options = { highlight = { lsRanges = true } },
+        capabilities = capabilities,
         on_attach = on_attach
       }
 
@@ -319,6 +316,7 @@ return require('packer').startup(function()
             lint = { onChange = true }
           }
         },
+        capabilities = capabilities,
         on_attach = on_attach
       }
 
@@ -336,6 +334,7 @@ return require('packer').startup(function()
             }
           }
         },
+        capabilities = capabilities,
         on_attach = on_attach
       }
     end

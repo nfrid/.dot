@@ -169,6 +169,8 @@ config.bind("<Ctrl-j>", "completion-item-focus next", mode="prompt")
 c.editor.command = ["alacritty", "-e", "sh", "-c", "sleep 0.1 && nvim {}"]
 config.bind("<Alt-e>", "edit-text", mode="insert")
 
+config.bind("<Ctrl-m>", "fake-key <Enter>", mode="insert")
+
 config.bind("<Ctrl-d>", "fake-key <Delete>", mode="insert")
 config.bind("<Alt-d>", "fake-key <Control-Delete>", mode="insert")
 config.bind("<Ctrl-h>", "fake-key <Backspace>", mode="insert")

@@ -157,13 +157,6 @@ return require('packer').startup(function()
     end
   }
 
-  use 'kana/vim-textobj-user'
-  use 'Chun-Yang/vim-textobj-chunk'
-  use 'kana/vim-textobj-entire'
-  use 'coachshea/vim-textobj-markdown'
-  use 'michaeljsmith/vim-indent-object'
-  use 'reedes/vim-textobj-sentence'
-
   use 'fedorenchik/qt-support.vim'
 
   use {
@@ -390,7 +383,59 @@ return require('packer').startup(function()
 
         context_commentstring = { enable = true, config = { fish = "# %s" } },
 
-        autotag = { enable = true }
+        autotag = { enable = true },
+
+        textobjects = {
+          select = {
+            enable = true,
+            keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["ac"] = "@class.outer",
+              ["ic"] = "@class.inner",
+              ["al"] = "@loop.outer",
+              ["il"] = "@loop.inner",
+              ["ab"] = "@block.outer",
+              ["ib"] = "@block.inner",
+            },
+          },
+          swap = {
+            enable = true,
+            swap_next = {
+              ["<leader>."] = "@parameter.inner",
+            },
+            swap_previous = {
+              ["<leader>,"] = "@parameter.inner",
+            },
+          },
+          lsp_interop = {
+            enable = true,
+            peek_definition_code = {
+              ["df"] = "@function.outer",
+              ["dF"] = "@class.outer",
+            },
+          },
+          move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+              ["]f"] = "@function.outer",
+              ["]c"] = "@class.outer",
+            },
+            goto_next_end = {
+              ["]F"] = "@function.outer",
+              ["]C"] = "@class.outer",
+            },
+            goto_previous_start = {
+              ["[f"] = "@function.outer",
+              ["[c"] = "@class.outer",
+            },
+            goto_previous_end = {
+              ["[F"] = "@function.outer",
+              ["[C"] = "@class.outer",
+            },
+          },
+        },
       }
 
       vim.opt.foldmethod = 'expr'
@@ -400,6 +445,7 @@ return require('packer').startup(function()
   use "p00f/nvim-ts-rainbow"
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "windwp/nvim-ts-autotag"
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
   -- use 'romgrk/nvim-treesitter-context'
 
   use {

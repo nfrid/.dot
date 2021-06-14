@@ -157,6 +157,8 @@ Map('t', '<A-a>', '<C-\\><C-n>')
 
 Map('n', '\\\\', '<Esc>/<++><Enter>"_c4l')
 
+Map('n', 'cd', ':cd ')
+
 Cmd('inoremap <expr> <C-j>   pumvisible() ? "\\<C-n>" : "\\<C-j>"')
 Cmd('inoremap <expr> <C-k>   pumvisible() ? "\\<C-p>" : "\\<C-k>"')
 Cmd('inoremap <expr> <Tab>   pumvisible() ? "\\<C-n>" : "\\<Tab>"')

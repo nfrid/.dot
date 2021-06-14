@@ -78,10 +78,10 @@ super + equal
   useus rofi -show calc -modi calc -no-show-match -no-sort
 
 # note manager (alt to TODO)
-super +{_, alt +} slash
+super +{_, ctrl +} slash
   note{_, TODO}
 
-super + ctrl + slash
+super + alt + slash
   dmenu -p tuxi | tuxi -r | xargs -I% notify-send -i search %
 
 # taskwarrior tui

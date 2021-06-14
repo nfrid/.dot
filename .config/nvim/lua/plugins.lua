@@ -6,7 +6,6 @@ Map('n', '<leader>PS', ':PackerSync<CR>')
 return require('packer').startup(function()
   local use = require('packer').use
   use { 'wbthomason/packer.nvim', opt = true }
-
   use 'folke/lsp-colors.nvim'
   use {
     'dracula/vim',
@@ -128,9 +127,20 @@ return require('packer').startup(function()
 
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
-  use 'jiangmiao/auto-pairs'
   use 'kana/vim-repeat'
-  use 'junegunn/vim-peekaboo'
+  use 'jiangmiao/auto-pairs'
+  use 'tversteeg/registers.nvim'
+  use {
+    'monaqa/dial.nvim',
+    config = function()
+      Map('n', '<C-a>', '<Plug>(dial-increment)')
+      Map('n', '<C-x>', '<Plug>(dial-decrement)')
+      Map('v', '<C-a>', '<Plug>(dial-increment)')
+      Map('v', '<C-x>', '<Plug>(dial-decrement)')
+      Map('v', 'g<C-a>', '<Plug>(dial-increment-additional)')
+      Map('v', 'g<C-x>', '<Plug>(dial-decrement-additional)')
+    end
+  }
   use {
     'phaazon/hop.nvim',
     as = 'hop',
@@ -202,14 +212,6 @@ return require('packer').startup(function()
           "imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
       Cmd(
           "smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
-      Cmd(
-          "imap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'")
-      Cmd(
-          "smap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'")
-      Cmd(
-          "imap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
-      Cmd(
-          "smap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
 
       Map('n', '<C-s>', '<Plug>(vsnip-select-text)')
       Map('x', '<C-s>', '<Plug>(vsnip-select-text)')
@@ -229,7 +231,13 @@ return require('packer').startup(function()
           { properties = { 'documentation', 'detail', 'additionalTextEdits' } }
 
       local on_attach = function(client, bufnr)
-        require('lsp_signature').on_attach()
+        require('lsp_signature').on_attach(
+            {
+              bind = true,
+              hint_enable = false,
+              hi_parameter = "Todo",
+              handler_opts = { border = "none" }
+            })
         require('completion').on_attach()
         vim.opt.completeopt = "menuone,noinsert,noselect"
         vim.g.completion_enable_auto_signature = 0
@@ -340,7 +348,17 @@ return require('packer').startup(function()
     end
   }
 
+  use {
+    "ahmedkhalf/lsp-rooter.nvim",
+    config = function() require("lsp-rooter").setup {} end
+  }
+
   use 'jackguo380/vim-lsp-cxx-highlight'
+
+  use {
+    'simrat39/symbols-outline.nvim',
+    config = function() Map('n', '<leader>;', ':SymbolsOutline<CR>') end
+  }
 
   use {
     'nvim-treesitter/nvim-treesitter',

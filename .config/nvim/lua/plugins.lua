@@ -98,6 +98,8 @@ return require('packer').startup(function()
     config = function()
       vim.g.vim_markdown_toc_autofit = 1
       vim.g.vim_markdown_follow_anchor = 1
+      vim.g.vim_markdown_frontmatter = 1
+      vim.g.vim_markdown_new_list_item_indent = 2
     end
   }
   use 'lervag/vimtex'
@@ -239,7 +241,7 @@ return require('packer').startup(function()
         Cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
         vim.g.completion_matching_smart_case = 1
         vim.g.completion_matching_strategy_list =
-            { 'exact', 'substring', 'fuzzy', 'all' }
+            { 'exact', 'substring', 'fuzzy' }
         vim.g.completion_sorting = 'none'
 
         vim.g.completion_enable_snippet = 'vim-vsnip'
@@ -396,46 +398,42 @@ return require('packer').startup(function()
               ["al"] = "@loop.outer",
               ["il"] = "@loop.inner",
               ["ab"] = "@block.outer",
-              ["ib"] = "@block.inner",
-            },
+              ["ib"] = "@block.inner"
+            }
           },
           swap = {
             enable = true,
-            swap_next = {
-              ["<leader>."] = "@parameter.inner",
-            },
-            swap_previous = {
-              ["<leader>,"] = "@parameter.inner",
-            },
+            swap_next = { ["<leader>."] = "@parameter.inner" },
+            swap_previous = { ["<leader>,"] = "@parameter.inner" }
           },
           lsp_interop = {
             enable = true,
             peek_definition_code = {
               ["df"] = "@function.outer",
-              ["dF"] = "@class.outer",
-            },
+              ["dF"] = "@class.outer"
+            }
           },
           move = {
             enable = true,
             set_jumps = true,
             goto_next_start = {
               ["]f"] = "@function.outer",
-              ["]c"] = "@class.outer",
+              ["]c"] = "@class.outer"
             },
             goto_next_end = {
               ["]F"] = "@function.outer",
-              ["]C"] = "@class.outer",
+              ["]C"] = "@class.outer"
             },
             goto_previous_start = {
               ["[f"] = "@function.outer",
-              ["[c"] = "@class.outer",
+              ["[c"] = "@class.outer"
             },
             goto_previous_end = {
               ["[F"] = "@function.outer",
-              ["[C"] = "@class.outer",
-            },
-          },
-        },
+              ["[C"] = "@class.outer"
+            }
+          }
+        }
       }
 
       vim.opt.foldmethod = 'expr'

@@ -62,8 +62,14 @@ Format = function()
 
   for key, value in pairs(formatCmds) do
     if vim.bo.filetype == key then
-      os.execute(value .. ' "' .. vim.api.nvim_buf_get_name("%") .. '"')
+      local f = io.popen(value .. ' "' .. vim.api.nvim_buf_get_name("%") ..
+                             '" 2>&1')
+      print(f:read('*all'))
+      f:close()
+      vim.api.nvim_command("let tmp = winsaveview()")
       vim.api.nvim_command("e!")
+      vim.api.nvim_command("call winrestview(tmp)")
+      vim.api.nvim_command("IndentBlanklineRefresh")
       break
     end
   end
@@ -137,7 +143,7 @@ Map('n', '<C-k>', '<CMD>tabp<CR>')
 Map('n', 'gF', ':e <cfile><CR>')
 
 Map('n', '<leader>w', ':w!<CR>')
-Map('n', '<Leader>,', '<CMD>lua vim.opt.hls = not vim.opt.hls<CR>')
+Map('n', '<Leader>?', '<CMD>lua vim.opt.hls = not vim.opt.hls<CR>')
 Map('n', '<Leader>/', ':nohlsearch<CR>')
 Map('n', 'Q', ':bd<CR>')
 Map('n', '<leader>cd', ':cd %:h<CR>')

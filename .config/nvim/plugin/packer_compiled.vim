@@ -261,7 +261,7 @@ _G.packer_plugins = {
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/vim-surround"
   },
   ["vim-vsnip"] = {
-    config = { "\27LJ\1\2†\4\0\0\4\0\f\0!4\0\0\0%\1\1\0>\0\2\0014\0\0\0%\1\2\0>\0\2\0014\0\0\0%\1\3\0>\0\2\0014\0\0\0%\1\4\0>\0\2\0014\0\5\0%\1\6\0%\2\a\0%\3\b\0>\0\4\0014\0\5\0%\1\t\0%\2\a\0%\3\b\0>\0\4\0014\0\5\0%\1\6\0%\2\n\0%\3\v\0>\0\4\0014\0\5\0%\1\t\0%\2\n\0%\3\v\0>\0\4\1G\0\1\0\27<Plug>(vsnip-cut-text)\n<C-S>\6x\30<Plug>(vsnip-select-text)\n<C-s>\6n\bMapSsmap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Simap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Nsmap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'Nimap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'\bCmd\0" },
+    config = { "\27LJ\1\2þ\3\0\0\4\0\f\0!4\0\0\0%\1\1\0>\0\2\0014\0\0\0%\1\2\0>\0\2\0014\0\0\0%\1\3\0>\0\2\0014\0\0\0%\1\4\0>\0\2\0014\0\5\0%\1\6\0%\2\a\0%\3\b\0>\0\4\0014\0\5\0%\1\t\0%\2\a\0%\3\b\0>\0\4\0014\0\5\0%\1\6\0%\2\n\0%\3\v\0>\0\4\0014\0\5\0%\1\t\0%\2\n\0%\3\v\0>\0\4\1G\0\1\0\27<Plug>(vsnip-cut-text)\n<C-S>\6x\30<Plug>(vsnip-select-text)\n<C-s>\6n\bMapOsmap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-h>'Oimap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-h>'Nsmap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-l>'Nimap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-l>'\bCmd\0" },
     loaded = true,
     path = "/home/nf/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   },
@@ -310,7 +310,7 @@ try_loadstring("\27LJ\1\2x\0\0\3\0\t\0\f4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\00
 time([[Config for nvim-colorizer.lua]], false)
 -- Config for: vim-vsnip
 time([[Config for vim-vsnip]], true)
-try_loadstring("\27LJ\1\2†\4\0\0\4\0\f\0!4\0\0\0%\1\1\0>\0\2\0014\0\0\0%\1\2\0>\0\2\0014\0\0\0%\1\3\0>\0\2\0014\0\0\0%\1\4\0>\0\2\0014\0\5\0%\1\6\0%\2\a\0%\3\b\0>\0\4\0014\0\5\0%\1\t\0%\2\a\0%\3\b\0>\0\4\0014\0\5\0%\1\6\0%\2\n\0%\3\v\0>\0\4\0014\0\5\0%\1\t\0%\2\n\0%\3\v\0>\0\4\1G\0\1\0\27<Plug>(vsnip-cut-text)\n<C-S>\6x\30<Plug>(vsnip-select-text)\n<C-s>\6n\bMapSsmap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Simap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'Nsmap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'Nimap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'\bCmd\0", "config", "vim-vsnip")
+try_loadstring("\27LJ\1\2þ\3\0\0\4\0\f\0!4\0\0\0%\1\1\0>\0\2\0014\0\0\0%\1\2\0>\0\2\0014\0\0\0%\1\3\0>\0\2\0014\0\0\0%\1\4\0>\0\2\0014\0\5\0%\1\6\0%\2\a\0%\3\b\0>\0\4\0014\0\5\0%\1\t\0%\2\a\0%\3\b\0>\0\4\0014\0\5\0%\1\6\0%\2\n\0%\3\v\0>\0\4\0014\0\5\0%\1\t\0%\2\n\0%\3\v\0>\0\4\1G\0\1\0\27<Plug>(vsnip-cut-text)\n<C-S>\6x\30<Plug>(vsnip-select-text)\n<C-s>\6n\bMapOsmap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-h>'Oimap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-h>'Nsmap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-l>'Nimap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-l>'\bCmd\0", "config", "vim-vsnip")
 time([[Config for vim-vsnip]], false)
 -- Config for: lsp-rooter.nvim
 time([[Config for lsp-rooter.nvim]], true)

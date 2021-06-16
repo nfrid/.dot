@@ -200,14 +200,13 @@ return require('packer').startup(function()
     requires = { 'hrsh7th/vim-vsnip-integ', 'rafamadriz/friendly-snippets' },
     config = function()
       Cmd(
-          "imap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'")
+          "imap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-l>'")
       Cmd(
-          "smap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'")
+          "smap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-l>'")
       Cmd(
-          "imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
+          "imap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-h>'")
       Cmd(
-          "smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'")
-
+          "smap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-h>'")
       Map('n', '<C-s>', '<Plug>(vsnip-select-text)')
       Map('x', '<C-s>', '<Plug>(vsnip-select-text)')
       Map('n', '<C-S>', '<Plug>(vsnip-cut-text)')

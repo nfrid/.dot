@@ -17,7 +17,7 @@ vim.opt.mouse = 'a'
 vim.opt.clipboard = 'unnamed'
 
 vim.opt.spell = false
-vim.opt.spelllang= 'en_us,ru_yo'
+vim.opt.spelllang = 'en_us,ru_yo'
 vim.opt.keymap = 'russian-jcukenwin'
 vim.opt.iminsert = 0
 vim.opt.imsearch = -1

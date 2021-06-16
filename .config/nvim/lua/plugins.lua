@@ -16,7 +16,6 @@ return require('packer').startup(function()
       Cmd('hi IndentLine guifg=#44475a')
     end
   }
-  use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
   use {
     "hoob3rt/lualine.nvim",
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -79,6 +78,18 @@ return require('packer').startup(function()
     config = function() vim.g.highlightedyank_highlight_duration = 250 end
   }
   use 'kevinhwang91/nvim-hlslens'
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup({
+        '*',
+        css = { css = true },
+        scss = { scc = true }
+      }, { names = false })
+    end
+  }
+
+  use { 'NFrid/due.nvim', config = function() require('due_nvim').setup {} end }
 
   use {
     'mhinz/vim-startify',
@@ -132,17 +143,6 @@ return require('packer').startup(function()
   use 'kana/vim-repeat'
   use 'jiangmiao/auto-pairs'
   use 'tversteeg/registers.nvim'
-  use {
-    'monaqa/dial.nvim',
-    config = function()
-      Map('n', '<C-a>', '<Plug>(dial-increment)')
-      Map('n', '<C-x>', '<Plug>(dial-decrement)')
-      Map('v', '<C-a>', '<Plug>(dial-increment)')
-      Map('v', '<C-x>', '<Plug>(dial-decrement)')
-      Map('v', 'g<C-a>', '<Plug>(dial-increment-additional)')
-      Map('v', 'g<C-x>', '<Plug>(dial-decrement-additional)')
-    end
-  }
   use {
     'phaazon/hop.nvim',
     as = 'hop',

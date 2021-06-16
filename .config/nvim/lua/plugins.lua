@@ -406,13 +406,6 @@ return require('packer').startup(function()
             swap_next = { ["<leader>."] = "@parameter.inner" },
             swap_previous = { ["<leader>,"] = "@parameter.inner" }
           },
-          lsp_interop = {
-            enable = true,
-            peek_definition_code = {
-              ["df"] = "@function.outer",
-              ["dF"] = "@class.outer"
-            }
-          },
           move = {
             enable = true,
             set_jumps = true,

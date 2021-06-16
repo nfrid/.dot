@@ -171,6 +171,9 @@ config.bind("<Alt-e>", "edit-text", mode="insert")
 
 config.bind("<Ctrl-m>", "fake-key <Enter>", mode="insert")
 
+config.bind("<Ctrl-j>", "fake-key <Down>", mode="insert")
+config.bind("<Ctrl-k>", "fake-key <Up>", mode="insert")
+
 config.bind("<Ctrl-d>", "fake-key <Delete>", mode="insert")
 config.bind("<Alt-d>", "fake-key <Control-Delete>", mode="insert")
 config.bind("<Ctrl-h>", "fake-key <Backspace>", mode="insert")

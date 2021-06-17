@@ -46,17 +46,17 @@ Format = function()
   local formatCmds = {
     lua = 'lua-format --indent-width=2 --spaces-inside-table-braces -i',
     go = 'gofmt -w',
-    javascript = 'prettier -w',
-    typescript = 'prettier -w',
-    javascriptreact = 'prettier -w',
-    typescriptreact = 'prettier -w',
-    json = 'prettier -w',
-    css = 'prettier -w',
-    scss = 'prettier -w',
+    javascript = 'prettier -w --loglevel error',
+    typescript = 'prettier -w --loglevel error',
+    javascriptreact = 'prettier -w --loglevel error',
+    typescriptreact = 'prettier -w --loglevel error',
+    json = 'prettier -w --loglevel error',
+    css = 'prettier -w --loglevel error',
+    scss = 'prettier -w --loglevel error',
     cmake = 'cmake-format -i',
     c = 'clang-format -style=file -i',
     cpp = 'clang-format -style=file -i',
-    markdown = 'prettier -w --prose-wrap always',
+    markdown = 'prettier -w --prose-wrap always --loglevel error',
     python = 'black -q'
   }
 

@@ -5,7 +5,9 @@ Map('n', '<leader>PS', ':PackerSync<CR>')
 
 return require('packer').startup(function()
   local use = require('packer').use
+
   use { 'wbthomason/packer.nvim', opt = true }
+  use 'folke/lua-dev.nvim'
   use 'folke/lsp-colors.nvim'
   use {
     'dracula/vim',
@@ -238,9 +240,10 @@ return require('packer').startup(function()
         vim.g.completion_enable_auto_popup = 0
         Cmd('imap <tab> <Plug>(completion_smart_tab)')
         Cmd('imap <s-tab> <Plug>(completion_smart_s_tab)')
+        Cmd('imap <c-space> <Plug>(completion_trigger)')
         vim.g.completion_matching_smart_case = 1
         vim.g.completion_matching_strategy_list =
-            { 'exact', 'substring', 'fuzzy' }
+            { 'exact', 'substring' }
         vim.g.completion_sorting = 'none'
 
         vim.g.completion_enable_snippet = 'vim-vsnip'
@@ -322,23 +325,34 @@ return require('packer').startup(function()
         on_attach = on_attach
       }
 
-      nvim_lsp.sumneko_lua.setup {
-        cmd = { "/usr/bin/lua-language-server" },
-        settings = {
-          Lua = {
-            runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
-            diagnostics = { globals = { 'vim' } },
-            workspace = {
-              library = {
-                [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
-              }
-            }
-          }
+      -- nvim_lsp.sumneko_lua.setup {
+      --   cmd = { "/usr/bin/lua-language-server" },
+      --   settings = {
+      --     Lua = {
+      --       runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
+      --       diagnostics = { globals = { 'vim' } },
+      --       workspace = {
+      --         library = {
+      --           [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+      --           [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
+      --         }
+      --       }
+      --     }
+      --   },
+      --   capabilities = capabilities,
+      --   on_attach = on_attach
+      -- }
+      local luadev = require("lua-dev").setup({
+        library = {
+          vimruntime = false,
         },
-        capabilities = capabilities,
-        on_attach = on_attach
-      }
+        lspconfig = {
+          cmd = { "/usr/bin/lua-language-server" },
+          capabilities = capabilities,
+          on_attach = on_attach
+        }
+      })
+      nvim_lsp.sumneko_lua.setup(luadev)
     end
   }
 

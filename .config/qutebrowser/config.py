@@ -168,6 +168,7 @@ config.bind("<Ctrl-j>", "completion-item-focus next", mode="prompt")
 
 c.editor.command = ["alacritty", "-e", "sh", "-c", "sleep 0.1 && nvim {}"]
 config.bind("<Alt-e>", "edit-text", mode="insert")
+config.bind("<Alt-у>", "edit-text", mode="insert")
 
 config.bind("<Ctrl-m>", "fake-key <Enter>", mode="insert")
 
@@ -176,15 +177,19 @@ config.bind("<Ctrl-k>", "fake-key <Up>", mode="insert")
 
 config.bind("<Ctrl-d>", "fake-key <Delete>", mode="insert")
 config.bind("<Alt-d>", "fake-key <Control-Delete>", mode="insert")
+config.bind("<Alt-в>", "fake-key <Control-Delete>", mode="insert")
 config.bind("<Ctrl-h>", "fake-key <Backspace>", mode="insert")
 config.bind("<Ctrl-w>", "fake-key <Control-Backspace>", mode="insert")
 
 config.bind("<Ctrl-f>", "fake-key <Right>", mode="insert")
 config.bind("<Ctrl-b>", "fake-key <Left>", mode="insert")
 config.bind("<Alt-f>", "fake-key <Control-Right>", mode="insert")
+config.bind("<Alt-а>", "fake-key <Control-Right>", mode="insert")
 config.bind("<Alt-b>", "fake-key <Control-Left>", mode="insert")
+config.bind("<Alt-и>", "fake-key <Control-Left>", mode="insert")
 
 config.bind("<Alt-a>", "fake-key <Ctrl-a>", mode="insert")
+config.bind("<Alt-ф>", "fake-key <Ctrl-a>", mode="insert")
 config.bind("<Ctrl-a>", "fake-key <Home>", mode="insert")
 config.bind("<Ctrl-e>", "fake-key <End>", mode="insert")
 

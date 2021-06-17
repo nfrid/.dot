@@ -21,9 +21,7 @@ alias tl="tllocalmgr"
 alias snc="rsync -vrzhu --delete"
 alias a="$TERM & disown"
 alias btm="btm -g --mem_as_value --battery"
-function where
-  zsh -c "where $argv"
-end
+alias w="command -v"
 function tsh
   test -e $argv ||
   echo '#!/bin/sh' > $argv &&

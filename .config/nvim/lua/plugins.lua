@@ -30,20 +30,6 @@ return require('packer').startup(function()
         end
       end
 
-      local function lspStatus()
-        if not vim.tbl_isempty(vim.lsp.buf_get_clients(0)) then
-          local errors = vim.lsp.diagnostic.get_count(0, 'Error')
-          local warnings = vim.lsp.diagnostic.get_count(0, 'Warning')
-          local infos = vim.lsp.diagnostic.get_count(0, 'Information') +
-                            vim.lsp.diagnostic.get_count(0, 'Hint')
-          return (errors == 0 and '' or errors .. 'E ') ..
-                     (warnings == 0 and '' or warnings .. 'W ') ..
-                     (infos == 0 and '' or infos .. 'I ')
-        else
-          return ''
-        end
-      end
-
       require('lualine').setup {
         options = {
           theme = 'dracula',
@@ -54,7 +40,13 @@ return require('packer').startup(function()
         sections = {
           lualine_a = { 'mode', keymap },
           lualine_b = { 'branch', 'diff' },
-          lualine_c = { 'filename', lspStatus },
+          lualine_c = {
+            'filename', {
+              'diagnostics',
+              sources = { 'nvim_lsp' },
+              symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' }
+            }
+          },
           lualine_x = { 'filetype' },
           lualine_y = { 'progress' },
           lualine_z = { 'location' }
@@ -144,6 +136,7 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'kana/vim-repeat'
   use 'jiangmiao/auto-pairs'
+
   use 'tversteeg/registers.nvim'
   use {
     'phaazon/hop.nvim',
@@ -198,33 +191,10 @@ return require('packer').startup(function()
   }
   use 'ray-x/lsp_signature.nvim'
   use {
-    'hrsh7th/vim-vsnip',
-    requires = { 'hrsh7th/vim-vsnip-integ', 'rafamadriz/friendly-snippets' },
-    config = function()
-      Cmd(
-          "imap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-l>'")
-      Cmd(
-          "smap <expr> <C-l> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<C-l>'")
-      Cmd(
-          "imap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-h>'")
-      Cmd(
-          "smap <expr> <C-h> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-h>'")
-      Map('n', '<C-s>', '<Plug>(vsnip-select-text)')
-      Map('x', '<C-s>', '<Plug>(vsnip-select-text)')
-      Map('n', '<C-S>', '<Plug>(vsnip-cut-text)')
-      Map('x', '<C-S>', '<Plug>(vsnip-cut-text)')
-    end
-  }
-  use {
     'neovim/nvim-lspconfig',
     requires = { 'nvim-lua/completion-nvim', opt = true },
     config = function()
       local nvim_lsp = require('lspconfig')
-
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities.textDocument.completion.completionItem.snippetSupport = true
-      capabilities.textDocument.completion.completionItem.resolveSupport =
-          { properties = { 'documentation', 'detail', 'additionalTextEdits' } }
 
       local on_attach = function(client, bufnr)
         require('lsp_signature').on_attach(
@@ -234,7 +204,7 @@ return require('packer').startup(function()
               hi_parameter = "Todo",
               handler_opts = { border = "none" }
             })
-        require('completion').on_attach()
+
         vim.opt.completeopt = "menuone,noinsert,noselect"
         vim.g.completion_enable_auto_signature = 0
         vim.g.completion_enable_auto_popup = 0
@@ -243,10 +213,11 @@ return require('packer').startup(function()
         Cmd('imap <c-space> <Plug>(completion_trigger)')
         vim.g.completion_matching_smart_case = 1
         vim.g.completion_matching_strategy_list =
-            { 'exact', 'substring' }
-        vim.g.completion_sorting = 'none'
+            { 'exact', 'substring', 'fuzzy', 'all' }
 
-        vim.g.completion_enable_snippet = 'vim-vsnip'
+        vim.g.completion_confirm_key = ''
+
+        require('completion').on_attach()
 
         local function buf_map(mode, keys, action)
           local opts = { noremap = true, silent = true }
@@ -297,13 +268,11 @@ return require('packer').startup(function()
         "cmake", "gopls", "intelephense", "cssls", "html"
       }
       for _, lsp in ipairs(servers) do
-        nvim_lsp[lsp]
-            .setup { capabilities = capabilities, on_attach = on_attach }
+        nvim_lsp[lsp].setup { on_attach = on_attach }
       end
 
       nvim_lsp.ccls.setup {
         init_options = { highlight = { lsRanges = true } },
-        capabilities = capabilities,
         on_attach = on_attach
       }
 
@@ -321,7 +290,6 @@ return require('packer').startup(function()
             lint = { onChange = true }
           }
         },
-        capabilities = capabilities,
         on_attach = on_attach
       }
 
@@ -339,19 +307,16 @@ return require('packer').startup(function()
       --       }
       --     }
       --   },
-      --   capabilities = capabilities,
       --   on_attach = on_attach
       -- }
-      local luadev = require("lua-dev").setup({
-        library = {
-          vimruntime = false,
-        },
-        lspconfig = {
-          cmd = { "/usr/bin/lua-language-server" },
-          capabilities = capabilities,
-          on_attach = on_attach
-        }
-      })
+      local luadev = require("lua-dev").setup(
+                         {
+            library = { vimruntime = false },
+            lspconfig = {
+              cmd = { "/usr/bin/lua-language-server" },
+              on_attach = on_attach
+            }
+          })
       nvim_lsp.sumneko_lua.setup(luadev)
     end
   }

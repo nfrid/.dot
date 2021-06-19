@@ -3,6 +3,8 @@
 
 set -g fish_greeting
 
+# starship init fish | source
+
 set -g tide_git_branch_color green
 set -g tide_git_operation_color white
 set -g tide_git_upstream_color green
@@ -35,28 +37,28 @@ function fish_prompt
     printf '>'
     set_color red -o
   end
-echo
+  echo
 
-printf '$ '
+  printf '$ '
 
-set_color normal
+  set_color normal
 end
 
 
 fish_vi_key_bindings
 function fish_mode_prompt
   switch $fish_bind_mode
-  case default
+    case default
     echo -en "\e[1 q"
-  case insert
+    case insert
     echo -en "\e[5 q"
-  case replace_one
+    case replace_one
     echo -en "\e[3 q"
-  case visual
+    case visual
     echo -en "\e[1 q"
-  case '*'
+    case '*'
     echo -en "\e[1 q"
-end
+  end
 end
 
 

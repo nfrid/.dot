@@ -44,7 +44,12 @@ return require('packer').startup(function()
             'filename', {
               'diagnostics',
               sources = { 'nvim_lsp' },
-              symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' }
+              symbols = {
+                error = ' ',
+                warn = ' ',
+                info = ' ',
+                hint = ' '
+              }
             }
           },
           lualine_x = { 'filetype' },
@@ -54,7 +59,26 @@ return require('packer').startup(function()
       }
     end
   }
-  use 'pacha/vem-tabline'
+  use {
+    'akinsho/nvim-bufferline.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      local b = require("bufferline")
+      b.setup {
+        options = {
+          mappings = false,
+          diagnostics = "nvim_lsp",
+          show_buffer_close_icons = false,
+          always_show_bufferline = false
+        }
+      }
+      Map('n', '<C-h>', ':lua require("bufferline").cycle(-1)<CR>')
+      Map('n', '<C-l>', ':lua require("bufferline").cycle(1)<CR>')
+      Map('n', 'H', ':lua require("bufferline").move(-1)<CR>')
+      Map('n', 'L', ':lua require("bufferline").move(1)<CR>')
+      Map('n', 'gb', ':lua require("bufferline").pick_buffer()<CR>')
+    end
+  }
   use {
     'lukas-reineke/indent-blankline.nvim',
     branch = "lua",

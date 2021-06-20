@@ -9,11 +9,11 @@ macro index,pager ш2 '<sync-mailbox><enter-command>source /home/nf/.config/mutt
 
 set ts_enabled=yes
 
-set sort="threads"
+set sort="reverse-threads"
 set strict_threads="yes"
 
 set sort_browser="reverse-date"
-set sort_aux="reverse-date"
+set sort_aux="date"
 
 unset collapse_unread
 

@@ -93,6 +93,7 @@ end
 alias aa="abduco"
 
 # Git
+alias G="gitui"
 alias lg="lazygit"
 alias g="git"
 alias gc="git commit"

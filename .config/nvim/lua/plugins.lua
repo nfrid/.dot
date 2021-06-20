@@ -428,6 +428,11 @@ return require('packer').startup(function()
               ["[C"] = "@class.outer"
             }
           }
+        },
+
+        textsubjects = {
+          enable = true,
+          keymaps = { ['.'] = 'textsubjects-smart', [';'] = 'textsubjects-big' }
         }
       }
 
@@ -439,6 +444,7 @@ return require('packer').startup(function()
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use "windwp/nvim-ts-autotag"
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'RRethy/nvim-treesitter-textsubjects'
   -- use 'romgrk/nvim-treesitter-context'
 
   use {

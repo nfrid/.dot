@@ -6,7 +6,7 @@ case $1 in
   sys)
     tmux new -s sys -d -n journal "sh -c 'journalctl -f'"
     tmux selectp -t sys:1 -T "journalctl -f"
-    tmux new-window -t sys:2 -n monitor "sh -c 'btm'"
+    tmux new-window -t sys:2 -n monitor "sh -c 'btm -g --mem_as_value --battery'"
     tmux selectp -t sys:2 -T "btm"
     exit 0
     ;;

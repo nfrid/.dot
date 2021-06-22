@@ -67,7 +67,7 @@ super + shift + d
 
 # browse config files
 super + g
-  dotbare ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e sh -c "sleep 0.1; nvim $HOME/sel"
+  dotbare ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e sh -c "sleep 0.1; nvim '$HOME/sel'"
 
 # fedit configs
 super + shift + g

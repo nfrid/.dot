@@ -43,7 +43,9 @@ esac
 esac
 
 case ${ext,,} in
+    epub) epub2txt -w $width "$path" && exit 5; exit 2;;
      odt) odt2txt "$path" && exit 5;;
+    docx) docx2txt "$path" - && exit 5;;
     json) jq -C . "$path" && exit 5;;
     mbox) frm -Sn "$path" | tac && exit 5;;
      svg) highlight -O ansi "$path" && exit 5; exit 2;;

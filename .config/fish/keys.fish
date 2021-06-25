@@ -10,3 +10,9 @@ bind -M normal \ck 'up-line'
 
 bind -M insert \ca 'beginning-of-line'
 bind -M insert \ce 'end-of-line'
+
+bind -M insert \ef 'forward-word'
+bind -M insert \eb 'backward-word'
+
+bind -M insert \cf 'forward-single-char'
+bind -M insert \cb 'backward-char'

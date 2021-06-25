@@ -70,6 +70,14 @@ return require('packer').startup(function()
           diagnostics = "nvim_lsp",
           show_buffer_close_icons = false,
           always_show_bufferline = false
+        },
+        highlights = {
+          fill = {
+            guibg = '#21222C'
+          },
+          buffer_selected = {
+            gui = 'bold'
+          }
         }
       }
       Map('n', '<C-h>', ':lua require("bufferline").cycle(-1)<CR>')

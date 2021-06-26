@@ -6,7 +6,8 @@ alias ss="cd ~/.local/src"
 alias bl="cd ~/github/nfrid.me/src/posts"
 
 # Misc
-alias b="bash"
+# alias b="bash"
+alias b="replay"
 alias py="python"
 alias bpy="bpython"
 alias q="tuxi"

@@ -78,6 +78,8 @@ settings:
     global: 14px
   fonts.prompts:
     global: default_size sans-serif
+  scrolling.smooth:
+    global: false
   statusbar.show:
     global: always
   tabs.last_close:

@@ -25,8 +25,8 @@ c.zoom.default = 125
 
 # Search engines
 c.url.searchengines = {
-    "DEFAULT": "https://search.brave.com/search?q={}",
-    "g": "https://google.com/search?q={}",
+    "DEFAULT": "https://google.com/search?q={}",
+    "b": "https://search.brave.com/search?q={}",
     "s": "https://www.startpage.com/do/dsearch?query={}",
     "ddg": "https://duckduckgo.com/?q={}",
     "y": "https://yandex.ru/search/?text={}",

@@ -13,7 +13,6 @@ super + ctrl + c
 # start a terminal
 super + ctrl + { Return, m }
   xkb-switch -s us; $TERMINAL
-  xkb-switch -s us; $TERMINAL
 
 # start a terminal w/ tmux
 super + { Return, m }

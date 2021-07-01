@@ -229,13 +229,13 @@ return require('packer').startup(function()
       local nvim_lsp = require('lspconfig')
 
       local on_attach = function(client, bufnr)
-        require('lsp_signature').on_attach(
-            {
-              bind = true,
-              hint_enable = false,
-              hi_parameter = "Todo",
-              handler_opts = { border = "none" }
-            })
+        -- require('lsp_signature').on_attach(
+        --     {
+        --       bind = true,
+        --       hint_enable = false,
+        --       hi_parameter = "Todo",
+        --       handler_opts = { border = "none" }
+        --     })
 
         vim.opt.completeopt = "menuone,noinsert,noselect"
         vim.g.completion_enable_auto_signature = 0

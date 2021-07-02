@@ -43,6 +43,8 @@ vim.g.mapleader = ' '
 -- Custom commands and stuff
 
 Format = function()
+  vim.api.nvim_command(":w")
+
   local formatCmds = {
     lua = 'lua-format --indent-width=2 --spaces-inside-table-braces -i',
     go = 'gofmt -w',
@@ -60,19 +62,14 @@ Format = function()
     python = 'black -q'
   }
 
-  for key, value in pairs(formatCmds) do
-    if vim.bo.filetype == key then
-      local f = io.popen(value .. ' "' .. vim.api.nvim_buf_get_name("%") ..
-                             '" 2>&1')
-      print(f:read('*all'))
-      f:close()
-      vim.api.nvim_command("let tmp = winsaveview()")
-      vim.api.nvim_command("e!")
-      vim.api.nvim_command("call winrestview(tmp)")
-      vim.api.nvim_command("IndentBlanklineRefresh")
-      break
-    end
-  end
+  local cmd = formatCmds[vim.bo.filetype] or 'sed -i -e "s/\\s\\+$//e"'
+  local f = io.popen(cmd .. ' "' .. vim.api.nvim_buf_get_name("%") .. '" 2>&1')
+  print(f:read('*all'))
+  f:close()
+  vim.api.nvim_command("let tmp = winsaveview()")
+  vim.api.nvim_command("e!")
+  vim.api.nvim_command("call winrestview(tmp)")
+  vim.api.nvim_command("IndentBlanklineRefresh")
 end
 
 Map('n', '<leader>F', ':lua Format()<CR>')

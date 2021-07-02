@@ -72,12 +72,8 @@ return require('packer').startup(function()
           always_show_bufferline = false
         },
         highlights = {
-          fill = {
-            guibg = '#21222C'
-          },
-          buffer_selected = {
-            gui = 'bold'
-          }
+          fill = { guibg = '#21222C' },
+          buffer_selected = { gui = 'bold' }
         }
       }
       Map('n', '<C-h>', ':lua require("bufferline").cycle(-1)<CR>')
@@ -306,7 +302,7 @@ return require('packer').startup(function()
       local eslint = {
         lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
         lintStdin = true,
-        lintFormats = {"%f:%l:%c: %m"},
+        lintFormats = { "%f:%l:%c: %m" },
         lintIgnoreExitCode = true,
         formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
         formatStdin = true
@@ -337,23 +333,19 @@ return require('packer').startup(function()
         -- end,
         settings = {
           languages = {
-            javascript = {eslint},
-            javascriptreact = {eslint},
-            ["javascript.jsx"] = {eslint},
-            typescript = {eslint},
-            ["typescript.tsx"] = {eslint},
-            typescriptreact = {eslint}
+            javascript = { eslint },
+            javascriptreact = { eslint },
+            ["javascript.jsx"] = { eslint },
+            typescript = { eslint },
+            ["typescript.tsx"] = { eslint },
+            typescriptreact = { eslint }
           }
         },
         filetypes = {
-          "javascript",
-          "javascriptreact",
-          "javascript.jsx",
-          "typescript",
-          "typescript.tsx",
-          "typescriptreact"
+          "javascript", "javascriptreact", "javascript.jsx", "typescript",
+          "typescript.tsx", "typescriptreact"
         },
-        on_attach = on_attach,
+        on_attach = on_attach
       }
 
       nvim_lsp.ccls.setup {

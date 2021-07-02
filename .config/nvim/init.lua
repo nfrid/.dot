@@ -62,7 +62,7 @@ Format = function()
     python = 'black -q'
   }
 
-  local cmd = formatCmds[vim.bo.filetype] or 'sed -i -e "s/\\s\\+$//e"'
+  local cmd = formatCmds[vim.bo.filetype] or 'sed -i -e "s/\\s\\+$//"'
   local f = io.popen(cmd .. ' "' .. vim.api.nvim_buf_get_name("%") .. '" 2>&1')
   print(f:read('*all'))
   f:close()

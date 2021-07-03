@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xset r rate 500 50
+xset r rate 500 25
 
 function austart {
     ps -C "${2:-$1}" >/dev/null || $1 &

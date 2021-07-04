@@ -45,3 +45,11 @@ context.job=proj:job
 urgency.uda.priority.H.coefficient=5
 urgency.uda.priority.M.coefficient=3
 urgency.uda.priority.L.coefficient=-3
+
+
+# Custom reports
+report.sdue.description=Simple due list
+report.sdue.columns=id,due.relative,description,urgency
+report.sdue.labels=ID,Due,Description,Urg
+report.sdue.sort=due+
+report.sdue.filter=status:pending or status:waiting

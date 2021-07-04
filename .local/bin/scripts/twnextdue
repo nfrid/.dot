@@ -1,6 +1,6 @@
 #!/bin/sh
 
-nextdue=$(task due 2>/dev/null | awk '/--/ {getline;print $3}')
+nextdue=$(task sdue 2>/dev/null | awk '/--/ {getline;print $2}')
 printf "^c#ff79c6^$nextdue^c#f8f8f2^"
 
 # [[ -z $nextdue ]] &&

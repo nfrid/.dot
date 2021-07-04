@@ -111,7 +111,7 @@ return require('packer').startup({
       end
     }
 
-    use { 'NFrid/due.nvim', config = function() require('due_nvim').setup {} end }
+    -- use { 'NFrid/due.nvim', config = function() require('due_nvim').setup {} end }
 
     use {
       'mhinz/vim-startify',

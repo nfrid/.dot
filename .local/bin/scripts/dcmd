@@ -5,7 +5,6 @@ cmds=(
   # "btmidis"
   "btamrecon"
   "btamdis"
-  "xmodmap"
   "austream"
 )
 
@@ -16,7 +15,6 @@ case $ch in
   btmidis) bt mi d ;;
   btamrecon) bt am r ;;
   btamdis) bt am d ;;
-  xmodmap) xmodmap $HOME/.Xmodmap ;;
   austream)
     [[ $(austream status) == "off" ]] &&
     austream on ||

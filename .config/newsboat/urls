@@ -1,117 +1,121 @@
 <=======================> sys
-https://www.archlinux.org/feeds/news/ "sys" "linux" # Arch Linux
-https://neovim.io/news.xml "sys" "vim" # Neovim
-# https://www.archlinux.org/feeds/packages/added/ "sys" "arch
-# https://www.archlinux.org/feeds/packages/removed/ "sys" "arch
-# https://aur.archlinux.org/rss/ "sys" # AUR packages updates" "arch
+https://www.archlinux.org/feeds/news/ # Arch Linux
+https://neovim.io/news.xml # Neovim
+# https://www.archlinux.org/feeds/packages/added/ "arch
+# https://www.archlinux.org/feeds/packages/removed/ "arch
+# https://aur.archlinux.org/rss/ "arch
 
 <=======================>
 # github
-https://github.com/NFrid.private.atom?token=ADDRGQ4QT4SAKGLJSHUJUW55UXTPK "github" # My Feed
+https://github.com/NFrid.private.atom?token=ADDRGQ4QT4SAKGLJSHUJUW55UXTPK # My Feed
 
 <=======================>
-https://www.youtube.com/feeds/videos.xml?channel_id=UCWmg4yE--6K8Kvr7BEGQFIw "yt" "ru" "lmao" # Бэбэй
-https://www.youtube.com/feeds/videos.xml?channel_id=UCdga1n7C6EJfoS0lYxDpeoA "yt" "ru" "lmao" # Хумас
-https://www.youtube.com/feeds/videos.xml?channel_id=UCysmaAdKferbE31bMkCoFxQ "yt" "ru" "lmao" # iMiles
-https://www.youtube.com/feeds/videos.xml?channel_id=UCr1Pf6rqk3h8b1APvAt42Bw "yt" "ru" "lmao" # slidan
-https://www.youtube.com/feeds/videos.xml?channel_id=UCio6GuoBNWU97ge5iREZiJQ "yt" "ru" "lmao" # slidan.mp4
-https://www.youtube.com/feeds/videos.xml?channel_id=UCg6y6u4SsW77Q2rtSeiE5UA "yt" "ru" "lmao" # Олёша
-https://www.youtube.com/feeds/videos.xml?channel_id=UCAmDOiECS2c0J-YHluR1ZTg "yt" "ru" "lmao" # гуфовики
-https://www.youtube.com/feeds/videos.xml?channel_id=UCvKPc71Dd8qnuKZd2nRyH4g "yt" "ru" "lmao" # FlynnFlyTaggart
-https://www.youtube.com/feeds/videos.xml?channel_id=UCsbbYU13ywbchLCTd14YBGQ "yt" "ru" "lmao" # Nethermindz
-https://www.youtube.com/feeds/videos.xml?channel_id=UCOxQWb-OuyCSZadzWqrKTCQ "yt" "ru" "lmao" # Булджать
+https://www.youtube.com/feeds/videos.xml?channel_id=UCWmg4yE--6K8Kvr7BEGQFIw # Бэбэй
+https://www.youtube.com/feeds/videos.xml?channel_id=UCdga1n7C6EJfoS0lYxDpeoA # Хумас
+https://www.youtube.com/feeds/videos.xml?channel_id=UCysmaAdKferbE31bMkCoFxQ # iMiles
+https://www.youtube.com/feeds/videos.xml?channel_id=UCr1Pf6rqk3h8b1APvAt42Bw # slidan
+https://www.youtube.com/feeds/videos.xml?channel_id=UCio6GuoBNWU97ge5iREZiJQ # slidan.mp4
+https://www.youtube.com/feeds/videos.xml?channel_id=UCg6y6u4SsW77Q2rtSeiE5UA # Олёша
+https://www.youtube.com/feeds/videos.xml?channel_id=UCAmDOiECS2c0J-YHluR1ZTg # гуфовики
+https://www.youtube.com/feeds/videos.xml?channel_id=UCvKPc71Dd8qnuKZd2nRyH4g # FlynnFlyTaggart
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsbbYU13ywbchLCTd14YBGQ # Nethermindz
+https://www.youtube.com/feeds/videos.xml?channel_id=UCOxQWb-OuyCSZadzWqrKTCQ # Булджать
 -------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UCpnkp_D4FLPCiXOmDhoAeYA "yt" "en" "lmao" # Unusual Memes
-https://www.youtube.com/feeds/videos.xml?channel_id=UC-yfMLscSY3vP_PKC1Z5B0w "yt" "en" "lmao" # isaacwhy
-https://www.youtube.com/feeds/videos.xml?channel_id=UCD6VugMZKRhSyzWEWA9W2fg "yt" "en" "lmao" # SsethTzeentach
-https://www.youtube.com/feeds/videos.xml?channel_id=UCWhiokx685TXHK9F4vdFoAw "yt" "en" "lmao" # Albino
-https://www.youtube.com/feeds/videos.xml?channel_id=UCk_uUorZaASGE-SuxDt1pbQ "yt" "en" "lmao" # Not Albino
-https://www.youtube.com/feeds/videos.xml?channel_id=UCzLKVrV4lFmSr3lsPo6oesA "yt" "en" "lmao" # Albino Archive
-https://www.youtube.com/feeds/videos.xml?channel_id=UC4sxB7lQ17CKRpFQpntloRg "yt" "en" "lmao" # twomad
-https://www.youtube.com/feeds/videos.xml?channel_id=UCGGdOIkVIZipux13jt7rprw "yt" "en" "lmao" # twomad 360
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2mP7il3YV7TxM_3m6U0bwA "yt" "en" "lmao" # jschlattLIVE
-https://www.youtube.com/feeds/videos.xml?channel_id=UC_tCuH9uVrUP-BqN4lSRwyg "yt" "en" "lmao" # Slmccl
-https://www.youtube.com/feeds/videos.xml?channel_id=UCp4csaOD64mSzPxbfuzJcuA "yt" "en" "lmao" # Chuckle Sandwich
-https://www.youtube.com/feeds/videos.xml?channel_id=UCfbnTUxUech4P1XgYUwYuKA "yt" "en" "lmao" # Cold Ones
-https://www.youtube.com/feeds/videos.xml?channel_id=UCMdGPato0IC5-zZjJIf-P9w "yt" "en" "lmao" # SwaggerSouls
-https://www.youtube.com/feeds/videos.xml?channel_id=UCE-DS2-ThLeJu9TYd30sSxw "yt" "en" "lmao" # Misfits
-https://www.youtube.com/feeds/videos.xml?channel_id=UCN5xN8gIljvWYnsj06V8WbQ "yt" "en" "lmao" # Pyrocynical
-https://www.youtube.com/feeds/videos.xml?channel_id=UCBBU7zUOhR_qShfMV26UUCA "yt" "en" "lmao" # Nux Taku
-https://www.youtube.com/feeds/videos.xml?channel_id=UCNgWKYz-_O0ji11BG9crjLA "yt" "en" "lmao" # Nuxanor
-https://www.youtube.com/feeds/videos.xml?channel_id=UCr3cBLTYmIK9kY0F_OdFWFQ "yt" "en" "lmao" # Casually Explained
-https://www.youtube.com/feeds/videos.xml?channel_id=UC3r2fHMP1OXoKt-FBgwVnOA "yt" "en" "lmao" # Acai
-https://www.youtube.com/feeds/videos.xml?channel_id=UC3XI0MtMTgqauxFS3Umi5Eg "yt" "en" "lmao" # James Lee
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-yfMLscSY3vP_PKC1Z5B0w # isaacwhy
+https://www.youtube.com/feeds/videos.xml?channel_id=UCD6VugMZKRhSyzWEWA9W2fg # SsethTzeentach
+https://www.youtube.com/feeds/videos.xml?channel_id=UCWhiokx685TXHK9F4vdFoAw # Albino
+https://www.youtube.com/feeds/videos.xml?channel_id=UCk_uUorZaASGE-SuxDt1pbQ # Not Albino
+https://www.youtube.com/feeds/videos.xml?channel_id=UCzLKVrV4lFmSr3lsPo6oesA # Albino Archive
+https://www.youtube.com/feeds/videos.xml?channel_id=UC4sxB7lQ17CKRpFQpntloRg # twomad
+https://www.youtube.com/feeds/videos.xml?channel_id=UCGGdOIkVIZipux13jt7rprw # twomad 360
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2mP7il3YV7TxM_3m6U0bwA # jschlattLIVE
+https://www.youtube.com/feeds/videos.xml?channel_id=UC_tCuH9uVrUP-BqN4lSRwyg # Slmccl
+https://www.youtube.com/feeds/videos.xml?channel_id=UCp4csaOD64mSzPxbfuzJcuA # Chuckle Sandwich
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfbnTUxUech4P1XgYUwYuKA # Cold Ones
+https://www.youtube.com/feeds/videos.xml?channel_id=UCMdGPato0IC5-zZjJIf-P9w # SwaggerSouls
+https://www.youtube.com/feeds/videos.xml?channel_id=UCE-DS2-ThLeJu9TYd30sSxw # Misfits
+https://www.youtube.com/feeds/videos.xml?channel_id=UCN5xN8gIljvWYnsj06V8WbQ # Pyrocynical
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBBU7zUOhR_qShfMV26UUCA # Nux Taku
+https://www.youtube.com/feeds/videos.xml?channel_id=UCNgWKYz-_O0ji11BG9crjLA # Nuxanor
 -------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UCptRK95GEDXvJGOQIFg50fg "yt" "onion" # Игорь Линк
-https://www.youtube.com/feeds/videos.xml?channel_id=UCM7-8EfoIv0T9cCI4FhHbKQ "yt" "onion" # Алексей Шевцов
-https://www.youtube.com/feeds/videos.xml?channel_id=UCfn7uyPvr5IY5pux8oyIa4Q "yt" "onion" # Kel'
-https://www.youtube.com/feeds/videos.xml?channel_id=UCWU0bFfAMialiKVoLkm4Z7Q "yt" "onion" # Кегля
-https://www.youtube.com/feeds/videos.xml?channel_id=UCJLorkdDK41pOQyoVQbFqJQ "yt" "onion" # Genderfluid Helisexual
-https://www.youtube.com/feeds/videos.xml?channel_id=UC4USoIAL9qcsx5nCZV_QRnA "yt" "onion" # iDubbbz
+https://www.youtube.com/feeds/videos.xml?channel_id=UCpnkp_D4FLPCiXOmDhoAeYA # Unusual Memes
+https://www.youtube.com/feeds/videos.xml?channel_id=UCr3cBLTYmIK9kY0F_OdFWFQ # Casually Explained
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3r2fHMP1OXoKt-FBgwVnOA # Acai
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3XI0MtMTgqauxFS3Umi5Eg # James Lee
+https://www.youtube.com/feeds/videos.xml?channel_id=UCFtOX-21N1earf-K58C7HjQ # Glarses
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXai1SpDrnPl2Uoz5g2rClg # Gloggles
 -------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UCDK9qD5DAQML-pzrtA7A4oA "yt" "otv" # Offline TV
-https://www.youtube.com/feeds/videos.xml?channel_id=UCtHaxi4GTYDpJgMSGy7AeSw "yt" "otv" "5head" # Michael Reeves
-https://www.youtube.com/feeds/videos.xml?channel_id=UCQqTg6LMpBiXx9ulRfjapsg "yt" "otv" "5head" "hl" # Michael Reee2
-https://www.youtube.com/feeds/videos.xml?channel_id=UCvWU1K29wCZ8j1NsXsRrKnA "yt" "otv" "lol" # LilyPitchu
-https://www.youtube.com/feeds/videos.xml?channel_id=UCUT8RoNBTJvwW1iErP6-b-A "yt" "otv" "sus" # Disguised Toast
+https://www.youtube.com/feeds/videos.xml?channel_id=UCptRK95GEDXvJGOQIFg50fg # Игорь Линк
+https://www.youtube.com/feeds/videos.xml?channel_id=UCM7-8EfoIv0T9cCI4FhHbKQ # Алексей Шевцов
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfn7uyPvr5IY5pux8oyIa4Q # Kel'
+https://www.youtube.com/feeds/videos.xml?channel_id=UCWU0bFfAMialiKVoLkm4Z7Q # Кегля
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJLorkdDK41pOQyoVQbFqJQ # Genderfluid Helisexual
+https://www.youtube.com/feeds/videos.xml?channel_id=UC4USoIAL9qcsx5nCZV_QRnA # iDubbbz
 -------------------------
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCwV_0HmQkRrTcrReaMxPeDw "yt" "lol" # loltyler1
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCbTEqlB3zSPJ417be6cBBMA "yt" "lol" # LoDravenn
-https://www.youtube.com/feeds/videos.xml?channel_id=UCkOu814wigKaeu-b2hFdU6w "yt" "lol" # Pianta
-https://www.youtube.com/feeds/videos.xml?channel_id=UCLoHnzt9KzQ4fLvHXn-H30w "yt" "lol" # RememberTheBeat
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCq24US4uAhJnqxafZF-XQww "yt" "lol" # ikwicd
+https://www.youtube.com/feeds/videos.xml?channel_id=UCDK9qD5DAQML-pzrtA7A4oA # Offline TV
+https://www.youtube.com/feeds/videos.xml?channel_id=UCtHaxi4GTYDpJgMSGy7AeSw # Michael Reeves
+https://www.youtube.com/feeds/videos.xml?channel_id=UCQqTg6LMpBiXx9ulRfjapsg # Michael Reee2
+https://www.youtube.com/feeds/videos.xml?channel_id=UCvWU1K29wCZ8j1NsXsRrKnA # LilyPitchu
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUT8RoNBTJvwW1iErP6-b-A # Disguised Toast
 -------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UCO5Jvsc_sKuZi3MhnJxrlzQ "yt" "vt" # Nyanners
+# https://www.youtube.com/feeds/videos.xml?channel_id=UCwV_0HmQkRrTcrReaMxPeDw # loltyler1
+# https://www.youtube.com/feeds/videos.xml?channel_id=UCbTEqlB3zSPJ417be6cBBMA # LoDravenn
+https://www.youtube.com/feeds/videos.xml?channel_id=UCkOu814wigKaeu-b2hFdU6w # Pianta
+https://www.youtube.com/feeds/videos.xml?channel_id=UCLoHnzt9KzQ4fLvHXn-H30w # RememberTheBeat
+# https://www.youtube.com/feeds/videos.xml?channel_id=UCq24US4uAhJnqxafZF-XQww # ikwicd
 -------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UCtr7L6AnC8yFk72_tdPWukA "yt" "mus" # Ваганыч
-https://www.youtube.com/feeds/videos.xml?channel_id=UCPKgIhTC3BdkAwMw6s-GEug "yt" "mus" # TheDooo
+https://www.youtube.com/feeds/videos.xml?channel_id=UCO5Jvsc_sKuZi3MhnJxrlzQ # Nyanners
 -------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2XsUMYePMjhTBxgQRf5EHw "yt" "mine" # Btmodz
-https://www.youtube.com/feeds/videos.xml?channel_id=UCgTaH6nm8sby0hpb2DSKNhg "yt" "mine" # Boffy
-https://www.youtube.com/feeds/videos.xml?channel_id=UCCE5NVlm0FhbunMMBT48WAw "yt" "mine" # Fundy
-https://www.youtube.com/feeds/videos.xml?channel_id=UCFAiFyGs6oDiF1Nf-rRJpZA "yt" "mine" # Technoblade
-https://www.youtube.com/feeds/videos.xml?channel_id=UC1n_PfsVqxllCcnMPlxBIjw "yt" "mine" # Wilbur Soot
-https://www.youtube.com/feeds/videos.xml?channel_id=UC5p_l5ZeB_wGjO_yDXwiqvw "yt" "mine" # TommyInnit
-https://www.youtube.com/feeds/videos.xml?channel_id=UCJdxdc4MqvZRD9oFYoCl7wQ "yt" "mine" # Tom Simons
-https://www.youtube.com/feeds/videos.xml?channel_id=UCTkXRDQl0luXxVQrRQvWS6w "yt" "mine" # Dream
-https://www.youtube.com/feeds/videos.xml?channel_id=UC73HkfIZt0RasDkpWINVg2g "yt" "mine" # Cxlvxn
-https://www.youtube.com/feeds/videos.xml?channel_id=UCQmzgjEb7X6--w7CSE1erJg "yt" "mine" # Slimecicle
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCE7HSqVe0-fTumbJJn3S5hg "yt" "mine" # Lashmak
+https://www.youtube.com/feeds/videos.xml?channel_id=UCtr7L6AnC8yFk72_tdPWukA # Ваганыч
+https://www.youtube.com/feeds/videos.xml?channel_id=UCPKgIhTC3BdkAwMw6s-GEug # TheDooo
 -------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UCnxk5BzZxRN7y3a1IqHhVlA "yt" "linux" # Pingvinus
-https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "yt" "linux" # DistroTube
-https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "yt" "linux" # Brodie Robertson
-# https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "yt" "linux" # Luke Smith
-https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "yt" "linux" # Mental Outlaw
-https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "yt" "linux" # Wolfgang
-https://www.youtube.com/feeds/videos.xml?channel_id=UC8ENHE5xdFSwx71u3fDH5Xw "yt" "linux" # Primeagen
-# https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ "yt" "linux" # Chris Titus Tech
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2XsUMYePMjhTBxgQRf5EHw # Btmodz
+https://www.youtube.com/feeds/videos.xml?channel_id=UCgTaH6nm8sby0hpb2DSKNhg # Boffy
+https://www.youtube.com/feeds/videos.xml?channel_id=UCCE5NVlm0FhbunMMBT48WAw # Fundy
+https://www.youtube.com/feeds/videos.xml?channel_id=UCFAiFyGs6oDiF1Nf-rRJpZA # Technoblade
+https://www.youtube.com/feeds/videos.xml?channel_id=UC1n_PfsVqxllCcnMPlxBIjw # Wilbur Soot
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5p_l5ZeB_wGjO_yDXwiqvw # TommyInnit
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJdxdc4MqvZRD9oFYoCl7wQ # Tom Simons
+https://www.youtube.com/feeds/videos.xml?channel_id=UCTkXRDQl0luXxVQrRQvWS6w # Dream
+https://www.youtube.com/feeds/videos.xml?channel_id=UC73HkfIZt0RasDkpWINVg2g # Cxlvxn
+https://www.youtube.com/feeds/videos.xml?channel_id=UCQmzgjEb7X6--w7CSE1erJg # Slimecicle
+# https://www.youtube.com/feeds/videos.xml?channel_id=UCE7HSqVe0-fTumbJJn3S5hg # Lashmak
 -------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UCRb6Mw3fJ6OFzp-cB9X29aA "yt" "dev" # Junferno
-https://www.youtube.com/feeds/videos.xml?channel_id=UCIabPXjvT5BVTxRDPCBBOOQ "yt" "dev" # Dani
-https://www.youtube.com/feeds/videos.xml?channel_id=UCUmLRMERmJrmUtgnbFfknAg "yt" "dev" # Randall
-https://www.youtube.com/feeds/videos.xml?channel_id=UCgXdyySqz7qH-lDiVG-7KwA "yt" "dev" # Randall HL
-https://www.youtube.com/feeds/videos.xml?channel_id=UC-8QAzbLcRglXeN_MY9blyw "yt" "dev" # Ben Awad
-https://www.youtube.com/feeds/videos.xml?channel_id=UC7yZ6keOGsvERMp2HaEbbXQ "yt" "dev" # devaslife
-https://www.youtube.com/feeds/videos.xml?channel_id=UCrUL8K81R4VBzm-KOYwrcxQ "yt" "dev" # Engineer Man
-https://www.youtube.com/feeds/videos.xml?channel_id=UCKzJFdi57J53Vr_BkTfN3uQ "yt" "dev" # Primer
-https://www.youtube.com/feeds/videos.xml?channel_id=UCrv269YwJzuZL3dH5PCgxUw "yt" "dev" # CodeParade
-https://www.youtube.com/feeds/videos.xml?channel_id=UCmtyQOKKmrMVaKuRXz02jbQ "yt" "dev" # Sebastian Lague
-https://www.youtube.com/feeds/videos.xml?channel_id=UCBNlINWfd08qgDkUTaUY4_w "yt" "dev" # ExtremeCode
-https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "yt" "dev" # Fireship
+https://www.youtube.com/feeds/videos.xml?channel_id=UCnxk5BzZxRN7y3a1IqHhVlA # Pingvinus
+https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg # DistroTube
+https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA # Brodie Robertson
+# https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA # Luke Smith
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA # Mental Outlaw
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg # Wolfgang
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8ENHE5xdFSwx71u3fDH5Xw # Primeagen
+# https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ # Chris Titus Tech
 -------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UCeeFfhMcJa1kjtfZAGskOCA "yt" "tech" # TechLinked
-https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "yt" "tech" # Linus Tech Tips
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRb6Mw3fJ6OFzp-cB9X29aA # Junferno
+https://www.youtube.com/feeds/videos.xml?channel_id=UCIabPXjvT5BVTxRDPCBBOOQ # Dani
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUmLRMERmJrmUtgnbFfknAg # Randall
+https://www.youtube.com/feeds/videos.xml?channel_id=UCgXdyySqz7qH-lDiVG-7KwA # Randall HL
+https://www.youtube.com/feeds/videos.xml?channel_id=UC-8QAzbLcRglXeN_MY9blyw # Ben Awad
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7yZ6keOGsvERMp2HaEbbXQ # devaslife
+https://www.youtube.com/feeds/videos.xml?channel_id=UCrUL8K81R4VBzm-KOYwrcxQ # Engineer Man
+https://www.youtube.com/feeds/videos.xml?channel_id=UCKzJFdi57J53Vr_BkTfN3uQ # Primer
+https://www.youtube.com/feeds/videos.xml?channel_id=UCrv269YwJzuZL3dH5PCgxUw # CodeParade
+https://www.youtube.com/feeds/videos.xml?channel_id=UCmtyQOKKmrMVaKuRXz02jbQ # Sebastian Lague
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBNlINWfd08qgDkUTaUY4_w # ExtremeCode
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA # Fireship
 -------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UCg0bIYJXvberMBRdO1k1Dxg "yt" "5head" # Izzy
-https://www.youtube.com/feeds/videos.xml?channel_id=UCP1JsJgeNs86oqLGnjfGo9Q "yt" "5head" # foo52ru
-https://www.youtube.com/feeds/videos.xml?channel_id=UCJ0-OtVpF0wOKEqT2Z1HEtA "yt" "5head" # ElectroBOOM
-https://www.youtube.com/feeds/videos.xml?channel_id=UC6nSFpj9HTCZ5t-N3Rm3-HA "yt" "5head" # Vsauce
-https://www.youtube.com/feeds/videos.xml?channel_id=UCfMJ2MchTSW2kWaT0kK94Yw "yt" "5head lmao" # William Osman
+https://www.youtube.com/feeds/videos.xml?channel_id=UCeeFfhMcJa1kjtfZAGskOCA # TechLinked
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
+-------------------------
+https://www.youtube.com/feeds/videos.xml?channel_id=UCg0bIYJXvberMBRdO1k1Dxg # Izzy
+https://www.youtube.com/feeds/videos.xml?channel_id=UCP1JsJgeNs86oqLGnjfGo9Q # foo52ru
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJ0-OtVpF0wOKEqT2Z1HEtA # ElectroBOOM
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6nSFpj9HTCZ5t-N3Rm3-HA # Vsauce
+https://www.youtube.com/feeds/videos.xml?channel_id=UCqVEHtQoXHmUCfJ-9smpTSg # Answer in Progress
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfMJ2MchTSW2kWaT0kK94Yw # William Osman
 
 # <=======================>
-# https://mangadex.org/rss/qRvgZhY8QtEnAmK9aD3H7VeczwGkM2py/manga_id/22631 "mg" # Ijiranaide, Nagatoro-san
+# https://mangadex.org/rss/qRvgZhY8QtEnAmK9aD3H7VeczwGkM2py/manga_id/22631 # Ijiranaide, Nagatoro-san
 # <=======================>
-# https://lukesmith.xyz/peertube "peertube" "linux" # Luke Smith
+# https://lukesmith.xyz/peertube # Luke Smith
 <=======================>
 # vim:ft=config

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+nextdue=$(task ready 2>/dev/null | awk '/--/ {getline;print $2}')
+
+printf "^c#ff79c6^$nextdue^c#f8f8f2^"

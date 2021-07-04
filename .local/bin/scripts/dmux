@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "$(tmux ls | awk '{print substr($1, 1, length($1) - 1)}')" |
+  dmenu -p "tmux" | xargs -I% $TERM -e tmux a -t %

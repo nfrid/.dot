@@ -66,11 +66,11 @@ super + shift + d
 
 # browse config files
 super + g
-  dotbare ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e sh -c "sleep 0.1; nvim '$HOME/sel'"
+  dotbare ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e sh -c "xkb-switch -s us; sleep 0.1; nvim '$HOME/sel'"
 
 # fedit configs
 super + shift + g
-  $TERM -e dotbare fedit
+  xkb-switch -s us; $TERM -e dotbare fedit
 
 # calculator
 super + equal
@@ -78,14 +78,14 @@ super + equal
 
 # note manager (alt to TODO)
 super +{_, alt +} slash
-  note{_, TODO}
+  xkb-switch -s us; note{_, TODO}
 
 super + shift + slash
   dmenu -p tuxi | tuxi -r | xargs -I% notify-send -i search %
 
 # taskwarrior tui
 super + ctrl + slash
-  $TERM -e taskwarrior-tui
+  xkb-switch -s us; $TERM -e taskwarrior-tui
 
 # taskell
 # super + t
@@ -142,7 +142,7 @@ super + b
 
 # network manager
 super + F8
-  $TERM -e nmtui
+  xkb-switch -s us; $TERM -e nmtui
 
 # bluetooth (blueberry)
 super + alt + b
@@ -158,7 +158,7 @@ super + alt + b
 
 # start ranger
 super + e
-  $TERM -e ranger
+  xkb-switch -s us; $TERM -e ranger
 
 # man
 super + alt + m
@@ -170,11 +170,11 @@ super + alt + e
 
 # start NewsBoat (RSS client)
 super + n
-  $TERM -e newsboat
+  xkb-switch -s us; $TERM -e newsboat
 
 # start neomutt (E-mail client)
 super + alt + n
-  $TERM -e neomutt
+  xkb-switch -s us; $TERM -e neomutt
 
 # update mail
 super + alt + shift + n
@@ -186,7 +186,7 @@ super + alt + d
 
 # start music player client (ncmpcpp)
 super + alt + p
-  $TERM -e ncmpcpp
+  xkb-switch -s us; $TERM -e ncmpcpp
 
 # start editor (code - oss)
 # super + alt + c

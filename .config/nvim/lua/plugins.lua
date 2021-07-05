@@ -531,10 +531,10 @@ return require('packer').startup({
       end
     }
 
-    use {
-      'andweeb/presence.nvim',
-      config = function() require("presence"):setup({}) end
-    }
+    -- use {
+    --   'andweeb/presence.nvim',
+    --   config = function() require("presence"):setup({}) end
+    -- }
 
     use 'rafcamlet/nvim-luapad'
   end

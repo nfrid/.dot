@@ -104,13 +104,13 @@ super + shift + semicolon
   splatmoji copy
 
 # password manager
-super + p
+super + shift + p
   useus rofi-pass
   # useus pass-rofi --no-notify
 
 # passmenu
-super + shift + p
-  passmenu -p pass
+super + p
+  passmenu
 
 # brightness control
 XF86MonBrightness{Up,Down}

@@ -15,8 +15,9 @@ SETUVAR __fish_initialized:3100
 SETUVAR _fisher_franciscolourenco_2F_done_files:/home/nf/\x2econfig/fish/conf\x2ed/done\x2efish
 SETUVAR _fisher_gazorby_2F_fish_2D_abbreviation_2D_tips_files:/home/nf/\x2econfig/fish/functions/__abbr_tips_bind_newline\x2efish\x1e/home/nf/\x2econfig/fish/functions/__abbr_tips_bind_space\x2efish\x1e/home/nf/\x2econfig/fish/functions/__abbr_tips_init\x2efish\x1e/home/nf/\x2econfig/fish/conf\x2ed/abbr_tips\x2efish
 SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:/home/nf/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e/home/nf/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e/home/nf/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e/home/nf/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e/home/nf/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e/home/nf/\x2econfig/fish/conf\x2ed/autopair\x2efish
+SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:/home/nf/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e/home/nf/\x2econfig/fish/functions/_nvm_list\x2efish\x1e/home/nf/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e/home/nf/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e/home/nf/\x2econfig/fish/functions/nvm\x2efish\x1e/home/nf/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e/home/nf/\x2econfig/fish/completions/nvm\x2efish
 SETUVAR _fisher_jorgebucaran_2F_replay_2E_fish_files:/home/nf/\x2econfig/fish/functions/replay\x2efish\x1e/home/nf/\x2econfig/fish/completions/replay\x2efish
-SETUVAR _fisher_plugins:franciscolourenco/done\x1egazorby/fish\x2dabbreviation\x2dtips\x1ejorgebucaran/replay\x2efish\x1ejorgebucaran/autopair\x2efish
+SETUVAR _fisher_plugins:franciscolourenco/done\x1egazorby/fish\x2dabbreviation\x2dtips\x1ejorgebucaran/replay\x2efish\x1ejorgebucaran/autopair\x2efish\x1ejorgebucaran/nvm\x2efish
 SETUVAR _tide_left_prompt_display_1035429:\x1b\x28B\x1b\x5bm
 SETUVAR _tide_left_prompt_display_1042965:\x1b\x28B\x1b\x5bm
 SETUVAR _tide_left_prompt_display_1044169:\x1b\x28B\x1b\x5bm
@@ -62,3 +63,5 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR nvm_data:/home/nf/\x2elocal/share/nvm
+SETUVAR nvm_mirror:https\x3a//nodejs\x2eorg/dist

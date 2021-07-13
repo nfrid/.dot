@@ -215,3 +215,7 @@ super + F12
 # reload sxhkd
 super + shift + c
   pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Config reloaded'
+
+# fake keys
+super + Pause
+  fakekeys

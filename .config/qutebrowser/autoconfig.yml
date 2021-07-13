@@ -65,6 +65,7 @@ settings:
     https://uwu.social: true
     https://vk.com: true
     https://www.reddit.com: false
+    https://www.tinkoff.ru: false
     https://www.youtube.com: true
     https://ytmp3.cc: false
   content.private_browsing:

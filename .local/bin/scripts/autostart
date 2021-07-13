@@ -18,7 +18,7 @@ austart libinput-gestures
 austart "bash /usr/bin/clipmenud"
 austart lxpolkit
 austart xfce4-power-manager
-austart stretchly
+# austart stretchly
 austart telegram-desktop telegram-deskto
 # austart discord Discord
 austart vk

@@ -1,3 +1,4 @@
+vim.opt.packpath="~/.config/nvim,/etc/xdg/nvim,~/.local/share/nvim/packer,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/share/nvim/runtime,/usr/lib/nvim,/usr/share/nvim/site/after,/usr/local/share/nvim/packer/after,~/.local/share/nvim/packer/after,/etc/xdg/nvim/after,~/.config/nvim/after"
 vim.cmd('packadd packer.nvim')
 
 Map('n', '<leader>PP', ':PackerCompile<CR>')
@@ -537,5 +538,9 @@ return require('packer').startup({
     -- }
 
     use 'rafcamlet/nvim-luapad'
-  end
+  end,
+  config = {
+    package_root = require('packer.util').join_paths(vim.fn.stdpath('data'),
+                                                     'packer', 'pack')
+  }
 })

@@ -76,9 +76,9 @@ super + shift + g
 super + equal
   useus rofi -show calc -modi calc -no-show-match -no-sort
 
-# note manager (alt to TODO)
+# note manager (alt to NOTES)
 super +{_, alt +} slash
-  xkb-switch -s us; note{_, TODO}
+  xkb-switch -s us; note{_, NOTES}
 
 super + shift + slash
   dmenu -p tuxi | tuxi -r | xargs -I% notify-send -i search %
@@ -217,5 +217,5 @@ super + shift + c
   pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Config reloaded'
 
 # fake keys
-super + Pause
+super + Insert
   fakekeys

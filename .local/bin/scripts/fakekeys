@@ -8,11 +8,12 @@ for pid in $(pidof -x fakekeys); do
 done
 
 keys=(super+3 super+4 super+6 super+7)
-# keys=(Up Down)
+# keys=(super+4 super+6 super+7)
+keys=(Up Down)
 
 while true; do
   for key in ${keys[*]}; do
     xdotool key $key
-    sleep $((1 + $RANDOM % 3))
+    sleep $((1 + $RANDOM % 2))
   done
 done

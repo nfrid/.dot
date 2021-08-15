@@ -295,7 +295,7 @@ return require('packer').startup({
 
         local servers = {
           "bashls", "vimls", "pyright", "tsserver", "vuels", "yamlls", "jsonls",
-          "cmake", "gopls", "intelephense", "cssls", "html"
+          "cmake", "gopls", "intelephense", "cssls", "html", "hls"
         }
         for _, lsp in ipairs(servers) do
           nvim_lsp[lsp].setup { on_attach = on_attach }

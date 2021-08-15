@@ -94,3 +94,5 @@ settings:
     global: '{index}: {audio}{current_title}'
   url.start_pages:
     global: https://start.duckduckgo.com
+  zoom.default:
+    global: '110'

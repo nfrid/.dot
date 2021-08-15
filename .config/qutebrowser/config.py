@@ -20,8 +20,8 @@ c.url.default_page = "file:///home/nf/.config/qutebrowser/startpage/index.html"
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.preferred_color_scheme = "dark"
 
-# Default zoom to 125%
-c.zoom.default = 125
+# Default zoom to 110%
+c.zoom.default = 110
 
 # Search engines
 c.url.searchengines = {

@@ -59,7 +59,8 @@ Format = function()
     c = 'clang-format -style=file -i',
     cpp = 'clang-format -style=file -i',
     markdown = 'prettier -w --prose-wrap always --loglevel error',
-    python = 'black -q'
+    python = 'black -q',
+    haskell = 'stylish-haskell -i'
   }
 
   local cmd = formatCmds[vim.bo.filetype] or 'sed -i -e "s/\\s\\+$//"'

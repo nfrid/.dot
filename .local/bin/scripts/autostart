@@ -6,7 +6,8 @@ function austart {
     ps -C "${2:-$1}" >/dev/null || $1 &
 }
 
-# austart mpd # now mpd.service
+fehbg
+
 austart rootblocks
 austart sxhkd
 # austart nm-applet
@@ -18,7 +19,8 @@ austart libinput-gestures
 austart "bash /usr/bin/clipmenud"
 austart lxpolkit
 austart xfce4-power-manager
-# austart stretchly
+austart stretchly
+austart redshift
 austart telegram-desktop telegram-deskto
 # austart discord Discord
 austart vk

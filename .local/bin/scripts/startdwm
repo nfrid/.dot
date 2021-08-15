@@ -1,7 +1,6 @@
 #!/bin/sh
 
 while true; do
-  fehbg
   autostart
   dwm 2> /dev/null
 done

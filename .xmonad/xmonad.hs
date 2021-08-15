@@ -4,6 +4,7 @@ import           XMonad
 
 import qualified Data.Map                    as M
 import           XMonad.Actions.CycleWS
+import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops
 import qualified XMonad.Layout.ToggleLayouts
 import qualified XMonad.StackSet
@@ -33,14 +34,6 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $ [
   -- Rotate through the available layout algorithms
   , ((modm, xK_v ), sendMessage NextLayout)
 
-  -- toggle full
-  , ( (modm, xK_f), sequence_ [
-      -- make sure the window isn't floating (would be nice to remember floating state)
-      XMonad.withFocused $ XMonad.windows . XMonad.StackSet.sink
-      -- regular FULL toggle
-    , XMonad.sendMessage XMonad.Layout.ToggleLayouts.ToggleLayout
-    ])
-
   --  Reset the layouts on the current workspace to default
   , ((modm .|. shiftMask, xK_v ), setLayout $ XMonad.layoutHook conf)
 
@@ -49,8 +42,14 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $ [
   , ((modm, xK_period), nextScreen)
 
   -- move active client to prev/next screen
-  , ((modm .|. shiftMask, xK_comma), shiftPrevScreen)
-  , ((modm .|. shiftMask, xK_period), shiftNextScreen)
+  , ((modm .|. shiftMask, xK_comma), do
+      shiftPrevScreen
+      prevScreen
+    )
+  , ((modm .|. shiftMask, xK_period), do
+      shiftNextScreen
+      nextScreen
+    )
 
   -- cycle to prev/next workspace / toggle recent
   , ((modm, xK_h), moveTo Prev NonEmptyWS)
@@ -104,7 +103,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $ [
   -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
   -- Quit xmonad
-  , ((modm .|. shiftMask, xK_q), io exitSuccess)
+  -- , ((modm .|. shiftMask, xK_q), io exitSuccess)
 
   -- Restart xmonad
   , ((modm .|. shiftMask, xK_q), spawn "xmonad --recompile; xmonad --restart")
@@ -163,13 +162,13 @@ myManageHook = composeAll . concat $ [
 
 myEventHook = mempty <+> fullscreenEventHook
 
-myLogHook = return ()
+-- myLogHook = return ()
 
 myStartupHook = do
   spawn "autostart"
 
 --------------------------------------------------------------------------------
-main = xmonad defaults
+main = xmonad =<< xmobar defaults
 
 defaults = def {
       -- simple stuff
@@ -189,7 +188,7 @@ defaults = def {
         layoutHook         = myLayoutHook,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
+        -- logHook            = myLogHook,
         startupHook        = myStartupHook
     }
 

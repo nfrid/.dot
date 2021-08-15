@@ -8,7 +8,7 @@ function austart {
 
 fehbg
 
-austart rootblocks
+# austart rootblocks
 austart sxhkd
 # austart nm-applet
 austart dunst

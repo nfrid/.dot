@@ -124,6 +124,8 @@ Cmd("au BufReadPost *.zsh,.zshrc set filetype=sh")
 Cmd("au BufReadPost *.fish set filetype=fish")
 Cmd("au BufReadPost *.conf set filetype=config")
 
+Cmd("au BufReadPost *.kbd set filetype=lisp")
+
 Cmd("command! W :w!")
 
 -- mappings

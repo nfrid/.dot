@@ -9,7 +9,7 @@ function austart {
 fehbg
 
 austart rootblocks
-austart "kmonad $HOME/.config/kmonad/e.kbd" kmonad
+austart kmonad-manager
 austart sxhkd
 # austart nm-applet
 austart dunst

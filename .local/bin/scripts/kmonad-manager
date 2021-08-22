@@ -1,0 +1,14 @@
+#!/bin/sh
+
+kbds=$HOME/.config/kmonad
+
+for kbd in $kbds/*.kbd; do
+  kmonad $kbd &
+done
+
+trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
+
+while :; do
+  sleep 1
+done
+

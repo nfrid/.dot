@@ -49,10 +49,12 @@ settings:
   content.media.audio_capture:
     https://discord.com: true
     https://dogehouse.tv: true
+    https://jitsi.riot.im: true
   content.media.audio_video_capture:
     https://discord.com: true
   content.media.video_capture:
     https://discord.com: true
+    https://jitsi.riot.im: true
   content.notifications.enabled:
     https://aliexpress.ru: false
     https://davidwalsh.name: true

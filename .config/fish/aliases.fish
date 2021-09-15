@@ -52,6 +52,17 @@ alias mv="mv -iv"
 alias rm="rm -vI"
 alias ffmpeg="ffmpeg -hide_banner"
 
+# ffmpeg
+function ffcompress
+  switch $argv[1]
+    case mp4
+      ffmpeg -i $argv[2] -c:v hevc_qsv -c:a copy -movflags +faststart $argv[3] comp.$argv[2]
+      echo "compressed successfully"
+    case '*'
+      echo "i don't know how to compress this format yet! :("
+  end
+end
+
 # Colorz!!
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"

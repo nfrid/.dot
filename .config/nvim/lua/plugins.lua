@@ -1,4 +1,5 @@
-vim.opt.packpath="~/.config/nvim,/etc/xdg/nvim,~/.local/share/nvim/packer,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/share/nvim/runtime,/usr/lib/nvim,/usr/share/nvim/site/after,/usr/local/share/nvim/packer/after,~/.local/share/nvim/packer/after,/etc/xdg/nvim/after,~/.config/nvim/after"
+vim.opt.packpath =
+    "~/.config/nvim,/etc/xdg/nvim,~/.local/share/nvim/packer,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/share/nvim/runtime,/usr/lib/nvim,/usr/share/nvim/site/after,/usr/local/share/nvim/packer/after,~/.local/share/nvim/packer/after,/etc/xdg/nvim/after,~/.config/nvim/after"
 vim.cmd('packadd packer.nvim')
 
 Map('n', '<leader>PP', ':PackerCompile<CR>')
@@ -68,7 +69,6 @@ return require('packer').startup({
         local b = require("bufferline")
         b.setup {
           options = {
-            mappings = false,
             diagnostics = "nvim_lsp",
             show_buffer_close_icons = false,
             always_show_bufferline = false
@@ -113,6 +113,33 @@ return require('packer').startup({
     }
 
     use { 'NFrid/due.nvim', config = function() require('due_nvim').setup {} end }
+
+    use {
+      'oberblastmeister/neuron.nvim',
+      requires = {
+        { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' },
+        { 'nvim-telescope/telescope.nvim' }
+      },
+      config = function()
+        require'neuron'.setup {
+          mappings = false,
+          neuron_dir = "~/Documents/neuron",
+          hl = "Function",
+          virtual_titles_hl = "Type"
+        }
+
+        Map('n', '<CR>', "<cmd>lua require'neuron'.enter_link()<CR>")
+        Map('n', '<leader>nn', "<cmd>lua require'neuron/cmd'.new_edit(require'neuron'.config.neuron_dir)<CR>")
+        Map('n', '<leader>nf', "<cmd>lua require'neuron/telescope'.find_zettels()<CR>")
+        Map('n', '<leader>nr', "<cmd>lua require'neuron/telescope'.find_zettels {insert = true}<CR>")
+        Map('n', '<leader>nb', "<cmd>lua require'neuron/telescope'.find_backlinks()<CR>")
+        Map('n', '<leader>nc', "<cmd>lua require'neuron/telescope'.find_backlinks {insert = true}<CR>")
+        Map('n', '<leader>nt', "<cmd>lua require'neuron/telescope'.find_tags()<CR>")
+        Map('n', '<leader>ns', "<cmd>lua require'neuron'.rib {address = '127.0.0.1:8200', verbose = true}<CR>")
+        Map('n', '<leader>nj', "<cmd>lua require'neuron'.goto_next_extmark()<CR>")
+        Map('n', '<leader>nk', "<cmd>lua require'neuron'.goto_prev_extmark()<CR>]]")
+      end
+    }
 
     use {
       'mhinz/vim-startify',

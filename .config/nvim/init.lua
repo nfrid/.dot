@@ -142,7 +142,10 @@ Map('n', '<C-k>', '<CMD>tabp<CR>')
 
 Map('n', 'gF', ':e <cfile><CR>')
 
-Map('n', '<leader>w', ':w!<CR>')
+Map('n', '<leader>rm', ':!rm %<CR>')
+
+Map('n', '<leader>w', '<C-w>')
+Map('n', '<leader>fs', ':w!<CR>')
 Map('n', '<Leader>?', '<CMD>lua vim.opt.hls = not vim.opt.hls<CR>')
 Map('n', '<Leader>/', ':nohlsearch<CR>')
 Map('n', 'Q', ':bd<CR>')

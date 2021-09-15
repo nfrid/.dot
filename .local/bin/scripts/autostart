@@ -11,7 +11,7 @@ fehbg
 austart rootblocks
 austart "kmonad $HOME/.config/kmonad/def.kbd" kmonad
 austart sxhkd
-# austart nm-applet
+austart nm-applet
 austart dunst
 austart "picom --experimental-backends" picom
 austart uim-xim
@@ -20,7 +20,8 @@ austart libinput-gestures
 austart "bash /usr/bin/clipmenud"
 austart lxpolkit
 austart xfce4-power-manager
-austart stretchly
+# austart stretchly
+austart "pulseeffects --gapplication-service" pulseeffects
 austart redshift
 austart telegram-desktop telegram-deskto
 # austart discord Discord

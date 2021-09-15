@@ -15,5 +15,6 @@ while true; do
   for key in ${keys[*]}; do
     xdotool key $key
     sleep $((1 + $RANDOM % 2))
+    # sleep 1
   done
 done

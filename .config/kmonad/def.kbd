@@ -32,20 +32,25 @@
   mod_l (tap-hold-next-release 200 l lmet)
   mod_; (tap-hold-next-release 200 ; lsft)
 
-  mod_! (tap-hold-next-release 200 ! lsft)
-  mod_& (tap-hold-next-release 200 & lmet)
-  mod__ (tap-hold-next-release 200 \_ lmet)
-  mod_^ (tap-hold-next-release 200 ^ lsft)
+  mod_1 (tap-hold-next-release 200 ! lsft)
+  mod_2 (tap-hold-next-release 200 & lmet)
+  mod_3 (tap-hold-next-release 200 & lalt)
+  mod_4 (tap-hold-next-release 200 \( lctl)
+
+  mod_5 (tap-hold-next-release 200 } lctl)
+  mod_6 (tap-hold-next-release 200 = lalt)
+  mod_7 (tap-hold-next-release 200 \_ lmet)
+  mod_8 (tap-hold-next-release 200 ^ lsft)
 
   spc (tap-next-release spc @mod)
 )
 
 (deflayer default
   grv  1    2    3    4    5    6    7    8    9     0    -    =
-  tab  q      w      e      r      t    y    u      i      o      p      [  ]
+  tab  q      w      e      r      t    y    u      i      o      p      bspc  ]
   esc  @mod_a @mod_s @mod_d @mod_f g    h    @mod_j @mod_k @mod_l @mod_; '
   lsft z      x      c      v      b    n    m      ,      .      /      @van
-  @mov lmet   @mod          @spc                    ralt   rmet   @van
+  @mov lmet   lalt          @spc                    bspc   ralt   @van
 )
 
 (deflayer vanilla
@@ -57,11 +62,11 @@
 )
 
 (deflayer mod
-  caps f1   f2   f3   f4   f5   f6   f7   f8   f9   f10    f11    f12
-  grv  1    2    3    4    5    6    7    8    9    0      -      =
-  esc  @mod_!  @mod_& \(   \)   @    bspc {    }    @mod__ @mod_^ +'
-  lsft $        del   \\   #    %    [    ]    +    *      |      @van
-  lctl lmet     XX              XX                  ralt   rmet   @van
+  caps f1   f2   f3   f4     f5     f6     f7     f8     f9     f10    f11    f12
+  grv  1    2    3    4      5      6      7      8      9      0      -      =
+  esc  @mod_1  @mod_2 @mod_3 @mod_4 \)     {      @mod_5 @mod_6 @mod_7 @mod_8 +'
+  lsft $        %     \\     #      @      [      ]      +      *      |      @van
+  lctl lmet     XX               XX                    bspc   ralt   @van
 )
 
 (deflayer mov
@@ -69,6 +74,6 @@
   tab  q    w    end  r    t    y    u    ins  o     pgup [    ]
   esc  home s    d    f    g    lft  down up   rght  ;    '
   lsft z    x    c    v    b    pgdn ret  ,    .     /    @van
-  lctl lmet lalt          spc                ralt   rmet  @van
+  lctl lmet lalt          ret                  bspc  ralt @van
 )
 

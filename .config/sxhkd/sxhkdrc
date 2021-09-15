@@ -156,9 +156,9 @@ super + alt + b
 # super + q
   # qutebrowser
 
-# start ranger
+# start lf
 super + e
-  xkb-switch -s us; $TERM -e ranger
+  xkb-switch -s us; $TERM -e lf
 
 # man
 super + alt + m

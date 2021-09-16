@@ -1,3 +1,7 @@
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
 
+map J half-down
+map K half-up
+
+map D delete

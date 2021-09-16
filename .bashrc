@@ -1,3 +1,4 @@
+#!/bin/bash
 # vi:ft=bash
 
 # If not running interactively, don't do anything
@@ -247,3 +248,5 @@ bind 'set colored-stats on'
 bind 'set show-all-if-ambiguous on'
 bind 'set completion-ignore-case on'
 bind 'TAB:menu-complete'
+
+source /home/nf/.config/broot/launcher/bash/br

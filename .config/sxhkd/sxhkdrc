@@ -158,7 +158,7 @@ super + alt + b
 
 # start lf
 super + e
-  xkb-switch -s us; $TERM -e lf
+  xkb-switch -s us; $TERM -e lfrun
 
 # man
 super + alt + m

@@ -34,7 +34,7 @@
 
   mod_1 (tap-hold-next-release 200 ! lsft)
   mod_2 (tap-hold-next-release 200 & lmet)
-  mod_3 (tap-hold-next-release 200 & lalt)
+  mod_3 (tap-hold-next-release 200 ? lalt)
   mod_4 (tap-hold-next-release 200 \( lctl)
 
   mod_5 (tap-hold-next-release 200 } lctl)

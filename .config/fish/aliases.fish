@@ -30,7 +30,7 @@ function tsh
   echo '#!/bin/sh' > $argv &&
   chmod +x $argv
 end
-# alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
+alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
 
 # suckless
 alias pt='for p in patch/*.diff; patch -p1 -N < $p; end; echo -n ""'
@@ -79,8 +79,10 @@ alias jrn="sudo journalctl"
 alias ujrn="journalctl --user"
 
 # Editor
-alias e="$EDITOR"
-alias _e="sudo -e"
+if set -q EDITOR
+  alias e="$EDITOR"
+end
+  alias _e="sudo -e"
 # alias se="sudoedit"
 
 # cd-less

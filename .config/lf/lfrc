@@ -26,24 +26,38 @@ cmd link %{{
 }}
 map P :link
 
+set shellopts '-eu'
+set ifs "\n"
+
+cmd _bulk-rename ${{
+    index=$(mktemp /tmp/lf-bulk-rename-index.XXXXXXXXXX)
+    if [ -n "${fs}" ]; then
+        echo "$fs" > $index
+    else
+        echo "$(ls "$(dirname $f)" | tr ' ' "\n")" > $index
+    fi
+    index_edit=$(mktemp /tmp/lf-bulk-rename.XXXXXXXXXX)
+    cat $index > $index_edit
+    $EDITOR $index_edit
+    if [ $(cat $index | wc -l) -eq $(cat $index_edit | wc -l) ]; then
+        max=$(($(cat $index | wc -l)+1))
+        counter=1
+        while [ $counter -le $max ]; do
+            a="$(cat $index | sed "${counter}q;d")"
+            b="$(cat $index_edit | sed "${counter}q;d")"
+            counter=$(($counter+1))
+
+            [ "$a" = "$b" ] && continue
+            [ -e "$b" ] && echo "File exists: $b" && continue
+            mv "$a" "$b"
+        done
+    else
+        echo "Number of lines must stay the same"
+    fi
+    rm $index $index_edit
+}}
 cmd bulk-rename ${{
-    old="$(mktemp)"
-    new="$(mktemp)"
-    [ -n "$fs" ] && fs="$(ls)"
-    printf '%s\n' "$fs" >"$old"
-    printf '%s\n' "$fs" >"$new"
-    $EDITOR "$new"
-    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
-    paste "$old" "$new" | while IFS= read -r names; do
-        src="$(printf '%s' "$names" | cut -f1)"
-        dst="$(printf '%s' "$names" | cut -f2)"
-        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
-            continue
-        fi
-        mv -- "$src" "$dst"
-    done
-    rm -- "$old" "$new"
-    lf -remote "send $id unselect"
+  /bin/sh -c "vimv $(echo -e "$fx" | xargs -i echo "\\'{}\\'" | xargs echo)"
 }}
 map R bulk-rename
 
@@ -64,3 +78,8 @@ cmd newdir ${{
 
 cmd open-with %"$@" $fx
 map ` push :open-with<space>
+
+cmd dragon ${{
+  /bin/sh -c "dragon-drag-and-drop $(echo -e "$fx" | xargs -i echo "\\'{}\\'" | xargs echo)"
+}}
+map P dragon

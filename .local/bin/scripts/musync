@@ -1,12 +1,12 @@
 #!/bin/sh
 
-host=nf@192.168.43.1:/Music
+host=nf@192.168.8.100:/Music
 port=2222
 mnt=$HOME/TEMP/Music
 mus=$HOME/Music/*
 
 mkdir -p $mnt
-sshfs -p $port $host $mnt || exit 1
+sshfs -o HostKeyAlgorithms=ssh-rsa -p $port $host $mnt || exit 1
 
 rsync -crvvuP --delete $mus $mnt
 

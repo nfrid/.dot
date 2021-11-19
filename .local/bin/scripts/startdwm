@@ -1,6 +1,0 @@
-#!/bin/sh
-
-while true; do
-  autostart
-  dwm 2> /tmp/dwm.log
-done

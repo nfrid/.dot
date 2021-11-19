@@ -1,10 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 cmds=(
   # "btmirecon"
   # "btmidis"
-  "btamrecon"
-  "btamdis"
+  # "btamrecon"
+  # "btamdis"
+  "btjblrecon"
+  "btjbldis"
   "austream"
 )
 
@@ -15,6 +17,8 @@ case $ch in
   btmidis) bt mi d ;;
   btamrecon) bt am r ;;
   btamdis) bt am d ;;
+  btjblrecon) bt jbl r ;;
+  btjbldis) bt jbl d ;;
   austream)
     [[ $(austream status) == "off" ]] &&
     austream on ||

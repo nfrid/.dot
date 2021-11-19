@@ -66,6 +66,8 @@ map a push :mkdir<space>
 
 map gd push :cd<space>
 map gf
+map gj cd ~/job
+map gh cd ~/github/herzen
 
 map <a-n> newdir
 
@@ -82,4 +84,4 @@ map ` push :open-with<space>
 cmd dragon ${{
   /bin/sh -c "dragon-drag-and-drop $(echo -e "$fx" | xargs -i echo "\\'{}\\'" | xargs echo)"
 }}
-map P dragon
+map o dragon

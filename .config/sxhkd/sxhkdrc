@@ -149,6 +149,10 @@ super + F8
 super + alt + b
   blueberry
 
+# pulsemixer
+super + XF86AudioMute
+  xkb-switch -s us; $TERM -e pulsemixer
+
 # start firefox
 # super + alt + f
 # firefox
@@ -157,9 +161,9 @@ super + alt + b
 # super + q
   # qutebrowser
 
-# start lf
+# start ranger
 super + e
-  xkb-switch -s us; $TERM -e lfrun
+  xkb-switch -s us; $TERM -e ranger
 
 # man
 super + alt + m

@@ -1,0 +1,4 @@
+#!/bin/sh
+pkill -USR2 -x sxhkd
+xdotool key --clearmodifiers $@
+pkill -USR2 -x sxhkd

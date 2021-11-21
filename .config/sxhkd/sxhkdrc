@@ -224,3 +224,9 @@ super + shift + c
 # fake keys
 super + Insert
   fakekeys
+
+ctrl + space
+  [ $(dunstctl count displayed) -eq 0 ] && sxhkdpass ctrl+space || dunstctl close-all
+
+super + grave
+  dunstctl history-pop

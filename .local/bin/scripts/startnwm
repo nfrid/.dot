@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while true; do
+  autostart
+  nwm 2> /tmp/nwm.log
+done

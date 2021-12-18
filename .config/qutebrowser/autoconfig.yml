@@ -50,6 +50,7 @@ settings:
     https://discord.com: true
     https://dogehouse.tv: true
     https://jitsi.riot.im: true
+    https://meet.google.com: false
   content.media.audio_video_capture:
     https://discord.com: true
   content.media.video_capture:

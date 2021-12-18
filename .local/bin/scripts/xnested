@@ -1,0 +1,10 @@
+#!/bin/sh
+
+DIS=${1:-:1}
+RES=${2:-1024x1024}
+
+Xephyr -ac -screen ${RES} -br -reset -terminate 2> /dev/null ${DIS} &
+
+sleep 0.5
+
+DISPLAY=$DIS $TERMINAL &

@@ -8,7 +8,8 @@ alias bl="cd ~/github/nfrid.me/src/posts"
 alias yt="yt-dlp"
 alias youtube-dl="yt"
 alias ytv="yt --all-subs --sub-lang en,ru --embed-subs --add-metadata -f 'bestvideo[width<=1920][height<=1080]+bestaudio[ext=m4a]/bestvideo+bestaudio'"
-alias yta="yt --embed-thumbnail -x --audio-format mp3 -f 'bestaudio'"
+alias yta="yt -x --audio-format mp3 -f 'bestaudio'"
+alias yti="yt --write-thumbnail --skip-download"
 
 # Misc
 # alias b="bash"
@@ -141,17 +142,24 @@ function gnf
     git remote add origin git@github.com:NFrid/$argv.git
 end
 
+# Docker
+alias d="docker"
+alias dr="docker run"
+alias dri="docker run --rm -it"
+alias dc="docker-compose"
+alias dcu="docker-compose up"
+
 # Dotbare
-alias d="dotbare"
-alias da="dotbare add"
-alias dfa="dotbare fadd"
-alias dc="dotbare commit"
-alias dP="dotbare push -u origin HEAD"
-alias dfu="dotbare funtrack"
-alias ds="dotbare status"
-alias da="dotbare add -u"
-alias dl="dotbare flog"
-alias ld="lg --git-dir=$DOTBARE_DIR --work-tree=$HOME"
+# alias d="dotbare"
+# alias da="dotbare add"
+# alias dfa="dotbare fadd"
+# alias dc="dotbare commit"
+# alias dP="dotbare push -u origin HEAD"
+# alias dfu="dotbare funtrack"
+# alias ds="dotbare status"
+# alias da="dotbare add -u"
+# alias dl="dotbare flog"
+# alias ld="lg --git-dir=$DOTBARE_DIR --work-tree=$HOME"
 alias D="git --git-dir=$DOTBARE_DIR --work-tree=$HOME"
 function Dc
     set -q argv || set argv .
@@ -164,6 +172,7 @@ alias ll="ls -lah"
 # alias ls="ls -hN --color=auto --group-directories-first"
 # alias l="ls -a"
 # alias ll="ls -lAh"
+alias sl="ls"
 
 # Paskage management
 alias pm="sudo pacman"

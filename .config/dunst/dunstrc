@@ -1,5 +1,5 @@
 [global]
-width = (0, 300)
+width = (0, 500)
 offset = 0x23
 
 padding = 5

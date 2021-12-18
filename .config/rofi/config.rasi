@@ -3,7 +3,6 @@ configuration {
     /* columns: 3; */
     font: "Arial 13";
     show-icons: true;
-    theme: "dracula";
     display-window: "Window";
     display-drun: "DRun";
     display-run: "Run";
@@ -18,3 +17,5 @@ configuration {
     kb-accept-entry: "Control+l,Control+m,Return,KP_Enter";
     kb-remove-to-eol: "Control+L";
 }
+
+@theme "dracula"

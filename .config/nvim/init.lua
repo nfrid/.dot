@@ -1,4 +1,4 @@
-require('vutils')
+local cmd = vim.api.nvim_command
 
 vim.opt.hidden = true
 vim.opt.swapfile = false
@@ -9,7 +9,7 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
-Cmd('au BufRead,BufNewFile *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4')
+cmd('au BufRead,BufNewFile *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4')
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -40,10 +40,11 @@ vim.g.vimsyn_embed = 'l'
 vim.mapleader = ' '
 vim.g.mapleader = ' '
 
--- Custom commands and stuff
+require('plugins')
+local mx = require('mapx')
 
 Format = function()
-  vim.api.nvim_command(":w")
+  cmd(":w")
 
   local formatCmds = {
     lua = 'lua-format --indent-width=2 --spaces-inside-table-braces -i',
@@ -63,17 +64,18 @@ Format = function()
     haskell = 'stylish-haskell -i'
   }
 
-  local cmd = formatCmds[vim.bo.filetype] or 'sed -i -e "s/\\s\\+$//"'
-  local f = io.popen(cmd .. ' "' .. vim.api.nvim_buf_get_name("%") .. '" 2>&1')
+  local formatCmd = formatCmds[vim.bo.filetype] or 'sed -i -e "s/\\s\\+$//"'
+  local f = io.popen(formatCmd .. ' "' .. vim.api.nvim_buf_get_name("%") ..
+                         '" 2>&1')
   print(f:read('*all'))
   f:close()
-  vim.api.nvim_command("let tmp = winsaveview()")
-  vim.api.nvim_command("e!")
-  vim.api.nvim_command("call winrestview(tmp)")
-  vim.api.nvim_command("IndentBlanklineRefresh")
+  cmd("let tmp = winsaveview()")
+  cmd("e!")
+  cmd("call winrestview(tmp)")
+  cmd("IndentBlanklineRefresh")
 end
 
-Map('n', '<leader>F', ':lua Format()<CR>')
+mx.nnoremap('<leader>F', Format)
 
 ToggleConceal = function()
   if vim.wo.conceallevel == 2 then
@@ -83,7 +85,7 @@ ToggleConceal = function()
   end
 end
 
-Map('n', '<leader>pc', ':lua ToggleConceal()<CR>')
+mx.nnoremap('<leader>pc', ToggleConceal)
 
 ToggleWrap = function()
   if vim.wo.wrap then
@@ -92,12 +94,12 @@ ToggleWrap = function()
     vim.api.nvim_buf_del_keymap(0, 'n', 'k')
   else
     vim.wo.wrap = true
-    BMap('n', 'j', 'gj')
-    BMap('n', 'k', 'gk')
+    mx.nnoremap('j', 'gj', 'buffer')
+    mx.nnoremap('k', 'gk', 'buffer')
   end
 end
 
-Map('n', '<leader>pw', ':lua ToggleWrap()<CR>')
+mx.nnoremap('<leader>pw', ToggleWrap)
 
 ToggleKeyMap = function()
   if vim.bo.iminsert == 0 then
@@ -107,8 +109,8 @@ ToggleKeyMap = function()
   end
 end
 
-Map('n', '<A-l>', ':lua ToggleKeyMap()<CR>')
-Map('i', '<A-l>', '<C-^>')
+mx.nnoremap('<A-l>', ToggleKeyMap)
+mx.inoremap('<A-l>', '<C-^>')
 
 ToggleRelNums = function()
   if vim.wo.relativenumber then
@@ -118,61 +120,56 @@ ToggleRelNums = function()
   end
 end
 
-Map('n', '<leader>pr', ':lua ToggleRelNums()<CR>')
+mx.nnoremap('<leader>pr', ToggleRelNums)
 
-Cmd("au BufReadPost *.zsh,.zshrc set filetype=sh")
-Cmd("au BufReadPost *.fish set filetype=fish")
-Cmd("au BufReadPost *.conf set filetype=config")
+cmd("au BufReadPost *.zsh,.zshrc set filetype=sh")
+cmd("au BufReadPost *.fish set filetype=fish")
+cmd("au BufReadPost *.conf set filetype=config")
 
-Cmd("au BufReadPost *.kbd set filetype=lisp")
+cmd("au BufReadPost *.kbd set filetype=lisp")
 
-Cmd("command! W :w!")
+cmd("command! W :w!")
 
 -- mappings
 
-Map('n', '<SPACE>', '<NOP>')
+mx.nnoremap('<SPACE>', '<NOP>')
 
-Map('n', '<tab>', '<CMD>bn<CR>')
-Map('n', '<s-tab>', '<CMD>bp<CR>')
+mx.nnoremap('<tab>', '<CMD>bn<CR>')
+mx.nnoremap('<s-tab>', '<CMD>bp<CR>')
 
-Map('n', '<C-h>', '<CMD>bp<CR>')
-Map('n', '<C-l>', '<CMD>bn<CR>')
-Map('n', '<C-j>', '<CMD>tabn<CR>')
-Map('n', '<C-k>', '<CMD>tabp<CR>')
+mx.nnoremap('<C-h>', '<CMD>bp<CR>')
+mx.nnoremap('<C-l>', '<CMD>bn<CR>')
+mx.nnoremap('<C-j>', '<CMD>tabn<CR>')
+mx.nnoremap('<C-k>', '<CMD>tabp<CR>')
 
-Map('n', 'gF', ':e <cfile><CR>')
+mx.nnoremap('gF', ':e <cfile><CR>')
 
-Map('n', '<leader>rm', ':!rm %<CR>')
+mx.nnoremap('<leader>rm', ':!rm %<CR>')
 
-Map('n', '<leader>w', '<C-w>')
-Map('n', '<leader>fs', ':w!<CR>')
-Map('n', '<Leader>?', '<CMD>lua vim.opt.hls = not vim.opt.hls<CR>')
-Map('n', '<Leader>/', ':nohlsearch<CR>')
-Map('n', 'Q', ':bd<CR>')
-Map('n', '<leader>cd', ':cd %:h<CR>')
-Map('n', '<leader>cp', ':let @+ = expand("%:p:h")<CR>')
+mx.nnoremap('<leader>w', '<C-w>')
+mx.nnoremap('<leader>fs', ':w!<CR>')
+mx.nnoremap('<Leader>?', '<CMD>lua vim.opt.hls = not vim.opt.hls<CR>')
+mx.nnoremap('<Leader>/', ':nohlsearch<CR>')
+mx.nnoremap('Q', ':bd<CR>')
+mx.nnoremap('<leader>cd', ':cd %:h<CR>')
+mx.nnoremap('<leader>cp', ':let @+ = expand("%:p:h")<CR>')
 
-Map('n', '>', '>>')
-Map('n', '<', '<<')
+mx.nnoremap('>', '>>')
+mx.nnoremap('<', '<<')
 
-Map('n', '<leader>vv', ':e $MYVIMRC<CR>')
+mx.nnoremap('<leader>vv', ':e $MYVIMRC<CR>')
 
-Map('n', '<leader>ps', ':set spell!<CR>')
+mx.nnoremap('<leader>ps', ':set spell!<CR>')
 
-if vim.env.TMUX == nil then Map('n', '<A-a>', ':silent !$TERM & disown<CR>') end
+if vim.env.TMUX == nil then mx.nnoremap('<A-a>', ':silent !$TERM & disown<CR>') end
 
-Map('', '<A-w>', '<C-w>')
-Map('t', '<A-a>', '<C-\\><C-n>')
+mx.tnoremap('<A-a>', '<C-\\><C-n>')
 
-Map('n', '\\\\', '<Esc>/<++><Enter>"_c4l')
+mx.nnoremap('\\\\', '<Esc>/<++><Enter>"_c4l')
 
-Map('n', 'cd', ':cd ')
+mx.nnoremap('cd', ':cd ')
 
-Cmd('inoremap <expr> <C-j>   pumvisible() ? "\\<C-n>" : "\\<C-j>"')
-Cmd('inoremap <expr> <C-k>   pumvisible() ? "\\<C-p>" : "\\<C-k>"')
-Cmd('inoremap <expr> <Tab>   pumvisible() ? "\\<C-n>" : "\\<Tab>"')
-Cmd('inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"')
-
--- Plugins & mixed plugin configs
-
-require('plugins')
+mx.inoremap('<C-j>', [[pumvisible() ? "\\<C-n>" : "\\<C-j>"]], 'expr')
+mx.inoremap('<C-k>', [[pumvisible() ? "\\<C-p>" : "\\<C-k>"]], 'expr')
+mx.inoremap('<Tab>', [[pumvisible() ? "\\<C-n>" : "\\<Tab>"]], 'expr')
+mx.inoremap('<S-Tab>', [[pumvisible() ? "\\<C-p>" : "\\<S-Tab>"]], 'expr')

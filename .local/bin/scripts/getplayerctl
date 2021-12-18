@@ -7,7 +7,7 @@ artist="$( playerctl -p playerctld metadata --format '{{ artist }}' 2>&1)"
 title="$( playerctl -p playerctld metadata --format '{{ title }}' 2>&1)"
 [[ -z $artist ]] && track="${wrap_t[0]}$title${wrap_t[1]}" || track="${wrap_a[0]}$artist${wrap_a[1]} - ${wrap_t[0]}$title${wrap_t[1]}"
 
-if [ "${track: -35}" = "No player could handle this command" ]; then
+if [[ "${track: -35}" = "No player could handle this command" || ${track} = "" ]]; then
     echo "${1:-no active player}"
 else
     echo "$track"

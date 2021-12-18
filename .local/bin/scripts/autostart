@@ -21,7 +21,7 @@ austart "bash /usr/bin/clipmenud"
 austart lxpolkit
 austart xfce4-power-manager
 # austart stretchly
-austart "pulseeffects --gapplication-service" pulseeffects
+austart "easyeffects --gapplication-service" easyeffects
 austart redshift
 austart telegram-desktop telegram-deskto
 # austart discord Discord
@@ -32,3 +32,5 @@ austart flameshot
 # tmux sessions
 tmuxses sys
 tmuxses main
+
+exit 0

@@ -230,3 +230,6 @@ ctrl + space
 
 super + grave
   dunstctl history-pop
+
+# button{6,7}
+#   xdotool key {Next,Prior}

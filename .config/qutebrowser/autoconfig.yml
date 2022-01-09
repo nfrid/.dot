@@ -89,6 +89,8 @@ settings:
     global: always
   tabs.last_close:
     global: ignore
+  tabs.mousewheel_switching:
+    global: false
   tabs.select_on_remove:
     global: next
   tabs.show:

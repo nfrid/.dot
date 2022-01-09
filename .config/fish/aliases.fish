@@ -35,6 +35,7 @@ function tsh
         chmod +x $argv
 end
 alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
+alias cal="cal -m3"
 
 # suckless
 alias pt='for p in patch/*.diff; patch -p1 -N < $p; end; echo -n ""'
@@ -143,26 +144,20 @@ function gnf
 end
 
 # Docker
-alias d="docker"
-alias dr="docker run"
-alias dri="docker run --rm -it"
+alias dk="docker"
 alias dc="docker-compose"
-alias dcu="docker-compose up"
 
 # Dotbare
-# alias d="dotbare"
-# alias da="dotbare add"
-# alias dfa="dotbare fadd"
-# alias dc="dotbare commit"
-# alias dP="dotbare push -u origin HEAD"
-# alias dfu="dotbare funtrack"
-# alias ds="dotbare status"
-# alias da="dotbare add -u"
-# alias dl="dotbare flog"
-# alias ld="lg --git-dir=$DOTBARE_DIR --work-tree=$HOME"
+alias d="dotbare"
+alias da="dotbare add"
+alias dfa="dotbare fadd"
+alias dc="dotbare commit"
+alias dP="dotbare push -u origin HEAD"
+alias dr="dotbare funtrack"
+alias dl="dotbare flog"
 alias D="git --git-dir=$DOTBARE_DIR --work-tree=$HOME"
-alias Dl="lazygit --git-dir=$DOTBARE_DIR --work-tree=$HOME"
-alias Ds="D status"
+alias ds="D status"
+alias lD="lg --git-dir=$DOTBARE_DIR --work-tree=$HOME"
 alias DD="D add --all && D commit"
 function Dc
     set -q argv || set argv .

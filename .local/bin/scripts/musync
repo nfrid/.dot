@@ -1,6 +1,6 @@
 #!/bin/sh
 
-host=nf@192.168.8.100:/Music
+host=nf@192.168.8.102:/
 port=2222
 mnt=$HOME/TEMP/Music
 mus=$HOME/Music/*

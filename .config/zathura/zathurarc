@@ -16,6 +16,18 @@ map J zoom out
 map i recolor
 map p print
 
+map г scroll half-up
+map в scroll half-down
+map В toggle_page_mode
+map к reload
+map К rotate
+map л up
+map о down
+map Л zoom in
+map О zoom out
+map i recolor
+map p print
+
 set window-title-basename "true"
 set selection-clipboard "clipboard"
 

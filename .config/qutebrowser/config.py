@@ -17,7 +17,7 @@ c.url.start_pages = "file:///home/nf/.config/qutebrowser/startpage/index.html"
 c.url.default_page = "file:///home/nf/.config/qutebrowser/startpage/index.html"
 
 # Dark mode yo
-c.colors.webpage.darkmode.enabled = True
+# c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.preferred_color_scheme = "dark"
 
 # Default zoom to 110%

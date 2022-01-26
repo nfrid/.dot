@@ -28,6 +28,7 @@ austart telegram-desktop telegram-deskto
 austart vk
 austart crow
 austart flameshot
+austart keynav
 
 # tmux sessions
 tmuxses sys

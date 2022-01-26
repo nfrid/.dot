@@ -1,0 +1,13 @@
+#!/bin/sh
+
+sig_file=/tmp/revmic.on
+rev_mode=rev
+clean_mode=e
+
+if [[ -f $sig_file ]]; then
+  rm $sig_file
+  easyeffects -l $clean_mode
+else
+  touch $sig_file
+  easyeffects -l $rev_mode
+fi

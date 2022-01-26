@@ -19,7 +19,7 @@ export TERM="alacritty"
 export TERMINAL=$TERM # For xdg to open in a right terminal
 
 export EDITOR="nvim"
-export BROWSER="qutebrowser"
+export BROWSER="chromium"
 
 export SXHKD_SHELL="/usr/bin/sh"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"

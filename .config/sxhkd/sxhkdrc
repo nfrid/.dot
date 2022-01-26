@@ -233,3 +233,6 @@ super + grave
 
 # button{6,7}
 #   xdotool key {Next,Prior}
+
+super + F5
+  revmic

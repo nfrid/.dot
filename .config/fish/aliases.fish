@@ -185,6 +185,7 @@ alias pr="paru -Rs"
 # alias p="yay"
 # alias pi="yay -S"
 # alias pr="yay -Rs"
+alias app="appimage-cli-tool"
 
 # Node package management
 alias n="npm"

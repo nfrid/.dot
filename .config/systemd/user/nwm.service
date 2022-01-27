@@ -1,0 +1,10 @@
+[Unit]
+Description=nwm
+
+[Service]
+ExecStart=/usr/bin/nwm
+Environment=DISPLAY=:0
+Restart=on-failure
+
+[Install]
+WantedBy=wm.target

@@ -1,0 +1,64 @@
+{
+    "settings": {
+        "stable": {
+            "settings": {
+                "bda-gs-1": true,
+                "bda-gs-2": false,
+                "bda-gs-3": false,
+                "bda-gs-4": false,
+                "bda-gs-5": true,
+                "bda-gs-6": false,
+                "bda-gs-7": false,
+                "bda-gs-8": false,
+                "bda-es-0": true,
+                "bda-es-1": true,
+                "bda-es-2": true,
+                "bda-es-4": false,
+                "bda-es-6": true,
+                "bda-es-7": true,
+                "bda-gs-b": false,
+                "bda-es-8": true,
+                "bda-dc-0": false,
+                "bda-css-0": false,
+                "bda-css-1": false,
+                "bda-es-9": true,
+                "fork-dm-1": false,
+                "fork-ps-1": true,
+                "fork-ps-2": true,
+                "fork-ps-3": true,
+                "fork-ps-4": true,
+                "fork-ps-5": true,
+                "fork-es-2": false,
+                "fork-es-3": true,
+                "fork-wp-1": false,
+                "fork-wp-2": false
+            },
+            "plugins": {
+                "PluginRepo": false,
+                "BetterCustomCSS": false,
+                "GreenText": true,
+                "HideUtils": false,
+                "MemberCount": true,
+                "Sorter": false,
+                "TitleForTitlebar": false,
+                "VIPs": false,
+                "ZeresPluginLibrary": false,
+                "CustomJs": false,
+                "SuppressUserMentions": false,
+                "Suppress Mentions": false,
+                "Lib Discord Internals": false
+            },
+            "themes": {
+                "DiscordNig": false,
+                "DiscordNight": false,
+                "Material_Discord": false
+            }
+        },
+        "canary": {},
+        "ptb": {}
+    },
+    "bdcustomcss": "LyoubWVzc2FnZUdyb3VwQmxvY2tlZC0zd3JRUVggLCAubWVzc2FnZUdyb3VwQmxvY2tlZEJ0bi0xUEJCaC0KewpkaXNwbGF5Om5vbmUKfSovCgouZGEtbGF5ZXJzLCAuZGEtaW5uZXIsIC5kYS11c2VyUG9wb3V0LCAuZGEtdGV4dEFyZWEsIC5kYS1sYXllckNvbnRhaW5lciB7CiAgICBmb250LWZhbWlseTogIk1vbnRzZXJyYXQgUmVndWxhciIsIHNhbnMtc2VyaWY7ICAKfQovKgouZGEtaGVhZGVyUGxheWluZyB7CiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoI2FiNGRlOCwgIzIwMjAyMCkhaW1wb3J0YW50Owp9CgojTWVtYmVyQ291bnQgewogICAgcG9zaXRpb246IHN0aWNreSFpbXBvcnRhbnQ7CiAgICAgICAgd2lkdGg6IDIyMHB4IWltcG9ydGFudDsKfQoubWVtYmVyc1dyYXAtMmgtR0I0LmRhLW1lbWJlcnNXcmFwIC5tZW1iZXJzR3JvdXAtdjlCWHBtLmRhLW1lbWJlcnNHcm91cDpudGgtY2hpbGQoMykgewogICAgbWFyZ2luLXRvcDogMHZoOwp9Ci5tZW1iZXJzR3JvdXAtdjlCWHBtLmRhLW1lbWJlcnNHcm91cC5jb250YWluZXItMmF4LWtsLmRhLWNvbnRhaW5lciB7CiAgICBtYXJnaW4tdG9wOiAwdmg7Cn0KCi5wcml2YXRlQ2hhbm5lbHMtMW5PMTJvIC5oZWFkZXItenU4ZVdiIHsKICAgIGhlaWdodDogMjFweDsKfQogICAgCi5yb3ctM2o5S3VvLmRhLXJvdyB7CiAgICBoZWlnaHQ6IDM2cHggIWltcG9ydGFudDsKfQoqLwouZW1vamlJdGVtLTEwOWJqQS5kYS1lbW9qaUl0ZW0gewogICAgbWFyZ2luLXRvcDogNHB4ICFpbXBvcnRhbnQ7CiAgICBtYXJnaW4tYm90dG9tOiA0cHggIWltcG9ydGFudDsKfQoKLmVtb2ppSXRlbS0xMDliakEuZGEtZW1vamlJdGVtLnNlbGVjdGVkLTM5Qlo0Uy5kYS1zZWxlY3RlZCB7CiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDE1MCwxMDAsMjAwLDAuMzUpICFpbXBvcnRhbnQ7CiAgICBtYXJnaW46IDBweCAhaW1wb3J0YW50OwogICAgaGVpZ2h0OiAzNnB4OwogICAgd2lkdGg6IDM2cHg7Cn0KLyoKLnBsYWNlaG9sZGVyLTM3cUpqaywgLnNsYXRlVGV4dEFyZWEtMU1rZGd3IHsKICAgIHBhZGRpbmc6IDBweDsKfSov",
+    "emoteCacheDays": 7,
+    "emoteCacheDate": "2020-02-09T08:13:49.632Z",
+    "version": "0.2.23"
+}

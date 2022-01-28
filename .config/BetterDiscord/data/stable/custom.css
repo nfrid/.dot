@@ -1,0 +1,19 @@
+.roleIcon-1_1CJy, .roleIcon-6hK8aK {
+    display: none;
+}
+
+.buttonContainer-28fw2U {
+    opacity: .1;
+    transition: opacity .2s;
+}
+.buttonContainer-28fw2U:hover {
+    opacity: 1;
+}
+
+.buttons-3JBrkn {
+    flex-direction: row-reverse;
+}
+
+.container-1mpd15 {
+    display: none;
+}

@@ -1,0 +1,38 @@
+set ideajoin
+set clipboard=ideaput
+set ideamarks
+
+set ignorecase
+set smartcase
+
+set surround
+set easymotion
+set commentary
+set keep-english-in-normal-and-restore-in-insert
+let mapleader ="\<Space>"
+
+nmap <silent> <leader>w <C-w>
+nmap <silent> <leader>fs :w<CR>
+nmap <silent> Q :q<CR>
+
+nmap <silent> > >>
+nmap <silent> < <<
+
+nmap <silent> gh <Action>(ShowErrorDescription)
+nmap <silent> gr <Action>(FindUsages)
+nmap <silent> ]d <Action>(GotoNextError)
+nmap <silent> [d <Action>(GotoPreviousError)
+
+nmap <silent> <leader>. <Action>(GotoFile)
+nmap <silent> <leader>, <Action>(Switcher)
+nmap <silent> <leader>fr <Action>(RecentFiles)
+
+nmap <silent> zx <Action>(ExpandRegion)
+
+nmap <silent> <leader>r <Action>(ActivateTerminalToolWindow)
+nmap <silent> <leader>F <Action>(ReformatCode)
+
+nnoremap <silent> <C-l> gt
+nnoremap <silent> <C-h> gT
+
+nmap <silent> s <leader><leader>

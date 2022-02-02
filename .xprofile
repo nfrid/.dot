@@ -10,6 +10,10 @@ export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+export GTK_IM_MODULE=uim
+export QT_IM_MODULE=uim
+export XMODIFIERS=@im=uim
+
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 

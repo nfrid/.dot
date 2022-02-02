@@ -73,6 +73,7 @@ case $mime in
     ;;
     audio/*|video/*)      mediainfo "$path" && exit 5;;
     text/*|*/xml) highlight -O ansi "$path" && exit 5; exit 2;;
+    application/json) jq -C . "$path" && exit 5;;
 esac
 
 ################################################################################

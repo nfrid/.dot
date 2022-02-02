@@ -1,6 +1,6 @@
 {
     "currentVersionInfo": {
-        "version": "0.8.16",
+        "version": "0.8.17",
         "hasShownChangelog": true
     },
     "settings": {
@@ -11,6 +11,7 @@
             "typing": true,
             "voice": true,
             "mentions": true,
+            "chat": false,
             "botTags": true,
             "memberList": true
         },

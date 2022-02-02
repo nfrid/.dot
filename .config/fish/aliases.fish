@@ -27,7 +27,7 @@ alias lf="lfrun"
 alias tl="tllocalmgr"
 alias snc="rsync -vrzhu --delete"
 alias a="$TERM & disown"
-alias btm="btm -g --mem_as_value --battery"
+alias btm="btm -g --mem_as_value"
 alias w="command -v"
 function tsh
     test -e $argv ||

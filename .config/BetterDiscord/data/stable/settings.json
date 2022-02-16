@@ -16,6 +16,19 @@
         "liveUpdate": false,
         "openAction": "settings"
     },
+    "editor": {
+        "lineNumbers": true,
+        "minimap": true,
+        "hover": true,
+        "quickSuggestions": true,
+        "fontSize": 14,
+        "renderWhitespace": "selection"
+    },
+    "window": {
+        "transparency": false,
+        "removeMinimumSize": true,
+        "frame": false
+    },
     "developer": {
         "debugLogs": false,
         "devTools": false,
@@ -23,10 +36,5 @@
         "reactDevTools": false,
         "inspectElement": false,
         "devToolsWarning": false
-    },
-    "window": {
-        "transparency": false,
-        "removeMinimumSize": true,
-        "frame": false
     }
 }

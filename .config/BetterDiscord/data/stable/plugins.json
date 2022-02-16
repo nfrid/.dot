@@ -39,7 +39,7 @@
     "ServerDetails": true,
     "SplitLargeMessages": true,
     "undefined": false,
-    "BetterCodeblocks": true,
+    "BetterCodeblocks": false,
     "BetterRoleColors": true,
     "CompleteTimestamps": true,
     "RemoveChatButtons": true,

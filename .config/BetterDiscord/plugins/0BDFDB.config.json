@@ -1,12 +1,13 @@
 {
 	"changeLogs": {
-		"BDFDB": "2.0.6",
+		"BDFDB": "2.1.7",
 		"ChatAliases": "2.3.3",
-		"CompleteTimestamps": "1.6.0",
+		"CompleteTimestamps": "1.6.1",
 		"CreationDate": "1.4.6",
 		"CustomStatusPresets": "1.0.7",
 		"EditRoles": "1.0.8",
-		"EditServers": "2.3.6",
+		"EditServers": "2.3.7",
+		"EditUsers": "4.4.8",
 		"SendLargeMessages": "1.6.8",
 		"ServerDetails": "1.1.1",
 		"SplitLargeMessages": "1.7.0",
@@ -21,7 +22,7 @@
 		"useChromium": false
 	},
 	"hashes": {
-		"0BDFDB.data.json": "a485715019970a30abc55c2a0b8f00bf3240974a",
+		"0BDFDB.data.json": "a1c81f439e8c846c48c0af47eb32f7d0e405e3a6",
 		"0BDFDB.raw.css": "a1036e10077b9457f3903795204f7dbd91d7646d"
 	}
 }

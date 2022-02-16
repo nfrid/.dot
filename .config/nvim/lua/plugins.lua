@@ -3,11 +3,10 @@ local cmd = vim.api.nvim_command
 
 vim.opt.packpath =
     '~/.config/nvim,/etc/xdg/nvim,~/.local/share/nvim/packer,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/share/nvim/runtime,/usr/lib/nvim,/usr/share/nvim/site/after,/usr/local/share/nvim/packer/after,~/.local/share/nvim/packer/after,/etc/xdg/nvim/after,~/.config/nvim/after'
-cmd('packadd packer.nvim')
-
-local mx = require('mapx')
 
 local packer = require('packer')
+
+local mx = require('mapx')
 
 mx.nnoremap('<leader>P', '<cmd>PackerCompile<cr>', 'Recompile Plugins')
 mx.nnoremap('<leader>pp', '<cmd>PackerSync<cr>', 'Sync Plugins')
@@ -16,14 +15,14 @@ return packer.startup({
   function()
     local use = packer.use
 
-    use { 'wbthomason/packer.nvim', opt = true }
+    use 'wbthomason/packer.nvim'
 
     use 'folke/lsp-colors.nvim'
     use { 'dracula/vim', config = function() require('plugins.theme') end }
 
     use {
       'hoob3rt/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+      requires = 'kyazdani42/nvim-web-devicons',
       config = function() require('plugins.lualine') end
     }
     use {
@@ -83,13 +82,13 @@ return packer.startup({
 
     use 'fedorenchik/qt-support.vim'
 
-    use {
-      'mattn/emmet-vim',
-      config = function()
-        vim.g.user_emmet_mode = 'i'
-        vim.g.user_emmet_leader_key = '<A-m>'
-      end
-    }
+    -- use {
+    --   'mattn/emmet-vim',
+    --   config = function()
+    --     vim.g.user_emmet_mode = 'i'
+    --     vim.g.user_emmet_leader_key = '<A-m>'
+    --   end
+    -- }
     -- that not workie 😔
     -- use {
     --   'RishabhRD/nvim-lsputils',
@@ -163,3 +162,4 @@ return packer.startup({
                                                      'packer', 'pack')
   }
 })
+

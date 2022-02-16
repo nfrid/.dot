@@ -6,8 +6,8 @@ case $1 in
   sys)
     tmux new -s sys -d -n journal "sh -c 'journalctl -f'"
     tmux selectp -t sys:1 -T "journalctl -f"
-    tmux new-window -t sys:2 -n monitor "sh -c 'btm -g --mem_as_value'"
-    tmux selectp -t sys:2 -T "btm"
+    tmux new-window -t sys:2 -n monitor "sh -c 'btop'"
+    tmux selectp -t sys:2 -T "btop"
     tmux join-pane -t sys:1 -s sys:2
     tmux select-layout -t sys:1 even-horizontal
     exit 0

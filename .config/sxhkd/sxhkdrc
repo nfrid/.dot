@@ -1,4 +1,5 @@
 # store PRIMARY selection to CLIPBOARD
+#
 super + alt + space
   xsel -p | xsel -b
 
@@ -27,8 +28,8 @@ super + space
   xkb-switch -n
 
 # clipboard
-super + y
-  clipmenu -p clip
+# super + y
+#   clipmenu -p clip
   # rofi -modi "clipboard:greenclip print" -show clipboard
 
 # dmenu desktop
@@ -98,7 +99,7 @@ super + apostrophe
 
 # emoji picker
 super + semicolon
-  cat $HOME/.local/share/emoji-data.txt | dmenu -F -p emoji -l 5 | cut -d "	" -f1 | tr -d $'\n' | xclip -sel clip
+  cat $HOME/.local/share/emoji-data.txt | dmenu -F -p emoji -l 5 | cut -d " " -f1 | tr -d $'\n' | xclip -sel clip
 
 # rofi emoji picker
 super + shift + semicolon

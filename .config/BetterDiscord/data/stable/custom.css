@@ -1,7 +1,3 @@
-.roleIcon-1_1CJy, .roleIcon-6hK8aK {
-    display: none;
-}
-
 .buttonContainer-28fw2U {
     opacity: .1;
     transition: opacity .2s;
@@ -14,6 +10,9 @@
     flex-direction: row-reverse;
 }
 
-.container-1mpd15 {
+/* .container-1mpd15 {
+    display: none;
+} */
+[class^="groupStart"] {
     display: none;
 }

@@ -926,6 +926,9 @@ img:not([src]), img[src=""], img[src="null"] {
 [REPLACE_CLASS_inputnumberbuttons]:hover + [REPLACE_CLASS_input]:not([REPLACE_CLASS_inputfocused]):not([REPLACE_CLASS_inputerror]):not([REPLACE_CLASS_inputsuccess]):not([REPLACE_CLASS_inputdisabled]):not(:focus) {
 	border-color: #040405;
 }
+[REPLACE_CLASS_inputnumberwrapper] [REPLACE_CLASS_input] {
+	text-align: right;
+}
 [REPLACE_CLASS_inputnumberwrapperdefault] [REPLACE_CLASS_input] {
 	padding-right: 25px;
 }
@@ -1069,6 +1072,9 @@ img:not([src]), img[src=""], img[src="null"] {
 }
 [REPLACE_CLASS_modalchangelogmodal] [REPLACE_CLASS_changelogsociallink] {
 	margin-right: 12px;
+}
+[REPLACE_CLASS_changelogfooter] {
+	align-items: center;
 }
 
 [REPLACE_CLASS_popoutwrapper] {
@@ -1252,6 +1258,10 @@ img:not([src]), img[src=""], img[src="null"] {
 [REPLACE_CLASS_tooltiplistitem][REPLACE_CLASS_tooltipcustom] {
 	color: #fff;
 }
+[REPLACE_CLASS_tooltip] [REPLACE_CLASS_tooltipcontent]:empty,
+[REPLACE_CLASS_tooltip] [REPLACE_CLASS_tooltipcontent]:empty > * {
+	display: none !important;
+}
 [REPLACE_CLASS_tooltip][REPLACE_CLASS_tooltipcustom] [REPLACE_CLASS_tooltipnote],
 [REPLACE_CLASS_tooltiplistitem][REPLACE_CLASS_tooltipcustom] [REPLACE_CLASS_tooltipnote] {
 	color: #bbb;
@@ -1265,6 +1275,9 @@ img:not([src]), img[src=""], img[src="null"] {
 }
 [REPLACE_CLASS_tooltipcustom] [REPLACE_CLASS_tooltipmutetext] {
 	opacity: .7;
+}
+[REPLACE_CLASS_guildvoicelist] ~ [REPLACE_CLASS_tooltipmutetext] {
+	margin-top: 8px;
 }
 [REPLACE_CLASS_tooltiprowextra]:empty {
 	display: none;

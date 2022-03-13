@@ -60,5 +60,5 @@
     "EditRoles": true,
     "EditServers": true,
     "EmoteReplacer": true,
-    "TeX": true
+    "TeX": false
 }

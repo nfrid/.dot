@@ -2,7 +2,7 @@
  * @name ReadAllNotificationsButton
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 1.7.0
+ * @version 1.7.1
  * @description Adds a Clear Button to the Server List and the Mentions Popout
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -17,20 +17,12 @@ module.exports = (_ => {
 		"info": {
 			"name": "ReadAllNotificationsButton",
 			"author": "DevilBro",
-			"version": "1.7.0",
+			"version": "1.7.1",
 			"description": "Adds a Clear Button to the Server List and the Mentions Popout"
 		}
 	};
 
-	return (window.Lightcord && !Node.prototype.isPrototypeOf(window.Lightcord) || window.LightCord && !Node.prototype.isPrototypeOf(window.LightCord) || window.Astra && !Node.prototype.isPrototypeOf(window.Astra)) ? class {
-		getName () {return config.info.name;}
-		getAuthor () {return config.info.author;}
-		getVersion () {return config.info.version;}
-		getDescription () {return "Do not use LightCord!";}
-		load () {BdApi.alert("Attention!", "By using LightCord you are risking your Discord Account, due to using a 3rd Party Client. Switch to an official Discord Client (https://discord.com/) with the proper BD Injection (https://betterdiscord.app/)");}
-		start() {}
-		stop() {}
-	} : !window.BDFDB_Global || (!window.BDFDB_Global.loaded && !window.BDFDB_Global.started) ? class {
+	return !window.BDFDB_Global || (!window.BDFDB_Global.loaded && !window.BDFDB_Global.started) ? class {
 		getName () {return config.info.name;}
 		getAuthor () {return config.info.author;}
 		getVersion () {return config.info.version;}
@@ -171,7 +163,10 @@ module.exports = (_ => {
 					${BDFDB.dotCN.messagespopouttabbar} {
 						flex: 1 0 auto;
 					}
-					${BDFDB.dotCN.messagespopouttabbar} ~ * {
+					${BDFDB.dotCN.messagespopoutcontrols} {
+						display: flex;
+					}
+					${BDFDB.dotCN.messagespopoutcontrols} > * {
 						margin-left: 10px;
 					}
 					${BDFDB.dotCN._readallnotificationsbuttonframe} {
@@ -289,8 +284,9 @@ module.exports = (_ => {
 			}
 
 			processRecentsHeader (e) {
-				if (this.settings.general.addClearButton && e.instance.props.tab == BDFDB.LibraryModules.InboxUtils.InboxTab.MENTIONS) e.returnvalue.props.children.push(BDFDB.ReactUtils.createElement("div", {
-					children: BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, {
+				if (this.settings.general.addClearButton && e.instance.props.tab == BDFDB.LibraryModules.InboxUtils.InboxTab.MENTIONS) e.returnvalue.props.children = [
+					e.returnvalue.props.children,
+					BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, {
 						text: `${BDFDB.LanguageUtils.LanguageStrings.CLOSE} (${BDFDB.LanguageUtils.LanguageStrings.FORM_LABEL_ALL})`,
 						children: BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.Clickable, {
 							className: BDFDB.disCNS.messagespopoutbutton + BDFDB.disCNS.messagespopoutbuttonsecondary + BDFDB.disCN.messagespopoutbuttonsize32,
@@ -332,7 +328,7 @@ module.exports = (_ => {
 							}
 						})
 					})
-				}));
+				].flat(10);
 			}
 			
 			batchSetGuilds (settingsPanel, collapseStates, value) {

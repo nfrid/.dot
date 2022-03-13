@@ -17,8 +17,9 @@ austart "picom --experimental-backends" picom
 austart uim-xim
 austart libinput-gestures
 # austart "greenclip daemon" greenclip
-austart "bash /usr/bin/clipmenud"
-austart lxpolkit
+# austart "bash /usr/bin/clipmenud"
+austart copyq
+austart lxqt-policykit-agent
 austart xfce4-power-manager
 # austart stretchly
 austart "easyeffects --gapplication-service" easyeffects

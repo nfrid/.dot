@@ -5,6 +5,7 @@
 [ -z ${XDG_DATA_HOME} ] && export XDG_DATA_HOME="$HOME/.local/share"
 
 export GPG_TTY=$(tty)
+export GPG_AGENT_INFO
 
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
@@ -48,5 +49,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+autorandr two
 
 # vim:ft=sh

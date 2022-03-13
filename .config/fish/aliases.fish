@@ -17,7 +17,6 @@ alias b="replay"
 alias py="python"
 alias bpy="bpython"
 alias q="tuxi"
-alias f="fuck"
 alias nb="newsboat"
 alias m="neomutt"
 alias nc="ncmpcpp"
@@ -36,6 +35,18 @@ function tsh
 end
 alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
 alias cal="cal -m3"
+
+# fuck
+function fuck -d "Correct your previous console command"
+  set -l fucked_up_command $history[1]
+  env TF_SHELL=fish TF_ALIAS=fuck PYTHONIOENCODING=utf-8 thefuck $fucked_up_command THEFUCK_ARGUMENT_PLACEHOLDER $argv | read -l unfucked_command
+  if [ "$unfucked_command" != "" ]
+    eval $unfucked_command
+    builtin history delete --exact --case-sensitive -- $fucked_up_command
+    builtin history merge
+  end
+end
+alias f="fuck"
 
 # suckless
 alias pt='for p in patch/*.diff; patch -p1 -N < $p; end; echo -n ""'

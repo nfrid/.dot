@@ -65,8 +65,12 @@ Format = function()
   }
 
   local formatCmd = formatCmds[vim.bo.filetype] or 'sed -i -e "s/\\s\\+$//"'
-  local f = io.popen(formatCmd .. ' "' .. vim.api.nvim_buf_get_name("%") ..
+  local f = io.popen(formatCmd .. ' "' .. vim.api.nvim_buf_get_name(0) ..
                          '" 2>&1')
+  if not f then
+    return
+  end
+
   print(f:read('*all'))
   f:close()
   cmd("let tmp = winsaveview()")
@@ -143,8 +147,6 @@ mx.nnoremap('<C-j>', '<CMD>tabn<CR>')
 mx.nnoremap('<C-k>', '<CMD>tabp<CR>')
 
 mx.nnoremap('gF', ':e <cfile><CR>')
-
-mx.nnoremap('<leader>rm', ':!rm %<CR>')
 
 mx.nnoremap('<leader>w', '<C-w>')
 mx.nnoremap('<leader>fs', ':w!<CR>')

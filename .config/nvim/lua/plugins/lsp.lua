@@ -77,24 +77,25 @@ local eslint = {
   formatStdin = true
 }
 
-local function eslint_config_exists()
-  local eslintrc = vim.fn.glob('.eslintrc*', 0, 1)
+local eslint_fix = function()
+  cmd("w")
+  local f = io.popen('npx eslint --fix "' .. vim.api.nvim_buf_get_name(0) ..
+                         '" 2>&1')
+  if not f then
+    return
+  end
 
-  if not vim.tbl_isempty(eslintrc) then return true end
-
-  -- if vim.fn.filereadable('package.json') then
-  --   if vim.fn.json_decode(vim.fn.readfile('package.json'))['eslintConfig'] then
-  --     return true
-  --   end
-  -- end
-
-  return false
+  print(f:read('*all'))
+  f:close()
+  cmd("let tmp = winsaveview()")
+  cmd("e!")
+  cmd("call winrestview(tmp)")
+  cmd("IndentBlanklineRefresh")
 end
 
 setup(nvim_lsp.efm, {
   root_dir = function()
-    if not eslint_config_exists() then return nil end
-    mx.nnoremap('<leader>cf', ':w<cr>:!eslint --fix %<cr>')
+    mx.nnoremap('<leader>cf', eslint_fix)
     return vim.fn.getcwd()
   end,
   settings = {

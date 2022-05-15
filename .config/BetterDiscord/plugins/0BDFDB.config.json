@@ -1,28 +1,31 @@
 {
-	"changeLogs": {
-		"BDFDB": "2.1.9",
-		"ChatAliases": "2.3.3",
-		"CompleteTimestamps": "1.6.1",
-		"CreationDate": "1.4.6",
-		"CustomStatusPresets": "1.0.7",
-		"EditRoles": "1.0.8",
-		"EditServers": "2.3.7",
-		"EditUsers": "4.5.2",
-		"SendLargeMessages": "1.6.8",
-		"ServerDetails": "1.1.1",
-		"SplitLargeMessages": "1.7.2",
-		"ThemeSettings": "1.3.3"
-	},
-	"choices": {
-		"toastPosition": "right"
-	},
-	"general": {
-		"showToasts": true,
-		"showSupportBadges": true,
-		"useChromium": false
-	},
-	"hashes": {
-		"0BDFDB.data.json": "73615764072d475408816a0a8857482687eb6c38",
-		"0BDFDB.raw.css": "5b4dfd0092eb658a85c3896c5fdab49cf83d0cee"
+	"all": {
+		"changeLogs": {
+			"BDFDB": "2.3.2",
+			"ChatAliases": "2.3.8",
+			"CompleteTimestamps": "1.6.1",
+			"CreationDate": "1.4.6",
+			"CustomStatusPresets": "1.0.7",
+			"EditRoles": "1.0.8",
+			"EditServers": "2.3.7",
+			"EditUsers": "4.5.4",
+			"SendLargeMessages": "1.6.8",
+			"ServerDetails": "1.1.1",
+			"SplitLargeMessages": "1.7.2",
+			"ThemeSettings": "1.3.3"
+		},
+		"choices": {
+			"toastPosition": "right"
+		},
+		"general": {
+			"showToasts": true,
+			"showSupportBadges": true,
+			"useChromium": false,
+			"shareData": true
+		},
+		"hashes": {
+			"0BDFDB.data.json": "4c29df47c8dee3140c64089d30c13b5ecd96e759",
+			"0BDFDB.raw.css": "e8d30d44e567f6a77ef4e90734c27c2b47306d20"
+		}
 	}
 }

@@ -3,7 +3,7 @@
         "emotes": true,
         "publicServers": false,
         "voiceDisconnect": false,
-        "showToasts": true,
+        "showToasts": false,
         "mediaKeys": true
     },
     "addons": {

@@ -237,3 +237,6 @@ super + grave
 
 super + F5
   revmic
+
+super + q
+  zbarclip

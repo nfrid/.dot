@@ -36,6 +36,10 @@ return packer.startup({
       config = function() require('plugins.indent-blankline') end
     }
     use {
+      'petertriho/nvim-scrollbar',
+      config = function() require('plugins.scrollbar') end
+    }
+    use {
       'machakann/vim-highlightedyank',
       config = function() vim.g.highlightedyank_highlight_duration = 250 end
     }
@@ -95,6 +99,9 @@ return packer.startup({
     --   requires = { 'RishabhRD/popfix', opt = true },
     --   config = function() require('plugins.lsputils') end
     -- }
+    --
+
+    use 'iloginow/vim-stylus'
 
     use {
       'onsails/lspkind-nvim',
@@ -108,7 +115,7 @@ return packer.startup({
       requires = {
         { 'ms-jpq/coq_nvim', branch = 'coq' },
         { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
-        { 'ms-jpq/coq.thirdparty', branch = '3p' },
+        { 'ms-jpq/coq.thirdparty', branch = '3p' }
       },
       config = function() require('plugins.lsp') end
     }

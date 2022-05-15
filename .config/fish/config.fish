@@ -202,4 +202,7 @@ end
 # pdm completion | source
 
 
+export NPM_TOKEN=(pw tokens/npm/github)
+
+
 set -gx __fish_initialized 1

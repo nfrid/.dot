@@ -7,9 +7,17 @@ alias bl="cd ~/github/nfrid.me/src/posts"
 
 alias yt="yt-dlp"
 alias youtube-dl="yt"
-alias ytv="yt --all-subs --sub-lang en,ru --embed-subs --add-metadata -f 'bestvideo[width<=1920][height<=1080]+bestaudio[ext=m4a]/bestvideo+bestaudio'"
+alias ytv="yt --sub-lang en,ru,jp --embed-subs --embed-metadata --embed-chapters -f 'bestvideo[width<=1920][height<=1080]+bestaudio[ext=m4a]/bestvideo+bestaudio'"
 alias yta="yt -x --audio-format mp3 -f 'bestaudio'"
 alias yti="yt --write-thumbnail --skip-download"
+
+alias iw="sudo iwctl"
+
+# ffmpeg
+function giftowebm
+  ffmpeg -y -i $argv[1] -r 16 -c:v libvpx -quality good -cpu-used 0 -b:v 500K \
+  -crf 12 -pix_fmt yuv420p -movflags faststart $argv[2]
+end
 
 # Misc
 # alias b="bash"
@@ -213,6 +221,9 @@ alias yr="yarn remove"
 alias yg="yarn global"
 alias yga="yarn global add"
 alias ygr="yarn global remove"
+alias pn="pnpm"
+alias pna="pnpm add"
+alias pnr="pnpm remove"
 
 # XClip
 alias xcp="xclip -sel clip -t image/png -o >"

@@ -8,7 +8,18 @@ require('packer').loader('coq_nvim coq.artifacts coq.thirdparty')
 vim.g.coq_settings = {
   auto_start = true,
   clients = { tabnine = { enabled = true } },
-  keymap = { bigger_preview = '<C-l>', jump_to_mark = '<M-h>' }
+  keymap = {
+    bigger_preview = '<C-l>',
+    jump_to_mark = '<M-f>',
+    eval_snips = '<M-h>'
+  }
+}
+
+require('coq_3p') {
+  { src = 'nvimlua', short_name = 'nLUA' },
+  { src = 'bc', short_name = 'MATH', precision = 6 },
+  { src = 'figlet', short_name = 'BIG', trigger = '!b' },
+  { src = "vimtex", short_name = "vTEX" }
 }
 
 local function setup(server, cfg) server.setup(coq.lsp_ensure_capabilities(cfg)) end
@@ -81,9 +92,7 @@ local eslint_fix = function()
   cmd("w")
   local f = io.popen('npx eslint --fix "' .. vim.api.nvim_buf_get_name(0) ..
                          '" 2>&1')
-  if not f then
-    return
-  end
+  if not f then return end
 
   print(f:read('*all'))
   f:close()

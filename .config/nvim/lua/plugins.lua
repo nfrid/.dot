@@ -1,9 +1,6 @@
 require('vutils')
 local cmd = vim.api.nvim_command
 
-vim.opt.packpath =
-    '~/.config/nvim,/etc/xdg/nvim,~/.local/share/nvim/packer,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/share/nvim/runtime,/usr/lib/nvim,/usr/share/nvim/site/after,/usr/local/share/nvim/packer/after,~/.local/share/nvim/packer/after,/etc/xdg/nvim/after,~/.config/nvim/after'
-
 local packer = require('packer')
 
 local mx = require('mapx')
@@ -27,6 +24,7 @@ return packer.startup({
     }
     use {
       'akinsho/nvim-bufferline.lua',
+      branch = 'main',
       requires = 'kyazdani42/nvim-web-devicons',
       config = function() require('plugins.bufferline') end
     }
@@ -104,6 +102,18 @@ return packer.startup({
     use 'iloginow/vim-stylus'
 
     use {
+      'tanvirtin/vgit.nvim',
+      requires = 'nvim-lua/plenary.nvim',
+      config = function() require('plugins.vgit') end
+    }
+
+    use {
+      'ruifm/gitlinker.nvim',
+      requires = 'nvim-lua/plenary.nvim',
+      config = function() require('gitlinker').setup() end
+    }
+
+    use {
       'onsails/lspkind-nvim',
       config = function() require('lspkind').init() end
     }
@@ -163,10 +173,6 @@ return packer.startup({
     -- }
 
     use 'rafcamlet/nvim-luapad'
-  end,
-  config = {
-    package_root = require('packer.util').join_paths(vim.fn.stdpath('data'),
-                                                     'packer', 'pack')
-  }
+  end
 })
 

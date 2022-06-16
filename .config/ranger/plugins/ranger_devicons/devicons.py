@@ -236,7 +236,7 @@ dir_node_exact_matches = {
     "github": "",
     "job": "",
     "TEMP": "",
-    "Desktop": "",
+    "Desktop": "",
     "Documents": doc,
     "Downloads": "",
     ".dot": "",

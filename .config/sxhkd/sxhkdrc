@@ -3,7 +3,7 @@
 super + alt + space
   xsel -p | xsel -b
 
-# close/kill window
+ close/kill window
 # super + {_,ctrl} + c
 #   xdo {close,kill}
 

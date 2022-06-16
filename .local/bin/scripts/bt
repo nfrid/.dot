@@ -13,8 +13,8 @@ esac
 
 con() {
   pw=$(bluetoothctl show | grep Powered | awk '{print $2}')
-  [[ $pw == "no" ]] && bluetoothctl power on
-  bluetoothctl connect $1
+  [ "$pw" = "no" ] && bluetoothctl power on
+  bluetoothctl connect "$1"
 }
 
 case $2 in

@@ -2,7 +2,7 @@
  * @name BDFDB
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 2.3.5
+ * @version 2.4.1
  * @description Required Library for DevilBro's Plugins
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -19,7 +19,7 @@ module.exports = (_ => {
 		"info": {
 			"name": "BDFDB",
 			"author": "DevilBro",
-			"version": "2.3.5",
+			"version": "2.4.1",
 			"description": "Required Library for DevilBro's Plugins"
 		},
 		"rawUrl": "https://mwittrien.github.io/BetterDiscordAddons/Library/0BDFDB.plugin.js"
@@ -932,7 +932,7 @@ module.exports = (_ => {
 		let app = document.querySelector(BDFDB.dotCN.app);
 		if (!app) return;
 		BDFDB.DOMUtils.addClass(icon, BDFDB.disCN.loadingicon);
-		let loadingIconWrapper = document.querySelector(BDFDB.dotCN.app + ">" + BDFDB.dotCN.loadingiconwrapper)
+		let loadingIconWrapper = document.querySelector(BDFDB.dotCN.app + ">" + BDFDB.dotCN.loadingiconwrapper);
 		if (!loadingIconWrapper) {
 			loadingIconWrapper = BDFDB.DOMUtils.create(`<div class="${BDFDB.disCN.loadingiconwrapper}"></div>`);
 			app.appendChild(loadingIconWrapper);
@@ -1328,7 +1328,7 @@ module.exports = (_ => {
 			}) && m, useExport, noWarnings);
 		};
 		BDFDB.ModuleUtils.findByName = function (name, useExport, noWarnings = false) {
-			return Internal.findModule("name", JSON.stringify(name), m => m.displayName === name && m || m.render && m.render.displayName === name && m || m[name] && m[name].displayName === name && m[name], typeof useExport != "boolean" ? true : useExport, noWarnings);
+			return Internal.findModule("name", JSON.stringify(name), m => m.displayName === name && m || m.render && m.render.displayName === name && m || m.constructor && m.constructor.displayName === name && m || m[name] && m[name].displayName === name && m[name], typeof useExport != "boolean" ? true : useExport, noWarnings);
 		};
 		BDFDB.ModuleUtils.findByString = function (...strings) {
 			strings = strings.flat(10);
@@ -1922,7 +1922,7 @@ module.exports = (_ => {
 		BDFDB.TooltipUtils = {};
 		BDFDB.TooltipUtils.create = function (anker, text, config = {}) {
 			if (!text && !config.guild) return null;
-			const itemLayerContainer = document.querySelector(BDFDB.dotCN.appmount +  " > " + BDFDB.dotCN.itemlayercontainer);
+			const itemLayerContainer = document.querySelector(BDFDB.dotCN.app + " ~ " + BDFDB.dotCN.itemlayercontainer) || document.querySelector(BDFDB.dotCN.itemlayercontainer);
 			if (!itemLayerContainer || !Node.prototype.isPrototypeOf(anker) || !document.contains(anker)) return null;
 			const id = BDFDB.NumberUtils.generateId(Tooltips);
 			const itemLayer = BDFDB.DOMUtils.create(`<div class="${BDFDB.disCNS.itemlayer + BDFDB.disCN.itemlayerdisabledpointerevents}"><div class="${BDFDB.disCN.tooltip}" tooltip-id="${id}"><div class="${BDFDB.disCN.tooltipcontent}"></div><div class="${BDFDB.disCN.tooltippointer}"></div></div></div>`);
@@ -2239,7 +2239,7 @@ module.exports = (_ => {
 				config.name = config.subComponent && config.subComponent.name || config.mappedType.split(" _ _ ")[0];
 				
 				let component = InternalData.ModuleUtilsConfig.LoadedInComponents[type] && BDFDB.ObjectUtils.get(Internal, InternalData.ModuleUtilsConfig.LoadedInComponents[type]);
-				if (component) Internal.patchComponent(pluginData, config.nonRender ? (BDFDB.ModuleUtils.find(m => m == component && m, {useExport: config.exported}) || {}).exports : component, type, config);
+				if (component) Internal.patchComponent(pluginData, config.nonRender ? (BDFDB.ModuleUtils.find(m => m == component && m, {useExport: config.exported}) || {}).exports : component, config);
 				else {
 					if (config.mapped) for (let patchType in plugin.patchedModules) if (plugin.patchedModules[patchType][type]) {
 						plugin.patchedModules[patchType][config.mappedType] = plugin.patchedModules[patchType][type];
@@ -2617,6 +2617,7 @@ module.exports = (_ => {
 					}
 					else LibraryModules[item] = BDFDB.ModuleUtils.findByProperties(InternalData.LibraryModules[item].props);
 				}
+				else if (InternalData.LibraryModules[item].name) LibraryModules[item] = BDFDB.ModuleUtils.findByName(InternalData.LibraryModules[item].name);
 				else if (InternalData.LibraryModules[item].strings) LibraryModules[item] = BDFDB.ModuleUtils.findByString(InternalData.LibraryModules[item].strings);
 				if (InternalData.LibraryModules[item].value) LibraryModules[item] = (LibraryModules[item] || {})[InternalData.LibraryModules[item].value];
 				return LibraryModules[item] ? LibraryModules[item] : null;
@@ -3374,7 +3375,7 @@ module.exports = (_ => {
 			return channel && Internal.LibraryModules.GuildEventStore.getGuildScheduledEvent(channel.id) && true;
 		};
 		BDFDB.ChannelUtils.markAsRead = function (channelIds) {
-			let unreadChannels = [channelIds].flat(10).filter(id => id && typeof id == "string" && ((BDFDB.ChannelUtils.isTextChannel(id) || BDFDB.ChannelUtils.isThread(id)) && (Internal.LibraryModules.UnreadChannelUtils.hasUnread(id) || Internal.LibraryModules.UnreadChannelUtils.getMentionCount(id) > 0))).map(id => ({
+			let unreadChannels = [channelIds].flat(10).filter(id => id && typeof id == "string" && (BDFDB.LibraryModules.ChannelStore.getChannel(id) || {}).type != BDFDB.DiscordConstants.ChannelTypes.GUILD_CATEGORY && (Internal.LibraryModules.UnreadChannelUtils.hasUnread(id) || Internal.LibraryModules.UnreadChannelUtils.getMentionCount(id) > 0)).map(id => ({
 				channelId: id,
 				readStateType: Internal.LibraryModules.UnreadStateTypes.CHANNEL,
 				messageId: Internal.LibraryModules.UnreadChannelUtils.lastMessageId(id)
@@ -4808,7 +4809,7 @@ module.exports = (_ => {
 					},
 					onClick: this.props.disabled ? null : e => {
 						if (!this.props.action) return false;
-						!this.props.persisting && !hasPopout && this.props.onClose();
+						!this.props.persisting && !hasPopout && this.props.onClose && this.props.onClose();
 						this.props.action(e, this);
 					},
 					onMouseEnter: this.props.disabled ? null : e => {
@@ -4821,6 +4822,12 @@ module.exports = (_ => {
 					},
 					"aria-disabled": this.props.disabled,
 					children: [
+						this.props.icon && this.props.showIconFirst && BDFDB.ReactUtils.createElement("div", {
+							className: BDFDB.disCN.menuiconcontainerleft,
+							children: BDFDB.ReactUtils.createElement(this.props.icon, {
+								className: BDFDB.disCN.menuicon
+							})
+						}),
 						typeof this.props.render == "function" ? this.props.render(this) : this.props.render,
 						(this.props.label || this.props.subtext) && BDFDB.ReactUtils.createElement("div", {
 							className: BDFDB.disCN.menulabel,
@@ -4836,11 +4843,15 @@ module.exports = (_ => {
 							className: BDFDB.disCN.menuhintcontainer,
 							children: typeof this.props.hint == "function" ? this.props.hint(this) : this.props.hint
 						}),
-						this.props.icon && BDFDB.ReactUtils.createElement("div", {
+						this.props.icon && !this.props.showIconFirst && BDFDB.ReactUtils.createElement("div", {
 							className: BDFDB.disCN.menuiconcontainer,
 							children: BDFDB.ReactUtils.createElement(this.props.icon, {
 								className: BDFDB.disCN.menuicon
 							})
+						}),
+						this.props.input && BDFDB.ReactUtils.createElement("div", {
+							className: BDFDB.disCN.menuiconcontainer,
+							children: this.props.input
 						}),
 						this.props.imageUrl && BDFDB.ReactUtils.createElement("div", {
 							className: BDFDB.disCN.menuimagecontainer,
@@ -4878,12 +4889,8 @@ module.exports = (_ => {
 					isFocused: this.state.hovered && !this.props.disabled
 				}));
 				return isItem ? item : BDFDB.ReactUtils.createElement(Internal.LibraryComponents.Clickable, {
-					onMouseEnter: e => {
-						this.setState({hovered: true});
-					},
-					onMouseLeave: e => {
-						this.setState({hovered: false});
-					},
+					onMouseEnter: e => this.setState({hovered: true}),
+					onMouseLeave: e => this.setState({hovered: false}),
 					children: item
 				});
 			}
@@ -6625,8 +6632,16 @@ module.exports = (_ => {
 					BDFDB.ReactUtils.forceUpdate(this);
 				}
 				render() {
-					return BDFDB.ReactUtils.createElement(Internal.NativeSubComponents.MenuCheckboxItem, Object.assign({}, this.props, {
-						checked: this.props.state && this.props.state.checked,
+					return BDFDB.ReactUtils.createElement(Internal.MenuItem, Object.assign({}, this.props, {
+						input: this.props.state && this.props.state.checked ? BDFDB.ReactUtils.createElement(Internal.LibraryComponents.SvgIcon, {
+							className: BDFDB.disCN.menuicon,
+							background: BDFDB.disCN.menucheckbox,
+							foreground: BDFDB.disCN.menucheck,
+							name: Internal.LibraryComponents.SvgIcon.Names.CHECKBOX
+						}) : BDFDB.ReactUtils.createElement(Internal.LibraryComponents.SvgIcon, {
+							className: BDFDB.disCN.menuicon,
+							name: Internal.LibraryComponents.SvgIcon.Names.CHECKBOX_EMPTY
+						}),
 						action: this.handleClick.bind(this)
 					}));
 				}
@@ -8135,7 +8150,7 @@ module.exports = (_ => {
 					Internal.appendCustomControls(BDFDB.DOMUtils.getParent(BDFDB.dotCN._repocard, n));
 				});}});})}, {childList: true, subtree: true});
 				for (let c of layer.querySelectorAll(BDFDB.dotCN._repocard)) Internal.appendCustomControls(c);
-			}
+			};
 
 			const keyDownTimeouts = {};
 			BDFDB.ListenerUtils.add(BDFDB, document, "keydown.BDFDBPressedKeys", e => {
@@ -8169,12 +8184,14 @@ module.exports = (_ => {
 					Menu: "default",
 					SettingsView: "componentDidMount",
 					Shakeable: "render",
+					Account: ["componentDidMount", "componentDidUpdate"],
 					Message: "default",
 					MessageToolbar: "type",
 					MessageHeader: "default",
 					MemberListItem: ["componentDidMount", "componentDidUpdate"],
 					PrivateChannel: ["componentDidMount", "componentDidUpdate"],
 					AnalyticsContext: ["componentDidMount", "componentDidUpdate"],
+					UserPopoutAvatar: "UserPopoutAvatar",
 					PeopleListItem: ["componentDidMount", "componentDidUpdate"],
 					DiscordTag: "default"
 				}
@@ -8213,13 +8230,12 @@ module.exports = (_ => {
 				if (!e.instance.props.children || BDFDB.ArrayUtils.is(e.instance.props.children) && !e.instance.props.children.length) Internal.LibraryModules.ContextMenuUtils.closeContextMenu();
 			};
 			
-				
 			Internal.processSearchBar = function (e) {
 				if (typeof e.instance.props.query != "string") e.instance.props.query = "";
 			};
-				
+			
 			Internal.processSettingsView = function (e) {
-				if (e.node && e.node.parentElement && e.node.parentElement.getAttribute("aria-label") == BDFDB.DiscordConstants.Layers.USER_SETTINGS) Internal.addListObserver(e.node.parentElement);
+				if (e.node && e.node.parentElement && e.node.parentElement) Internal.addListObserver(e.node.parentElement);
 			};
 		
 			let AppViewExport = InternalData.ModuleUtilsConfig.Finder.AppView && BDFDB.ModuleUtils.findByString(InternalData.ModuleUtilsConfig.Finder.AppView.strings, false);
@@ -8282,8 +8298,9 @@ module.exports = (_ => {
 			};
 
 			const BDFDB_Patrons = Object.assign({}, InternalData.BDFDB_Patrons), BDFDB_Patron_Tiers = Object.assign({}, InternalData.BDFDB_Patron_Tiers);
-			Internal._processAvatarRender = function (user, avatar, className) {
+			Internal._processAvatarRender = function (user, avatar, wrapper, className) {
 				if (BDFDB.ReactUtils.isValidElement(avatar) && BDFDB.ObjectUtils.is(user) && (avatar.props.className || "").indexOf(BDFDB.disCN.bdfdbbadgeavatar) == -1) {
+					if (wrapper) wrapper.props[InternalData.userIdAttribute] = user.id;
 					avatar.props[InternalData.userIdAttribute] = user.id;
 					let role = "", note = "", color, link, addBadge = Internal.settings.general.showSupportBadges;
 					if (BDFDB_Patrons[user.id] && BDFDB_Patrons[user.id].active) {
@@ -8350,9 +8367,8 @@ module.exports = (_ => {
 					}
 				}
 			};
-			Internal._processUserInfoNode = function (user, wrapper) {
-				if (!user || !wrapper) return;
-				if (InternalData.UserBackgrounds[user.id]) for (let property in InternalData.UserBackgrounds[user.id]) wrapper.style.setProperty(property, InternalData.UserBackgrounds[user.id][property], "important");
+			Internal.processAccount = function (e) {
+				Internal._processAvatarMount(e.instance.props.currentUser, e.node.querySelector(BDFDB.dotCN.avatarwrapper), e.node);
 			};
 			Internal.processMessageHeader = function (e) {
 				if (e.instance.props.message && e.instance.props.message.author) {
@@ -8361,7 +8377,7 @@ module.exports = (_ => {
 						let renderChildren = avatarWrapper.props.children;
 						avatarWrapper.props.children = BDFDB.TimeUtils.suppress((...args) => {
 							let renderedChildren = renderChildren(...args);
-							return Internal._processAvatarRender(e.instance.props.message.author, renderedChildren, BDFDB.disCN.messageavatar) || renderedChildren;
+							return Internal._processAvatarRender(e.instance.props.message.author, renderedChildren, null, BDFDB.disCN.messageavatar) || renderedChildren;
 						}, "Error in Avatar Render of MessageHeader!");
 					}
 					else if (avatarWrapper && avatarWrapper.type == "img") e.returnvalue.props.children[0] = Internal._processAvatarRender(e.instance.props.message.author, avatarWrapper) || avatarWrapper;
@@ -8377,10 +8393,18 @@ module.exports = (_ => {
 				if (e.instance.props.section != BDFDB.DiscordConstants.AnalyticsSections.PROFILE_MODAL && e.instance.props.section != BDFDB.DiscordConstants.AnalyticsSections.PROFILE_POPOUT) return;
 				const user = BDFDB.ReactUtils.findValue(e.instance, "user");
 				if (!user) return;
+				const avatar = e.instance.props.section != BDFDB.DiscordConstants.AnalyticsSections.PROFILE_POPOUT && e.node.querySelector(BDFDB.dotCN.avatarwrapper);
 				const wrapper = e.node.querySelector(BDFDB.dotCNC.userpopout + BDFDB.dotCN.userprofile) || e.node;
-				const avatar = e.node.querySelector(BDFDB.dotCN.avatarwrapper);
-				if (avatar) Internal._processAvatarMount(user, e.instance.props.section == BDFDB.DiscordConstants.AnalyticsSections.PROFILE_POPOUT ? avatar.parentElement : avatar, wrapper);
-				Internal._processUserInfoNode(user, wrapper);
+				if (avatar) Internal._processAvatarMount(user, avatar, wrapper);
+				if (wrapper) {
+					wrapper.setAttribute(InternalData.userIdAttribute, user.id);
+					if (InternalData.UserBackgrounds[user.id]) for (let property in InternalData.UserBackgrounds[user.id]) wrapper.style.setProperty(property, InternalData.UserBackgrounds[user.id][property], "important");
+				}
+			};
+			Internal.processUserPopoutAvatar = function (e) {
+				if (!e.instance.props.user) return;
+				let [children, index] = BDFDB.ReactUtils.findParent(e.returnvalue, {props: [["className", BDFDB.disCN.userpopoutavatarwrapper]]});
+				if (index > -1) children[index] = Internal._processAvatarRender(e.instance.props.user, children[index], null, e.instance) || children[index];
 			};
 			Internal.processPeopleListItem = function (e) {
 				if (e.instance.props.user) e.node.setAttribute(InternalData.userIdAttribute, e.instance.props.user.id);
@@ -9123,17 +9147,11 @@ module.exports = (_ => {
 							})
 						}),
 						onClick: _ => {
-							let loadingString = `${BDFDB.LanguageUtils.LanguageStrings.CHECKING_FOR_UPDATES} - ${BDFDB.LanguageUtils.LibraryStrings.please_wait}`;
-							let currentLoadingString = loadingString;
-							let toastInterval, toast = BDFDB.NotificationUtils.toast(loadingString, {
+							let toast = BDFDB.NotificationUtils.toast(`${BDFDB.LanguageUtils.LanguageStrings.CHECKING_FOR_UPDATES} - ${BDFDB.LanguageUtils.LibraryStrings.please_wait}`, {
 								type: "info",
 								timeout: 0,
-								onClose: _ => BDFDB.TimeUtils.clear(toastInterval)
+								ellipsis: true
 							});
-							toastInterval = BDFDB.TimeUtils.interval(_ => {
-								currentLoadingString = currentLoadingString.endsWith(".....") ? loadingString : currentLoadingString + ".";
-								toast.update(currentLoadingString);
-							}, 500);
 							BDFDB.PluginUtils.checkAllUpdates().then(outdated => {
 								toast.close();
 								if (outdated > 0) BDFDB.NotificationUtils.toast(BDFDB.LanguageUtils.LibraryStringsFormat("update_check_complete_outdated", outdated), {

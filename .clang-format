@@ -12,4 +12,6 @@ AlignEscapedNewlines: Left
 AlignOperands: AlignAfterOperator
 AlignTrailingComments: true
 
+ColumnLimit: 80
+
 # vim:ft=yaml

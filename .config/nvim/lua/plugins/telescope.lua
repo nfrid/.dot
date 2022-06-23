@@ -12,7 +12,7 @@ mx.nnoremap('<leader>R', function() ts.lsp_dynamic_workspace_symbols() end,
             'Find Workspace Symbol')
 mx.nnoremap('<C-f>', function() ts.current_buffer_fuzzy_find() end,
             'Fuzzy Find in Buffer')
-mx.nnoremap('<F1>', function() ts.commands() end, 'Find Commands')
+mx.nnoremap('<F1>', '<cmd>Cheatsheet<cr>', 'Find Commands')
 mx.nnoremap('<leader>d', function() ts.diagnostics() end,
             'Find Diagnostic')
 mx.nnoremap('<leader>o', function() ts.oldfiles() end, 'Find Recent Files')

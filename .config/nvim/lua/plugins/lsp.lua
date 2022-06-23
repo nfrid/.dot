@@ -1,30 +1,12 @@
 local nvim_lsp = require('lspconfig')
-local coq = require('coq')
+local navic = require('nvim-navic')
 local mx = require('mapx')
-local cmd = vim.api.nvim_command
-
-require('packer').loader('coq_nvim coq.artifacts coq.thirdparty')
-
-vim.g.coq_settings = {
-  auto_start = true,
-  clients = { tabnine = { enabled = true } },
-  keymap = {
-    bigger_preview = '<C-l>',
-    jump_to_mark = '<M-f>',
-    eval_snips = '<M-h>'
-  }
-}
-
-require('coq_3p') {
-  { src = 'nvimlua', short_name = 'nLUA' },
-  { src = 'bc', short_name = 'MATH', precision = 6 },
-  { src = 'figlet', short_name = 'BIG', trigger = '!b' },
-  { src = "vimtex", short_name = "vTEX" }
-}
-
-local function setup(server, cfg) server.setup(coq.lsp_ensure_capabilities(cfg)) end
 
 local on_attach = function(client, bufnr)
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
+  end
+
   -- require('lsp_signature').on_attach(
   --     {
   --       bind = true,
@@ -43,93 +25,65 @@ local on_attach = function(client, bufnr)
   mx.nnoremap('gd', function() buf.definition() end, 'buffer', 'To Definition')
   mx.nnoremap('K', buf.hover, 'buffer', 'Describe on Point')
   mx.nnoremap('gi', function() buf.implementation() end, 'buffer',
-              'To Implementation')
+    'To Implementation')
   mx.nnoremap('<C-A-k>', buf.signature_help, 'buffer', 'Signature on Point')
 
   mx.nname('<leader>l', 'LSP')
   mx.nnoremap('<leader>la', function() buf.add_workspace_folder() end, 'buffer',
-              'Workspace Add')
+    'Workspace Add')
   mx.nnoremap('<leader>lr', function() buf.remove_workspace_folder() end,
-              'buffer', 'Workspace Remove')
+    'buffer', 'Workspace Remove')
   mx.nnoremap('<leader>ld',
-              function() print(vim.inspect(buf.list_workspace_folders())) end,
-              'buffer', 'List Workspaces')
+    function() print(vim.inspect(buf.list_workspace_folders())) end,
+    'buffer', 'List Workspaces')
   mx.nnoremap('<leader>ll', '<cmd>LspRestart<CR>', 'buffer', 'Restart Server')
 
   mx.nnoremap('<leader>D', function() buf.type_definition() end, 'buffer',
-              'Type Definition')
+    'Type Definition')
+  ---@diagnostic disable-next-line: missing-parameter
   mx.nnoremap('<F2>', function() buf.rename() end, 'buffer', 'Rename')
+  ---@diagnostic disable-next-line: missing-parameter
   mx.nnoremap('<leader>cr', function() buf.rename() end, 'buffer', 'Rename')
+  ---@diagnostic disable-next-line: missing-parameter
   mx.nnoremap('gr', function() buf.references() end, 'buffer', 'References')
-  mx.nnoremap('<leader>a', function() buf.code_action() end, 'buffer',
-              'Code Actions')
+  -- mx.nnoremap('<leader>a', function() buf.code_action() end, 'buffer',
+  --             'Code Actions')
+  mx.nnoremap('<leader>a', '<cmd>CodeActionMenu<cr>', 'buffer', 'Code Actions')
+  vim.g.code_action_menu_show_details = false
 
   local d = vim.diagnostic
   mx.nnoremap('<leader>e', function() d.open_float() end, 'buffer',
-              'Diagnostics on Point')
+    'Diagnostics on Point')
   mx.nnoremap(']d', function() d.goto_next() end, 'buffer', 'Next Diagnostic')
   mx.nnoremap('[d', function() d.goto_prev() end, 'buffer', 'Prev Diagnostic')
 
+  ---@diagnostic disable-next-line: missing-parameter
   mx.nnoremap('<leader>lf', function() buf.formatting() end, 'buffer', 'Format')
+
+  if client.name == 'eslint' then
+    client.resolved_capabilities.document_formatting = true
+    client.resolved_capabilities.document_range_formatting = true
+  end
+
+  if client.name == 'tsserver' then
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end
 end
 
 local servers = {
   'bashls', 'vimls', 'pyright', 'tsserver', 'vuels', 'yamlls', 'jsonls',
-  'cmake', 'gopls', 'intelephense', 'cssls', 'html', 'hls'
-}
-for _, lsp in ipairs(servers) do setup(nvim_lsp[lsp], { on_attach = on_attach }) end
-
-local eslint = {
-  lintCommand = 'eslint_d -f unix --stdin --stdin-filename ${INPUT}',
-  lintStdin = true,
-  lintFormats = { '%f:%l:%c: %m' },
-  lintIgnoreExitCode = true,
-  formatCommand = 'eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}',
-  formatStdin = true
+  'cmake', 'gopls', 'intelephense', 'cssls', 'html', 'hls', 'emmet_ls', 'eslint',
+  'ccls', 'texlab', 'sumneko_lua'
 }
 
-local eslint_fix = function()
-  cmd("w")
-  local f = io.popen('npx eslint --fix "' .. vim.api.nvim_buf_get_name(0) ..
-                         '" 2>&1')
-  if not f then return end
+local configs = {}
 
-  print(f:read('*all'))
-  f:close()
-  cmd("let tmp = winsaveview()")
-  cmd("e!")
-  cmd("call winrestview(tmp)")
-  cmd("IndentBlanklineRefresh")
-end
+configs.ccls = {
+  init_options = { highlight = { lsRanges = true } }
+}
 
-setup(nvim_lsp.efm, {
-  root_dir = function()
-    mx.nnoremap('<leader>cf', eslint_fix)
-    return vim.fn.getcwd()
-  end,
-  settings = {
-    languages = {
-      javascript = { eslint },
-      javascriptreact = { eslint },
-      ['javascript.jsx'] = { eslint },
-      typescript = { eslint },
-      ['typescript.tsx'] = { eslint },
-      typescriptreact = { eslint }
-    }
-  },
-  filetypes = {
-    'javascript', 'javascriptreact', 'javascript.jsx', 'typescript',
-    'typescript.tsx', 'typescriptreact'
-  },
-  on_attach = on_attach
-})
-
-setup(nvim_lsp.ccls, {
-  init_options = { highlight = { lsRanges = true } },
-  on_attach = on_attach
-})
-
-setup(nvim_lsp.texlab, {
+configs.texlab = {
   settings = {
     latex = {
       build = {
@@ -142,32 +96,21 @@ setup(nvim_lsp.texlab, {
       },
       lint = { onChange = true }
     }
-  },
-  on_attach = on_attach
+  }
+}
+
+configs.sumneko_lua = require('lua-dev').setup({
+  lspconfig = { cmd = { '/usr/bin/lua-language-server' } }
 })
 
--- setup(nvim_lsp.sumneko_lua, {
---   cmd = { '/usr/bin/lua-language-server' },
---   settings = {
---     Lua = {
---       runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
---       diagnostics = { globals = { 'vim' } },
---       workspace = {
---         library = {
---           [vim.fn.expand('$VIMRUNTIME/lua')] = true,
---           [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
---         }
---       }
---     }
---   },
---   on_attach = on_attach
--- })
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local luadev = require('lua-dev').setup({
-  -- library = { vimruntime = false },
-  lspconfig = { cmd = { '/usr/bin/lua-language-server' }, on_attach = on_attach }
-})
-
-setup(nvim_lsp.sumneko_lua, luadev)
-
-cmd('COQnow -s')
+for _, lsp in ipairs(servers) do
+  local config = {}
+  if configs[lsp] then
+    config = configs[lsp]
+  end
+  config.on_attach = on_attach
+  config.capabilities = capabilities
+  nvim_lsp[lsp].setup(config)
+end

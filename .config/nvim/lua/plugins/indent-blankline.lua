@@ -1,5 +1,9 @@
-vim.g.indent_blankline_char = '▏'
-vim.g.indent_blankline_char_highlight_list = { 'IndentLine' }
-vim.g.indent_blankline_show_first_indent_level = false
-vim.g.indent_blankline_use_treesitter = true
-vim.g.indent_blankline_filetype_exclude = { 'markdown', 'tex', 'startify' }
+require('indent_blankline').setup({
+  char = '▏',
+  char_highlight_list = { 'IndentLine' },
+  -- show_first_indent_level = false,
+  use_treesitter = true,
+  filetype_exclude = { 'markdown', 'tex', 'startify' },
+  show_current_context = true,
+})
+

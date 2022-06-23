@@ -1,3 +1,15 @@
+local navic = require('nvim-navic')
+
+local function get_context()
+  if navic and navic.is_available() then
+    local loc = navic.get_location()
+    if loc ~= '' then
+      return '> ' .. loc
+    end
+  end
+  return ''
+end
+
 local function keymap()
   if vim.bo.iminsert == 0 then
     return [[us]]
@@ -37,7 +49,9 @@ require('lualine').setup {
     lualine_a = { 'mode', keymap },
     lualine_b = { 'branch', 'diff' },
     lualine_c = {
-      'filename', {
+      'filename',
+      get_context,
+      {
         'diagnostics',
         sources = { 'nvim_diagnostic' },
         symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' }

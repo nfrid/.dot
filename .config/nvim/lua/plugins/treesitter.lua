@@ -3,16 +3,9 @@ local treesitter = require('nvim-treesitter.configs')
 treesitter.setup {
   highlight = { enable = true },
 
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = 'gn',
-      node_incremental = 'gn',
-      node_decremental = 'gr'
-    }
-  },
-
   indent = { enable = true },
+
+  playground = { enable = true },
 
   rainbow = {
     enable = true,
@@ -60,7 +53,12 @@ treesitter.setup {
 
   textsubjects = {
     enable = true,
-    keymaps = { ['.'] = 'textsubjects-smart', [';'] = 'textsubjects-big' }
+    prev_selection = ',',
+    keymaps = {
+      ['.'] = 'textsubjects-smart',
+      [';'] = 'textsubjects-container-outer',
+      ['i;'] = 'textsubjects-container-inner'
+    }
   }
 }
 

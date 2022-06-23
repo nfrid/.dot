@@ -44,10 +44,10 @@ require('plugins')
 local mx = require('mapx')
 
 Format = function()
-  cmd(":w")
+  cmd(':w')
 
   local formatCmds = {
-    lua = 'lua-format --indent-width=2 --spaces-inside-table-braces -i',
+    lua = 'lua-format -i',
     go = 'gofmt -w',
     javascript = 'prettier -w --loglevel error',
     typescript = 'prettier -w --loglevel error',
@@ -67,16 +67,14 @@ Format = function()
   local formatCmd = formatCmds[vim.bo.filetype] or 'sed -i -e "s/\\s\\+$//"'
   local f = io.popen(formatCmd .. ' "' .. vim.api.nvim_buf_get_name(0) ..
                          '" 2>&1')
-  if not f then
-    return
-  end
+  if not f then return end
 
   print(f:read('*all'))
   f:close()
-  cmd("let tmp = winsaveview()")
-  cmd("e!")
-  cmd("call winrestview(tmp)")
-  cmd("IndentBlanklineRefresh")
+  cmd('let tmp = winsaveview()')
+  cmd('e!')
+  cmd('call winrestview(tmp)')
+  cmd('IndentBlanklineRefresh')
 end
 
 mx.nnoremap('<leader>F', Format)
@@ -126,13 +124,13 @@ end
 
 mx.nnoremap('<leader>pr', ToggleRelNums)
 
-cmd("au BufReadPost *.zsh,.zshrc set filetype=sh")
-cmd("au BufReadPost *.fish set filetype=fish")
-cmd("au BufReadPost *.conf set filetype=config")
+cmd('au BufReadPost *.zsh,.zshrc set filetype=sh')
+cmd('au BufReadPost *.fish set filetype=fish')
+cmd('au BufReadPost *.conf set filetype=config')
 
-cmd("au BufReadPost *.kbd set filetype=lisp")
+cmd('au BufReadPost *.kbd set filetype=lisp')
 
-cmd("command! W :w!")
+cmd('command! W :w!')
 
 -- mappings
 

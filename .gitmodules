@@ -1,0 +1,18 @@
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:NFrid/nvim.git
+[submodule ".doom.d"]
+	path = .doom.d
+	url = git@github.com:NFrid/.doom.d.git
+[submodule ".local/src/dmenu"]
+	path = .local/src/dmenu
+	url = git@github.com:NFrid/dmenu.git
+[submodule ".local/src/nwm"]
+	path = .local/src/nwm
+	url = git@github.com:NFrid/nwm.git
+[submodule ".local/src/rootblocks"]
+	path = .local/src/rootblocks
+	url = git@github.com:NFrid/rootblocks.git
+[submodule ".local/src/crkbd-keymap"]
+	path = .local/src/crkbd-keymap
+	url = git@github.com:NFrid/crkbd-keymap.git

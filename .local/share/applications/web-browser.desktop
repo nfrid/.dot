@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Default Web Browser
+GenericName=Web Browser
+Comment=Access the Internet
+Exec=/home/nf/.local/bin/scripts/web-browser %U
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;

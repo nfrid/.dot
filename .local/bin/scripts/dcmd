@@ -8,6 +8,8 @@ cmds=(
   "btjblrecon"
   "btjbldis"
   "austream"
+  "remodbt"
+  "warp"
 )
 
 ch=$(printf '%s\n' "${cmds[@]}" | dmenu -p "cmd")
@@ -20,11 +22,26 @@ case $ch in
   btjblrecon) bt jbl r ;;
   btjbldis) bt jbl d ;;
   austream)
-    [[ $(austream status) == "off" ]] &&
-    austream on ||
-    austream off
+    if [[ $(austream status) == "off" ]]; then
+      austream on
+    else
+      austream off
+    fi
     notify-send "audio streaming is $(austream status)"
     ;;
   "") exit 0 ;;
+  remodbt)
+    sudo modprobe -r btusb
+    sudo modprobe btusb
+    sudo systemctl restart bluetooth.service
+    ;;
+  warp)
+    status=$(warp-cli status | awk '/Status/ {print $3}')
+    if [[ $status == "Connected" ]]; then
+      warp-cli disable-always-on
+    else
+      warp-cli enable-always-on
+    fi
+    ;;
   *) notify-send "unknown dcmd: $ch"; exit 1 ;;
 esac

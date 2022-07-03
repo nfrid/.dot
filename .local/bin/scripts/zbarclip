@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+TEMP_FILE=/tmp/zbar.png
+
+xclip -sel clip -t image/png -o > $TEMP_FILE
+zbarimg -q $TEMP_FILE | xclip -sel clip

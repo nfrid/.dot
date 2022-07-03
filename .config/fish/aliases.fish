@@ -2,7 +2,7 @@
 alias hz="cd ~/github/herzen"
 alias ww="cd ~/Documents/Writing"
 alias sc="cd ~/.local/bin/scripts"
-alias ss="cd ~/.local/src"
+alias src="cd ~/.local/src"
 alias bl="cd ~/github/nfrid.me/src/posts"
 
 alias yt="yt-dlp"

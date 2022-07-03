@@ -7,9 +7,10 @@
 			"downloadable": true
 		},
 		"general": {
-			"notifyNewEntries": false,
 			"notifyOutdated": true,
-			"rnmStart": true
+			"notifyNewEntries": false,
+			"startDownloaded": false,
+			"startUpdated": false
 		}
 	}
 }

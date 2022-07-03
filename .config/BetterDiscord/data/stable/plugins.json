@@ -60,5 +60,6 @@
     "EditRoles": true,
     "EditServers": true,
     "EmoteReplacer": true,
-    "TeX": false
+    "TeX": false,
+    "unlockHDScreenShare": false
 }

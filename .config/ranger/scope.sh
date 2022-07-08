@@ -14,6 +14,10 @@
 path=$1  width=$2
 cache=$4 image=${5/False}
 
+if [ "$(basename "$path")" = "package-lock.json" ]; then
+  exit 1
+fi
+
 ext=${path##*.}
 mime=$(file -Lb --mime-type "$path")
 

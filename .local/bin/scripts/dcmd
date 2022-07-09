@@ -39,8 +39,10 @@ case $ch in
     status=$(warp-cli status | awk '/Status/ {print $3}')
     if [[ $status == "Connected" ]]; then
       warp-cli disable-always-on
+      notify-send "warp is disabled"
     else
       warp-cli enable-always-on
+      notify-send "warp is enabled"
     fi
     ;;
   *) notify-send "unknown dcmd: $ch"; exit 1 ;;

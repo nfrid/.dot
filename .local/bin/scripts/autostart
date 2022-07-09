@@ -10,7 +10,6 @@ fehbg
 bluetoothctl power on
 
 austart rootblocks
-austart "kmonad $HOME/.config/kmonad/def.kbd" kmonad
 austart sxhkd
 austart nm-applet
 austart dunst

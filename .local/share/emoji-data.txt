@@ -21,7 +21,6 @@
 ☺ smiling face | face | outlined | relaxed | smile | smiling face
 😚 kissing face with closed eyes | closed | eye | face | kiss | kissing face with closed eyes
 😙 kissing face with smiling eyes | eye | face | kiss | kissing face with smiling eyes | smile
-🥲 smiling face with tear | grateful | proud | relieved | smiling | smiling face with tear | tear | touched
 😋 face savoring food | delicious | face | savoring | savouring | smile | yum | face savoring food | face savouring food | um
 😛 face with tongue | face | face with tongue | tongue
 😜 winking face with tongue | eye | face | joke | tongue | wink | winking face with tongue
@@ -43,6 +42,7 @@
 😬 grimacing face | face | grimace | grimacing face
 🤥 lying face | face | lie | lying face | pinocchio
 😌 relieved face | face | relieved
+🥲 smiling face with tear | grateful | proud | relieved | smiling | smiling face with tear | tear | touched
 😔 pensive face | dejected | face | pensive
 😪 sleepy face | face | sleep | sleepy face
 🤤 drooling face | drooling | face

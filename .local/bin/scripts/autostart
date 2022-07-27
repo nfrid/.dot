@@ -30,6 +30,7 @@ austart vk
 austart crow
 austart flameshot
 austart keynav
+austart transmission-gtk
 
 # tmux sessions
 tmuxses sys

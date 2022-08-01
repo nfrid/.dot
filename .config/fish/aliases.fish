@@ -11,6 +11,21 @@ alias ytv="yt --sub-lang en,ru,jp --embed-subs --embed-metadata --embed-chapters
 alias yta="yt -x --audio-format mp3 -f 'bestaudio'"
 alias yti="yt --write-thumbnail --skip-download"
 
+function yts -d "prompts a title change and then
+  downloads the video and its thumbnail"
+  if set tmp (yt --get-title "$argv")
+    echo $tmp > /tmp/tmp.song-title
+    $EDITOR /tmp/tmp.song-title
+    set title (cat /tmp/tmp.song-title | awk '{ gsub(/^[ \t]+|[ \t]+$/, ""); print }')
+    if not test -z "$title"
+      printf "No title provided.\n"
+      return 1
+    end
+    yti -o "$title.%(ext)s" --convert-thumbnails jpg "$argv"
+    yta -o "$title.%(ext)s" "$argv"
+  end
+end
+
 alias iw="sudo iwctl"
 
 # ffmpeg

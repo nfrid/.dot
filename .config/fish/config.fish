@@ -182,6 +182,8 @@ end
 
 fish_vi_key_bindings
 function fish_mode_prompt
+  fish_vi_cursor e # idk why but in tmux it doesn't make it insert otherwise 
+                   # after executing any command
   switch $fish_bind_mode
     case default
     echo -en "\e[1 q"
@@ -197,7 +199,7 @@ function fish_mode_prompt
 end
 
 
-# thefuck --alias | source
+thefuck --alias | source
 # pyenv init - | source
 # pdm completion | source
 

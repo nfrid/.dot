@@ -66,12 +66,12 @@ super + shift + d
 #   useus rofi -show-icons -show windowcd -modi windowcd,window
 
 # open new emacs frame
-super + g
-  emacsclient -c
+# super + g
+  # emacsclient -c
   # dotbare ls-files --full-name | dmenu -p dot | xargs -I sel $TERM -e sh -c "xkb-switch -s us; sleep 0.1; nvim '$HOME/sel'"
 
 # fedit configs
-super + shift + g
+super + g
   xkb-switch -s us; $TERM -e dotbare fedit
 
 # calculator

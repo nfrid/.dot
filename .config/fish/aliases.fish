@@ -17,7 +17,7 @@ function yts -d "prompts a title change and then
     echo $tmp > /tmp/tmp.song-title
     $EDITOR /tmp/tmp.song-title
     set title (cat /tmp/tmp.song-title | awk '{ gsub(/^[ \t]+|[ \t]+$/, ""); print }')
-    if not test -z "$title"
+    if test -z "$title"
       printf "No title provided.\n"
       return 1
     end
@@ -42,7 +42,7 @@ alias bpy="bpython"
 alias q="tuxi"
 alias nb="newsboat"
 alias m="neomutt"
-alias nc="ncmpcpp"
+# alias nc="ncmpcpp"
 alias r="ranger"
 alias lf="lfrun"
 # alias r="lf"

@@ -1,1 +1,54 @@
 #!/bin/sh
+
+cmd=$1
+
+if [ "$cmd" = "l" ]; then
+  upnpc -L | sed -n -e '/^Local/p;/^ i/p;/^ [0-9]/p'
+  exit 0
+fi
+
+if [ "$cmd" = "a" ]; then
+  in=$2
+  out=$3
+  prot=$4
+
+  if [ -z "$in" ]; then
+    echo "Usage: $(basename "$0") $cmd <input> [output = input] [protocol = TCP]"
+    exit 1
+  fi
+
+  if [ -z "$out" ]; then
+    out=$in
+  fi
+
+  ip=$(ip r | grep default | head -n 1 | cut -d " " -f 9)
+
+
+  if [ -z "$prot" ]; then
+    prot="TCP"
+  fi
+
+  upnpc -a "$ip" "$in" "$out" "$prot"
+  exit 0
+fi
+
+
+if [ "$cmd" = "d" ]; then
+  port=$2
+  prot=$3
+
+  if [ -z "$port" ]; then
+    echo "Usage: $(basename "$0") $cmd <port> [protocol = TCP]"
+    exit 1
+  fi
+
+  if [ -z "$prot" ]; then
+    prot="TCP"
+  fi
+
+  upnpc -d "$port" "$prot"
+  exit 0
+fi
+
+echo "Unknown command: $cmd"
+exit 1

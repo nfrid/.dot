@@ -61,5 +61,7 @@
     "EditServers": true,
     "EmoteReplacer": true,
     "TeX": false,
-    "unlockHDScreenShare": false
+    "unlockHDScreenShare": false,
+    "AccountDetailsPlus": false,
+    "ActivityIcons": false
 }

@@ -2,7 +2,7 @@
  * @name BDFDB
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 2.4.8
+ * @version 2.5.1
  * @description Required Library for DevilBro's Plugins
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -19,7 +19,7 @@ module.exports = (_ => {
 		"info": {
 			"name": "BDFDB",
 			"author": "DevilBro",
-			"version": "2.4.8",
+			"version": "2.5.1",
 			"description": "Required Library for DevilBro's Plugins"
 		},
 		"rawUrl": "https://mwittrien.github.io/BetterDiscordAddons/Library/0BDFDB.plugin.js"
@@ -3256,10 +3256,9 @@ module.exports = (_ => {
 			if (!user) return window.location.origin + "/assets/1f0bfc0865d324c2587920a7d80c609b.png";
 			else return ((user.avatar ? "" : window.location.origin) + Internal.LibraryModules.IconUtils.getUserAvatarURL(user)).split("?")[0];
 		};
-		BDFDB.UserUtils.getBanner = function (id = BDFDB.UserUtils.me.id, canAnimate = false) {
-			let user = Internal.LibraryModules.UserStore.getUser(id);
-			if (!user || !user.banner) return "";
-			return Internal.LibraryModules.IconUtils.getUserBannerURL(Object.assign({}, user, {canAnimate})).split("?")[0];
+		BDFDB.UserUtils.getBanner = function (id = BDFDB.UserUtils.me.id, guildId = Internal.LibraryModules.LastGuildStore.getGuildId(), canAnimate = false) {
+			let displayProfile = Internal.LibraryModules.MemberDisplayUtils.getDisplayProfile(id, guildId);
+			return (Internal.LibraryModules.IconUtils.getUserBannerURL(Object.assign({banner: displayProfile.banner, id: id}, {canAnimate})) || "").split("?")[0];
 		};
 		BDFDB.UserUtils.can = function (permission, id = BDFDB.UserUtils.me.id, channelId = Internal.LibraryModules.LastChannelStore.getChannelId()) {
 			if (!BDFDB.DiscordConstants.Permissions[permission]) BDFDB.LogUtils.warn([permission, "not found in Permissions"]);
@@ -4397,7 +4396,7 @@ module.exports = (_ => {
 			if (BDFDB.DiscordUtils.getBuild.build) return BDFDB.DiscordUtils.getBuild.build;
 			else {
 				let build;
-				try {build = window.DiscordNative.app.getReleaseChannel();} 
+				try {build = window.DiscordNative.app.getReleaseChannel();}
 				catch (err) {
 					let version = BDFDB.DiscordUtils.getVersion();
 					if (version) {
@@ -4419,32 +4418,8 @@ module.exports = (_ => {
 				return BDFDB.DiscordUtils.getVersion.version = version;
 			}
 		};
-		BDFDB.DiscordUtils.isDevModeEnabled = function () {
-			return BDFDB.DiscordUtils.getSettings("developerMode");
-		};
-		BDFDB.DiscordUtils.getExperiment = function (id) {
-			if (!id) return null;
-			const module = BDFDB.ModuleUtils.find(m => m.definition && m.definition.defaultConfig && m.definition.defaultConfig[id] != null && typeof m.getCurrentConfig == "function" && m);
-			return module && (module.getCurrentConfig({}) || {})[id];
-		};
 		BDFDB.DiscordUtils.getTheme = function () {
-			return BDFDB.DiscordUtils.getSettings("theme") != "dark" ? BDFDB.disCN.themelight : BDFDB.disCN.themedark;
-		};
-		BDFDB.DiscordUtils.getMode = function () {
-			return BDFDB.DiscordUtils.getSettings("messageDisplayCompact") ? "compact" : "cozy";
-		};
-		BDFDB.DiscordUtils.getSettings = function (key) {
-			if (!key) return null;
-			else if (Internal.LibraryModules.SettingsUtils && (Internal.LibraryModules.SettingsUtils[key] || Internal.LibraryModules.SettingsUtils[key + "DoNotUseYet"])) return (Internal.LibraryModules.SettingsUtils[key] || Internal.LibraryModules.SettingsUtils[key + "DoNotUseYet"]).getSetting();
-			else {
-				const value = Internal.LibraryModules.SettingsStore.getAllSettings()[key.slice(0, 1).toLowerCase() + key.slice(1)];
-				return value != undefined ? value: null;
-			}
-		};
-		BDFDB.DiscordUtils.setSettings = function (key, value) {
-			if (!key) return;
-			else if (Internal.LibraryModules.SettingsUtils && (Internal.LibraryModules.SettingsUtils[key] || Internal.LibraryModules.SettingsUtils[key + "DoNotUseYet"])) (Internal.LibraryModules.SettingsUtils[key] || Internal.LibraryModules.SettingsUtils[key + "DoNotUseYet"]).updateSetting(value);
-			else Internal.LibraryModules.SettingsUtilsOld.updateRemoteSettings({[key.slice(0, 1).toLowerCase() + key.slice(1)]: value});
+			return BDFDB.LibraryModules.ThemeSettingsStore.theme != "dark" ? BDFDB.disCN.themelight : BDFDB.disCN.themedark;
 		};
 		BDFDB.DiscordUtils.getZoomFactor = function () {
 			let aRects = BDFDB.DOMUtils.getRects(document.querySelector(BDFDB.dotCN.appmount));
@@ -8179,7 +8154,6 @@ module.exports = (_ => {
 			
 			Internal.patchedModules = {
 				before: {
-					UserBanner: "default",
 					SearchBar: "render",
 					EmojiPicker: "type",
 					EmojiPickerListRow: "default"
@@ -8249,10 +8223,6 @@ module.exports = (_ => {
 					return [InternalData.ModuleUtilsConfig.Finder.AppView.strings].flat(10).filter(n => typeof n == "string").every(string => typeString.indexOf(string) > -1);
 				}});
 				if (index > -1) children[index] = BDFDB.ReactUtils.createElement(AppViewExport.exports.default, children[index].props);
-			};
-			
-			Internal.processUserBanner = function (e) {
-				if (e.instance.props.bannerSrc && e.instance.props.user && e.instance.props.bannerSrc.indexOf(`/${e.instance.props.user.id}/http`) > -1) e.instance.props.bannerSrc = `http${e.instance.props.bannerSrc.split(`/${e.instance.props.user.id}/http`)[1].replace(/\.png\?size=[\d]*$/g, "")}`;
 			};
 			
 			Internal.processMessage = function (e) {
@@ -8682,13 +8652,19 @@ module.exports = (_ => {
 			if (InternalData.ModuleUtilsConfig.QueuedComponents) for (let type of InternalData.ModuleUtilsConfig.QueuedComponents) if (!PluginStores.patchQueues[type]) PluginStores.patchQueues[type] = {query: [], modules: []};
 			
 			let languageChangeTimeout;
-			if (Internal.LibraryModules.SettingsUtilsOld) BDFDB.PatchUtils.patch(BDFDB, Internal.LibraryModules.SettingsUtilsOld, ["updateRemoteSettings", "updateLocalSettings"], {after: e => {
+			BDFDB.PatchUtils.patch(BDFDB, Internal.LibraryModules.SettingsUtilsOld, ["updateRemoteSettings", "updateLocalSettings"], {after: e => {
 				if (e.methodArguments[0] && e.methodArguments[0].locale) {
 					BDFDB.TimeUtils.clear(languageChangeTimeout);
 					languageChangeTimeout = BDFDB.TimeUtils.timeout(_ => {
 						for (let pluginName in PluginStores.loaded) if (PluginStores.loaded[pluginName].started) BDFDB.PluginUtils.translate(PluginStores.loaded[pluginName]);
 					}, 10000);
 				}
+			}});
+			BDFDB.PatchUtils.patch(BDFDB, Internal.LibraryModules.AppearanceSettingsUtils, "updateLocale", {after: e => {
+				BDFDB.TimeUtils.clear(languageChangeTimeout);
+				languageChangeTimeout = BDFDB.TimeUtils.timeout(_ => {
+					for (let pluginName in PluginStores.loaded) if (PluginStores.loaded[pluginName].started) BDFDB.PluginUtils.translate(PluginStores.loaded[pluginName]);
+				}, 10000);
 			}});
 			
 			Internal.onSettingsClosed = function () {
@@ -8809,26 +8785,6 @@ module.exports = (_ => {
 				for (let type of newBadges) extraDefaultProps[`${type}Width`] = 16;
 				Internal.setDefaultProps(Internal.LibraryComponents.GuildComponents.BlobMask, extraDefaultProps);
 			}
-			
-			BDFDB.PatchUtils.patch(BDFDB, Internal.LibraryModules.GuildStore, "getGuild", {after: e => {
-				if (e.returnValue && e.methodArguments[0] == InternalData.myGuildId) e.returnValue.banner = `https://mwittrien.github.io/BetterDiscordAddons/Library/_res/BDFDB.banner.png`;
-			}});
-			
-			BDFDB.PatchUtils.patch(BDFDB, Internal.LibraryModules.UserStore, "getUser", {after: e => {
-				if (e.returnValue && e.methodArguments[0] == InternalData.myId) e.returnValue.banner = `https://mwittrien.github.io/BetterDiscordAddons/Library/_res/DevilBro.banner.png`;
-			}});
-
-			BDFDB.PatchUtils.patch(BDFDB, Internal.LibraryModules.IconUtils, "getGuildBannerURL", {instead: e => {
-				return e.methodArguments[0].id == InternalData.myGuildId ? e.methodArguments[0].banner : e.callOriginalMethod();
-			}});
-
-			BDFDB.PatchUtils.patch(BDFDB, Internal.LibraryModules.IconUtils, "getUserBannerURL", {instead: e => {
-				return e.methodArguments[0].id == InternalData.myId ? e.methodArguments[0].banner : e.callOriginalMethod();
-			}});
-			
-			BDFDB.PatchUtils.patch(BDFDB, Internal.LibraryModules.BannerUtils, "getUserBannerURLForContext", {instead: e => {
-				return e.methodArguments[0].user && e.methodArguments[0].user.id == InternalData.myId ? e.methodArguments[0].user.banner : e.callOriginalMethod();
-			}});
 			
 			BDFDB.PatchUtils.patch(BDFDB, Internal.LibraryModules.EmojiStateUtils, "getEmojiUnavailableReason", {after: e => {
 				if (Internal.LibraryComponents.EmojiPickerButton.current && Internal.LibraryComponents.EmojiPickerButton.current.props && Internal.LibraryComponents.EmojiPickerButton.current.props.allowManagedEmojisUsage) return null;

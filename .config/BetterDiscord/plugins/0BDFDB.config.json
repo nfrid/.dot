@@ -6,7 +6,7 @@
 			"CompleteTimestamps": "1.6.1",
 			"CreationDate": "1.4.6",
 			"CustomStatusPresets": "1.0.7",
-			"EditRoles": "1.0.8",
+			"EditRoles": "1.0.9",
 			"EditServers": "2.3.7",
 			"EditUsers": "4.5.4",
 			"SendLargeMessages": "1.6.8",
@@ -24,7 +24,7 @@
 			"shareData": true
 		},
 		"hashes": {
-			"0BDFDB.data.json": "bdcd44ac0b1f4892103522ebf8206e5f239df36b",
+			"0BDFDB.data.json": "da14be6f6f21097187631d17d0219a8a52eb6e55",
 			"0BDFDB.raw.css": "96fb638350f77c79c3648050d58a0ea7a700ea1b"
 		}
 	}

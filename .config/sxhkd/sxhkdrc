@@ -19,6 +19,9 @@ super + ctrl + { Return, m }
 super + { Return, m }
   xkb-switch -s us; $TERMINAL -e bash -c "tmux attach || tmux"
 
+ctrl + button12
+  boomer -f
+
 # dmenu tmux
 super + a
   dmux

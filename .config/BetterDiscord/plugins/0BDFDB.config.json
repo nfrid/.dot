@@ -6,9 +6,9 @@
 			"CompleteTimestamps": "1.6.1",
 			"CreationDate": "1.4.6",
 			"CustomStatusPresets": "1.0.7",
-			"EditRoles": "1.0.9",
+			"EditRoles": "1.1.0",
 			"EditServers": "2.3.7",
-			"EditUsers": "4.5.4",
+			"EditUsers": "4.6.6",
 			"SendLargeMessages": "1.6.8",
 			"ServerDetails": "1.1.1",
 			"SplitLargeMessages": "1.7.2",
@@ -24,8 +24,8 @@
 			"shareData": true
 		},
 		"hashes": {
-			"0BDFDB.data.json": "da14be6f6f21097187631d17d0219a8a52eb6e55",
-			"0BDFDB.raw.css": "96fb638350f77c79c3648050d58a0ea7a700ea1b"
+			"0BDFDB.data.json": "932ef4a4229459370f0d3e805edd8c79fc2f49d2",
+			"0BDFDB.raw.css": "b32c66f2299ded73c11822b8e903883e1dc7daa8"
 		}
 	}
 }

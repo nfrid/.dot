@@ -9,3 +9,13 @@
 	pager = delta
 [init]
 	defaultBranch = main
+
+[delta]
+  syntax-theme = Dracula
+  minus-style = syntax "#22212c"
+  plus-style = syntax "#343746"
+  minus-emph-style = syntax "#55212c"
+  plus-emph-style = syntax "#245736"
+
+
+

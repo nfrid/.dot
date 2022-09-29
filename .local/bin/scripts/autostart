@@ -34,7 +34,7 @@ austart "transmission-gtk -m" transmission-gtk
 austart "qpwgraph -am" qpwgraph
 
 # tmux sessions
-tmuxses sys
-tmuxses main
+# tmuxses sys
+# tmuxses main
 
 exit 0

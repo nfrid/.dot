@@ -54,7 +54,7 @@
     "ChatAliases": true,
     "ClickableMentions": true,
     "CollapsibleUI": false,
-    "ColorSighted": true,
+    "ColorSighted": false,
     "ColorTooltips": true,
     "DoNotTrack": true,
     "EditRoles": true,

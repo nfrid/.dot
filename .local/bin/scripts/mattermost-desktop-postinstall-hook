@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+
+echo "[mattermost-desktop] patching..."
+
+asar_path="/usr/lib/mattermost-desktop/app.asar"
+tmp_path="/tmp/mattermost-desktop-postinstall-hook"
+
+mkdir -p "$tmp_path"
+cd "$tmp_path"
+
+cp "$asar_path" "$asar_path.old"
+cp "$asar_path" .
+npx asar extract app.asar app
+
+sed -i -E 's/const TAB_BAR_HEIGHT = ([0-9]+);/const TAB_BAR_HEIGHT = 0;/' app/index.js
+
+npx asar pack app app.asar
+cp app.asar "$asar_path"
+rm -rf "$tmp_path"
+
+echo "[mattermost-desktop] done."
+

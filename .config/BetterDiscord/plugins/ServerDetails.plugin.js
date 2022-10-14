@@ -2,7 +2,7 @@
  * @name ServerDetails
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 1.1.2
+ * @version 1.1.3
  * @description Shows Server Details in the Server List Tooltip
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -13,20 +13,16 @@
  */
 
 module.exports = (_ => {
-	const config = {
-		"info": {
-			"name": "ServerDetails",
-			"author": "DevilBro",
-			"version": "1.1.2",
-			"description": "Shows Server Details in the Server List Tooltip"
-		}
+	const changeLog = {
+		
 	};
 
 	return !window.BDFDB_Global || (!window.BDFDB_Global.loaded && !window.BDFDB_Global.started) ? class {
-		getName () {return config.info.name;}
-		getAuthor () {return config.info.author;}
-		getVersion () {return config.info.version;}
-		getDescription () {return `The Library Plugin needed for ${config.info.name} is missing. Open the Plugin Settings to download it. \n\n${config.info.description}`;}
+		constructor (meta) {for (let key in meta) this[key] = meta[key];}
+		getName () {return this.name;}
+		getAuthor () {return this.author;}
+		getVersion () {return this.version;}
+		getDescription () {return `The Library Plugin needed for ${this.name} is missing. Open the Plugin Settings to download it. \n\n${this.description}`;}
 		
 		downloadLibrary () {
 			require("request").get("https://mwittrien.github.io/BetterDiscordAddons/Library/0BDFDB.plugin.js", (e, r, b) => {
@@ -39,7 +35,7 @@ module.exports = (_ => {
 			if (!window.BDFDB_Global || !Array.isArray(window.BDFDB_Global.pluginQueue)) window.BDFDB_Global = Object.assign({}, window.BDFDB_Global, {pluginQueue: []});
 			if (!window.BDFDB_Global.downloadModal) {
 				window.BDFDB_Global.downloadModal = true;
-				BdApi.showConfirmationModal("Library Missing", `The Library Plugin needed for ${config.info.name} is missing. Please click "Download Now" to install it.`, {
+				BdApi.showConfirmationModal("Library Missing", `The Library Plugin needed for ${this.name} is missing. Please click "Download Now" to install it.`, {
 					confirmText: "Download Now",
 					cancelText: "Cancel",
 					onCancel: _ => {delete window.BDFDB_Global.downloadModal;},
@@ -49,13 +45,13 @@ module.exports = (_ => {
 					}
 				});
 			}
-			if (!window.BDFDB_Global.pluginQueue.includes(config.info.name)) window.BDFDB_Global.pluginQueue.push(config.info.name);
+			if (!window.BDFDB_Global.pluginQueue.includes(this.name)) window.BDFDB_Global.pluginQueue.push(this.name);
 		}
 		start () {this.load();}
 		stop () {}
 		getSettingsPanel () {
 			let template = document.createElement("template");
-			template.innerHTML = `<div style="color: var(--header-primary); font-size: 16px; font-weight: 300; white-space: pre; line-height: 22px;">The Library Plugin needed for ${config.info.name} is missing.\nPlease click <a style="font-weight: 500;">Download Now</a> to install it.</div>`;
+			template.innerHTML = `<div style="color: var(--header-primary); font-size: 16px; font-weight: 300; white-space: pre; line-height: 22px;">The Library Plugin needed for ${this.name} is missing.\nPlease click <a style="font-weight: 500;">Download Now</a> to install it.</div>`;
 			template.content.firstElementChild.querySelector("a").addEventListener("click", this.downloadLibrary);
 			return template.content.firstElementChild;
 		}
@@ -83,7 +79,7 @@ module.exports = (_ => {
 					}, _this.settings.amounts.tooltipDelay * 1000);
 					return null;
 				}
-				let owner = BDFDB.LibraryModules.UserStore.getUser(this.props.guild.ownerId);
+				let owner = BDFDB.LibraryStores.UserStore.getUser(this.props.guild.ownerId);
 				if (!owner && !this.state.fetchedOwner) {
 					this.state.fetchedOwner = true;
 					BDFDB.LibraryModules.UserProfileUtils.getUser(this.props.guild.ownerId).then(_ => BDFDB.ReactUtils.forceUpdate(this));
@@ -114,7 +110,7 @@ module.exports = (_ => {
 						}),
 						_this.settings.items.members && BDFDB.ReactUtils.createElement(GuildDetailsRowComponent, {
 							prefix: BDFDB.LanguageUtils.LanguageStrings.MEMBERS,
-							string: BDFDB.LibraryModules.MemberCountUtils.getMemberCount(this.props.guild.id)
+							string: BDFDB.LibraryStores.GuildMemberCountStore.getMemberCount(this.props.guild.id)
 						}),
 						_this.settings.items.boosts && BDFDB.ReactUtils.createElement(GuildDetailsRowComponent, {
 							prefix: _this.labels.boosts,
@@ -122,7 +118,7 @@ module.exports = (_ => {
 						}),
 						_this.settings.items.channels && BDFDB.ReactUtils.createElement(GuildDetailsRowComponent, {
 							prefix: BDFDB.LanguageUtils.LanguageStrings.CHANNELS,
-							string: BDFDB.LibraryModules.GuildChannelStore.getChannels(this.props.guild.id).count
+							string: BDFDB.LibraryStores.GuildChannelStore.getChannels(this.props.guild.id).count
 						}),
 						_this.settings.items.roles && BDFDB.ReactUtils.createElement(GuildDetailsRowComponent, {
 							prefix: BDFDB.LanguageUtils.LanguageStrings.ROLES,
@@ -147,7 +143,7 @@ module.exports = (_ => {
 						children: this.props.string
 					})
 				] : BDFDB.ReactUtils.createElement("div", {
-					children: `${BDFDB.LibraryModules.StringUtils.upperCaseFirstChar(this.props.prefix)}: ${this.props.string}`
+					children: `${BDFDB.StringUtils.upperCaseFirstChar(this.props.prefix)}: ${this.props.string}`
 				});
 			}
 		};
@@ -183,10 +179,10 @@ module.exports = (_ => {
 					}
 				};
 			
-				this.patchedModules = {
-					after: {
-						GuildItem: "type"
-					}
+				this.modulePatches = {
+					after: [
+						"GuildItem"
+					]
 				};
 				
 				this.patchPriority = 9;
@@ -215,10 +211,6 @@ module.exports = (_ => {
 			}
 			
 			onStart () {
-				BDFDB.PatchUtils.patch(this, BDFDB.LibraryComponents.GuildComponents.Guild.prototype, "render", {after: e => {
-					this.processGuildItem({instance: e.thisObject, returnvalue: e.returnValue, methodname: "render"});
-				}});
-
 				this.forceUpdateAll();
 			}
 			
@@ -324,31 +316,30 @@ module.exports = (_ => {
 					}
 				`);
 				
-				BDFDB.GuildUtils.rerenderAll();
+				BDFDB.DiscordUtils.rerenderAll();
 			}
 			
 			processGuildItem (e) {
-				if (BDFDB.GuildUtils.is(e.instance.props.guild)) {
-					let tooltipContainer;
-					let [children, index] = BDFDB.ReactUtils.findParent(e.returnvalue, {name: ["GuildTooltip", "BDFDB_TooltipContainer"]});
-					if (index > -1) children[index] = BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, Object.assign({}, children[index].props, {
-						ref: instance => {if (instance) tooltipContainer = instance;},
-						tooltipConfig:  Object.assign({
-							backgroundColor: this.settings.colors.tooltipColor
-						}, children[index].props.tooltipConfig, {
-							className: !this.settings.amounts.tooltipDelay && BDFDB.disCN._serverdetailstooltip,
-							type: "right",
-							guild: e.instance.props.guild,
-							list: true,
-							offset: 12
-						}),
-						text: (instance, event) => BDFDB.ReactUtils.createElement(GuildDetailsComponent, {
-							shiftKey: event.shiftKey,
-							tooltipContainer: tooltipContainer,
-							guild: e.instance.props.guild
-						})
-					}));
-				}
+				if (!BDFDB.GuildUtils.is(e.instance.props.guild)) return;
+				let tooltipContainer;
+				let [children, index] = BDFDB.ReactUtils.findParent(e.returnvalue, {name: ["GuildTooltip", "BDFDB_TooltipContainer"]});
+				if (index > -1) children[index] = BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, Object.assign({}, children[index].props, {
+					ref: instance => {if (instance) tooltipContainer = instance;},
+					tooltipConfig:  Object.assign({
+						backgroundColor: this.settings.colors.tooltipColor
+					}, children[index].props.tooltipConfig, {
+						className: !this.settings.amounts.tooltipDelay && BDFDB.disCN._serverdetailstooltip,
+						type: "right",
+						guild: e.instance.props.guild,
+						list: true,
+						offset: 12
+					}),
+					text: (instance, event) => BDFDB.ReactUtils.createElement(GuildDetailsComponent, {
+						shiftKey: event.shiftKey,
+						tooltipContainer: tooltipContainer,
+						guild: e.instance.props.guild
+					})
+				}));
 			}
 
 			setLabelsByLanguage () {
@@ -518,5 +509,5 @@ module.exports = (_ => {
 				}
 			}
 		};
-	})(window.BDFDB_Global.PluginUtils.buildPlugin(config));
+	})(window.BDFDB_Global.PluginUtils.buildPlugin(changeLog));
 })();

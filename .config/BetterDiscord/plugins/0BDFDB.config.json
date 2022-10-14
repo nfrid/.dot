@@ -1,7 +1,7 @@
 {
 	"all": {
 		"changeLogs": {
-			"BDFDB": "2.3.2",
+			"BDFDB": "2.7.4",
 			"ChatAliases": "2.3.8",
 			"ClickableMentions": "1.0.5",
 			"CompleteTimestamps": "1.6.1",
@@ -25,7 +25,7 @@
 			"shareData": true
 		},
 		"hashes": {
-			"0BDFDB.data.json": "6de0b6b13c8c89fb0775a6eb61257d88bdc56629",
+			"0BDFDB.data.json": "af9b74e5d178ad15737ec33b0fc5e9d73e77ebff",
 			"0BDFDB.raw.css": "c10b12dd7ea7d591e3b0817afa421b97a14816bf"
 		}
 	}

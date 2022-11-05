@@ -1,3 +1,4 @@
+promptToReturnFromSubprocess: false
 git:
   autofetch: true
   paging:

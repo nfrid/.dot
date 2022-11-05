@@ -1,12 +1,11 @@
 /**
  * @name HideDisabledEmojis
- * @version 0.0.7
- * @authorLink https://twitter.com/IAmZerebos
- * @donate https://paypal.me/ZackRauen
- * @patreon https://patreon.com/Zerebos
+ * @description Hides disabled emojis from the emoji picker.
+ * @version 0.0.8
+ * @author Zerebos
+ * @authorId 249746236008169473
  * @website https://github.com/rauenzi/BetterDiscordAddons/tree/master/Plugins/HideDisabledEmojis
  * @source https://github.com/rauenzi/BetterDiscordAddons/blob/master/Plugins/HideDisabledEmojis/HideDisabledEmojis.plugin.js
- * @updateUrl https://github.com/rauenzi/BetterDiscordAddons/blob/master/Plugins/HideDisabledEmojis/HideDisabledEmojis.plugin.js
  */
 /*@cc_on
 @if (@_jscript)
@@ -31,33 +30,63 @@
     WScript.Quit();
 
 @else@*/
-
-module.exports = (() => {
-    const config = {info:{name:"HideDisabledEmojis",authors:[{name:"Zerebos",discord_id:"249746236008169473",github_username:"rauenzi",twitter_username:"ZackRauen"}],version:"0.0.7",description:"Hides disabled emojis from the emoji picker.",github:"https://github.com/rauenzi/BetterDiscordAddons/tree/master/Plugins/HideDisabledEmojis",github_raw:"https://github.com/rauenzi/BetterDiscordAddons/blob/master/Plugins/HideDisabledEmojis/HideDisabledEmojis.plugin.js"},changelog:[{title:"Bugs Squashed",type:"fixed",items:["Updated for Discord's changes."]}],main:"index.js"};
-
-    return !global.ZeresPluginLibrary ? class {
-        constructor() {this._config = config;}
-        getName() {return config.info.name;}
-        getAuthor() {return config.info.authors.map(a => a.name).join(", ");}
-        getDescription() {return config.info.description;}
-        getVersion() {return config.info.version;}
-        load() {
-            BdApi.showConfirmationModal("Library Missing", `The library plugin needed for ${config.info.name} is missing. Please click Download Now to install it.`, {
-                confirmText: "Download Now",
-                cancelText: "Cancel",
-                onConfirm: () => {
-                    require("request").get("https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js", async (error, response, body) => {
-                        if (error) return require("electron").shell.openExternal("https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js");
-                        await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
+const config = {
+    info: {
+        name: "HideDisabledEmojis",
+        authors: [
+            {
+                name: "Zerebos",
+                discord_id: "249746236008169473",
+                github_username: "rauenzi",
+                twitter_username: "ZackRauen"
+            }
+        ],
+        version: "0.0.8",
+        description: "Hides disabled emojis from the emoji picker.",
+        github: "https://github.com/rauenzi/BetterDiscordAddons/tree/master/Plugins/HideDisabledEmojis",
+        github_raw: "https://github.com/rauenzi/BetterDiscordAddons/blob/master/Plugins/HideDisabledEmojis/HideDisabledEmojis.plugin.js"
+    },
+    changelog: [
+        {
+            title: "Bugs Squashed",
+            type: "fixed",
+            items: [
+                "Updated for Discord's changes."
+            ]
+        }
+    ],
+    main: "index.js"
+};
+class Dummy {
+    constructor() {this._config = config;}
+    start() {}
+    stop() {}
+}
+ 
+if (!global.ZeresPluginLibrary) {
+    BdApi.showConfirmationModal("Library Missing", `The library plugin needed for ${config.name ?? config.info.name} is missing. Please click Download Now to install it.`, {
+        confirmText: "Download Now",
+        cancelText: "Cancel",
+        onConfirm: () => {
+            require("request").get("https://betterdiscord.app/gh-redirect?id=9", async (err, resp, body) => {
+                if (err) return require("electron").shell.openExternal("https://betterdiscord.app/Download?id=9");
+                if (resp.statusCode === 302) {
+                    require("request").get(resp.headers.location, async (error, response, content) => {
+                        if (error) return require("electron").shell.openExternal("https://betterdiscord.app/Download?id=9");
+                        await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), content, r));
                     });
+                }
+                else {
+                    await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
                 }
             });
         }
-        start() {}
-        stop() {}
-    } : (([Plugin, Api]) => {
-        const plugin = (Plugin, Api) => {
-    const {Patcher, DiscordModules, WebpackModules} = Api;
+    });
+}
+ 
+module.exports = !global.ZeresPluginLibrary ? Dummy : (([Plugin, Api]) => {
+     const plugin = (Plugin, Api) => {
+    const {Patcher, DiscordModules, WebpackModules, Utilities} = Api;
     return class HideDisabledEmojis extends Plugin {
         async onStart() {            
             Patcher.after(DiscordModules.EmojiInfo, "isEmojiFiltered", (thisObject, methodArguments, returnValue) => {
@@ -73,35 +102,39 @@ module.exports = (() => {
                 if (wasFiltered) props.emojiGrid.filtered = true; // Reassign
             };
 
-            const PickerMemo = WebpackModules.getModule(m => m.type && m.type.toString().includes("noSearchResultsContainer"));
-            Patcher.before(PickerMemo, "type", (_, args) => {
-                const props = args[0];
-                // console.log(props);
-                // {categoryId: "recent", type: "RECENT", sectionId: "RECENT", count: 38, offsetTop: 0}
-                if (props.emojiGrid.filtered) return doFiltering(props);
-                props.emojiGrid.filtered = true;
-                let row = 0;
-                for (let s = 0; s < props.sectionDescriptors.length; s++) {
-                    const section = props.sectionDescriptors[s];
-                    const rowCount = props.rowCountBySection[s];
-                    const rowEnd = row + rowCount - 1;
-                    let countLeft = 0;
-                    let rowsLeft = 0;
-                    for (let r = row; r <= rowEnd; r++) {
-                        props.emojiGrid[r] = props.emojiGrid[r].filter(e => !e.isDisabled);
-                        const remaining = props.emojiGrid[r].length;
-                        if (remaining) {
-                            rowsLeft = rowsLeft + 1;
-                            countLeft = countLeft + remaining;
+            const PickerWrapMemo = WebpackModules.getModule(m => m?.type?.render.toString().includes("emoji"));
+            Patcher.after(PickerWrapMemo.type, "render", (_, __, ret) => {
+                const pickerChild = Utilities.findInTree(ret, m => m?.props?.emojiGrid, {walkable: ["props", "children"]});
+                if (!pickerChild?.type?.type) return;
+                if (pickerChild.type.type.__patched) return;
+                Patcher.before(pickerChild.type, "type", (_, [props]) => {
+                    if (!props.rowCountBySection) return;
+                    if (props.emojiGrid.filtered) return doFiltering(props);
+                    props.emojiGrid.filtered = true;
+                    let row = 0;
+                    for (let s = 0; s < props.sectionDescriptors.length; s++) {
+                        const section = props.sectionDescriptors[s];
+                        const rowCount = props.rowCountBySection[s];
+                        const rowEnd = row + rowCount - 1;
+                        let countLeft = 0;
+                        let rowsLeft = 0;
+                        for (let r = row; r <= rowEnd; r++) {
+                            props.emojiGrid[r] = props.emojiGrid[r].filter(e => !e.isDisabled);
+                            const remaining = props.emojiGrid[r].length;
+                            if (remaining) {
+                                rowsLeft = rowsLeft + 1;
+                                countLeft = countLeft + remaining;
+                            }
                         }
+                        section.count = countLeft;
+                        props.rowCountBySection[s] = rowsLeft;
+    
+                        row = rowEnd + 1;
                     }
-                    section.count = countLeft;
-                    props.rowCountBySection[s] = rowsLeft;
-
-                    row = rowEnd + 1;
-                }
-
-                doFiltering(props);
+    
+                    doFiltering(props);
+                });
+                pickerChild.type.type.__patched = true;
             });
         }
         
@@ -111,7 +144,6 @@ module.exports = (() => {
 
     };
 };
-        return plugin(Plugin, Api);
-    })(global.ZeresPluginLibrary.buildPlugin(config));
-})();
+     return plugin(Plugin, Api);
+})(global.ZeresPluginLibrary.buildPlugin(config));
 /*@end@*/

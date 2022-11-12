@@ -21,3 +21,5 @@ bind -M insert \e. '__fish_list_current_token'
 bind -M default \e. '__fish_list_current_token'
 bind -M insert \em '__fish_man_page'
 bind -M default \em '__fish_man_page'
+
+bind -M default \e\  'xkb-switch -n'

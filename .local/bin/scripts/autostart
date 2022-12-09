@@ -32,6 +32,7 @@ austart flameshot
 austart keynav
 austart "transmission-gtk -m" transmission-gtk
 austart "qpwgraph -am" qpwgraph
+austart kwalletd5
 
 # tmux sessions
 # tmuxses sys

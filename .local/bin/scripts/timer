@@ -1,0 +1,37 @@
+#!/bin/bash
+
+sound=/usr/share/sounds/freedesktop/stereo/complete.oga
+default_notify="Timer finished"
+
+time=$1
+notify=$2
+
+if [ -z "$time" ]; then
+  echo "Usage: timer <time> [notify]"
+  exit 1
+fi
+
+if [ -z "$notify" ]; then
+  notify="$default_notify"
+fi
+
+if ! [[ "$time" =~ ^[0-9]+[smh]$ ]]; then
+  echo "Time must be positive"
+  exit 1
+fi
+
+if ! [ -f "$sound" ]; then
+  echo "Sound file not found: $sound"
+  echo "Executing w/o sound"
+fi
+
+sleep "$time"
+
+if [ -f "$sound" ]; then
+  mpv "$sound" > /dev/null 2>&1 &
+fi
+
+if [ -x "$(command -v notify-send)" ]; then
+  notify-send "$notify" > /dev/null 2>&1 &
+fi
+

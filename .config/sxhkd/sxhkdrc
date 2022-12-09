@@ -88,6 +88,9 @@ super +{_, alt +} slash
 super + shift + slash
   dmenu -p tuxi | tuxi -r | xargs -I% notify-send -i search %
 
+super + t
+  dmenu_timer
+
 # taskwarrior tui
 super + ctrl + slash
   xkb-switch -s us; $TERM -e taskwarrior-tui

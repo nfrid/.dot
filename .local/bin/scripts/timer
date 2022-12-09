@@ -15,7 +15,7 @@ if [ -z "$notify" ]; then
   notify="$default_notify"
 fi
 
-if ! [[ "$time" =~ ^[0-9]+[smh]$ ]]; then
+if ! [[ "$time" =~ ^[0-9]+[smh]?$ ]]; then
   echo "Time must be positive"
   exit 1
 fi
@@ -32,6 +32,6 @@ if [ -f "$sound" ]; then
 fi
 
 if [ -x "$(command -v notify-send)" ]; then
-  notify-send "$notify" > /dev/null 2>&1 &
+  notify-send "Timer" "$notify" > /dev/null 2>&1 &
 fi
 

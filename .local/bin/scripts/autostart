@@ -3,7 +3,7 @@
 xset r rate 500 25
 
 function austart {
-    ps -C "${2:-$1}" >/dev/null || $1 &
+  ps -C "${2:-$1}" >/dev/null || $1 &
 }
 
 fehbg
@@ -33,9 +33,10 @@ austart keynav
 austart "transmission-gtk -m" transmission-gtk
 austart "qpwgraph -am" qpwgraph
 austart kwalletd5
+austart thunderbird
 
 # tmux sessions
-# tmuxses sys
 # tmuxses main
+# tmuxses sys
 
 exit 0

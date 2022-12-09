@@ -18,3 +18,4 @@ git:
     hrd:
       pattern: "\\w+-(\\w+).*"
       replace: '[$1] '
+notARepository: quit

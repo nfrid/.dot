@@ -203,6 +203,10 @@ thefuck --alias | source
 # pyenv init - | source
 # pdm completion | source
 
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+
 
 export NPM_TOKEN=(pw tokens/npm/github)
 

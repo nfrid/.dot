@@ -211,4 +211,10 @@ thefuck --alias | source
 export NPM_TOKEN=(pw tokens/npm/github)
 
 
+# neovim remote for lazygit.nvim
+if test -n "$NVIM_LISTEN_ADDRESS"
+  export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+end
+
+
 set -gx __fish_initialized 1

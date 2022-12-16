@@ -3,7 +3,7 @@
     "p_1lib_discord_internals": false,
     "BetterCustomCSS": false,
     "CustomJs": false,
-    "PluginRepo": true,
+    "PluginRepo": false,
     "SuppressUserMentions": false,
     "VIPs": false,
     "Sorter": false,

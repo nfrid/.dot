@@ -22,7 +22,7 @@ export PATH=$PATH:$HOME/.local/bin/scripts:$HOME/.yarn/bin
 
 export GOPATH=$HOME/.local/go
 
-export TERM="alacritty"
+export TERM="kitty"
 export TERMINAL=$TERM # For xdg to open in a right terminal
 
 export EDITOR="nvim"

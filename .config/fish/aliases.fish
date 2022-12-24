@@ -4,7 +4,7 @@ alias ww="cd ~/Documents/Writing"
 alias sc="cd ~/.local/bin/scripts"
 alias src="cd ~/.local/src"
 alias bl="cd ~/github/nfrid.me/src/posts"
-alias nv="cd ~/.local/share/nvim/site/pack/packer/start"
+alias nv="cd ~/.local/share/nvim"
 
 alias yt="yt-dlp"
 alias youtube-dl="yt"

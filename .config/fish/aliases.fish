@@ -60,6 +60,8 @@ end
 alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
 alias cal="cal -m3"
 
+alias v="kitty +kitten icat"
+
 # fuck
 function fuck -d "Correct your previous console command"
   set -l fucked_up_command $history[1]

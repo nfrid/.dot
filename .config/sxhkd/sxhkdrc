@@ -17,7 +17,8 @@ super + ctrl + { Return, m }
 
 # start a terminal w/ tmux
 super + { Return, m }
-  xkb-switch -s us; $TERMINAL -e bash -c "tmux attach || tmux"
+  xkb-switch -s us; $TERMINAL
+  # xkb-switch -s us; $TERMINAL -e bash -c "tmux attach || tmux"
 
 ctrl + button12
   boomer -f

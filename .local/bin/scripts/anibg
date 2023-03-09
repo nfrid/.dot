@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# defaults
+anidir="$HOME/Images/Wallpapers/animated"
+speed=0.5
+
+# lockfile stuff
+lf=/tmp/anibg.lock
+touch $lf
+read -r lastPID < $lf
+[ -n "$lastPID" ] && [ -d /proc/"$lastPID" ] && kill "$lastPID"
+echo $$ > $lf
+
+if [ -n "$2" ]; then
+  speed=$2
+fi
+
+
+if [ -n "$1" ]; then
+  dir=$1
+else
+  list=("$anidir"/*)
+  RANDOM=$$$(date +%s)
+  dir=${list[$RANDOM % ${#list[@]}]}
+fi
+
+files=("$dir"/*.png)
+
+custom_speed_re="^.*\/.*-([0-9.]+)\.\w*\$"
+
+trap 'exit 0' SIGINT SIGQUIT SIGTERM
+while true; do
+  for file in "${files[@]}"; do
+    feh --no-fehbg --bg-fill "$file"
+    if [[ $file =~ $custom_speed_re ]]; then
+      sleep "${BASH_REMATCH[1]}"
+    else
+      sleep "$speed"
+    fi
+  done
+done

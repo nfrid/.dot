@@ -6,9 +6,12 @@ function austart {
   ps -C "${2:-$1}" >/dev/null || $1 &
 }
 
-fehbg
+# fehbg
+# nitrogen --set-tiled --random "$HOME/Images/Wallpapers/random/"
+anibg &
 bluetoothctl power on
 
+# austart animwall
 austart rootblocks
 austart sxhkd
 austart nm-applet

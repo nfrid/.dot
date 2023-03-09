@@ -6,9 +6,9 @@ function austart {
   ps -C "${2:-$1}" >/dev/null || $1 &
 }
 
-# fehbg
+fehbg
 # nitrogen --set-tiled --random "$HOME/Images/Wallpapers/random/"
-anibg &
+# anibg &
 bluetoothctl power on
 
 # austart animwall
@@ -33,7 +33,7 @@ austart vk
 austart crow
 austart flameshot
 austart keynav
-austart "transmission-gtk -m" transmission-gtk
+# austart "transmission-gtk -m" transmission-gtk
 austart "qpwgraph -am" qpwgraph
 austart kwalletd5
 austart thunderbird

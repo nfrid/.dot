@@ -218,3 +218,8 @@ end
 
 
 set -gx __fish_initialized 1
+
+# pnpm
+set -gx PNPM_HOME "/home/nf/.local/share/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end

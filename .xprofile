@@ -20,6 +20,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 
 export PATH=$PATH:$HOME/.local/bin/scripts:$HOME/.yarn/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 export GOPATH=$HOME/.local/go
 

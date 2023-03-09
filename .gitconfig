@@ -1,6 +1,6 @@
 [user]
 	name = Nick Friday
-	email = nfriday@yandex.ru
+	email = nfriday@ya.ru
 [includeIf "gitdir:~/job/"]
   path = .gitconfig-job
 

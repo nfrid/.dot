@@ -15,6 +15,7 @@ export GTK_IM_MODULE=uim
 export QT_IM_MODULE=uim
 export XMODIFIERS=@im=uim
 
+export GTK_THEME=Dracula
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 

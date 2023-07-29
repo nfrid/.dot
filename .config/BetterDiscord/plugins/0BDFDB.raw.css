@@ -565,6 +565,7 @@ img:not([src]), img[src=""], img[src="null"] {
 [REPLACE_CLASS_selectwrapper] [REPLACE_CLASS_select] {
 	flex: 1 1 auto;
 }
+[REPLACE_CLASS_selectwrapper] [REPLACE_CLASS_selectouter],
 [REPLACE_CLASS_selectwrapper] [REPLACE_CLASS_selectsearchinput] {
 	width: 100%;
 }
@@ -604,7 +605,7 @@ img:not([src]), img[src=""], img[src="null"] {
 	filter: grayscale(0.2);
 }
 [REPLACE_CLASS_settingspanel] [REPLACE_CLASS_hovercardwrapper] {
-	width: calc(100% - 22px);
+	width: calc(100% - 32px);
 }
 [REPLACE_CLASS_hovercardwrapper][REPLACE_CLASS_hovercard] {
 	padding: 10px 0;
@@ -744,7 +745,7 @@ img:not([src]), img[src=""], img[src="null"] {
 	display: flex;
 	align-items: center;
 	flex: 1 0 auto;
-	margin-right: 10px;
+	margin-right: 20px;
 	margin-left: 10px;
 }
 [REPLACE_CLASS_settingstableheaderoptions] {
@@ -777,6 +778,9 @@ img:not([src]), img[src=""], img[src="null"] {
 	height: 60px;
 	padding: 0 10px;
 	margin-bottom: 10px;
+}
+[REPLACE_CLASS_settingstablecard][REPLACE_CLASS_cardprimaryoutline] {
+	border: 1px solid var(--background-tertiary);
 }
 [REPLACE_CLASS_settingstablecardlabel] {
 	display: flex;
@@ -1126,7 +1130,7 @@ input[REPLACE_CLASS_input][REPLACE_CLASS_inputerror] {
 	pointer-events: none;
 }
 [REPLACE_CLASS__repomodalsettings] {
-    padding: 0 16px 16px 16px;
+	padding: 0 16px 16px 16px;
 }
 [REPLACE_CLASS__repochangelogbutton] {
 	position: fixed;
@@ -1154,6 +1158,13 @@ input[REPLACE_CLASS_input][REPLACE_CLASS_inputerror] {
 }
 [REPLACE_CLASS__repolistscroller] {
 	padding-top: 0;
+}
+[REPLACE_CLASS__repolistheader] [REPLACE_CLASS_tabbarcontainer] {
+	display: flex;
+	align-items: flex-start;
+}
+[REPLACE_CLASS__repolistheader] [REPLACE_CLASS_quickselectwrapper] {
+	line-height: 20px;
 }
 [REPLACE_CLASS__repoentry] [REPLACE_CLASS__repofooter] {
 	display: flex;
@@ -1257,6 +1268,9 @@ input[REPLACE_CLASS_input][REPLACE_CLASS_inputerror] {
 	padding-top: 4px;
 }
 
+[REPLACE_CLASS_tooltiprow]:has([REPLACE_CLASS_usersummarycontainer]:empty) {
+	display: none;
+}
 [REPLACE_CLASS_tooltipnote] {
 	color: var(--text-muted);
 	font-size: 11px;
@@ -1266,8 +1280,7 @@ input[REPLACE_CLASS_input][REPLACE_CLASS_inputerror] {
 [REPLACE_CLASS_tooltiplistitem][REPLACE_CLASS_tooltipcustom] {
 	color: #fff;
 }
-[REPLACE_CLASS_tooltip] [REPLACE_CLASS_tooltipcontent]:empty,
-[REPLACE_CLASS_tooltip] [REPLACE_CLASS_tooltipcontent]:empty > * {
+[REPLACE_CLASS_tooltip]:has([REPLACE_CLASS_tooltipcontent]:empty) {
 	display: none !important;
 }
 [REPLACE_CLASS_tooltip][REPLACE_CLASS_tooltipcustom] [REPLACE_CLASS_tooltipnote],

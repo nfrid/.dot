@@ -7,15 +7,18 @@ git:
 
   commitPrefixes:
     crm-frontend:
-      pattern: "\\w+-(\\w+).*"
+      pattern: "(\\w+-\\w+).*"
       replace: '[$1] '
     crm-backend:
-      pattern: "\\w+-(\\w+).*"
+      pattern: "(\\w+-\\w+).*"
       replace: '[$1] '
     frontend:
-      pattern: "\\w+-(\\w+).*"
+      pattern: "(\\w+-\\w+).*"
       replace: '[$1] '
     hrd:
-      pattern: "\\w+-(\\w+).*"
+      pattern: "(\\w+-\\w+).*"
+      replace: '[$1] '
+    packages:
+      pattern: "(\\w+-\\w+).*"
       replace: '[$1] '
 notARepository: quit

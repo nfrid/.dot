@@ -1,0 +1,48 @@
+#!/bin/bash
+
+file="$HOME/Documents/Notes/todo.md"
+
+count() {
+  list=$(sed -n "/^## $1\$/,/^##/p" "$file" | sed -n '/^ *-/p')
+  count=$(echo -n "$list" | grep -c "^ *-")
+  echo "$count"
+}
+
+#!/usr/bin/env bash
+# https://github.com/ppo/bash-colors (v0.3.0)
+c() { [ $# == 0 ] && printf "\e[0m" || printf "$1" | sed 's/\(.\)/\1;/g;s/\([SDIUFNHT]\)/2\1/g;s/\([KRGYBMCW]\)/3\1/g;s/\([krgybmcw]\)/4\1/g;y/SDIUFNHTsdiufnhtKRGYBMCWkrgybmcw/12345789123457890123456701234567/;s/^\(.*\);$/\\e[\1m/g'; }
+cecho() { echo -e "$(c "$1")${2}\e[0m"; }
+
+urgent=$(count urgent)
+pending=$(count pending)
+backlog=$(count backlog)
+
+if [ "$1" = "count" ]; then
+  case "$2" in
+    urgent) echo "$urgent" ;;
+    pending) echo "$pending" ;;
+    backlog) echo "$backlog" ;;
+    *) echo -e "\n  $(c sR)Urgent$(c): $urgent | $(c sY)Pending$(c): $pending | $(c 0sB)Backlog$(c): $backlog\n"
+      ;;
+  esac
+  exit 0
+fi
+
+icon_pending=/usr/share/icons/Papirus/16x16/emblems/emblem-urgent.svg
+icon_urgent=/usr/share/icons/Papirus/16x16/emblems/emblem-important.svg
+
+if [ "$1" = "notify" ]; then
+  if [ "$urgent" -gt 0 ]; then
+    notify-send \
+      -i "$icon_urgent" \
+      -u critical "Urgent: $urgent" "Pending: $pending"
+
+  elif [ "$2" = "pending" ] && [ "$pending" -gt 0 ]; then
+    notify-send \
+      -i "$icon_pending" \
+      -u normal "Pending $pending" "Backlog: $backlog"
+  fi
+  exit 0
+fi
+
+$EDITOR "$file"

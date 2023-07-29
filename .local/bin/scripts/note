@@ -2,18 +2,27 @@
 
 NOTES_DIR="$HOME/Documents/Notes"
 
+err() {
+  echo "$@"
+  notify-send -u critical "note" "$1"
+  exit "${2:-1}"
+}
+
+cd "$NOTES_DIR" || err "Notes directory $NOTES_DIR does not exist"
+
 # run in neovim in default terminal & shell
 runvim() {
-  $TERM -e sh -c "sleep 0.1 && nvim '$NOTES_DIR/$1.md'"
+  $TERM -e sh -c "sleep 0.1 && nvim './$1.md'"
   exit 0
 }
 
 # run in neovim as note if there are any args
-[[ -z "$1" ]] || runvim $@
+[[ -z "$1" ]] || runvim "$@"
 
 # select note in dmenu + commands
-notes=$(find "$NOTES_DIR/" -name "*.md" -exec basename {} .md ";")
-sel=$(echo -e "$notes\n:new\n:rm\n:mv" | dmenu -p 'note')
+notes=$(find . -type f -name "*.md" -not -path '*/\.*' | sed 's/\.md$//' | sed 's/^\.\///')
+dirs=$(find . -type d -not -path '*/\.*' | tail -c +3 | sed 's/^\.\///')
+sel=$(echo -e "$notes\n:new\n:rm\n:mv\n:mkdir\n:rmdir" | dmenu -p 'note')
 
 # handle selected note/command
 case $sel in
@@ -30,6 +39,14 @@ case $sel in
     sel=$(dmenu -p 'new')
     echo "# $sel" >> "$NOTES_DIR/$sel.md"
     runvim "$sel"
+    ;;
+  :mkdir)
+    sel=$(echo "$dirs" | dmenu -p 'mkdir')
+    mkdir -p "$sel"
+    ;;
+  :rmdir)
+    sel=$(echo "$dirs" | dmenu -p 'rmdir')
+    rmdir "$sel" || err "Directory $sel contains some notes"
     ;;
   *)
     [[ -z "$sel" ]] || runvim "$sel"

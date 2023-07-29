@@ -20,6 +20,6 @@ con() {
 case $2 in
   c) con $dev ;;
   d) bluetoothctl disconnect $dev ;;
-  r) bluetoothctl disconnect $dev && con $dev ;;
+  r) bluetoothctl disconnect $dev && sleep 0.5 && con $dev ;;
   *) echo "unknown command: $2"; exit 1 ;;
 esac

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-host=nf@192.168.8.109:/
+host=nf@192.168.1.141:/
 port=2222
 mnt=$HOME/TEMP/Music
 mus=$HOME/Music/*
@@ -8,7 +8,7 @@ mus=$HOME/Music/*
 mkdir -p $mnt
 sshfs -o HostKeyAlgorithms=ssh-rsa -p $port $host $mnt || exit 1
 
-rsync -crvvuP --delete $mus $mnt
+rsync -crvvuP --delete --checksum $mus $mnt
 
 fusermount -u $mnt
 rmdir $mnt

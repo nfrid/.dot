@@ -1,0 +1,34 @@
+#!/bin/bash
+
+if [[ -z $2 ]]; then
+  case "$1" in
+    twitch)
+      x=0
+      y=0
+      w=2294
+      h=1080
+      ;;
+    *)
+      echo "Usage: setwindim <macro|x y w h border=2>
+
+Available macros:
+- twitch (0 0 2294 1080)"
+      exit 1
+      ;;
+  esac
+else
+  x=$1
+  y=$2
+  w=$3
+  h=$4
+  border=$5
+fi
+
+id=$((16#$(xwininfo | grep 'Window id:' | cut -d " " -f 4 | cut -d 'x' -f 2)))
+
+if [ -z "$border" ]; then
+  border=2
+fi
+
+xdotool windowmove "$id" $((x - border)) $((y - border))
+xdotool windowsize "$id" $((x + w)) $((y + h))

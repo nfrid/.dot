@@ -50,7 +50,7 @@ super + r
 
 # rofi desktop
 super + shift + d
-  rofi -modi drun -show drun
+  xkb-switch -s us; rofi -modi drun -show drun
 
 # rofi run
 # super + shift + r

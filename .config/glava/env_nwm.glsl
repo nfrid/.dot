@@ -1,0 +1,1 @@
+/home/nf/.config/glava/env_Openbox.glsl

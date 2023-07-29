@@ -199,6 +199,11 @@ end
 # end
 
 
+set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
+set fzf_preview_dir_cmd exa --all --color=always
+fzf_configure_bindings --variables=\e\cv
+
+
 thefuck --alias | source
 # pyenv init - | source
 # pdm completion | source
@@ -218,6 +223,8 @@ end
 
 
 set -gx __fish_initialized 1
+
+# todo count
 
 # pnpm
 set -gx PNPM_HOME "/home/nf/.local/share/pnpm"

@@ -133,11 +133,13 @@ alias _e="sudo -e"
 # alias -="cd -"
 
 # TaskWarrior
-alias t="task"
-alias et="nvim +TW"
-alias ts="t sync"
-alias tc="t calendar"
-alias tt="taskwarrior-tui"
+# alias t="task"
+# alias et="nvim +TW"
+# alias ts="t sync"
+# alias tc="t calendar"
+# alias tt="taskwarrior-tui"
+
+alias t="todo"
 
 # Tmux
 alias tt="tmux"
@@ -217,7 +219,6 @@ alias pmr="sudo pacman -Rs"
 alias pmu="sudo pacman -Syu"
 alias p="paru"
 alias pi="paru -S"
-alias ps="paru -Ss"
 alias pr="paru -Rs"
 # alias p="yay"
 # alias pi="yay -S"

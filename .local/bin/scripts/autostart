@@ -17,6 +17,7 @@ austart sxhkd
 austart nm-applet
 austart dunst
 austart "picom --experimental-backends" picom
+austart glava
 austart uim-xim
 austart libinput-gestures
 # austart "greenclip daemon" greenclip

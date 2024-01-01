@@ -202,6 +202,10 @@ end
 set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
 set fzf_preview_dir_cmd exa --all --color=always
 fzf_configure_bindings --variables=\e\cv
+set fzf_fd_opts --hidden --exclude=.git
+set fzf_directory_opts --bind "alt-e:execute($EDITOR {} &> /dev/tty)"
+# set fzf_preview_file_cmd __fzf_preview_file_content
+set fzf_preview_file_cmd preview
 
 
 thefuck --alias | source

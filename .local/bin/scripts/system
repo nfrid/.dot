@@ -1,7 +1,7 @@
 #!/bin/bash
 
 declare options=("lock
-exit
+relog
 suspend
 hibernate
 reboot
@@ -13,8 +13,8 @@ case "$choice" in
 	lock)
 		dm-tool lock
 		;;
-	exit)
-    killall startdwm
+	relog)
+    systemctl restart lightdm.service
 		;;
 	suspend)
 		systemctl suspend

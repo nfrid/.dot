@@ -1,0 +1,22 @@
+#!/bin/bash
+
+jira="https://jira.mygig.tech/browse"
+
+choice=$(echo -e "PCRM\nAPPS\n " | dmenu -i -p "opencut")
+
+case $choice in
+  PCRM)
+    task=$(dmenu -i -p "task")
+    firefox-developer-edition "$jira/PCRM-$task"
+    ;;
+  APPS)
+    task=$(dmenu -i -p "task")
+    firefox-developer-edition "$jira/APPS-$task"
+    ;;
+  ' ')
+    query=$(dmenu -i -p "query")
+    $BROWSER "https://search.brave.com/search?q=$query"
+    ;;
+  '') ;;
+  *) notify-send "opencut" "idk this shortcut" ;;
+esac

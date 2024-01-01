@@ -3,7 +3,7 @@
 xset r rate 500 25
 
 function austart {
-  ps -C "${2:-$1}" >/dev/null || $1 &
+	ps -C "${2:-$1}" >/dev/null || $1 &
 }
 
 fehbg
@@ -11,6 +11,7 @@ fehbg
 # anibg &
 bluetoothctl power on
 
+austart blueman-applet
 # austart animwall
 austart rootblocks
 austart sxhkd
@@ -18,7 +19,8 @@ austart nm-applet
 austart dunst
 austart "picom --experimental-backends" picom
 austart glava
-austart uim-xim
+# austart uim-xim
+austart fcitx5
 austart libinput-gestures
 # austart "greenclip daemon" greenclip
 # austart "bash /usr/bin/clipmenud"
@@ -34,10 +36,12 @@ austart vk
 austart crow
 austart flameshot
 austart keynav
+austart xbindkeys
 # austart "transmission-gtk -m" transmission-gtk
 austart "qpwgraph -am" qpwgraph
 austart kwalletd5
 austart thunderbird
+# austart obsidian
 
 # tmux sessions
 # tmuxses main

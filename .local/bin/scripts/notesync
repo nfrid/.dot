@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd "$HOME/Documents/Notes" || {
+  notify-send -u critical "notesync" "Couldn't cd into Notes directory"
+  exit 1
+}
+
+git pull || {
+  notify-send -u critical "notesync" "Pull failed"
+  exit 1
+}
+
+set -e
+
+[[ $(git status -s | wc -l) -gt 0 ]] && git add . && git commit -m "notesync"
+[[ $(git log origin/main..HEAD | wc -l) -gt 0 ]] && git push

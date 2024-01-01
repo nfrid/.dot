@@ -1,9 +1,18 @@
 promptToReturnFromSubprocess: false
+notARepository: quit
+
+gui:
+  showCommandLog: true
+  commandLogSize: 5
+  border: rounded
+  nerdFontsVersion: "3"
+
 git:
-  autofetch: true
   paging:
     colorArg: always
     pager: delta --dark --paging=never
+
+  mainBranches: [master, main, staging, production]
 
   commitPrefixes:
     crm-frontend:
@@ -21,4 +30,3 @@ git:
     packages:
       pattern: "(\\w+-\\w+).*"
       replace: '[$1] '
-notARepository: quit

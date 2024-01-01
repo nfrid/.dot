@@ -24,11 +24,12 @@ ctrl + button12
   boomer -f
 
 # dmenu tmux
-super + a
-  dmux
+# super + a
+#   dmux
 
 # switch layout
-super + space
+# super + space
+super + ctrl + space
   xkb-switch -n
 
 # clipboard
@@ -43,6 +44,10 @@ super + space
 # dmenu run
 super + d
   dmenu_run_history -p run
+
+# opencut
+super + alt + o
+  opencut
 
 # dmenu commands
 super + r
@@ -188,6 +193,10 @@ super + n
 # start neomutt (E-mail client)
 super + alt + n
   xkb-switch -s us; $TERM -e neomutt
+
+# start NewsBoat (RSS client)
+super + shift + n
+  obsidian
 
 # update mail
 super + alt + shift + n

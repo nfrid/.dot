@@ -1,0 +1,33 @@
+#!/bin/sh
+
+LIST_CACHE="$HOME/.cache/authy-list"
+
+list=$(cat "$LIST_CACHE")
+
+sync() {
+  list=$(mambembe-cli list-services | sed -n 's/.*Name: "\([^"]*\)".*/\1/p')
+  echo "$list" >"$LIST_CACHE"
+}
+
+if [ "$1" = "sync" ]; then
+  sync
+  exit 0
+fi
+
+if ! [ "$list" ]; then
+  sync
+fi
+
+if [ "$1" = "dmenu" ]; then
+  choice=$(echo "$list" | dmenu -l 20 -p "Authy")
+  if ! [ "$choice" ]; then
+    exit 0
+  fi
+  token=$(mambembe-cli get-token -s "$choice" | rg -oP 'Token: "\K\d+')
+  if ! [ "$token" ]; then
+    notify-send "Authy" "Failed to get token"
+    exit 1
+  fi
+  printf '%s' "$token" | xclip -sel c
+  exit 0
+fi

@@ -117,10 +117,9 @@ super + semicolon
 super + shift + semicolon
   splatmoji copy
 
-# password manager
+# otp (authy)
 super + shift + p
-  useus rofi-pass
-  # useus pass-rofi --no-notify
+  authy-cli dmenu
 
 # passmenu
 super + p

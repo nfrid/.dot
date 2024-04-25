@@ -1,4 +1,4 @@
-<=======================> sys
+# <=======================> sys
 https://www.archlinux.org/feeds/news/ # Arch Linux
 https://neovim.io/news.xml # Neovim
 https://this-week-in-neovim.org/rss
@@ -6,11 +6,11 @@ https://this-week-in-neovim.org/rss
 # https://www.archlinux.org/feeds/packages/removed/ "arch
 # https://aur.archlinux.org/rss/ "arch
 
-<=======================>
+# <=======================>
 # github
 https://github.com/NFrid.private.atom?token=ADDRGQ735A3ZVEYAL2J2AD57BAE6U # My Feed
 
-<=======================>
+# <=======================>
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCWmg4yE--6K8Kvr7BEGQFIw # Бэбэй
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCdga1n7C6EJfoS0lYxDpeoA # Хумас
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCysmaAdKferbE31bMkCoFxQ # iMiles
@@ -26,7 +26,7 @@ https://github.com/NFrid.private.atom?token=ADDRGQ735A3ZVEYAL2J2AD57BAE6U # My F
 # https://www.youtube.com/feeds/videos.xml?channel_id=UC-yfMLscSY3vP_PKC1Z5B0w # isaacwhy
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCA88kGBpPHRCxAcskmUh23w # Softwilly
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCD6VugMZKRhSyzWEWA9W2fg # SsethTzeentach
-https://www.youtube.com/feeds/videos.xml?channel_id=UCWhiokx685TXHK9F4vdFoAw # Albino
+# https://www.youtube.com/feeds/videos.xml?channel_id=UCWhiokx685TXHK9F4vdFoAw # Albino
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCk_uUorZaASGE-SuxDt1pbQ # Not Albino
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCzLKVrV4lFmSr3lsPo6oesA # Albino Archive
 # https://www.youtube.com/feeds/videos.xml?channel_id=UC4sxB7lQ17CKRpFQpntloRg # twomad
@@ -86,8 +86,8 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCWhiokx685TXHK9F4vdFoAw # A
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCtr7L6AnC8yFk72_tdPWukA # Ваганыч
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCOU3Ou_d0PVJ7F9PB8_ag2Q # ДОГНАТЬ МЕЙНСТРИМ
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCpFTWZY9jyTdcpu7zpXGA_A # Серёга Орлов
--------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2XsUMYePMjhTBxgQRf5EHw # Btmodz
+# -------------------------
+# https://www.youtube.com/feeds/videos.xml?channel_id=UC2XsUMYePMjhTBxgQRf5EHw # Btmodz
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCgTaH6nm8sby0hpb2DSKNhg # Boffy
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCCE5NVlm0FhbunMMBT48WAw # Fundy
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCFAiFyGs6oDiF1Nf-rRJpZA # Technoblade
@@ -107,7 +107,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC2XsUMYePMjhTBxgQRf5EHw # B
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg # Wolfgang
 # https://www.youtube.com/feeds/videos.xml?channel_id=UC8ENHE5xdFSwx71u3fDH5Xw # Primeagen
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ # Chris Titus Tech
--------------------------
+# -------------------------
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCRb6Mw3fJ6OFzp-cB9X29aA # Junferno
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCIabPXjvT5BVTxRDPCBBOOQ # Dani
 # https://www.youtube.com/feeds/videos.xml?channel_id=UCUmLRMERmJrmUtgnbFfknAg # Randall
@@ -142,5 +142,5 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC2XsUMYePMjhTBxgQRf5EHw # B
 # https://mangadex.org/rss/qRvgZhY8QtEnAmK9aD3H7VeczwGkM2py/manga_id/22631 # Ijiranaide, Nagatoro-san
 # <=======================>
 # https://lukesmith.xyz/peertube # Luke Smith
-<=======================>
+# <=======================>
 # vim:ft=config

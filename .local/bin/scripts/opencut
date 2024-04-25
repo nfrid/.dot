@@ -2,21 +2,25 @@
 
 jira="https://jira.mygig.tech/browse"
 
-choice=$(echo -e "PCRM\nAPPS\n " | dmenu -i -p "opencut")
+choice=$(echo -e "PCRM\nAPPS\nSPRNTS\n " | dmenu -i -p "opencut")
 
 case $choice in
-  PCRM)
-    task=$(dmenu -i -p "task")
-    firefox-developer-edition "$jira/PCRM-$task"
-    ;;
-  APPS)
-    task=$(dmenu -i -p "task")
-    firefox-developer-edition "$jira/APPS-$task"
-    ;;
-  ' ')
-    query=$(dmenu -i -p "query")
-    $BROWSER "https://search.brave.com/search?q=$query"
-    ;;
-  '') ;;
-  *) notify-send "opencut" "idk this shortcut" ;;
+PCRM)
+  task=$(dmenu -i -p "task")
+  xdg-open "$jira/PCRM-$task"
+  ;;
+APPS)
+  task=$(dmenu -i -p "task")
+  xdg-open "$jira/APPS-$task"
+  ;;
+SPRNTS)
+  task=$(dmenu -i -p "task")
+  xdg-open "$jira/SPRNTS-$task"
+  ;;
+' ')
+  query=$(dmenu -i -p "query")
+  $BROWSER "https://duckduckgo.com/?q=$query"
+  ;;
+'') ;;
+*) notify-send "opencut" "idk this shortcut" ;;
 esac

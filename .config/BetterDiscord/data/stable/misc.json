@@ -1,5 +1,5 @@
 {
-    "version": "1.9.7",
+    "version": "1.10.1",
     "emoteVersion": "v1.6.3",
     "drawerStates": {
         "settings": {
@@ -11,7 +11,9 @@
     },
     "addonlistControls": {
         "plugin": {
-            "view": "grid"
+            "view": "grid",
+            "sort": "added",
+            "ascending": false
         }
     }
 }

@@ -14,9 +14,9 @@ export LC_ALL="en_US.UTF-8"
 # export GTK_IM_MODULE=uim
 # export QT_IM_MODULE=uim
 # export XMODIFIERS=@im=uim
-export GTK_IM_MODULE=fcitx5
-export QT_IM_MODULE=fcitx5
-export XMODIFIERS=@im=fcitx5
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 export GLFW_IM_MODULE=ibus
 
 export GTK_THEME=Dracula
@@ -32,7 +32,7 @@ export TERM="kitty"
 export TERMINAL=$TERM # For xdg to open in a right terminal
 
 export EDITOR="nvim"
-export BROWSER="brave"
+export BROWSER="vivaldi-stable"
 
 export SXHKD_SHELL="/usr/bin/sh"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"

@@ -1,8 +1,49 @@
 #!/bin/bash
 
-# colorkey=0x000000:0.02:0.02,
-# crop=w='min(min(iw\,ih)\,512)':h='min(min(iw\,ih)\,512)',
-ffmpeg -i "$1" -filter:v "
-scale=512:-1,
-setsar=1
-" -to 00:00:03 -pix_fmt yuva420p "${@:3}" "$2".webm
+set -eu
+NAME=${0##*/}
+
+print_help() {
+  echo "Usage: $NAME [-hcsk] <input file> <output name> [ffmpeg args]
+  -h		Print this help message
+  -c		Crop to 512x512
+  -s <num>	Speed up by a factor of <num>
+  -k <h:s:b>	Make the color transparent <000000:0.1:0.2>
+		h - hex color <000000>
+		s - similarity <0.1>
+		b - blend <0.2>" >&2
+  exit "$1"
+}
+
+filter="scale=w='if(gt(iw\,ih),512,-2)':h='if(gt(iw\,ih),-2,512)',setsar=1"
+
+while getopts ks:ch OPTION; do
+  case $OPTION in
+  c)
+    filter="crop=w='min(min(iw\,ih)\,512)':h='min(min(iw\,ih)\,512)',$filter"
+    ;;
+  s)
+    filter="setpts=PTS/${OPTARG},$filter"
+    ;;
+  k)
+    filter="colorkey=0x${OPTARG},$filter"
+    ;;
+  h)
+    print_help 0
+    ;;
+  *)
+    print_help 1
+    ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+if [ "$#" -lt 2 ]; then
+  print_help 1
+fi
+
+input=$1
+output=$2
+args=${*:3}
+
+ffmpeg -i "$input" -filter:v "$filter" -to 00:00:03 -pix_fmt yuva420p $args "$output".webm

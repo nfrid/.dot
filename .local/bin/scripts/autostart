@@ -40,7 +40,7 @@ austart xbindkeys
 # austart "transmission-gtk -m" transmission-gtk
 austart "qpwgraph -am" qpwgraph
 austart kwalletd5
-austart thunderbird
+# austart thunderbird
 # austart obsidian
 
 # tmux sessions

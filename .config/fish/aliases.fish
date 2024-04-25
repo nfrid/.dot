@@ -142,13 +142,17 @@ alias _e="sudo -e"
 alias t="todo"
 
 # Tmux
-alias tt="tmux"
-alias ta="tmux attach"
-function tn
-    test $TMUX &&
-        tmux new -s $argv -d ||
-        tmux new -s $argv
-end
+# alias tt="tmux"
+# alias ta="tmux attach"
+# function tn
+#     test $TMUX &&
+#         tmux new -s $argv -d ||
+#         tmux new -s $argv
+# end
+
+# Zellij
+alias zj="zellij"
+alias zz="zellij attach"
 
 alias aa="abduco"
 

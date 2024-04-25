@@ -1,0 +1,36 @@
+#!/bin/sh
+
+NOTES_PATH="$HOME/.config/vivaldi/Default/Notes"
+MAP='{
+  title:
+    (if (.subject | length > 0)
+      then .subject
+      else .content | split("\n")[0] | sub("^#+ "; "")
+    end),
+  content
+}'
+
+notes=$(
+  jq "
+  [.children[] | select(.type? == \"note\") | $MAP] +
+  [.children[] | .. | select(.type? == \"folder\") |
+    .subject as \$parent |
+      [.children[] | $MAP] | map(. + { parent: \$parent })
+  ] | flatten
+  " "$NOTES_PATH"
+)
+
+if [ "$1" = "get" ]; then
+  echo "$notes" | jq
+  exit 0
+fi
+
+if [ "$1" = "titles" ]; then
+  echo "$notes" | jq -r 'map("\(
+      if .parent
+        then .parent + " > "
+        else ""
+      end
+    )\(.title)") | join("\n")'
+  exit 0
+fi

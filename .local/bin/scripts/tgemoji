@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# colorkey=0x000000:0.02:0.02,
+# crop=w='min(min(iw\,ih)\,512)':h='min(min(iw\,ih)\,512)',
+# setpts=PTS/1.2
+ffmpeg -i "$1" -filter:v "
+scale=100:-1,
+pad=100:100:(100-(ow-iw)):(100-(oh-ih)),
+colorkey=0x000000,
+setsar=1
+" -to 00:00:03 -pix_fmt yuva420p "${@:3}" "$2".webm

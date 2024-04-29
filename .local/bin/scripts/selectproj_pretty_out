@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo -e "\033[34m$(dirname "$@")/\033[1m\033[35m$(basename "$@")\033[0m"

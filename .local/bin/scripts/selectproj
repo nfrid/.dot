@@ -1,0 +1,12 @@
+#!/bin/bash
+
+target=$(fd --base-directory "$HOME" \
+  -L --max-depth 5 --prune --no-ignore-vcs -aH '\.git$' \
+  --relative-path --strip-cwd-prefix -x selectproj_pretty_out {//} |
+  fzf --ansi)
+
+if [ -z "$target" ]; then
+  exit 0
+fi
+
+echo "$HOME/$target"

@@ -23,3 +23,10 @@ bind -M insert \em '__fish_man_page'
 bind -M default \em '__fish_man_page'
 
 bind -M default \e\  'xkb-switch -n'
+
+function cdproj --description 'search all the git projects under $HOME, select via fzf and cd to it'
+  cd (selectproj)
+  commandline -f repaint
+end
+
+bind -M default \e\co 'cdproj'

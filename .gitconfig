@@ -19,3 +19,7 @@
 
 
 
+[diff]
+	tool = nvimdiff
+[rerere]
+	enabled = true

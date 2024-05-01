@@ -1,0 +1,50 @@
+#!/bin/bash
+# kitty session launcher
+
+sessions_dir="$XDG_CONFIG_HOME/kitty/sessions"
+
+choice=$*
+
+list() {
+  find "$sessions_dir" -type f -name "*.conf" -exec basename {} .conf \; |
+    while read -r session; do
+      echo "$session - $(head -n1 "$sessions_dir/$session.conf" | sed 's/^# *//')"
+    done
+}
+
+choose() {
+  if [ -z "$*" ]; then
+    echo "choose(): no picker provided"
+    exit 1
+  fi
+  choice=$(list | $* | sed 's/ -.*//')
+  if [ -z "$choice" ]; then
+    exit 0
+  fi
+}
+
+usage() {
+  echo "usage: $(basename "$0") [-hl] [session name]
+	(fzf choice if no argument is given)
+	-l	list available sessions
+	-d	dmenu & run"
+}
+
+if [ -z "$1" ]; then
+  choose fzf
+fi
+
+if [ "$1" == "-h" ]; then
+  usage
+  exit 0
+fi
+
+if [ "$1" == "-l" ]; then
+  list
+fi
+
+if [ "$1" == "-d" ]; then
+  choose dmenu
+fi
+
+nohup kitty --session "$sessions_dir/$choice.conf" >/dev/null 2>&1 &

@@ -15,6 +15,10 @@ super + ctrl + c
 super + ctrl + { Return, m }
   xkb-switch -s us; $TERMINAL
 
+# kitty session (dmenu)
+super + shift + Return
+  s -d
+
 # start a terminal w/ tmux
 super + { Return, m }
   xkb-switch -s us; $TERMINAL

@@ -5,6 +5,7 @@ alias sc="cd ~/.local/bin/scripts"
 alias src="cd ~/.local/src"
 alias bl="cd ~/github/nfrid.me/src/posts"
 alias nv="cd ~/.local/share/nvim"
+alias c="cd ~/.config"
 
 alias yt="yt-dlp"
 alias youtube-dl="yt"
@@ -45,7 +46,8 @@ alias nb="newsboat"
 alias m="neomutt"
 # alias nc="ncmpcpp"
 alias r="ranger"
-alias lf="lfrun"
+alias j="joshuto"
+# alias lf="lfrun"
 # alias r="lf"
 alias tl="tllocalmgr"
 alias snc="rsync -vrzhu --delete"
@@ -61,6 +63,7 @@ alias tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode"
 alias cal="cal -m3"
 
 alias v="kitty +kitten icat"
+alias hg="kitten hyperlinked_grep"
 
 # fuck
 function fuck -d "Correct your previous console command"
@@ -209,7 +212,7 @@ function Dc
 end
 
 # ls override
-alias ls="exa --group-directories-first"
+alias ls="eza --group-directories-first"
 alias ll="ls -lah"
 # alias ls="ls -hN --color=auto --group-directories-first"
 # alias l="ls -a"

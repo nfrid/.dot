@@ -1,0 +1,21 @@
+[plugin]
+deps = [
+  { use = "yazi-rs/plugins#max-preview", commit = "0dc9dcd" },
+  { use = "yazi-rs/plugins#chmod", commit = "0dc9dcd" },
+  { use = "yazi-rs/plugins#diff", commit = "0dc9dcd" },
+  { use = "Sonico98/exifaudio", commit = "92366cf" },
+  { use = "ourongxing/fast-enter", commit = "2864c59" },
+  { use = "Reledia/glow", commit = "536185a" },
+  { use = "Reledia/miller", commit = "75f0002" },
+  { use = "ndtoan96/ouch", commit = "251da69" },
+  { use = "AnirudhG07/nbpreview", commit = "f0149a4" },
+  { use = "kirasok/torrent-preview", commit = "76970b6" },
+  { use = "redbeardymcgee/yazi-plugins#keyjump", commit = "60d393f" },
+  { use = "redbeardymcgee/yazi-plugins#git-status", commit = "60d393f" },
+  { use = "yazi-rs/plugins#smart-filter", commit = "0dc9dcd" },
+  { use = "AnirudhG07/custom-shell", commit = "5e5c6ee" },
+  { use = "KKV9/command", commit = "dc9b483" }, { use = "TD-Sky/sudo", commit = "198d471" },
+]
+
+[flavor]
+deps = []

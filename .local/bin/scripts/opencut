@@ -2,23 +2,35 @@
 
 jira="https://jira.mygig.tech/browse"
 
-choice=$(echo -e "PCRM\nAPPS\nSPRNTS\n " | dmenu -i -p "opencut")
+choice=$(echo -e "PCRM\nHRD\nSPRNTS\n " | dmenu -i -p "opencut")
 
 case $choice in
 PCRM)
   task=$(dmenu -i -p "task")
+  if [ -z "$task" ]; then
+    exit
+  fi
   xdg-open "$jira/PCRM-$task"
   ;;
-APPS)
+HRD)
   task=$(dmenu -i -p "task")
-  xdg-open "$jira/APPS-$task"
+  if [ -z "$task" ]; then
+    exit
+  fi
+  xdg-open "$jira/HRD-$task"
   ;;
 SPRNTS)
   task=$(dmenu -i -p "task")
+  if [ -z "$task" ]; then
+    exit
+  fi
   xdg-open "$jira/SPRNTS-$task"
   ;;
 ' ')
   query=$(dmenu -i -p "query")
+  if [ -z "$query" ]; then
+    exit
+  fi
   $BROWSER "https://duckduckgo.com/?q=$query"
   ;;
 '') ;;

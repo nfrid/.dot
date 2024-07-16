@@ -1,6 +1,7 @@
 # <=======================> sys
 https://www.archlinux.org/feeds/news/ # Arch Linux
 https://neovim.io/news.xml # Neovim
+https://dotfyle.com/neovim/plugins/rss.xml # Neovim Plugins
 https://this-week-in-neovim.org/rss
 # https://www.archlinux.org/feeds/packages/added/ "arch
 # https://www.archlinux.org/feeds/packages/removed/ "arch

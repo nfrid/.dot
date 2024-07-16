@@ -24,7 +24,7 @@ super + { Return, m }
   xkb-switch -s us; $TERMINAL
   # xkb-switch -s us; $TERMINAL -e bash -c "tmux attach || tmux"
 
-ctrl + button12
+ctrl + button10
   boomer -f
 
 # dmenu tmux
@@ -177,9 +177,9 @@ super + XF86AudioMute
 # super + q
   # qutebrowser
 
-# start ranger
+# start yazi
 super + e
-  xkb-switch -s us; $TERM -e ranger
+  xkb-switch -s us; $TERM -e yazi
 
 # man
 super + alt + m
@@ -198,8 +198,8 @@ super + alt + n
   xkb-switch -s us; $TERM -e neomutt
 
 # start NewsBoat (RSS client)
-super + shift + n
-  obsidian
+# super + shift + n
+#   obsidian
 
 # update mail
 super + alt + shift + n

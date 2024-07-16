@@ -2,13 +2,18 @@
 
 mi=9C:19:C2:B2:53:F9
 am=E0:9D:FA:2C:B4:26
-jbl=2C:FD:B3:92:92:82
+jbl660=2C:FD:B3:92:92:82
+jbl670=84:D3:52:01:A4:AA
 
 case $1 in
-  mi) dev=$mi ;;
-  am) dev=$am ;;
-  jbl) dev=$jbl ;;
-  *) echo "no such device: $1"; exit 1 ;;
+mi) dev=$mi ;;
+am) dev=$am ;;
+jbl660) dev=$jbl660 ;;
+jbl670) dev=$jbl670 ;;
+*)
+  echo "no such device: $1"
+  exit 1
+  ;;
 esac
 
 con() {
@@ -18,8 +23,11 @@ con() {
 }
 
 case $2 in
-  c) con $dev ;;
-  d) bluetoothctl disconnect $dev ;;
-  r) bluetoothctl disconnect $dev && sleep 0.5 && con $dev ;;
-  *) echo "unknown command: $2"; exit 1 ;;
+c) con $dev ;;
+d) bluetoothctl disconnect $dev ;;
+r) bluetoothctl disconnect $dev && sleep 0.5 && con $dev ;;
+*)
+  echo "unknown command: $2"
+  exit 1
+  ;;
 esac

@@ -1,0 +1,126 @@
+[[manager.prepend_keymap]]
+on = ["<A-d>"]
+run = '''
+	shell 'dragon-drop -x -i -T "$1"' --confirm
+'''
+
+[[manager.prepend_keymap]]
+on = ["g", "l"]
+run = "cd ~/.local"
+desc = "Go to .local"
+
+# sudo cp/mv
+[[manager.prepend_keymap]]
+on = ["R", "p"]
+run = "plugin sudo --args='paste'"
+desc = "sudo paste"
+
+# sudo mv
+[[manager.prepend_keymap]]
+on = ["R", "r"]
+run = "plugin sudo --args='rename'"
+desc = "sudo rename"
+
+# sudo ln -s (absolute-path)
+[[manager.prepend_keymap]]
+on = ["R", "l"]
+run = "plugin sudo --args='link'"
+desc = "sudo link"
+
+# sudo touch/mkdir
+[[manager.prepend_keymap]]
+on = ["R", "a"]
+run = "plugin sudo --args='create'"
+desc = "sudo create"
+
+# sudo trash
+[[manager.prepend_keymap]]
+on = ["R", "d"]
+run = "plugin sudo --args='remove'"
+desc = "sudo trash"
+
+# sudo delete
+[[manager.prepend_keymap]]
+on = ["R", "D"]
+run = "plugin sudo --args='remove -P'"
+desc = "sudo delete"
+
+[[input.prepend_keymap]]
+on = ["<Esc>"]
+run = "close"
+desc = "Cancel input"
+
+[[manager.prepend_keymap]]
+on = "<A-p>"
+run = "plugin command"
+desc = "Yazi command prompt"
+
+[[manager.prepend_keymap]]
+on = [":"]
+run = "plugin custom-shell --args=auto"
+desc = "custom-shell as default"
+
+[[manager.prepend_keymap]]
+on = "C"
+run = "plugin ouch --args=zip"
+desc = "Compress with ouch"
+
+[[manager.prepend_keymap]]
+on = "l"
+run = "plugin --sync fast-enter"
+desc = "Enter the subfolder faster, or open the file directly"
+
+[[manager.prepend_keymap]]
+on = "<C-:>"
+run = 'shell "$SHELL" --block --confirm'
+desc = "Open shell here"
+
+[[manager.prepend_keymap]]
+on = "T"
+run = "plugin --sync max-preview"
+desc = "Maximize or restore preview"
+
+[[manager.prepend_keymap]]
+on = "="
+run = "plugin chmod"
+desc = "Chmod on selected files"
+
+[[manager.prepend_keymap]]
+on = "f"
+run = "plugin smart-filter"
+desc = "Smart filter"
+
+[[manager.prepend_keymap]]
+on = "F"
+run = "filter --smart"
+desc = "Filter the files"
+
+# [[manager.prepend_keymap]]
+# on = "<A-d>"
+# run = "plugin diff"
+# desc = "Diff the selected with the hovered file"
+
+# [[manager.prepend_keymap]]
+# on = ["i"]
+# run = "plugin keyjump"
+# desc = "Keyjump (Keep mode)"
+#
+# [[manager.prepend_keymap]]
+# on = ["i"]
+# run = "plugin keyjump"
+# desc = "Keyjump (Normal mode)"
+#
+# [[manager.prepend_keymap]]
+# on = ["i"]
+# run = "plugin keyjump --args=select"
+# desc = "Keyjump (Select mode)"
+#
+# [[manager.prepend_keymap]]
+# on = ["i"]
+# run = "plugin keyjump --args=global"
+# desc = "Keyjump (Global mode)"
+#
+# [[manager.prepend_keymap]]
+# on = ["i"]
+# run = "plugin keyjump --args='global once'"
+# desc = "Keyjump (once Global mode)"

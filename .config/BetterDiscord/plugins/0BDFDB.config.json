@@ -1,8 +1,8 @@
 {
 	"all": {
 		"changeLogs": {
-			"BDFDB": "3.6.5",
-			"CharCounter": "1.6.2",
+			"BDFDB": "3.7.2",
+			"CharCounter": "1.6.4",
 			"ChatAliases": "2.4.6",
 			"ClickableMentions": "1.0.6",
 			"CompleteTimestamps": "1.6.8",
@@ -12,9 +12,9 @@
 			"EditServers": "2.4.1",
 			"EditUsers": "4.7.2",
 			"PluginRepo": "2.5.5",
-			"ReadAllNotificationsButton": "1.7.6",
+			"ReadAllNotificationsButton": "1.7.7",
 			"SendLargeMessages": "1.6.8",
-			"ServerDetails": "1.1.9",
+			"ServerDetails": "1.2.0",
 			"SplitLargeMessages": "1.8.2",
 			"ThemeSettings": "9.9.9"
 		},
@@ -28,8 +28,8 @@
 			"shareData": true
 		},
 		"hashes": {
-			"0BDFDB.data.json": "a4976ac3f7bb013e586db0bc16d3d98cff5c7c8f",
-			"0BDFDB.raw.css": "0ac0d6eaef018eafb63ad32897332e251a907ccb"
+			"0BDFDB.data.json": "886399d2e3bff68a613bc96711ebbfb232696e57",
+			"0BDFDB.raw.css": "ed403dd1e22b2cb14d4153a296366cbef66e17b9"
 		}
 	}
 }

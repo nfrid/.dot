@@ -1,0 +1,158 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty"
+  },
+  "display": {
+    "separator": " "
+  },
+  "modules": [
+    {
+      "type": "title",
+      "key": "╭─",
+      "format": "{1}@{2}",
+      "keyColor": "blue"
+    },
+    {
+      "type": "os",
+      "key": "├─",
+      "keyColor": "blue"
+    },
+    {
+      "type": "kernel",
+      "key": "├─󰌽",
+      "format": "{1} {2}",
+      "keyColor": "blue"
+    },
+    {
+      "type": "packages",
+      "key": "├─󰏖",
+      "keyColor": "blue"
+    },
+    {
+      "type": "uptime",
+      "key": "├─󰅐",
+      "keyColor": "blue"
+    },
+    {
+      "type": "media",
+      "key": "├─󰝚",
+      "keyColor": "blue"
+    },
+    {
+      "type": "localip",
+      "key": "╰─󰩟",
+      // "key": "├─󰩟",
+      "compact": true,
+      "keyColor": "blue"
+    },
+    // {
+    //   "type": "publicip",
+    //   "key": "├─󰩟",
+    //   "keyColor": "blue"
+    // },
+    "break",
+    {
+      "type": "cpu",
+      "key": "╭─󰻠",
+      "keyColor": "green"
+    },
+    {
+      "type": "gpu",
+      "key": "├─󰍛",
+      "keyColor": "green"
+    },
+    {
+      "type": "disk",
+      "key": "├─",
+      "keyColor": "green"
+    },
+    {
+      "type": "memory",
+      "key": "├─󰑭",
+      "keyColor": "green"
+    },
+    {
+      "type": "swap",
+      "key": "├─󰓡",
+      "keyColor": "green"
+    },
+    {
+      "type": "display",
+      "compactType": "scaled-with-refresh-rate",
+      "key": "├─󰍹",
+      "keyColor": "green"
+    },
+    {
+      "type": "brightness",
+      "key": "├─󰃞",
+      "keyColor": "green"
+    },
+    {
+      "type": "battery",
+      "key": "├─",
+      "keyColor": "green"
+    },
+    {
+      "type": "poweradapter",
+      "key": "├─",
+      "keyColor": "green"
+    },
+    // {
+    //   "type": "gamepad",
+    //   "key": "├─",
+    //   "keyColor": "green"
+    // },
+    {
+      "type": "bluetooth",
+      "key": "├─",
+      "keyColor": "green"
+    },
+    {
+      "type": "sound",
+      "key": "╰─",
+      "keyColor": "green"
+    },
+    "break",
+    {
+      "type": "shell",
+      "key": "╭─",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "terminal",
+      "key": "├─",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "terminalfont",
+      "key": "├─",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "lm",
+      "key": "├─󰧨",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "de",
+      "key": "├─",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "wm",
+      "key": "├─",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "theme",
+      "key": "╰─󰉼",
+      "keyColor": "magenta"
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle"
+    }
+  ]
+}

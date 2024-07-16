@@ -1,0 +1,23 @@
+[Unit]
+Description=Ollama Service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStart=/usr/bin/ollama serve
+; WorkingDirectory=/home/nf
+Environment="GIN_MODE=release"
+Environment="HSA_OVERRIDE_GFX_VERSION=10.3.0"
+Environment="AMD_SERIALIZE_KERNEL=3"
+Environment="OLLAMA_LLM_LIBRARY=rocm_v60002"
+Environment="OLLAMA_NUM_PARALLEL=2"
+Environment="OLLAMA_MAX_LOADED_MODELS=2"
+Environment="OLLAMA_ORIGINS=chrome-extension://*"
+Environment="OLLAMA_TMPDIR=/home/nf/.cache/ollama/tmp"
+Environment="OLLAMA_MODELS=/home/nf/.ollama/models"
+Restart=on-failure
+RestartSec=3
+Type=simple
+
+[Install]
+WantedBy=default.target

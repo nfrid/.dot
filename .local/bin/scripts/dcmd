@@ -7,6 +7,8 @@ cmds=(
   # "btamdis"
   "btjblrecon"
   "btjbldis"
+  "btjbl7recon"
+  "btjbl7dis"
   "austream"
   "remodbt"
   "warp"
@@ -15,35 +17,40 @@ cmds=(
 ch=$(printf '%s\n' "${cmds[@]}" | dmenu -p "cmd")
 
 case $ch in
-  btmirecon) bt mi r ;;
-  btmidis) bt mi d ;;
-  btamrecon) bt am r ;;
-  btamdis) bt am d ;;
-  btjblrecon) bt jbl r ;;
-  btjbldis) bt jbl d ;;
-  austream)
-    if [[ $(austream status) == "off" ]]; then
-      austream on
-    else
-      austream off
-    fi
-    notify-send "audio streaming is $(austream status)"
-    ;;
-  "") exit 0 ;;
-  remodbt)
-    sudo modprobe -r btusb
-    sudo modprobe btusb
-    sudo systemctl restart bluetooth.service
-    ;;
-  warp)
-    status=$(warp-cli status | awk '/Status/ {print $3}')
-    if [[ $status == "Connected" ]]; then
-      warp-cli disable-always-on
-      notify-send "warp is disabled"
-    else
-      warp-cli enable-always-on
-      notify-send "warp is enabled"
-    fi
-    ;;
-  *) notify-send "unknown dcmd: $ch"; exit 1 ;;
+btmirecon) bt mi r ;;
+btmidis) bt mi d ;;
+btamrecon) bt am r ;;
+btamdis) bt am d ;;
+btjblrecon) bt jbl660 r ;;
+btjbldis) bt jbl660 d ;;
+btjbl7recon) bt jbl670 r ;;
+btjbl7dis) bt jbl670 d ;;
+austream)
+  if [[ $(austream status) == "off" ]]; then
+    austream on
+  else
+    austream off
+  fi
+  notify-send "audio streaming is $(austream status)"
+  ;;
+"") exit 0 ;;
+remodbt)
+  sudo modprobe -r btusb
+  sudo modprobe btusb
+  sudo systemctl restart bluetooth.service
+  ;;
+warp)
+  status=$(warp-cli status | awk '/Status/ {print $3}')
+  if [[ $status == "Connected" ]]; then
+    warp-cli disable-always-on
+    notify-send "warp is disabled"
+  else
+    warp-cli enable-always-on
+    notify-send "warp is enabled"
+  fi
+  ;;
+*)
+  notify-send "unknown dcmd: $ch"
+  exit 1
+  ;;
 esac

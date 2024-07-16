@@ -6,6 +6,12 @@ set -g fish_greeting
 # starship init fish | source
 
 function fish_prompt
+  if test -n "$YAZI_LEVEL"
+    set_color brblack -o
+    printf ''
+  end
+
+
   set last_status $status
 
   printf ' %s' (pwd_prompt) (git_prompt)
@@ -208,8 +214,9 @@ set fzf_directory_opts --bind "alt-e:execute($EDITOR {} &> /dev/tty)"
 set fzf_preview_file_cmd preview
 
 
+zoxide init fish | source
 thefuck --alias | source
-# pyenv init - | source
+pyenv init - | source
 # pdm completion | source
 
 # tabtab source for packages

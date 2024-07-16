@@ -23,3 +23,15 @@
 	tool = nvimdiff
 [rerere]
 	enabled = true
+[maintenance]
+	repo = /home/nf/job/admin
+	repo = /home/nf/job/api
+	repo = /home/nf/job/crm-backend
+	repo = /home/nf/job/crm-frontend
+	repo = /home/nf/job/hrd
+	repo = /home/nf/job/packages
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

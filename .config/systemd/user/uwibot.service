@@ -1,0 +1,14 @@
+[Unit]
+Description=UwiBOT
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStart=python3 uwibot.py
+WorkingDirectory=/home/nf/github/uwibot
+Restart=on-failure
+RestartSec=3
+Type=simple
+
+[Install]
+WantedBy=default.target

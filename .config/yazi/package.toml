@@ -14,7 +14,7 @@ deps = [
   { use = "redbeardymcgee/yazi-plugins#git-status", commit = "60d393f" },
   { use = "yazi-rs/plugins#smart-filter", commit = "0dc9dcd" },
   { use = "AnirudhG07/custom-shell", commit = "5e5c6ee" },
-  { use = "KKV9/command", commit = "dc9b483" }, { use = "TD-Sky/sudo", commit = "198d471" },
+  { use = "KKV9/command", commit = "dc9b483" }, { use = "TD-Sky/sudo", commit = "198d471" }, { use = "hankertrix/augment-command", commit = "3268704" },
 ]
 
 [flavor]

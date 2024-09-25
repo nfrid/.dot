@@ -50,6 +50,16 @@ alias m="neomutt"
 # alias nc="ncmpcpp"
 # alias r="ranger"
 alias r="yazi"
+
+function yy
+  set tmp (mktemp -t "yazi-cwd.XXXXXX")
+  yazi $argv --cwd-file="$tmp"
+  if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+    cd -- "$cwd"
+  end
+  rm -f -- "$tmp" >/dev/null
+end
+
 alias j="joshuto"
 # alias lf="lfrun"
 # alias r="lf"

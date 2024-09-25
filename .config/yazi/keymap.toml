@@ -5,6 +5,16 @@ run = '''
 '''
 
 [[manager.prepend_keymap]]
+on = ["J"]
+run = "arrow 10"
+desc = "Move down by 10"
+
+[[manager.prepend_keymap]]
+on = ["K"]
+run = "arrow -10"
+desc = "Move up by 10"
+
+[[manager.prepend_keymap]]
 on = ["g", "l"]
 run = "cd ~/.local"
 desc = "Go to .local"
@@ -51,7 +61,7 @@ run = "close"
 desc = "Cancel input"
 
 [[manager.prepend_keymap]]
-on = "<A-p>"
+on = ["<A-p>"]
 run = "plugin command"
 desc = "Yazi command prompt"
 
@@ -61,42 +71,42 @@ run = "plugin custom-shell --args=auto"
 desc = "custom-shell as default"
 
 [[manager.prepend_keymap]]
-on = "C"
+on = ["C"]
 run = "plugin ouch --args=zip"
 desc = "Compress with ouch"
 
 [[manager.prepend_keymap]]
-on = "l"
+on = ["l"]
 run = "plugin --sync fast-enter"
 desc = "Enter the subfolder faster, or open the file directly"
 
 [[manager.prepend_keymap]]
-on = "<C-:>"
+on = ["<C-:>"]
 run = 'shell "$SHELL" --block --confirm'
 desc = "Open shell here"
 
 [[manager.prepend_keymap]]
-on = "T"
+on = ["T"]
 run = "plugin --sync max-preview"
 desc = "Maximize or restore preview"
 
 [[manager.prepend_keymap]]
-on = "="
+on = ["="]
 run = "plugin chmod"
 desc = "Chmod on selected files"
 
 [[manager.prepend_keymap]]
-on = "f"
+on = ["f"]
 run = "plugin smart-filter"
 desc = "Smart filter"
 
 [[manager.prepend_keymap]]
-on = "F"
+on = ["F"]
 run = "filter --smart"
 desc = "Filter the files"
 
 # [[manager.prepend_keymap]]
-# on = "<A-d>"
+# on = ["<A-d>"]
 # run = "plugin diff"
 # desc = "Diff the selected with the hovered file"
 

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+pid=$(pidof picom)
+
+if [ -z "$pid" ]; then
+  picom &
+  exit 0
+fi
+
+cpusage=$(top -b -n 2 -d 0.2 -p "$pid" | tail -1 | awk '{print $9}')
+
+if [ "$(echo "$cpusage > 10" | bc)" -eq 1 ]; then
+  pkill -SIGUSR1 picom
+  picom &
+fi

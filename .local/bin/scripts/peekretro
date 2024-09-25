@@ -1,0 +1,9 @@
+#!/bin/sh
+
+groupquery="group_by(.columnId)[] | {(.[0].columnId): [group_by(.user.fullName)[] | {(.[0].user.fullName): [.[] | .idea]}]}"
+
+if [ -z "$1" ]; then
+  xclip -o | jq "$groupquery"
+else
+  xclip -o | jq "$groupquery" | jq ".C$1.[]?"
+fi

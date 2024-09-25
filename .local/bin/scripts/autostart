@@ -42,6 +42,7 @@ austart "qpwgraph -am" qpwgraph
 austart kwalletd5
 # austart thunderbird
 # austart obsidian
+austart AmneziaVPN
 
 # tmux sessions
 # tmuxses main

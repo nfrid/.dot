@@ -1,0 +1,16 @@
+#!/bin/sh
+
+exclude='pci|easyeffects'
+
+current=$(pactl info | awk '/^Default Sink:/ {print $3}')
+
+available=$(pactl list short sinks | awk "!/($exclude|$current)/ {print \$2}")
+
+if [ -z "$available" ]; then
+  notify-send 'No other sinks available'
+  exit
+fi
+
+choice=$(echo "$available" | dmenu -p 'sink')
+
+pactl set-default-sink "$choice"

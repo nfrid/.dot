@@ -1,5 +1,0 @@
-"xdotool key 'Control_L+Shift_L+Alt_L+bracketleft'"
-  b:10
-
-"xdotool key 'Control_L+Shift_L+Alt_L+bracketright'"
-  b:11

@@ -7,6 +7,6 @@ if [ -z "$1" ]; then
   rclone -v sync $GDRIVE_REMOTE:/ "$GDRIVE_PATH"/
 else
   case "$1" in
-    r) rclone -v sync "$GDRIVE_PATH"/ $GDRIVE_REMOTE:/ ;;
+  w) rclone -v sync "$GDRIVE_PATH"/ $GDRIVE_REMOTE:/ ;;
   esac
 fi

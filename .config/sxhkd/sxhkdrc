@@ -259,3 +259,6 @@ super + F5
 
 super + q
   zbarclip
+
+super + a
+  switch-audio-sink

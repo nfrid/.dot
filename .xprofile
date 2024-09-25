@@ -62,7 +62,10 @@ openai_token="$(pass tokens/openai)"
 export OPENAI_API_KEY="$openai_token"
 
 replicate_token="$(pass tokens/replicate)"
-export REPLICATE_API_TOKEN="$replicate_token"
+export REPLICATE_API_KEY="$replicate_token"
+
+codestral_token="$(pass tokens/mistral/codestral)"
+export CODESTRAL_API_KEY="$codestral_token"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 

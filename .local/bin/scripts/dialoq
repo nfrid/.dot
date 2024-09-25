@@ -1,0 +1,11 @@
+#!/bin/sh
+
+cd "$HOME/.local/src/dialoqbase/docker" || exit 1
+
+if [ "$1" = "up" ]; then
+  docker compose up -d
+elif [ "$1" = "down" ]; then
+  docker compose down
+else
+  echo "Usage: $(basename "$0") [up|down]"
+fi
